@@ -5,7 +5,7 @@ I want to add movie tickets to my cart
 so I can reserve multiple seats before paying.
 
 Scenario: selecting seats and adding tickets to the cart
-	Given I am on the seat selection page for ‘Movie 1’, 
+	Given I am on the seat selection page for "Example Movie", 
 	when I select seat ‘A1’ 
 	and click the add to cart button, 
-	then I should see the ticket for ‘Movie 1’ with seat ‘A1’ in my cart with the subtotal price.
+	then I should see the ticket for "Example Movie" with seat ‘A1’ in my cart with the subtotal price.

@@ -1,0 +1,10 @@
+Feature: checkrevenue
+
+As a user, 
+As an administrator
+I want to have access to the movie database so that I can check revenue information.
+
+Scenario: logout of my user account
+	Given I am on the admin’s profile page.
+	when I click the view “revenue” button, 
+	then I am redirected to the revenue page.

@@ -1,10 +1,10 @@
-Feature: 001adminlogin 
+Feature: 002adminlogin 
 
   As an administrator, 
   I want to log into my account so that I can have access to admin privileges.
 
-Scenario: try logging in as admin 
+Scenario: 002adminlogin 
   Given I am on the login page
-  When I enter username admin
-  And password admin123  
+  When I enter username "admin"
+  And password "admin123"  
   Then I am redirected to the admin's profile page.

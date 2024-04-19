@@ -42,7 +42,9 @@ class App{
         $url = $_GET['url'];
 
         //defined a few routes "url"=>"controller,method"
-        $this->addRoute('' , 'Main,index');
+        //$this->addRoute('' , 'Main,index');
+         $this->addRoute('Admin/register' , 'Admin,register');
+        $this->addRoute('Admin/login' , 'Admin,login');
 
         [$controllerMethod, $namedParams] = $this->resolve($url);
 

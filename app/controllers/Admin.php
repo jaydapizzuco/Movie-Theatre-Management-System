@@ -3,12 +3,13 @@ namespace app\controllers;
 
 class Admin extends \app\core\Controller{
 
+#[\app\filters\AdminLogin]
     function register(){
             //display the form and process the registration
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $admin = new \app\models\Admin();
             //populate the User
-            $admin->name = $_POST['name'];
+            $admin->username = $_POST['username'];
              $admin->email = $_POST['email'];
             $admin->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
             //insert the user
@@ -24,14 +25,14 @@ class Admin extends \app\core\Controller{
     function login(){
         //show the login form and log the user in
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            $name = $_POST['name'];
+            $username = $_POST['username'];
             $admin = new \app\models\Admin();
-            $admin = $admin->get($name);
+            $admin = $admin->get($username);
             $password = $_POST['password'];
             if($admin && password_verify($password, $admin->password_hash)){
                 $_SESSION['admin_id'] = $admin->admin_id;
 
-                header('location:/Admin/profile');
+                header('location:/Profile/adminIndex');
             }else{
                 header('location:/Admin/login');
             }

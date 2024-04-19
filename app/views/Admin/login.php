@@ -13,10 +13,10 @@
 
 <body>
 	<div class='container'>
-		<br><h1>Login</h1>
+		<br><h1>Login as Administrator</h1>
 		<form method='post' action=''>
 			<div class="form-group">
-				<label>Name:<input type="text" class="form-control" name="name" placeholder="name" /></label>
+				<label>Username:<input type="text" class="form-control" name="username" placeholder="username" /></label>
 			</div><br>
 			<div class="form-group">
 				<label>Password:<input type="password" class="form-control" name="password" placeholder="password" /></label>

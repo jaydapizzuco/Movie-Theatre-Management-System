@@ -6,23 +6,23 @@ use PDO;
 class Admin extends \app\core\Model {
   
  public $admin_id;
- public $name;
+ public $username;
  public $email;
  public $password_hash;
 
  public function insert(){
-		$SQL = 'INSERT INTO admin (name, email, password_hash) VALUES (:name, :email, :password_hash)';
+		$SQL = 'INSERT INTO admin (username, email, password_hash) VALUES (:username, :email, :password_hash)';
 		$STMT = self::$_conn->prepare($SQL);
-		$data = ['name' => $this->name,
+		$data = ['username' => $this->username,
 		'email' => $this->email,
 		'password_hash' => $this->password_hash];
 		$STMT->execute($data);
 	}
 
- public function get($name){
-		$SQL = 'SELECT * FROM admin WHERE name = :name';
+ public function get($username){
+		$SQL = 'SELECT * FROM admin WHERE username = :username';
 		$STMT = self::$_conn->prepare($SQL);//prepare
-		$STMT->execute(['name' => $name]);//run
+		$STMT->execute(['username' => $username]);//run
 		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Admin');//choose the type of return from fetch
 		return $STMT->fetch();//fetch
 	}
@@ -36,7 +36,7 @@ public function getById($admin_id){
 	}
 
 	public function update(){
-		$SQL = 'UPDATE admin SET name = :name, password_hash = :password_hash WHERE admin_id = :admin_id';
+		$SQL = 'UPDATE admin SET username = :username, password_hash = :password_hash WHERE admin_id = :admin_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute((array)$this);
 	}

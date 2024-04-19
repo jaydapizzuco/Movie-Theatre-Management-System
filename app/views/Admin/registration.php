@@ -17,7 +17,7 @@
 		<br><h1>Create a New Administrator Account</h1>
 		<form method='post' action=''>
 			<div class="form-group">
-				<label>Name:<input type="text" class="form-control" name="name" placeholder="name" /></label>
+				<label>Username:<input type="text" class="form-control" name="username" placeholder="username" /></label>
 			</div>
 			<div class="form-group">
 				<label>Email:<input type="text" class="form-control" name="email" placeholder="email" /></label>

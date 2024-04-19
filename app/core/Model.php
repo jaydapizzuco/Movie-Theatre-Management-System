@@ -8,7 +8,7 @@ class Model{
 	
 	public function __construct(){
 		$host = 'localhost';
-		$dbname = 'social';
+		$dbname = 'movietheatre';
 		$user = 'root';
 		$pass = '';
 		try { 

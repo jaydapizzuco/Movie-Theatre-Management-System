@@ -5,7 +5,7 @@ namespace app\filters;
 class AdminLogin implements \app\core\AccessFilter{
 
 	public function redirected(){
-		//make sure that the admin is logged in
+		//make sure that is_admin for the user that is logged in is true
 		if(!isset($_SESSION['admin_id'])){
 			header('location:/Admin/login');
 			return true;

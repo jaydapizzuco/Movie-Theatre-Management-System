@@ -37,16 +37,16 @@
             </div><br>
 
             <div class="form-group">
-                <input type="text" class="form-control" name="password" placeholder="Password" required>
+                <input type="password" class="form-control" name="password" placeholder="Password" required>
             </div><br>
 
             <div class="form-group">
-                <input type="text" class="form-control" name="confirmpassword" placeholder="Confirm password" required>
+                <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm password" required>
             </div><br>
 
             <div class="form-group">
                 <input type="submit" name="action" value="Register"/><br><br>
-                <a href="/User/register">Login</a>
+                <a href="/User/login">Login</a>
             </div><br>
             
         </form>

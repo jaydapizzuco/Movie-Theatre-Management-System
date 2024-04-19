@@ -45,6 +45,8 @@ class App{
         //$this->addRoute('' , 'Main,index');
          $this->addRoute('Admin/register' , 'Admin,register');
         $this->addRoute('Admin/login' , 'Admin,login');
+        $this->addRoute('User/login' , 'User,login');
+        $this->addRoute('User/register' , 'User,register');
 
         [$controllerMethod, $namedParams] = $this->resolve($url);
 

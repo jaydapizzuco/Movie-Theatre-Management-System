@@ -1,0 +1,43 @@
+nav {text-align: right;
+    height: 40px;
+    font-family: 'Courier New', Courier, monospace;}
+
+nav a {text-decoration: none;
+        color: black;}
+
+nav a:hover {color: rgb(245, 157, 245);}
+
+header{text-align: left;
+        background-color: rgb(245, 157, 245);
+        background-repeat: no-repeat;
+        font-family: 'Courier New', Courier, monospace;}
+
+form{font-family: 'Courier New', Courier, monospace;}
+
+h1 {height: auto;
+    width: auto;
+    font-size: 2em;
+    color: black;
+    padding: 20px;
+    line-height: 250%;}
+
+h2 {color: black;
+    font-family: 'Courier New', Courier, monospace;}
+
+
+.container{background-color: rgb(245, 157, 245);
+            text-align: center;}
+
+footer{text-align: center;
+        background-color:  rgb(245, 157, 245);
+        color: black;
+        position: fixed;
+        width: 100%;
+        bottom: 0;}
+
+.account {text-align: center;
+            background-color: black;}
+    
+.account a {text-decoration: none;
+            color: white;}
+

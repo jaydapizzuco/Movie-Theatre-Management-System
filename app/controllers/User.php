@@ -58,8 +58,10 @@ class User extends \app\core\Controller{
         }
     }
 
-     public function index(){
-
+     public function adminProfile(){
+        $profile = new \app\models\User();
+        $profile = $profile->getById($_SESSION['user_id']);
+        $this->view('User/adminProfile',$profile);
     }
 
 

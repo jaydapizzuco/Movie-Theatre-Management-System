@@ -43,7 +43,12 @@ class User extends \app\core\Controller{
             if($user && password_verify($password, $user->password_hash)){
                 $_SESSION['user_id'] = $user->user_id;
 
-                $this->view('User/profile',$user);
+                if ($user->isAdmin($user->user_id) == 1) {
+                    $this->view('User/adminProfile', $user);
+                } else {
+                    $this->view('User/profile', $user);
+                }
+
             }else{
                 header('location:/User/login');
             }

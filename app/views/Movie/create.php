@@ -11,7 +11,7 @@
 
 <!-- Navigation Bar -->
 <nav>
-    <a href="account.html">Account</a> &nbsp&nbsp
+    <a href="/User/adminProfile">Account</a> &nbsp&nbsp
     <a href="aboutus.html">About Us</a> &nbsp&nbsp
     <a class="active" href="movies.html">Movies</a>
 </nav>
@@ -53,9 +53,13 @@
             </div><br>
 
              <div class="form-group">
-                <input type="text" class="form-control" name="length" placeholder="Link to the trailer" required>
+                <input type="text" class="form-control" name="trailer" placeholder="Link to the trailer" required>
             </div><br>
 
+            <div class="form-group">
+                <input type="submit" name="action" value="Create"/><br><br>
+                <a href="/User/adminProfile">Cancel</a>
+            </div><br>
            
         </form>
     </div>

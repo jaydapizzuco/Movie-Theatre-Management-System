@@ -14,6 +14,7 @@ class Movie extends \app\core\Model{
 	public $length;
 	public $release_date;
 	public $ticket_revenue;
+	public $status;
 
 	public function insert(){
 		$SQL = 'INSERT INTO movie(title,image,description,length,director,trailer,release_date) VALUE (:title,:image,:description,:length,:director,:trailer,:release_date)';
@@ -44,7 +45,7 @@ class Movie extends \app\core\Model{
 	}
 
 	public function delete(){
-		$SQL = 'DELETE FROM movie WHERE movie_id=:movie_id';
+		$SQL = 'UPDATE movie SET status=0 WHERE movie_id=:movie_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['movie_id'=>$this->movie_id]

@@ -52,6 +52,14 @@ class Movie extends \app\core\Model{
 		);
 	}
 
+	public function getAll(){
+		$SQL = 'SELECT * FROM movie WHERE status=1';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Movie');
+		return $STMT->fetch();
+	}
+
 	public function getByID($movie_id){
 		$SQL = 'SELECT * FROM movie WHERE movie_id=:movie_id';
 		$STMT = self::$_conn->prepare($SQL);
@@ -63,7 +71,7 @@ class Movie extends \app\core\Model{
 	}
 
 	public function getByTitle($title){
-		$SQL = "SELECT * FROM movie WHERE title LIKE '%$title%'";
+		$SQL = "SELECT * FROM movie WHERE title LIKE '%$title%' AND status=1";
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['title'=>$title]
@@ -73,21 +81,27 @@ class Movie extends \app\core\Model{
 	}
 
 	public function getByOrderedDates(){
-		$SQL = "SELECT * FROM movie ORDER BY release_date";
+		$SQL = "SELECT * FROM movie WHERE status=1 ORDER BY release_date";
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute();
+		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Movie');
+		return $STMT->fetchAll();
 	}
 
 	public function getByOrderedDatesReverse(){
-		$SQL = "SELECT * FROM movie ORDER BY release_date DESC";
+		$SQL = "SELECT * FROM movie WHERE status=1 ORDER BY release_date DESC";
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute();
+		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Movie');
+		return $STMT->fetchAll();
 	}
 
 	public function getAlphabeticalOrder(){
-		$SQL = "SELECT * FROM movie ORDER BY title";
+		$SQL = "SELECT * FROM movie WHERE status=1 ORDER BY title";
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute();
+		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Movie');
+		return $STMT->fetchAll();
 	}
 
 

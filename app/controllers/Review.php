@@ -52,4 +52,21 @@ class Review extends \app\core\Controller{
             $this->view('Review/update');
         }
     }
+
+    public function approve(){
+        $review = new \app\models\Review();
+        $review = $review->getByID($_SESSION['review_id']);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+            $review->approve();
+
+            header('location:/User/adminReviews');
+        }
+        else {
+            $this->view('User/adminReviews');
+        }
+    }
+
+    
 }

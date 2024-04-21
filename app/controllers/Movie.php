@@ -19,7 +19,7 @@ class Movie extends \app\core\Controller{
 
     
     public function create(){
-        
+        $this->view('Movie/create');
     }
 
     public function update(){

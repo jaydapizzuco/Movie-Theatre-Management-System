@@ -54,8 +54,8 @@ public function getById($user_id){
 		$SQL = 'SELECT is_admin FROM user WHERE user_id = :user_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(['user_id' => $user_id]);
-		$result = $STMT->fetch(PDO::FETCH_ASSOC); 
-   		 return $result['is_admin'] ?? 0;
+		$result = $STMT->fetch(PDO::FETCH_ASSOC); // Fetch as associative array
+    	return $result['is_admin'] ?? 0;
 	}
 
 	public function addTicket(){

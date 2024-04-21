@@ -10,7 +10,7 @@
 
 <!-- Navigation Bar -->
 <nav>
-    <a href="account.html">Account</a> &nbsp&nbsp
+    <a href="User/profile">Account</a> &nbsp&nbsp
     <a href="aboutus.html">About Us</a> &nbsp&nbsp
     <a class="active" href="movies.html">Movies</a>
 </nav>
@@ -23,15 +23,19 @@
 
     <nav class="account">
         <a href="account.html">Profile Information</a> &nbsp&nbsp
+         <a href="">Pending Reviews</a> &nbsp&nbsp
+         <a href="">Movies</a> &nbsp&nbsp
+
     </nav><br>
 
     <p>Name:<?= $data->name ?></p>
     <p>Email: <?= $data->email ?></p>
 
-    <form action="/User/register">
-            <input type="submit" value="Create a New Administrator Account" />
-        </form>
 
+     <div class="form-group">
+        <a href="/Movie/create">Add a New Movie</a><br><br>
+    </div><br>
+  
     <div class="form-group">
         <!-- <input type="submit" name="action" value="Log Out"/> -->
         <a href="/User/logout">Logout</a><br><br>

@@ -25,7 +25,12 @@ class Review extends \app\core\Model{
 	}
 
 	public function update(){
-		
+		$SQL = 'UPDATE review SET review_text=:review_text WHERE review_id=:review_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['review_text'=>$this->review_text,
+			'review_id'=>$this->review_id]
+		);
 	}
 
 	public function delete(){

@@ -58,12 +58,18 @@ class User extends \app\core\Controller{
         }
     }
 
+    #[\app\filters\AdminLogin] 
      public function adminProfile(){
         $profile = new \app\models\User();
         $profile = $profile->getById($_SESSION['user_id']);
         $this->view('User/adminProfile',$profile);
     }
 
+     public function profile(){
+        $profile = new \app\models\User();
+        $profile = $profile->getById($_SESSION['user_id']);
+        $this->view('User/profile',$profile);
+    }
 
     function logout(){
         session_destroy();

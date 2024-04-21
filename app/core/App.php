@@ -47,6 +47,7 @@ class App{
         $this->addRoute('User/register' , 'User,register');
         $this->addRoute('User/logout' , 'User,logout');
         $this->addRoute('User/adminProfile' , 'User,adminProfile');
+        $this->addRoute('User/profile' , 'User,profile');
         $this->addRoute('Movie/create' , 'Movie,create');
 
         [$controllerMethod, $namedParams] = $this->resolve($url);

@@ -7,17 +7,49 @@ class Review extends \app\core\Controller{
 
 
     public function create(){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $review = new \app\models\Review();
 
+            $review->user_id = $_POST['user_id'];
+            $review->movie_id = $_POST['movie_id'];
+            $review->stars = $_POST['stars'];
+            $review->review_text = $_POST['review_text'];
+
+            $review->insert();
+            //redirect
+            header('location:/Movie/individual');
+        }else{
+            $this->view('Review/create');
+        }
     }
 
 
     public function delete(){
+        $review = new \app\models\Review();
+        $review = $review->getByID($_SESSION['review_id']);
 
-
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $review->delete();
+            header('location:/User/profile');
+        }else{
+            $this->view('Review/delete',$review);
+        }
     }
 
 
-    public function modify(){
+    public function update(){
+        $review = new \app\models\Review();
+        $review = $review->getByID($_SESSION['review_id']);
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $review->review_text = $_POST['review_text'];
+
+            $review->update();
+
+            header('location:/User/profile');
+        }
+        else {
+            $this->view('Review/update');
+        }
     }
 }

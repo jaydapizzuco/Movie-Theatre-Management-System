@@ -51,6 +51,8 @@ class Movie extends \app\core\Controller{
             $movie->release_date = $_POST['release_date'];
             $movie->trailer = $_POST['trailer'];
 
+            $movie->update();
+
             header('location:/User/adminProfile');
         }
         else {

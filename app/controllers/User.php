@@ -4,7 +4,7 @@ namespace app\controllers;
 class User extends \app\core\Controller{
 
     function register(){
-            //display the form and process the registration
+        //display the form and process the registration
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $user = new \app\models\User();
             //populate the User
@@ -22,7 +22,7 @@ class User extends \app\core\Controller{
              }
              else if ($_POST['password'] == $_POST['confirmpassword']){
                 $user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                        //insert the user
+                    //insert the user
                     $user->insert();
                     //redirect to a good place
                     header('location:/User/login');
@@ -75,7 +75,7 @@ class User extends \app\core\Controller{
     function logout(){
         session_destroy();
         $_SESSION['user_id'] = null;
-        header('location:/User/register');
+        header('location:/User/login');
     }
 
 

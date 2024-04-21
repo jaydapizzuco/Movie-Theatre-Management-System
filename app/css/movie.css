@@ -41,3 +41,10 @@ footer{text-align: center;
 .account a {text-decoration: none;
             color: white;}
 
+#gallery { display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around; }
+
+.zoom:hover{transform: scale(1.5);}
+

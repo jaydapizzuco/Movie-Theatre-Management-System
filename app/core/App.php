@@ -49,6 +49,11 @@ class App{
         $this->addRoute('User/adminProfile' , 'User,adminProfile');
         $this->addRoute('User/profile' , 'User,profile');
         $this->addRoute('Movie/create' , 'Movie,create');
+        $this->addRoute('Movie/modify' , 'Movie,update');
+        $this->addRoute('Movie/delete' , 'Movie,delete');
+        $this->addRoute('Movie/index' , 'Movie,index');
+        $this->addRoute('Movie/individual' , 'Movie,individual');
+
 
         [$controllerMethod, $namedParams] = $this->resolve($url);
 

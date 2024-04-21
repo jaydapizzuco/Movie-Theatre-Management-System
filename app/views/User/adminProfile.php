@@ -11,8 +11,8 @@
 <!-- Navigation Bar -->
 <nav>
     <a href="User/adminProfile">Account</a> &nbsp&nbsp
-    <a href="aboutus.html">About Us</a> &nbsp&nbsp
-    <a class="active" href="movies.html">Movies</a>
+    <a href="User/adminProfile">About Us</a> &nbsp&nbsp
+    <a class="active" href="User/adminProfile">Movies</a>
 </nav>
 
 <body>
@@ -37,7 +37,6 @@
     </div><br>
   
     <div class="form-group">
-        <!-- <input type="submit" name="action" value="Log Out"/> -->
         <a href="/User/logout">Logout</a><br><br>
     </div><br>
 

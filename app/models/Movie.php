@@ -53,11 +53,11 @@ class Movie extends \app\core\Model{
 	}
 
 	public function getAll(){
-		$SQL = 'SELECT * FROM movie WHERE status=1';
+		$SQL = 'SELECT * FROM movie';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute();
-		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Movie');
-		return $STMT->fetch();
+		$movies = $STMT->fetchAll(PDO::FETCH_CLASS,'app\models\Movie');
+		return $movies;
 	}
 
 	public function getByID($movie_id){
@@ -66,7 +66,7 @@ class Movie extends \app\core\Model{
 		$STMT->execute(
 			['movie_id'=>$movie_id]
 		);
-		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Movie');
+		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Movie');
 		return $STMT->fetch();
 	}
 

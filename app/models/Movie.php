@@ -71,6 +71,17 @@ class Movie extends \app\core\Model{
 		return $STMT->fetchAll();
 	}
 
+	public function getByOrderedDates(){
+		$SQL = "SELECT * FROM movie ORDER BY release_date";
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute();
+	}
+
+	public function getByOrderedDatesReverse(){
+		$SQL = "SELECT * FROM movie ORDER BY release_date DESC";
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute();
+	}
 
 
 
@@ -81,9 +92,4 @@ class Movie extends \app\core\Model{
 	public function increaseAvailableSeats(){
 		
 	}
-
-    public function serachByTitle(){
-		
-	}
-
 }

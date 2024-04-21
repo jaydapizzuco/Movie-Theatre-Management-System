@@ -55,14 +55,20 @@ class Movie extends \app\core\Model{
 		$SQL = 'SELECT * FROM movie WHERE movie_id=:movie_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
-			['movie_id'=>$this->movie_id]
+			['movie_id'=>$movie_id]
 		);
 		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Movie');
 		return $STMT->fetch();
 	}
 
 	public function getByTitle($title){
-		
+		$SQL = "SELECT * FROM movie WHERE title LIKE '%$title%'";
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['title'=>$title]
+		);
+		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Movie');
+		return $STMT->fetchAll();
 	}
 
 

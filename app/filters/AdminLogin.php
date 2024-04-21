@@ -5,12 +5,16 @@ namespace app\filters;
 class AdminLogin implements \app\core\AccessFilter{
 
 	public function redirected(){
-		//make sure that is_admin for the user that is logged in is true
-		if(!isset($_SESSION['admin_id'])){
-			header('location:/Admin/login');
-			return true;
+		if(isset($_SESSION['user_id'])){
+			$user = new \app\models\User();
+			$status = $user->isAdmin($_SESSION['user_id']);
+			if($status == 1)
+			return true;	
 		}
-		return false;//not denied
-	}
+		else{
+			header('location:/User/login');
+			return false;
+		}
+}
 
 }

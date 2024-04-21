@@ -17,7 +17,7 @@ class Movie extends \app\core\Controller{
         $this->view('Movie/individual', $movie);
     }
 
-    
+    #[\app\filters\AdminLogin] 
     public function create(){
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $movie = new \app\models\Movie();
@@ -37,11 +37,13 @@ class Movie extends \app\core\Controller{
         }
     }
 
+    #[\app\filters\AdminLogin] 
     public function update(){
 
 
     }
 
+    #[\app\filters\AdminLogin] 
     public function delete(){
 
     }

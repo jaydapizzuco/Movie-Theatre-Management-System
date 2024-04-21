@@ -59,8 +59,16 @@ class Movie extends \app\core\Controller{
 
     }
 
-    #[\app\filters\AdminLogin] 
+    // #[\app\filters\AdminLogin] 
     public function delete(){
+        $movie = new \app\models\Movie();
+        $movie = $movie->getByID($_SESSION['movie_id']);
 
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $movie->delete();
+            header('location:/Movie/index');
+        }else{
+            $this->view('Movie/delete',$movie);
+        }
     }
 }

@@ -44,7 +44,11 @@ class Movie extends \app\core\Model{
 	}
 
 	public function delete(){
-
+		$SQL = 'DELETE FROM movie WHERE movie_id=:movie_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['movie_id'=>$this->movie_id]
+		);
 	}
 
 	public function getByID(){

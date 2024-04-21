@@ -57,9 +57,10 @@ class User extends \app\core\Controller{
     }
 
 
-    public function logout(){
-
-
+    function logout(){
+        session_destroy();
+        $_SESSION['user_id'] = null;
+        header('location:/User/register');
     }
 
 

@@ -30,7 +30,8 @@
     <p>Email: <?= $data->email ?></p>
 
     <div class="form-group">
-        <input type="submit" name="action" value="Log Out"/><br><br>
+        <!-- <input type="submit" name="action" value="Log Out"/> -->
+        <a href="/User/logout">Logout</a><br><br>
     </div><br>
 
     <footer>

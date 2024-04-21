@@ -68,5 +68,11 @@ class Review extends \app\core\Controller{
         }
     }
 
-    
+    public function movieReviewsIndex(){
+        
+    }
+
+    public function userReviewsIndex(){
+
+    }
 }

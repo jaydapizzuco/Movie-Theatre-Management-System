@@ -9,6 +9,24 @@ class Movie extends \app\core\Controller{
         $this->view('Movie/index', $allMovies);
     }
 
+    public function indexAlphabetical(){
+        $moviesAbc = new \app\models\Movie();
+        $moviesAbc = $allMovies->getAlphabeticalOrder();
+        $this->view('Movie/index',$moviesAbc);
+    }
+
+    public function indexOrderedDates(){
+        $movies123 = new \app\models\Movie();
+        $movies123 = $allMovies->getByOrderedDates();
+        $this->view('Movie/index',$movies123);
+    }
+
+    public function indexOrderedDatesReverse(){
+        $movies321 = new \app\models\Movie();
+        $movies321 = $allMovies->getByOrderedDatesReverse();
+        $this->view('Movie/index',$movies321);
+    }
+
     public function individual(){
         $movie = new \app\models\Movie();
         $movie = $movie->getByID($_GET['movie_id']);

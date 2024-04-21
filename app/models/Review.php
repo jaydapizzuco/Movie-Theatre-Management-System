@@ -34,11 +34,19 @@ class Review extends \app\core\Model{
 	}
 
 	public function delete(){
-		
+		$SQL = 'DELETE FROM review WHERE review_id=:review_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['review_id'=>$this->review_id]
+		);
 	}
 
 	public function approve(){
-		
+		$SQL = 'UPDATE review SET approved=:1 WHERE review_id=:review_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['review_id'=>$this->review_id]
+		);
 	}
 
 	public function submitForApproval(){

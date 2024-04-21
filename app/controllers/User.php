@@ -10,11 +10,23 @@ class User extends \app\core\Controller{
             //populate the User
             $user->name = $_POST['name'];
              $user->email = $_POST['email'];
-            $user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            //insert the user
-            $user->insert();
-            //redirect to a good place
-            header('location:/User/login');
+             if($_POST['password'] != $_POST['confirmpassword']){
+                 echo '<script type="text/javascript">
+
+                 alert("The passwords you have entered do not match.Please try again."); 
+
+                </script>';
+
+                $this->view('User/register');
+             }
+             else if ($_POST['password'] == $_POST['confirmpassword']){
+                $user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                        //insert the user
+                    $user->insert();
+                    //redirect to a good place
+                    header('location:/User/login');
+             }
+            
         }else{
             $this->view('User/register');
         }

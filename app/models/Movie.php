@@ -83,6 +83,12 @@ class Movie extends \app\core\Model{
 		$STMT->execute();
 	}
 
+	public function getAlphabeticalOrder(){
+		$SQL = "SELECT * FROM movie ORDER BY title";
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute();
+	}
+
 
 
 	public function decreaseAvailableSeats(){

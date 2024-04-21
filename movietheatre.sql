@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 19, 2024 at 08:58 PM
+-- Generation Time: Apr 21, 2024 at 08:56 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -22,6 +22,28 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `movietheatre` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `movietheatre`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `admin_id` int(11) NOT NULL DEFAULT 1,
+  `username` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password_hash` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `username`, `email`, `password_hash`) VALUES
+(1, 'Admin', 'admin@email.com', '$2y$10$MsCHBzNjxAYz//fk8NwwgejQDX8VtWEfN2LNm4HjHaCExH4Eac7bi'),
+(1, 'Admin2', 'admin2@email.com', '$2y$10$HHBbEy.LoSMGzR4pirV6au1k/ZR.t7qTLaneOmvTYGbaflkCu536e');
 
 -- --------------------------------------------------------
 
@@ -51,8 +73,15 @@ CREATE TABLE `movie` (
   `director` varchar(50) NOT NULL,
   `trailer` varchar(500) NOT NULL,
   `release_date` date NOT NULL,
-  `ticket_revenue` double NOT NULL
+  `ticket_revenue` double NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `movie`
+--
+
+INSERT INTO `movie` (`movie_id`, `title`, `image`, `description`, `length`, `director`, `trailer`, `release_date`, `ticket_revenue`) VALUES
+(1, 'Movie 2', 'movie1.png', 'The thrilling sequel to Movie 1', 116, 'John Doe', 'https://www.youtube.com/watch?v=jhFDyDgMVUI', '2024-04-26', 0);
 
 -- --------------------------------------------------------
 
@@ -93,6 +122,19 @@ CREATE TABLE `orders` (
   `total_price` double NOT NULL,
   `number_tickets` int(11) NOT NULL,
   `order_status` tinyint(4) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profile`
+--
+
+DROP TABLE IF EXISTS `profile`;
+CREATE TABLE `profile` (
+  `profile_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -168,6 +210,14 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `name`, `email`, `password_hash`, `is_admin`) VALUES
+(1, 'John', 'john@email.com', '$2y$10$UMiR4aGebyAxFRdzDKFIj.hcGsk93IPZf9eDSXQr7BOP61x16FXy.', 0),
+(2, 'Admin', 'admin@email.com', '$2y$10$FIKrGIYkZ9eHrJCkPlCFwu1mXTOSfn4AgmyGdc8Vax9pF/vElTxsS', 1);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -202,6 +252,13 @@ ALTER TABLE `movie_schedule`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `profile`
+--
+ALTER TABLE `profile`
+  ADD PRIMARY KEY (`profile_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -256,7 +313,7 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `movie_schedule`
@@ -269,6 +326,12 @@ ALTER TABLE `movie_schedule`
 --
 ALTER TABLE `orders`
   MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `profile`
+--
+ALTER TABLE `profile`
+  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -298,7 +361,7 @@ ALTER TABLE `times`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

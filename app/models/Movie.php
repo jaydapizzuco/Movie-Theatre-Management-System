@@ -1,7 +1,50 @@
 <?php 
 namespace app\models;
 
-class Movie {
+use PDO;
+
+class Movie extends \app\core\Model{
+
+	public $movie_id;
+	public $title;
+	public $image;
+	public $description;
+	public $director;
+	public $trailer;
+	public $length;
+	public $release_date;
+	public $ticket_revenue;
+
+	public function insert(){
+		$SQL = 'INSERT INTO movie(title,image,description,length,director,trailer,release_date) VALUE (:title,:image,:description,:length,:director,:trailer,:release_date)';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['title'=>$this->title,
+			'image'=>$this->image,
+			'description'=>$this->description,
+			'length'=>$this->length,
+			'director'=>$this->director,
+			'trailer'=>$this->trailer,
+			'release_date'=>$this->release_date]
+		);
+	}
+
+	public function update(){
+
+	}
+
+	public function delete(){
+
+	}
+
+	public function getByID(){
+
+	}
+
+	public function getByTitle(){
+
+	}
+
 
 
 

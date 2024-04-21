@@ -53,6 +53,16 @@ class Review extends \app\core\Model{
 		
 	}
 
+	public function getByID($review_id){
+		$SQL = 'SELECT * FROM review WHERE review_id=:review_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['review_id'=>$review_id]
+		);
+		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Review');
+		return $STMT->fetch();
+	}
+
     public function getByUser($user_id){
 		$SQL = 'SELECT * FROM movie WHERE user_id=:user_id';
 		$STMT = self::$_conn->prepare($SQL);
@@ -60,7 +70,7 @@ class Review extends \app\core\Model{
 			['user_id'=>$user_id]
 		);
 		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Review');
-		return $STMT->fetch();
+		return $STMT->fetchAll();
 	}
 
 	public function getByMovie($movie_id){
@@ -70,11 +80,15 @@ class Review extends \app\core\Model{
 			['movie_id'=>$movie_id]
 		);
 		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Review');
-		return $STMT->fetch();
+		return $STMT->fetchAll();
 	}
 
     public function getAll(){
-		
+		$SQL = 'SELECT * FROM review';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Review');
+		return $STMT->fetchAll();
 	}
 
 }

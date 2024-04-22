@@ -26,7 +26,11 @@
     <div id="gallery">
     	<?php 
     		foreach ($data as $index => $movies) { ?>
-    			<a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='100' height='100' alt='<?= $movies->image ?>'>
+    			<a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='100' height='100' alt='<?= $movies->image ?>'><br><br>
+                <!-- <form action="">
+                    <button type="submit" formaction="/Movie/modify?id=<?=$movies->movie_id ?>">Edit</button>
+                    <button type="submit" formaction="/Movie/delete?id=<?=$movies->movie_id ?>">Delete</button>
+                </form> -->
     		<?php } ?>
 
     </div>

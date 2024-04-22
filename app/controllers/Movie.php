@@ -58,7 +58,7 @@ class Movie extends \app\core\Controller{
     // #[\app\filters\AdminLogin] 
     public function update(){
         $movie = new \app\models\Movie();
-        $movie = $movie->getByID($_SESSION['movie_id']);
+        $movie = $movie->getByID($_GET['id']);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             $movie->title = $_POST['title'];
@@ -74,7 +74,7 @@ class Movie extends \app\core\Controller{
             header('location:/User/adminProfile');
         }
         else {
-            $this->view('Movie/index');
+            $this->view('Movie/index', $movie);
         }
 
     }

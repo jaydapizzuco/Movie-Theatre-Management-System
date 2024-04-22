@@ -74,13 +74,14 @@ class Movie extends \app\core\Controller{
             $movie->director = $_POST['director'];
             $movie->release_date = $_POST['release_date'];
             $movie->trailer = $_POST['trailer'];
+            $movie->movie_id = $_GET['id'];
 
             $movie->update();
 
             header('location:/User/adminProfile');
         }
         else {
-            $this->view('Movie/index', $movie);
+            $this->view('Movie/modify', $movie);
         }
 
     }

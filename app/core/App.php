@@ -56,6 +56,8 @@ class App{
         $this->addRoute('Movie/index' , 'Movie,index');
         $this->addRoute('Movie/adminIndex' , 'Movie,adminIndex');
         $this->addRoute('Movie/individual' , 'Movie,individual');
+        $this->addRoute('Movie/update' , 'Movie,update');
+
 
 
         [$controllerMethod, $namedParams] = $this->resolve($url);

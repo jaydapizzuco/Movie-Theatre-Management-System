@@ -39,7 +39,7 @@
             </div><br>
 
             <div class="form-group">
-				<label>Synopsis:</label><textarea  class="form-control" name="description" rows="4" columns="50" value='<?= $data->description ?>'></textarea>
+				<label>Synopsis:</label><textarea  class="form-control" name="description" rows="4" columns="50" value=''><?= $data->description ?></textarea>
 			</div><br>
 
             <div class="form-group">
@@ -47,7 +47,7 @@
             </div><br>
 
               <div class="form-group">
-                <input type="date" name="release_date" value="2024-04-22" min="2024-04-22" max="2024-12-31" value='<?= $data->release_date ?>' />
+                <input type="date" name="release_date" value="<?= $data->release_date ?>" min="2024-04-22" max="2024-12-31"  />
             </div><br>
 
              <div class="form-group">
@@ -55,7 +55,7 @@
             </div><br>
 
             <div class="form-group">
-                <input type="submit" name="action" value="Create"/><br><br>
+                <input type="submit" name="action" value="Update"/><br><br>
                 <a href="/User/adminProfile">Cancel</a>
             </div><br>
            

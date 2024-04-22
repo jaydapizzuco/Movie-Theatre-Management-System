@@ -31,17 +31,18 @@ class Movie extends \app\core\Model{
 	}
 
 	public function update(){
-		$SQL = 'UPDATE movie SET title=:title,image=:image,description=:description,length=:length,director=:description,trailer=:trailer,release_date:release_date WHERE movie_id=:movie_id';
+		$SQL = 'UPDATE movie SET title=:title, image=:image, description=:description,length=:length, director=:director, trailer=:trailer, release_date=:release_date WHERE movie_id=:movie_id';
 		$STMT = self::$_conn->prepare($SQL);
-		$STMT->execute(
-			['title'=>$this->title,
+		$STMT->execute([
+			'title'=>$this->title,
 			'image'=>$this->image,
 			'description'=>$this->description,
 			'length'=>$this->length,
 			'director'=>$this->director,
 			'trailer'=>$this->trailer,
-			'release_date'=>$this->release_date]
-		);
+			'release_date'=>$this->release_date,
+			'movie_id'=> $this->movie_id
+		]);
 	}
 
 	public function delete(){

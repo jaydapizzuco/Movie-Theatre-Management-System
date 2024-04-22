@@ -29,7 +29,7 @@ class Movie extends \app\core\Controller{
 
     public function individual(){
         $movie = new \app\models\Movie();
-        $movie = $movie->getByID($_GET['movie_id']);
+        $movie = $movie->getByID($_GET['id']);
         $_SESSION['movie_id'] = $movie->movie_id;
         $this->view('Movie/individual', $movie);
     }

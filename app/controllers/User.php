@@ -80,7 +80,27 @@ class User extends \app\core\Controller{
 
 
     public function  modifyInfo(){
+        if(!isset($_SESSION['user_id'])){
+            header('location:/User/login');
+            return;
+        }
 
+        $user = new \app\models\User();
+        $user = $user->getById($_SESSION['user_id']);
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $user->name = $_POST['name'];
+            $password = $_POST['password'];
+            if(!empty($password)){
+                $user->password_hash = password_hash($password, PASSWORD_DEFAULT);
+            }
+            $user->update();
+            header('location:/User/profile');
+        }
+        else{
+            $this->view('User/update', $user);
+        }
 
     }
+
 }

@@ -64,7 +64,7 @@ class Review extends \app\core\Model{
 	}
 
     public function getByUser($user_id){
-		$SQL = 'SELECT * FROM movie WHERE user_id=:user_id';
+		$SQL = 'SELECT * FROM movie WHERE user_id=:user_id AND approved=1';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['user_id'=>$user_id]
@@ -74,7 +74,7 @@ class Review extends \app\core\Model{
 	}
 
 	public function getByMovie($movie_id){
-		$SQL = 'SELECT * FROM review WHERE movie_id=:movie_id';
+		$SQL = 'SELECT * FROM review WHERE movie_id=:movie_id AND approved=1';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['movie_id'=>$movie_id]
@@ -83,8 +83,8 @@ class Review extends \app\core\Model{
 		return $STMT->fetchAll();
 	}
 
-    public function getAll(){
-		$SQL = 'SELECT * FROM review';
+    public function getAllDisapproved(){
+		$SQL = 'SELECT * FROM review WHERE approved=0';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute();
 		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Review');

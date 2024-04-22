@@ -1,7 +1,9 @@
 <?php 
 namespace app\models;
 
-class MovieSchedule {
+use PDO;
+
+class MovieSchedule extends \app\core\Model{
 
 
 

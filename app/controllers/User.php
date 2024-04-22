@@ -58,7 +58,7 @@ class User extends \app\core\Controller{
         }
     }
 
-    #[\app\filters\AdminLogin] 
+    //#[\app\filters\AdminLogin] 
      public function adminProfile(){
         $profile = new \app\models\User();
         $profile = $profile->getById($_SESSION['user_id']);

@@ -31,6 +31,7 @@ class Movie extends \app\core\Model{
 	}
 
 	public function update(){
+		echo $this->release_date;
 		$SQL = 'UPDATE movie SET title=:title, image=:image, description=:description,length=:length, director=:director, trailer=:trailer, release_date=:release_date WHERE movie_id=:movie_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute([

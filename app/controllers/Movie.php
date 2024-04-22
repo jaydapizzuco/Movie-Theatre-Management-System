@@ -55,7 +55,7 @@ class Movie extends \app\core\Controller{
 
             $movie->insert();
             //redirect
-            header('location:/User/adminProfile');
+            header('location:/Movie/adminIndex');
         }else{
             $this->view('Movie/create');
         }

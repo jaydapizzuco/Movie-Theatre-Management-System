@@ -12,7 +12,7 @@
 <!-- Navigation Bar -->
 <nav>
     <a href="/User/adminProfile">Account</a> &nbsp&nbsp
-    <a class="active" href="movies.html">Movies</a>
+    <a href="/Movie/index">Movies</a>
 </nav>
 
 <body>
@@ -26,7 +26,7 @@
     <div id="gallery">
     	<?php 
     		foreach ($data as $index => $movies) { ?>
-    			<a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='movie1.png' class='zoom' width='100' height='100' alt='<?= $movies->title ?>'>
+    			<a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='100' height='100' alt='<?= $movies->image ?>'>
     		<?php } ?>
 
     </div>

@@ -48,6 +48,8 @@ class App{
         $this->addRoute('User/logout' , 'User,logout');
         $this->addRoute('User/adminProfile' , 'User,adminProfile');
         $this->addRoute('User/profile' , 'User,profile');
+        $this->addRoute('User/update' , 'User,modifyInfo');
+
         $this->addRoute('Movie/create' , 'Movie,create');
         $this->addRoute('Movie/modify' , 'Movie,update');
         $this->addRoute('Movie/delete' , 'Movie,delete');

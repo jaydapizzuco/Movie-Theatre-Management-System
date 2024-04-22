@@ -45,9 +45,12 @@ public function getById($user_id){
 	}
 
 	public function update(){
-		$SQL = 'UPDATE user SET name = :name, password_hash = :password_hash WHERE user_id = :user_id';
+		$SQL = 'UPDATE user SET name = :name, email = :email, password_hash = :password_hash WHERE user_id = :user_id';
 		$STMT = self::$_conn->prepare($SQL);
-		$STMT->execute((array)$this);
+		$data = ['name' => $this->name,
+				'email' => $this->email,
+				'password_hash' => $this->password_hash];
+		$STMT->execute($data);
 	}
 
 	public function isAdmin($user_id){

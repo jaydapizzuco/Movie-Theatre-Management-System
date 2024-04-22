@@ -11,8 +11,8 @@
 
 <!-- Navigation Bar -->
 <nav>
-    <a href="/User/adminProfile">Account</a> &nbsp&nbsp
-    <a class="active" href="movies.html">Movies</a>
+    <a href="/User/profile">Account</a> &nbsp&nbsp
+    <a href="/Movie/index">Movies</a>
 </nav>
 
 <body>
@@ -25,19 +25,14 @@
     <header>
         <h1><?= $data->title ?></h1>
     </header><br><br>
-
-    <!-- Display all movies --> 
-    <div id="container">
-
-    	<img src='movie1.png' class='zoom' width='100' height='100'>
-    </div>
-
-<div id ="container">
+ 
+    <div class="container">
+        <img src='<?= $data->image ?>' class='zoom' width='100' height='100' alt="<?= $data->image ?>">
          <p><?= $data->title ?> </p>
         <p><?= $data->director ?></p>
         <p><?= $data->description ?></p>
+    </div>
 
-</div>
 
     <footer>
         <br>Copyright &copy 2024 

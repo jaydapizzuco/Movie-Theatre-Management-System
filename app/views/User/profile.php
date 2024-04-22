@@ -12,7 +12,7 @@
 <nav>
     <a href="/User/profile">Account</a> &nbsp&nbsp
     <a href="aboutus.html">About Us</a> &nbsp&nbsp
-    <a class="active" href="movies.html">Movies</a>
+    <a href="/Movie/index">Movies</a>
 </nav>
 
 <body>
@@ -26,13 +26,18 @@
         <a class="active" href="movies.html">Points</a>
     </nav><br>
 
-    <p>Name:<?= $data->name ?></p>
-    <p>Email: <?= $data->email ?></p>
+    <div class="container2">
+        <p>Name: <?= $data->name ?></p>
+        <p>Email: <?= $data->email ?></p>
 
-    <div class="form-group">
-        <!-- <input type="submit" name="action" value="Log Out"/> -->
-        <a href="/User/logout">Logout</a><br><br>
-    </div><br>
+        <form action="/User/update">
+            <button type="submit">Edit Profile Information</button>
+        </form><br><br><br><br><br>
+
+        <form action="/User/logout">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
 
     <footer>
         <br>Copyright &copy 2024 

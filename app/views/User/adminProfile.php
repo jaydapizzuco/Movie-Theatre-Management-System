@@ -10,9 +10,8 @@
 
 <!-- Navigation Bar -->
 <nav>
-    <a href="User/adminProfile">Account</a> &nbsp&nbsp
-    <a href="User/adminProfile">About Us</a> &nbsp&nbsp
-    <a class="active" href="User/adminProfile">Movies</a>
+    <a href="/User/adminProfile">Account</a> &nbsp&nbsp
+    <a href="/Movie/index">Movies</a>
 </nav>
 
 <body>
@@ -22,23 +21,25 @@
     </header><br><br>
 
     <nav class="account">
-        <a href="account.html">Profile Information</a> &nbsp&nbsp
-         <a href="">Pending Reviews</a> &nbsp&nbsp
-         <a href="">Movies</a> &nbsp&nbsp
+        <a href="/User/adminProfile">Profile Information</a> &nbsp&nbsp
+         <a href="/Review/">Pending Reviews</a> &nbsp&nbsp
+         <a href="/Movie/index">Movies</a> &nbsp&nbsp
 
     </nav><br>
 
-    <p>Name:<?= $data->name ?></p>
-    <p>Email: <?= $data->email ?></p>
+     <div class="container2">
+        <p>Name: <?= $data->name ?></p>
+        <p>Email: <?= $data->email ?></p>
 
+        <form action="/Movie/create">
+            <button type="submit">Add a New Movie</button>
+        </form><br><br><br><br><br>
 
-     <div class="form-group">
-        <a href="/Movie/create">Add a New Movie</a><br><br>
-    </div><br>
-  
-    <div class="form-group">
-        <a href="/User/logout">Logout</a><br><br>
-    </div><br>
+        <form action="/User/logout">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+
 
     <footer>
         <br>Copyright &copy 2024 

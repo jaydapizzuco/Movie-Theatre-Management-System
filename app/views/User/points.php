@@ -10,9 +10,10 @@
 
 <!-- Navigation Bar -->
 <nav>
-    <a href="account.html">Account</a> &nbsp&nbsp
+    <a href="/User/profile">Account</a> &nbsp&nbsp
     <a href="aboutus.html">About Us</a> &nbsp&nbsp
-    <a class="active" href="movies.html">Movies</a>
+    <a href="/Movie/index">Movies</a>
+
 </nav>
 
 <body>

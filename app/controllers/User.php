@@ -90,7 +90,9 @@ class User extends \app\core\Controller{
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $user->name = $_POST['name'];
+            $user->email = $_POST['email'];
             $password = $_POST['password'];
+            
             if(!empty($password)){
                 $user->password_hash = password_hash($password, PASSWORD_DEFAULT);
             }

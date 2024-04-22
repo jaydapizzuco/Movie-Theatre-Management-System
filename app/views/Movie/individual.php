@@ -27,11 +27,17 @@
     </header><br><br>
 
     <!-- Display all movies --> 
-    <div id="gallery">
+    <div id="container">
 
     	<img src='movie1.png' class='zoom' width='100' height='100'>
-    	<p><?= $data->title ?> </p>
     </div>
+
+<div id ="container">
+         <p><?= $data->title ?> </p>
+        <p><?= $data->director ?></p>
+        <p><?= $data->description ?></p>
+
+</div>
 
     <footer>
         <br>Copyright &copy 2024 

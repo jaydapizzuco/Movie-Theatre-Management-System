@@ -9,6 +9,12 @@ class Movie extends \app\core\Controller{
         $this->view('Movie/index', $allMovies);
     }
 
+    public function adminIndex(){
+         $allMovies = new \app\models\Movie();
+        $allMovies = $allMovies->getAll();
+        $this->view('Movie/adminIndex', $allMovies);
+    }
+
     public function indexAlphabetical(){
         $moviesAbc = new \app\models\Movie();
         $moviesAbc = $allMovies->getAlphabeticalOrder();

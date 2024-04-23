@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 23, 2024 at 06:24 PM
+-- Generation Time: Apr 24, 2024 at 12:44 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -109,7 +109,8 @@ DROP TABLE IF EXISTS `movie_schedule`;
 CREATE TABLE `movie_schedule` (
   `schedule_id` int(11) NOT NULL,
   `movie_id` int(11) NOT NULL,
-  `day` varchar(15) NOT NULL
+  `day` varchar(15) NOT NULL,
+  `time_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -194,7 +195,6 @@ CREATE TABLE `ticket` (
 DROP TABLE IF EXISTS `times`;
 CREATE TABLE `times` (
   `time_id` int(11) NOT NULL,
-  `schedule_id` int(11) NOT NULL,
   `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -250,7 +250,8 @@ ALTER TABLE `movie_genre`
 --
 ALTER TABLE `movie_schedule`
   ADD PRIMARY KEY (`schedule_id`),
-  ADD KEY `movie_id` (`movie_id`);
+  ADD KEY `movie_id` (`movie_id`),
+  ADD KEY `time_id` (`time_id`);
 
 --
 -- Indexes for table `orders`
@@ -295,8 +296,7 @@ ALTER TABLE `ticket`
 -- Indexes for table `times`
 --
 ALTER TABLE `times`
-  ADD PRIMARY KEY (`time_id`),
-  ADD KEY `schedule_id` (`schedule_id`);
+  ADD PRIMARY KEY (`time_id`);
 
 --
 -- Indexes for table `user`
@@ -383,7 +383,8 @@ ALTER TABLE `movie_genre`
 -- Constraints for table `movie_schedule`
 --
 ALTER TABLE `movie_schedule`
-  ADD CONSTRAINT `movie_schedule_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `movie_schedule_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `movie_schedule_ibfk_2` FOREIGN KEY (`time_id`) REFERENCES `times` (`time_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `orders`
@@ -405,12 +406,6 @@ ALTER TABLE `ticket`
   ADD CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `ticket_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ticket_ibfk_3` FOREIGN KEY (`seat_id`) REFERENCES `seat` (`seat_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `times`
---
-ALTER TABLE `times`
-  ADD CONSTRAINT `times_ibfk_1` FOREIGN KEY (`schedule_id`) REFERENCES `movie_schedule` (`schedule_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

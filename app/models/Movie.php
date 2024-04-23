@@ -62,6 +62,22 @@ class Movie extends \app\core\Model{
 		return $movies;
 	}
 
+	public function getAllAvailable(){
+		$SQL = 'SELECT * FROM movie WHERE status=1';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute();
+		$movies = $STMT->fetchAll(PDO::FETCH_CLASS,'app\models\Movie');
+		return $movies;
+	}
+
+	public function getAllUnavailable(){
+		$SQL = 'SELECT * FROM movie WHERE status=0';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute();
+		$movies = $STMT->fetchAll(PDO::FETCH_CLASS,'app\models\Movie');
+		return $movies;
+	}
+
 	public function getByID($movie_id){
 		$SQL = 'SELECT * FROM movie WHERE movie_id=:movie_id';
 		$STMT = self::$_conn->prepare($SQL);

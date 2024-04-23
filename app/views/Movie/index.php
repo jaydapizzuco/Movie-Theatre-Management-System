@@ -26,7 +26,7 @@
     <div id="gallery">
     	<?php 
     		foreach ($data as $index => $movies) { ?>
-    			<a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='100' height='100' alt='<?= $movies->image ?>'><br><br>
+    			<a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='200' height='200' alt='<?= $movies->image ?>'><br><br>
     		<?php } ?>
 
     </div>

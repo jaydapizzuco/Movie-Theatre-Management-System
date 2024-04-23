@@ -93,13 +93,13 @@ class Movie extends \app\core\Controller{
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $movie->delete();
-            header('location:/Movie/index');
+            header('location:/Movie/adminIndex');
         }else{
             $this->view('Movie/delete',$movie);
         }
     }
 
-
+    // #[\app\filters\AdminLogin]
     public function activate(){
         $movie = new \app\models\Movie();
         $movie = $movie->getByID($_GET['id']);

@@ -45,7 +45,7 @@ public function getById($user_id){
 	}
 
 	public function update(){
-		$SQL = 'UPDATE user SET name = :name, email = :email, password_hash = :password_hash WHERE user_id = :user_id';
+		$SQL = 'UPDATE user SET name=:name, email=:email, password_hash=:password_hash WHERE user_id=:user_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$data = ['name' => $this->name,
 				'email' => $this->email,
@@ -76,7 +76,6 @@ public function getById($user_id){
     public function deleteOrder(){
 		
 	}
-
 
     public function leaveReview(){
 		

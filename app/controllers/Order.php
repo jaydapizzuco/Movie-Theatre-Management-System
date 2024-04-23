@@ -3,8 +3,6 @@ namespace app\controllers;
 
 class Order extends \app\core\Controller{
 
-
-
     public function index(){
 
     }
@@ -13,8 +11,6 @@ class Order extends \app\core\Controller{
     public function placeorder(){
 
     }
-
-
 
     public function cancel($orderId){
 

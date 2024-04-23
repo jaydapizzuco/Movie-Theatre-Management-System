@@ -18,13 +18,13 @@
 
 <body>
     <header>
-        <h1>$nameOfUser</h1>
+        <h1><?= $data->name ?></h1>
     </header><br><br>
 
     <nav class="account">
-        <a href="account.html">Profile Information</a> &nbsp&nbsp
-        <a href="aboutus.html">Purchase History</a> &nbsp&nbsp
-        <a class="active" href="movies.html">Points</a>
+        <a href="/User/profile">Profile Information</a> &nbsp&nbsp
+        <a href="/User/purchaseHistory">Purchase History</a> &nbsp&nbsp
+        <a href="/User/points">Points</a>
     </nav><br>
 
         

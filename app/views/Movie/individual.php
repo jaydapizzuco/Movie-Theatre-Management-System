@@ -27,7 +27,7 @@
     </header><br><br>
  
     <div class="container">
-        <img src='<?= $data->image ?>' class='zoom' width='100' height='100' alt="<?= $data->image ?>">
+        <br><img src='<?= $data->image ?>' class='zoom' width='300' height='300' alt="<?= $data->image ?>">
          <p><?= $data->title ?> </p>
         <p><?= $data->director ?></p>
         <p><?= $data->description ?></p>

@@ -51,7 +51,6 @@ class App{
         $this->addRoute('User/update' , 'User,modifyInfo');
 
         $this->addRoute('Movie/create' , 'Movie,create');
-        $this->addRoute('Movie/modify' , 'Movie,update');
         $this->addRoute('Movie/delete' , 'Movie,delete');
         $this->addRoute('Movie/index' , 'Movie,index');
         $this->addRoute('Movie/adminIndex' , 'Movie,adminIndex');

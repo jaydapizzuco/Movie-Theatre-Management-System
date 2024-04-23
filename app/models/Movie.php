@@ -17,7 +17,7 @@ class Movie extends \app\core\Model{
 	public $status;
 
 	public function insert(){
-		$SQL = 'INSERT INTO movie(title,image,description,length,director,trailer,release_date) VALUE (:title,:image,:description,:length,:director,:trailer,:release_date)';
+		$SQL = 'INSERT INTO movie(title,image,description,length,director,trailer,release_date) VALUES (:title,:image,:description,:length,:director,:trailer,:release_date)';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['title'=>$this->title,
@@ -31,8 +31,7 @@ class Movie extends \app\core\Model{
 	}
 
 	public function update(){
-		echo $this->release_date;
-		$SQL = 'UPDATE movie SET title=:title, image=:image, description=:description,length=:length, director=:director, trailer=:trailer, release_date=:release_date WHERE movie_id=:movie_id';
+		$SQL = 'UPDATE movie SET title=:title, image=:image, description=:description, length=:length, director=:director, trailer=:trailer, release_date=:release_date WHERE movie_id=:movie_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute([
 			'title'=>$this->title,

@@ -28,7 +28,7 @@
     		foreach ($data as $index => $movies) { ?>
     			<a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='100' height='100' alt='<?= $movies->image ?>'></a>
     			<br>
-    			<a href='/Movie/update?id=<?= $movies->movie_id ?>"'><i class='bi-pencil-fill'></i></a>
+    			<a href='/Movie/update?id=<?= $movies->movie_id ?>'><i class='bi-pencil-fill'></i></a>
     		<?php } ?>
 
     </div>

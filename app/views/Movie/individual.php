@@ -16,9 +16,9 @@
 </nav>
 
 <body>
-	<?php 
-    	$movie = new \app\models\Movie();
-    	$movie = $movie->getByID($data->movie_id);
+    <?php 
+        $movie = new \app\models\Movie();
+        $movie = $movie->getByID($data->movie_id);
     ?>
 
     <!-- Header Section-->
@@ -27,10 +27,17 @@
     </header><br><br>
  
     <div class="container">
-        <br><img src='<?= $data->image ?>' class='zoom' width='300' height='300' alt="<?= $data->image ?>">
-         <p><?= $data->title ?> </p>
-        <p><?= $data->director ?></p>
-        <p><?= $data->description ?></p>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <img src="<?= $data->image ?>" class="movie-image" alt="<?= $data->title ?>">
+                <h2><?= $data->title ?></h2>
+                <p><strong>Director:</strong> <?= $data->director ?></p>
+                <p><strong>Description:</strong> <?= $data->description ?></p>
+                <p><strong>Trailer:</strong> <?= $data->trailer ?></p>
+                <p><strong>Length:</strong> <?= $data->length ?> minutes</p>
+                <p><strong>Release Date:</strong> <?= $data->release_date ?></p>
+            </div>
+        </div>
     </div>
 
 

@@ -63,17 +63,7 @@ class MovieSchedule extends \app\core\Model{
 		return $STMT->fetchAll();
 	}
 
-	public function addAdmin(){
-		
-	}
- 
-	public function updateStartTime(){
-		
-	}
-
-    public function updateDays(){
-		
-	}
+	
  
 
 }

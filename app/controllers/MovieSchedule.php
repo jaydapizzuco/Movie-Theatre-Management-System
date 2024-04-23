@@ -1,20 +1,34 @@
 <?php
 namespace app\controllers;
 
-class MovieSchedule extends \app\core\Controller{
+use app\models\MovieSchedule;
 
-    public function index(){
+class MovieScheduleController extends \app\core\Controller {
 
+    public function createSchedule($movie_id, $day) {
+        $schedule = new MovieSchedule();
+        $schedule->movie_id = $movie_id;
+        $schedule->day = $day;
+        $schedule->insert();
+
+        
+        $this->redirect('');
     }
 
-
-    public function create(){
-
+    public function deleteSchedule($schedule_id) {
+        $schedule = MovieSchedule::getById($schedule_id);
+        if ($schedule) {
+            $schedule->delete();
+            
+            $this->redirect('Movie/index');
+        } else {
+            /
+            $this->view('error', ['message' => 'not a schedule enter with correct id']);
+        }
     }
 
+   
 
-
-    public function update($scheduleId){
-
-    }
+    
 }
+?>

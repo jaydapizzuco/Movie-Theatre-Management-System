@@ -3,7 +3,7 @@ namespace app\models;
 
 use PDO;
 
-class MovieSchedule extends \app\core\Model{
+class Order extends \app\core\Model{
 
 	public $order_id;
 	public $user_id;
@@ -74,13 +74,14 @@ class MovieSchedule extends \app\core\Model{
 		return $STMT->fetchAll();
 	}
 
-	public function updateMovieRevenue(){
-		
-	}
- 
-	public function authenticatePay(){
-		
-	}
+
+	public function getTicketsByOrderID($order_id) {
+        $SQL = 'SELECT * FROM `ticket` WHERE order_id = :order_id';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(['order_id' => $order_id]);
+        return $STMT->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
  
 

@@ -128,11 +128,4 @@ class Movie extends \app\core\Model{
 
 
 
-	public function decreaseAvailableSeats(){
-		
-	}
- 
-	public function increaseAvailableSeats(){
-		
-	}
 }

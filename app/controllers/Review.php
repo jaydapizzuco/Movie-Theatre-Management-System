@@ -68,11 +68,18 @@ class Review extends \app\core\Controller{
         }
     }
 
-    public function movieReviewsIndex(){
-        
+
+    public function reject() {
+        $review = new \app\models\Review();
+        $review = $review->getByID($_SESSION['review_id']);
+    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $review->reject(); 
+            header('location:/User/adminReviews'); 
+        } else {
+            $this->view('User/adminReviews'); 
+        }
     }
 
-    public function userReviewsIndex(){
-
-    }
+    
 }

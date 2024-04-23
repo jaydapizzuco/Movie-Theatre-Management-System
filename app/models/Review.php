@@ -49,9 +49,13 @@ class Review extends \app\core\Model{
 		);
 	}
 
-	public function submitForApproval(){
-		
-	}
+	public function reject() {
+        $SQL = 'UPDATE review SET approved = 0 WHERE review_id = :review_id';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(['review_id' => $this->review_id]);
+    }
+
+	
 
 	public function getByID($review_id){
 		$SQL = 'SELECT * FROM review WHERE review_id=:review_id';

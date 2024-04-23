@@ -61,23 +61,5 @@ public function getById($user_id){
     	return $result['is_admin'] ?? 0;
 	}
 
-	public function addTicket(){
-		
-	}
- 
-	public function RemoveTicket(){
-		
-	}
-
-    public function placeOrder(){
-		
-	}
-
-    public function deleteOrder(){
-		
-	}
-
-    public function leaveReview(){
-		
-	}
+	
 }

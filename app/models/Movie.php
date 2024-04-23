@@ -93,14 +93,21 @@ class Movie extends \app\core\Model{
 	}
 
 	public function getByTitle($title){
-		$SQL = "SELECT * FROM movie WHERE title LIKE '%$title%' AND status=1";
+		$SQL = 'SELECT * FROM movie WHERE title LIKE :title AND status=1';
 		$STMT = self::$_conn->prepare($SQL);
-		$STMT->execute(
-			['title'=>$title]
-		);
+		$STMT->execute(['title'=>"%" . $title . "%"]);
 		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Movie');
 		return $STMT->fetchAll();
 	}
+
+	public function getByDescription($description){
+		$SQL = "SELECT * FROM movie WHERE description LIKE :description AND status=1";
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(['description'=>"%" . $description . "%"]);
+		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Movie');
+		return $STMT->fetchAll();
+	}
+
 
 	public function getByOrderedDates(){
 		$SQL = "SELECT * FROM movie WHERE status=1 ORDER BY release_date";

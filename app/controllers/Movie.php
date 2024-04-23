@@ -111,4 +111,32 @@ class Movie extends \app\core\Controller{
             $this->view('Movie/activate',$movie);
         }
     }
+
+    public function search(){
+        if ($_SERVER["REQUEST_METHOD"] === 'POST'){
+            $search = $_POST['search'];
+            $movie = new \app\models\Movie();
+
+            if ($_POST['action'] == 'Search By Title'){
+                $result = $movie->getByTitle($search);
+                $this->view('/Movie/search', $result);
+
+                foreach ($result as $movies) {
+                    $title = $movies->title;
+                }
+            }
+
+            elseif ($_POST['action'] == 'Search By Description'){
+                $result = $movie->getByDescription($search);
+                $this->view('/Movie/search', $result);
+
+                foreach ($result as $movies) {
+                    $title = $movies->title;
+                }
+            }
+            else{
+                $results = [];
+            }
+        }
+    }
 }

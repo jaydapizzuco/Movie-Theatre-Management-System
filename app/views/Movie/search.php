@@ -17,15 +17,15 @@
 
 <body>
 
-    <form class="form-inline" method="POST" action="/Movie/search">
+    <form class="form-inline" action="/Movie/search" method="POST">
         <input name="search" placeholder="eg: Movie 1" >
-        <input type="submit" name= 'action' value="Search by Title" >
-        <input type="submit" name= 'action' value="Search by Description" >
+        <input type="submit" name= "action" value="Search by Title" >
+        <input type="submit" name= "action" value="Search by Description" >
     </form><br>
 
     <!-- Header Section-->
     <header>
-        <h1>All Movies</h1>
+        <h1>Movies from Search Results</h1>
     </header><br><br>
 
     <!-- Display all movies --> 

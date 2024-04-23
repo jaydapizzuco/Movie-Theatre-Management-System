@@ -24,10 +24,6 @@ class Ticket extends \app\core\Model {
 		);
 	}
 
-	public function update(){
-		
-	}
-
 	public function delete($order_id){
 		$SQL = 'DELETE FROM review WHERE order_id=:order_id';
 		$STMT = self::$_conn->prepare($SQL);

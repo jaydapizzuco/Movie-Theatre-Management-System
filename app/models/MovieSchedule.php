@@ -4,9 +4,9 @@ namespace app\models;
 use PDO;
 
 class MovieSchedule extends \app\core\Model{
-	$schedule_id;
-	$movie_id;
-	$day;
+	public $schedule_id;
+	public $movie_id;
+	public $day;
 
 	public function insert(){
 		$SQL = 'INSERT INTO movie_schedule (movie_id,day) VALUES (:movie_id,day)';
@@ -23,6 +23,16 @@ class MovieSchedule extends \app\core\Model{
 			['schedule_id'=>$schedule_id]
 		);
 	}
+
+	public function deleteAfterMovie($movie_id){
+		$SQL = 'DELETE FROM movie_schedule WHERE movie_id=:movie_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['movie_id'=>$movie_id]
+		);
+	}
+
+	
 
 	public function addAdmin(){
 		

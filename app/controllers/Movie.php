@@ -54,6 +54,16 @@ class Movie extends \app\core\Controller{
             $movie->trailer = $_POST['trailer'];
 
             $movie->insert();
+
+            $movie_schedule = new \app\models\MovieSchedule();
+
+            $id = $movie->getByTitle($movie->title);
+            $movie_schedule->movie_id = $id->movie_id;
+            $movie_schedule->day = $_POST['days'];
+            $movie_schedule->time_id = $movie_schedule->getTimeId($_POST['times']);
+
+            $movie_schedule->insert();
+
             //redirect
             header('location:/Movie/adminIndex');
         }else{

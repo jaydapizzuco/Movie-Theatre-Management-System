@@ -97,7 +97,7 @@ class Movie extends \app\core\Model{
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(['title'=>"%" . $title . "%"]);
 		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Movie');
-		return $STMT->fetchAll();
+		return $STMT->fetch();
 	}
 
 	public function getByDescription($description){

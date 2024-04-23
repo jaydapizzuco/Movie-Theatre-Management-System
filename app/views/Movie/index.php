@@ -26,14 +26,15 @@
     <div id="gallery">
     	<?php 
     		foreach ($data as $index => $movies) { ?>
-    			<a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='200' height='200' alt='<?= $movies->image ?>'><br><br>
+    			<a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='200' height='200' alt='<?= $movies->image ?>'></a><br><br>
     		<?php } ?>
 
     </div>
 
-    <footer>
+</body>
+
+<footer>
         <br>Copyright &copy 2024 
     </footer>
-</body>
 
 </html>

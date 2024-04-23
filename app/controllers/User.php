@@ -65,7 +65,7 @@ class User extends \app\core\Controller{
         $this->view('User/adminProfile',$profile);
     }
 
-    #[\app\filters\AdminLogin] 
+    // #[\app\filters\AdminLogin] 
      public function profile(){
         $profile = new \app\models\User();
         $profile = $profile->getById($_SESSION['user_id']);
@@ -90,7 +90,6 @@ class User extends \app\core\Controller{
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $user->name = $_POST['name'];
-            $user->email = $_POST['email'];
             $password = $_POST['password'];
             
             if(!empty($password)){

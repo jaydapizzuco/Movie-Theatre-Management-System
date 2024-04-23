@@ -32,9 +32,6 @@
                 <label>Name: <input type="text" class="form-group" name="name" placeholder="Jon Doe" value="<?= $data->name ?>"/></label>
             </div><br>    
             <div class="form-group">
-                <label>Email: <input type="text" class="form-group" name="email" placeholder="Jondoe@email.com" value="<?= $data->email ?>"/></label>
-            </div><br>
-            <div class="form-group">
                 <label>Password: <input type="Password" class="form-group" name="password" placeholder="password" value="<?= $data->password_hash ?>"/></label>
             </div><br>
             <div class="form-group">

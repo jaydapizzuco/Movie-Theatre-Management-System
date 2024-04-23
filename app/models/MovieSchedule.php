@@ -7,12 +7,14 @@ class MovieSchedule extends \app\core\Model{
 	public $schedule_id;
 	public $movie_id;
 	public $day;
+	public $time_id;
 
 	public function insert(){
-		$SQL = 'INSERT INTO movie_schedule (movie_id,day) VALUES (:movie_id,day)';
+		$SQL = 'INSERT INTO movie_schedule (movie_id,day,time_id) VALUES (:movie_id,:day,:time_id)';
 		$STMT = self::$_conn->prepare($SQL);
 		$data = ['movie_id'=>$this->movie_id,
-			'day'=>$this->day];
+			'day'=>$this->day,
+			'time_id'=>$this->time_id];
 		$STMT->execute($data);
 	}
 

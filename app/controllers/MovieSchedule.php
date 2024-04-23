@@ -5,10 +5,11 @@ use app\models\MovieSchedule;
 
 class MovieScheduleController extends \app\core\Controller {
 
-    public function createSchedule($movie_id, $day) {
+    public function createSchedule($movie_id, $day, $time_id) {
         $schedule = new MovieSchedule();
         $schedule->movie_id = $movie_id;
         $schedule->day = $day;
+        $schedule->time_id = $time_id;
         $schedule->insert();
 
         

@@ -19,7 +19,7 @@
 
     <!-- Header Section-->
     <header>
-        <h1>Delete a Movie</h1>
+        <h1>Activate a Movie</h1>
     </header><br><br>
 
     <div class="container">
@@ -55,7 +55,7 @@
             </div><br>
 
             <div class="form-group">
-                <input type="submit" name="action" value="DELETE MOVIE"/><br><br>
+                <input type="submit" name="action" value="RE-ACTIVATE MOVIE"/><br><br>
                 <a href="/User/adminProfile">Cancel</a>
             </div><br>
            

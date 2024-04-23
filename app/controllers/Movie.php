@@ -5,12 +5,12 @@ class Movie extends \app\core\Controller{
 
     public function index(){
         $allMovies = new \app\models\Movie();
-        $allMovies = $allMovies->getAll();
+        $allMovies = $allMovies->getAllAvailable();
         $this->view('Movie/index', $allMovies);
     }
 
     public function adminIndex(){
-         $allMovies = new \app\models\Movie();
+        $allMovies = new \app\models\Movie();
         $allMovies = $allMovies->getAll();
         $this->view('Movie/adminIndex', $allMovies);
     }
@@ -89,13 +89,26 @@ class Movie extends \app\core\Controller{
     // #[\app\filters\AdminLogin] 
     public function delete(){
         $movie = new \app\models\Movie();
-        $movie = $movie->getByID($_SESSION['movie_id']);
+        $movie = $movie->getByID($_GET['id']);
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $movie->delete();
             header('location:/Movie/index');
         }else{
             $this->view('Movie/delete',$movie);
+        }
+    }
+
+
+    public function activate(){
+        $movie = new \app\models\Movie();
+        $movie = $movie->getByID($_GET['id']);
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $movie->activate();
+            header('location:/Movie/index');
+        }else{
+            $this->view('Movie/activate',$movie);
         }
     }
 }

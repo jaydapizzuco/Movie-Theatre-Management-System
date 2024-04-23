@@ -19,18 +19,20 @@
 
     <!-- Header Section-->
     <header>
+        <h1>All Movies</h1>
         <h1>Update and Delete Movies</h1>
     </header><br><br>
 
-    <!-- Display all movies --> 
     <div id="gallery">
-    	<?php 
-    		foreach ($data as $index => $movies) { ?>
-    			<a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='100' height='100' alt='<?= $movies->image ?>'></a>
-    			<br>
-    			<a href='/Movie/update?id=<?= $movies->movie_id ?>'><i class='bi-pencil-fill'></i></a>
-    		<?php } ?>
-
+    	<?php foreach ($data as $index => $movies) { 
+                if ($movies->status == 1){ ?>
+                    <a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='100' height='100' alt='<?= $movies->image ?>'></a><br>
+                    <a href='/Movie/update?id=<?= $movies->movie_id ?>'><i class='bi-pencil-fill'></i></a>
+                    <a href='/Movie/delete?id=<?= $movies->movie_id ?>'><i class='bi bi-trash'></i></a>
+    		<?php } else { ?>
+                <a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='100' height='100' alt='<?= $movies->image ?>'></a>
+                <a href='/Movie/activate?id=<?= $movies->movie_id ?>'><i class='bi bi-arrow-repeat'></i></a>
+                <?php } } ?>
     </div>
 
     <footer>

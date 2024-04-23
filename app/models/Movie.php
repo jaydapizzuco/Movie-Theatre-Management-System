@@ -45,12 +45,17 @@ class Movie extends \app\core\Model{
 		]);
 	}
 
+	public function activate(){
+		$SQL = 'UPDATE movie SET status=1 WHERE movie_id=:movie_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(['movie_id'=> $this->movie_id]);
+	}
+
+
 	public function delete(){
 		$SQL = 'UPDATE movie SET status=0 WHERE movie_id=:movie_id';
 		$STMT = self::$_conn->prepare($SQL);
-		$STMT->execute(
-			['movie_id'=>$this->movie_id]
-		);
+		$STMT->execute(['movie_id'=>$this->movie_id]);
 	}
 
 	public function getAll(){

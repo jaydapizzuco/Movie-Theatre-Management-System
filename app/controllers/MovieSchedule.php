@@ -23,12 +23,21 @@ class MovieScheduleController extends \app\core\Controller {
             
             $this->redirect('Movie/index');
         } else {
-            /
+            
             $this->view('error', ['message' => 'not a schedule enter with correct id']);
         }
     }
 
-   
+    public function deleteScheduleByDay($movie_id, $day){
+        $schedule = new MovieSchedule();
+        $schedule->deleteAfterMovieAndDay($movie_id,$day);
+
+        $this->redirect('');
+    }
+
+    public function updateSchedule(){
+
+    }
 
     
 }

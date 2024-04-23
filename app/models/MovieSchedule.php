@@ -34,6 +34,15 @@ class MovieSchedule extends \app\core\Model{
 		);
 	}
 
+	public function deleteAfterMovieAndDay($movie_id, $day){
+		$SQL = 'DELETE FROM movie_schedule WHERE movie_id=:movie_id AND day=:day';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['movie_id'=>$movie_id,
+			'day'=>$day]
+		);
+	}
+
 	public function getById($schedule_id){
 		$SQL = 'SELECT * FROM movie_schedule WHERE schedule_id=:schedule_id';
 		$STMT = self::$_conn->prepare($SQL);

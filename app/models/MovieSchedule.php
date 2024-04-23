@@ -64,8 +64,4 @@ class MovieSchedule extends \app\core\Model{
 		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\MovieSchedule');
 		return $STMT->fetchAll();
 	}
-
-	
- 
-
 }

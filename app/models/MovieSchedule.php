@@ -64,6 +64,7 @@ class MovieSchedule extends \app\core\Model{
 		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\MovieSchedule');
 		return $STMT->fetchAll();
 	}
+<<<<<<< HEAD
 
 	public function getTimeId($time){
 		$SQL = 'SELECT time_id FROM times WHERE time=:time';
@@ -76,4 +77,6 @@ class MovieSchedule extends \app\core\Model{
 	}
  
 
+=======
+>>>>>>> 719a453e748790900e230dd277d38644d4b602e2
 }

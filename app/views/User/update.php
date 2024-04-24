@@ -32,7 +32,7 @@
                 <label>Name: <input type="text" class="form-group" name="name" placeholder="Jon Doe" value="<?= $data->name ?>"/></label>
             </div><br>    
             <div class="form-group">
-                <label>Password: <input type="Password" class="form-group" name="password" placeholder="password" value="<?= $data->password_hash ?>"/></label>
+                <label>Password: <input type="Password" class="form-group" name="password" placeholder="enter new password"/></label>
             </div><br>
             <div class="form-group">
                 <input type="submit" name="action" value="Submit"/>

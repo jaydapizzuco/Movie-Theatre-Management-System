@@ -42,7 +42,7 @@ class App{
         $url = $_GET['url'];
 
         //defined a few routes "url"=>"controller,method"
-        //$this->addRoute('' , 'Main,index');
+        $this->addRoute('' , 'Main,index');
         $this->addRoute('User/login' , 'User,login');
         $this->addRoute('User/register' , 'User,register');
         $this->addRoute('User/logout' , 'User,logout');

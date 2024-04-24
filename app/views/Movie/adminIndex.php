@@ -28,7 +28,7 @@
                 if ($movies->status == 1){ ?>
                     <div style=" margin-bottom: 20px;">
                     <a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='200' height='200' alt='<?= $movies->image ?>'></a>
-                    <a href='/MovieSchedule/create?id=<?= $movies->movie_id ?>'><i class="bi bi-clock"></i></a>
+                    <a href='/MovieSchedule/index?id=<?= $movies->movie_id ?>'><i class="bi bi-clock"></i></a>
                     <a href='/Movie/update?id=<?= $movies->movie_id ?>'><i class='bi-pencil-fill'></i></a>
                     <a href='/Movie/delete?id=<?= $movies->movie_id ?>'><i class='bi bi-trash'></i></a>
                     <br>

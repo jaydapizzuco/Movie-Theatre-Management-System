@@ -36,6 +36,14 @@ class MovieSchedule extends \app\core\Controller {
         }
     }
 
+     public function index() {
+        $movie = new \app\models\Movie();
+        $movie = $movie->getByID($_GET['id']);
+        $_SESSION['movie_id'] = $movie->movie_id;
+
+        $this->view('MovieSchedule/index', $movie);
+     }
+
     public function deleteScheduleByDay($movie_id, $day){
         $schedule = new MovieSchedule();
         $schedule->deleteAfterMovieAndDay($movie_id,$day);

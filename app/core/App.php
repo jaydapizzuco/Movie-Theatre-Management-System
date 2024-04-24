@@ -61,6 +61,7 @@ class App{
         $this->addRoute('Movie/search' , 'Movie,search');
         $this->addRoute('MovieSchedule/create' , 'MovieSchedule,create');
         $this->addRoute('MovieSchedule/delete' , 'MovieSchedule,delete');
+        $this->addRoute('MovieSchedule/index' , 'MovieSchedule,index');
 
 
 

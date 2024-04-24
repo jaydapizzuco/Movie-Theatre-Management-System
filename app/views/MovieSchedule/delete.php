@@ -32,9 +32,9 @@
 <form action="" method="post">
     <!-- Register Section -->
     <div class="container">
-        <h2>Movie</h2>
+        <h2><strong>Movie</strong></h2>
         <h3><?= $title ?></h3>
-        <h2>Screening Time</h2>
+        <h2><strong>Screening Time</strong></h2>
                     <h3><?= $data->day?> : <?= $data->getTime($data->time_id)?></h3>
                 
                 <div class="form-group">

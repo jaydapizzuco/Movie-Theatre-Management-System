@@ -30,37 +30,7 @@
     <!-- Register Section -->
     <div class="container">
         <br><br>
-        <h2>Add a New Screening Time</h2>
-        <form action="" method="post">
-           <div class="form-group">
-           <select name="days" id="days">
-              <option value="Sunday">Sunday</option>
-              <option value="Monday">Monday</option>
-              <option value="Tuesday">Tuesday</option>
-              <option value="Wednesday">Wednesday</option>
-              <option value="Thursday">Thursday</option>
-              <option value="Friday">Friday</option>
-              <option value="saturday">Saturday</option>
-            </select>
-        </div><br>
-
-        <div class="form-group">
-             <select name="times" id="times">
-              <option value="1:00">1:00</option>
-              <option value="3:20">3:20</option>
-              <option value="6:30">6:30</option>
-              <option value="7:05">7:05</option>
-              <option value="8:20">8:20</option>
-              <option value="9:15">9:15</option>
-              <option value="10:00">10:00</option>
-            </select>
-        </div><br>
-        
-            <div class="form-group">
-                <input type="submit" name="action" value="Add"/><br><br>
-                <a href="/User/adminProfile">Cancel</a>
-            </div><br>
-
+        <a href='/MovieSchedule/create?id=<?= $movie->movie_id ?>'><h2>Add a New Screening Time</h2></a>
             <h2>Existing Screening Times</h2>
             <?php 
             $schedule = new \app\models\MovieSchedule();
@@ -69,8 +39,8 @@
 
         <?php 
             foreach ($screenings as $index => $screening) { ?>
-               <h3><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?> 
-                <!-- <a href='/MovieSchedule/delete?id=<?= $screening->schedule_id ?>'><i class='bi bi-trash'></i></a> -->
+               <h3><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?>
+                <a href='/MovieSchedule/delete?id=<?= $screening->schedule_id ?>'><i class='bi bi-trash'></i></a>
                 </h3>
             <?php } ?>
         </form>

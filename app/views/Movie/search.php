@@ -31,7 +31,7 @@
    <div class="gallery">
         <?php foreach ($data as $index => $movies): ?>
             <div class="gallery-item">
-                <a href="/Movie/individual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" class="zoom" alt="<?= $movies->title ?>"></a>
+                <a href="/Movie/individual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" class="zoom"></a>
                 <p><?= $movies->title ?></p>
             </div>
         <?php endforeach; ?>

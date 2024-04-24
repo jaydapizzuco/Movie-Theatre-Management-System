@@ -29,26 +29,14 @@
         <h1>All Movies</h1>
     </header><br><br>
 
-<!--    Display all movies 
-    <div id="gallery">
-    	<?php 
-    		foreach ($data as $index => $movies) { ?>
-    			<a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='200' height='200' alt='<?= $movies->image ?>'></a><br><br>
-                <p> <?= $movies->title ?> </p>
-    		<?php } ?>
-
-    </div> -->
-
-    <div id="gallery" class="row">
-            <?php foreach ($data as $index => $movies): ?>
-                <div class="col-md-4">
-                    <div class="movie">
-                        <a href="/Movie/individual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" class='zoom' alt="<?= $movies->title ?>"></a>
-                        <p><?= $movies->title ?></p>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
+    <div class="gallery">
+        <?php foreach ($data as $index => $movies): ?>
+            <div class="gallery-item">
+                <a href="/Movie/individual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" class="zoom" alt="<?= $movies->title ?>"></a>
+                <p><?= $movies->title ?></p>
+            </div>
+        <?php endforeach; ?>
+    </div>
 
 </body>
 

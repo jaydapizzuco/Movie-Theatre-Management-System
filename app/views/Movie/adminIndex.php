@@ -23,23 +23,19 @@
         <h1>Add Screening Times </h1>
     </header><br><br>
 
-    <div style="text-align: center;">
-    	<?php foreach ($data as $index => $movies) { 
-                if ($movies->status == 1){ ?>
-                    <div style=" margin-bottom: 20px;">
-                    <a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='200' height='200' alt='<?= $movies->image ?>'></a>
+    <div class="gallery">
+        <?php foreach ($data as $index => $movies): ?>
+            <div class="gallery-item">
+                <a href="/Movie/individual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" class="zoom" alt="<?= $movies->title ?>"></a>
+                <?php if ($movies->status == 1): ?>
                     <a href='/MovieSchedule/index?id=<?= $movies->movie_id ?>'><i class="bi bi-clock"></i></a>
                     <a href='/Movie/update?id=<?= $movies->movie_id ?>'><i class='bi-pencil-fill'></i></a>
                     <a href='/Movie/delete?id=<?= $movies->movie_id ?>'><i class='bi bi-trash'></i></a>
-                    <br>
-                    </div>
-    		<?php } else { ?>
-                 <div style=" margin-bottom: 20px">
-                <a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='100' height='100' alt='<?= $movies->image ?>'></a>
-                <a href='/Movie/activate?id=<?= $movies->movie_id ?>'><i class='bi bi-arrow-repeat'></i></a>
-                <br>
+                <?php else: ?>
+                    <a href='/Movie/activate?id=<?= $movies->movie_id ?>'><i class='bi bi-arrow-repeat'></i></a>
+                <?php endif; ?>
             </div>
-                <?php } } ?>
+        <?php endforeach; ?>
     </div>
 
     <footer>

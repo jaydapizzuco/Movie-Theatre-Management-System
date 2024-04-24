@@ -48,10 +48,26 @@ footer {text-align: center;
 .account a {text-decoration: none;
             color: white;}
 
-#gallery { display: flex;
+.gallery {display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
-    }
+        justify-content: center;
+        gap: 20px;
+        padding: 0 20px;}
+
+.gallery-item {background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        max-width: 250px;}
+
+.gallery-item img {width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;}
+
+.gallery-item a {color: #343a40;
+        text-decoration: none;
+        margin-right: 10px;}
 
 .zoom:hover{transform: scale(1.5);}
 

@@ -18,11 +18,11 @@ class MovieSchedule extends \app\core\Model{
 		$STMT->execute($data);
 	}
 
-	public function delete($schedule_id){
+	public function delete(){
 		$SQL = 'DELETE FROM movie_schedule WHERE schedule_id=:schedule_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
-			['schedule_id'=>$schedule_id]
+			['schedule_id'=>$this->schedule_id]
 		);
 	}
 

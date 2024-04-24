@@ -4,7 +4,7 @@ namespace app\controllers;
 class MovieSchedule extends \app\core\Controller {
 
     public function create() {
-         $movie = new \app\models\Movie();
+            $movie = new \app\models\Movie();
             $movie = $movie->getByID($_GET['id']);
             $_SESSION['movie_id'] = $movie->movie_id;
 
@@ -23,15 +23,16 @@ class MovieSchedule extends \app\core\Controller {
         }
     }
 
-    public function deleteSchedule($schedule_id) {
-        $schedule = MovieSchedule::getById($schedule_id);
-        if ($schedule) {
+    public function delete() {
+         $schedule = new \app\models\MovieSchedule();
+         $schedule = $schedule->getByID($_GET['id']);
+        
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $schedule->delete();
-            
-            $this->redirect('Movie/index');
-        } else {
-            
-            $this->view('error', ['message' => 'not a schedule enter with correct id']);
+            header('location:/Movie/adminIndex');
+        }
+        else{
+            $this->view('MovieSchedule/delete',$schedule);
         }
     }
 

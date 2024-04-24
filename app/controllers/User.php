@@ -111,6 +111,5 @@ class User extends \app\core\Controller{
 
     
     $this->view('User/adminReviews', ['reviews' => $reviews]);
-}
-
+    }
 }

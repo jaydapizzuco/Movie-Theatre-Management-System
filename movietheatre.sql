@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2024 at 04:29 AM
+-- Generation Time: Apr 24, 2024 at 06:53 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -82,12 +82,15 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`movie_id`, `title`, `image`, `description`, `length`, `director`, `trailer`, `release_date`, `ticket_revenue`, `status`) VALUES
-(1, 'Movie 2', 'movie1.png', 'The thrilling sequel to Movie 1', 116, 'John Doe', 'https://www.youtube.com/watch?v=jhFDyDgMVUI', '2024-04-26', 0, 1),
-(2, 'fgh', 'ghfg', 'fghfgh', 5745, 'fghfh', 'hfhfgh', '2024-04-22', 0, 0),
-(3, 'fgdfg', 'dfgd', 'dffgdf', 433, 'fdgdf', 'dgd', '2024-04-22', 0, 0),
 (4, 'Monkey Man', 'https://upload.wikimedia.org/wikipedia/en/2/2b/Monkey_Man_film.jpg', 'Oscar® nominee Dev Patel (Lion, Slumdog Millionaire) achieves an astonishing, tour-de-force feature directing debut with an action', 122, 'Dev Patel', 'https://www.youtube.com/watch?v=g8zxiB5Qhsc', '2024-04-22', 0, 1),
-(15, 'Movie 3', 'movie1.png', 'New MOvie', 123, 'Jane Deer', 'https://www.youtube.com/watch?v=jhFDyDgMVUI', '2024-04-22', 0, 1),
-(17, 'Movie 4', 'movie4.png', 'Travelling around the world ', 145, 'Henry Gold', 'https://www.youtube.com/watch?v=jhFDyDgMVUI', '2024-04-22', 0, 1);
+(18, 'Abigail', 'https://upload.wikimedia.org/wikipedia/en/b/bc/Abigail_Official_Poster.jpg', 'A group of would-be criminals kidnaps the 12-year-old daughter of a powerful underworld figure. Holding her for ransom in an isolated mansion, their plan starts to unravel when they discover their young captive is actually a bloodthirsty vampire.', 109, 'Matt Bettinelli-Olpin', 'https://www.youtube.com/watch?v=3PsP8MFH8p0', '2024-04-22', 0, 1),
+(19, 'Spy X Family Code: White', 'https://upload.wikimedia.org/wikipedia/en/a/ad/Spy_%C3%97_Family_Code_White_movie_poster.png', 'A spy and an assassin keep their double lives to themselves while pretending to be the perfect family.', 111, 'Takashi Katagiri', 'https://www.youtube.com/watch?v=m5TxWbtQ7qU', '2024-04-22', 0, 1),
+(20, 'The Fall Guy', 'https://upload.wikimedia.org/wikipedia/en/1/1f/The_Fall_Guy_%282024%29_poster.jpg', 'After leaving the business one year earlier, battle-scarred stuntman Colt Seavers springs back into action when the star of a big studio movie suddenly disappears. As the mystery surrounding the missing actor deepens, Colt soon finds himself ensnared in a sinister plot that pushes him to the edge of a fall more dangerous than any stunt.', 127, 'David Leitch', 'https://www.youtube.com/watch?v=EySdVK0NK1Y', '2024-04-22', 0, 1),
+(21, 'Challengers', 'https://upload.wikimedia.org/wikipedia/en/b/b4/Challengers_2024_poster.jpeg', 'Tashi, a tennis player turned coach, has transformed her husband from a mediocre player into a world-famous grand slam champion. To jolt him out of his recent losing streak, she makes him play a challenger event -- close to the lowest level of tournament on the pro tour. Tensions soon run high when he finds himself standing across the net from the once-promising, now burnt-out Patrick, his former best friend and Tashi\'s former boyfriend.', 131, 'Luca Guadagnino', 'https://www.youtube.com/watch?v=-2N3hmRmwHQ', '2024-04-22', 0, 1),
+(22, 'Civil War', 'https://upload.wikimedia.org/wikipedia/en/thumb/0/0d/Civil_War_2024_film_poster.jpeg/220px-Civil_War_2024_film_poster.jpeg', 'In a dystopian future America, a team of military-embedded journalists races against time to reach Washington, D.C., before rebel factions descend upon the White House.', 109, 'Alex Garland', 'https://www.youtube.com/watch?v=aDyQxtg0V2w', '2024-04-22', 0, 1),
+(23, 'Unsung Hero', 'https://upload.wikimedia.org/wikipedia/en/c/c4/Unsung_Hero_poster.jpg', 'David Smallbone, his pregnant wife and their seven children leave Australia to rebuild their lives in America. David and Helen realize the musical talent of their children, who become two of the most successful acts in Inspirational Music history.', 112, 'Joel Smallbone and Richard Ramsey', 'https://www.youtube.com/watch?v=UHyrHRNX9Rk', '2024-04-22', 0, 1),
+(24, 'Dune: Part Two', 'https://upload.wikimedia.org/wikipedia/en/5/52/Dune_Part_Two_poster.jpeg', 'Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the universe, he must prevent a terrible future only he can foresee.', 166, 'Denis Villeneuve', 'https://www.youtube.com/watch?v=Way9Dexny3w', '2024-04-22', 0, 1),
+(25, 'Irena\'s Vow', 'https://m.media-amazon.com/images/M/MV5BZjkyMmY4YTAtZGFjMS00ZTk3LWIzYTEtODk2OWYzY2Y0ZDY4XkEyXkFqcGdeQXVyNDExMzMxNjE@._V1_.jpg', 'Caught in a German roundup to be used as a slave labourer, Polish nurse Irena Gut becomes a German army major\'s housekeeper during World War II. Irena risks her life to conceal a dozen Jews within the major\'s home.', 121, 'Louise Archambault', 'https://www.youtube.com/watch?v=yy7SM6TN4pw', '2024-04-22', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -120,10 +123,21 @@ CREATE TABLE `movie_schedule` (
 --
 
 INSERT INTO `movie_schedule` (`schedule_id`, `movie_id`, `day`, `time_id`) VALUES
-(1, 15, 'monday', 2),
-(2, 17, 'tuesday', 4),
-(3, 1, 'friday', 6),
-(4, 4, 'Wednesday', 7);
+(4, 4, 'Wednesday', 7),
+(7, 4, 'Tuesday', 3),
+(8, 18, 'Monday', 2),
+(9, 18, 'Monday', 5),
+(10, 18, 'Wednesday', 7),
+(11, 18, 'Friday', 5),
+(12, 19, 'Thursday', 6),
+(13, 19, 'Monday', 2),
+(14, 19, 'Friday', 3),
+(15, 20, 'Tuesday', 3),
+(16, 21, 'Wednesday', 5),
+(17, 22, 'Friday', 4),
+(18, 23, 'Monday', 3),
+(19, 24, 'Tuesday', 5),
+(20, 25, 'Monday', 3);
 
 -- --------------------------------------------------------
 
@@ -343,13 +357,13 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `movie_schedule`
 --
 ALTER TABLE `movie_schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `orders`

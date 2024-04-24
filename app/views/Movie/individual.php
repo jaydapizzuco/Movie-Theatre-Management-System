@@ -38,7 +38,7 @@
                 <p><strong>Release Date:</strong> <?= $data->release_date ?></p>
             </div>
         </div>
-    </div>
+    </div><br><br>
 
     <div class="container">
         <h1>Screenings</h1>
@@ -53,7 +53,6 @@
             <?php } ?>
 
     </div>
-
 
     <footer>
         <br>Copyright &copy 2024 

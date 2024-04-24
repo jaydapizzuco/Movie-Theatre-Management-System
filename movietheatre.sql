@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2024 at 01:43 AM
+-- Generation Time: Apr 24, 2024 at 04:29 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -86,7 +86,8 @@ INSERT INTO `movie` (`movie_id`, `title`, `image`, `description`, `length`, `dir
 (2, 'fgh', 'ghfg', 'fghfgh', 5745, 'fghfh', 'hfhfgh', '2024-04-22', 0, 0),
 (3, 'fgdfg', 'dfgd', 'dffgdf', 433, 'fdgdf', 'dgd', '2024-04-22', 0, 0),
 (4, 'Monkey Man', 'https://upload.wikimedia.org/wikipedia/en/2/2b/Monkey_Man_film.jpg', 'Oscar® nominee Dev Patel (Lion, Slumdog Millionaire) achieves an astonishing, tour-de-force feature directing debut with an action', 122, 'Dev Patel', 'https://www.youtube.com/watch?v=g8zxiB5Qhsc', '2024-04-22', 0, 1),
-(15, 'Movie 3', 'movie1.png', 'New MOvie', 123, 'Jane Deer', 'https://www.youtube.com/watch?v=jhFDyDgMVUI', '2024-04-22', 0, 1);
+(15, 'Movie 3', 'movie1.png', 'New MOvie', 123, 'Jane Deer', 'https://www.youtube.com/watch?v=jhFDyDgMVUI', '2024-04-22', 0, 1),
+(17, 'Movie 4', 'movie4.png', 'Travelling around the world ', 145, 'Henry Gold', 'https://www.youtube.com/watch?v=jhFDyDgMVUI', '2024-04-22', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -119,7 +120,10 @@ CREATE TABLE `movie_schedule` (
 --
 
 INSERT INTO `movie_schedule` (`schedule_id`, `movie_id`, `day`, `time_id`) VALUES
-(1, 15, 'monday', 2);
+(1, 15, 'monday', 2),
+(2, 17, 'tuesday', 4),
+(3, 1, 'friday', 6),
+(4, 4, 'Wednesday', 7);
 
 -- --------------------------------------------------------
 
@@ -339,13 +343,13 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `movie_schedule`
 --
 ALTER TABLE `movie_schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `orders`

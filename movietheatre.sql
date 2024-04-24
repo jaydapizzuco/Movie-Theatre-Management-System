@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2024 at 12:44 AM
+-- Generation Time: Apr 24, 2024 at 01:43 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -85,7 +85,8 @@ INSERT INTO `movie` (`movie_id`, `title`, `image`, `description`, `length`, `dir
 (1, 'Movie 2', 'movie1.png', 'The thrilling sequel to Movie 1', 116, 'John Doe', 'https://www.youtube.com/watch?v=jhFDyDgMVUI', '2024-04-26', 0, 1),
 (2, 'fgh', 'ghfg', 'fghfgh', 5745, 'fghfh', 'hfhfgh', '2024-04-22', 0, 0),
 (3, 'fgdfg', 'dfgd', 'dffgdf', 433, 'fdgdf', 'dgd', '2024-04-22', 0, 0),
-(4, 'Monkey Man', 'https://upload.wikimedia.org/wikipedia/en/2/2b/Monkey_Man_film.jpg', 'Oscar® nominee Dev Patel (Lion, Slumdog Millionaire) achieves an astonishing, tour-de-force feature directing debut with an action', 122, 'Dev Patel', 'https://www.youtube.com/watch?v=g8zxiB5Qhsc', '2024-04-22', 0, 1);
+(4, 'Monkey Man', 'https://upload.wikimedia.org/wikipedia/en/2/2b/Monkey_Man_film.jpg', 'Oscar® nominee Dev Patel (Lion, Slumdog Millionaire) achieves an astonishing, tour-de-force feature directing debut with an action', 122, 'Dev Patel', 'https://www.youtube.com/watch?v=g8zxiB5Qhsc', '2024-04-22', 0, 1),
+(15, 'Movie 3', 'movie1.png', 'New MOvie', 123, 'Jane Deer', 'https://www.youtube.com/watch?v=jhFDyDgMVUI', '2024-04-22', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -112,6 +113,13 @@ CREATE TABLE `movie_schedule` (
   `day` varchar(15) NOT NULL,
   `time_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `movie_schedule`
+--
+
+INSERT INTO `movie_schedule` (`schedule_id`, `movie_id`, `day`, `time_id`) VALUES
+(1, 15, 'monday', 2);
 
 -- --------------------------------------------------------
 
@@ -197,6 +205,19 @@ CREATE TABLE `times` (
   `time_id` int(11) NOT NULL,
   `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `times`
+--
+
+INSERT INTO `times` (`time_id`, `time`) VALUES
+(1, '01:00:00'),
+(2, '03:20:00'),
+(3, '06:30:00'),
+(4, '07:05:00'),
+(5, '08:20:00'),
+(6, '09:15:00'),
+(7, '10:00:00');
 
 -- --------------------------------------------------------
 
@@ -318,13 +339,13 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `movie_schedule`
 --
 ALTER TABLE `movie_schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -360,7 +381,7 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT for table `times`
 --
 ALTER TABLE `times`
-  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`

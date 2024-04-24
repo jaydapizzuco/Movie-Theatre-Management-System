@@ -59,6 +59,17 @@
                 <input type="submit" name="action" value="Create"/><br><br>
                 <a href="/User/adminProfile">Cancel</a>
             </div><br>
+
+            <h2>Existing Screening Times</h2>
+            <?php 
+            $schedule = new \app\models\MovieSchedule();
+            $screenings = $schedule->getByMovieID($data->movie_id);
+        ?>
+
+        <?php 
+            foreach ($screenings as $index => $screening) { ?>
+               <h3><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></h3>
+            <?php } ?>
         </form>
     </div>
 

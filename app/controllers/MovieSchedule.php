@@ -1,19 +1,24 @@
 <?php
 namespace app\controllers;
 
-use app\models\MovieSchedule;
+class MovieSchedule extends \app\core\Controller {
 
-class MovieScheduleController extends \app\core\Controller {
+    public function createSchedule() {
 
-    public function createSchedule($movie_id, $day, $time_id) {
-        $schedule = new MovieSchedule();
-        $schedule->movie_id = $movie_id;
-        $schedule->day = $day;
-        $schedule->time_id = $time_id;
-        $schedule->insert();
+         if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $movie = new \app\models\Movie();
+            $movie = $movie->getByID($_GET['id']);
+            $_SESSION['movie_id'] = $movie->movie_id;
 
-        
-        $this->redirect('');
+            $schedule = new \app\models\MovieSchedule();
+            $schedule->movie_id = $movie->movie_id;
+            $schedule->day = $_POST['days'];
+            $schedule->time_id = $movie_schedule->getTimeId($_POST['times']);
+            $schedule->insert();
+        }
+       else{
+            $this->view('MovieSchedule/create');
+        }
     }
 
     public function deleteSchedule($schedule_id) {

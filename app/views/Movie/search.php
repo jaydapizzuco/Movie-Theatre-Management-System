@@ -17,7 +17,7 @@
 
 <body>
 
-    <form class="form-inline" action="/Movie/search" method="POST">
+    <form class="form-inline" method="POST" action='/Movie/search'>
         <input name="search" placeholder="eg: Movie 1" >
         <input type="submit" name= "action" value="Search by Title" >
         <input type="submit" name= "action" value="Search by Description" >
@@ -28,13 +28,13 @@
         <h1>Movies from Search Results</h1>
     </header><br><br>
 
-    <!-- Display all movies --> 
-    <div id="gallery">
-    	<?php 
-    		foreach ($data as $index => $movies) { ?>
-    			<a href="/Movie/individual?id=<?=$movies->movie_id ?>"><img src='<?= $movies->image ?>' class='zoom' width='200' height='200' alt='<?= $movies->image ?>'></a><br><br>
-    		<?php } ?>
-
+   <div class="gallery">
+        <?php foreach ($data as $index => $movies): ?>
+            <div class="gallery-item">
+                <a href="/Movie/individual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" class="zoom" alt="<?= $movies->title ?>"></a>
+                <p><?= $movies->title ?></p>
+            </div>
+        <?php endforeach; ?>
     </div>
 
 </body>

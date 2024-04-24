@@ -19,8 +19,8 @@
 
     <form class="form-inline" method="POST" action='/Movie/search'>
         <input name="search" placeholder="eg: Movie 1" >
-        <input type="submit" name= 'action' value="Search by Title" >
-        <input type="submit" name= 'action' value="Search by Description" >
+        <input type="submit" name='action' value="Search by Title" >
+        <input type="submit" name='action' value="Search by Description" >
     </form><br>
 
 

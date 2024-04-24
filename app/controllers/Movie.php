@@ -138,6 +138,7 @@ class Movie extends \app\core\Controller{
             elseif ($_POST['action'] == 'Search by Description'){
                 $result = $movie->getByDescription($search);
                 $this->view('/Movie/search', $result);
+
                 foreach ($result as $movies) {
                     $title = $movies->title;
                 }
@@ -147,4 +148,5 @@ class Movie extends \app\core\Controller{
             }
         }
     }
+
 }

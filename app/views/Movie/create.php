@@ -27,6 +27,7 @@
         <br><br>
 
         <form action="" method="post">
+            <h1>Movie Information</h1>
             <div class="form-group">
                 <input type="text" class="form-control" name="title" placeholder="Title" required>
             </div><br>
@@ -62,11 +63,11 @@
               <option value="monday">Monday</option>
               <option value="tuesday">Tuesday</option>
               <option value="Wednesday">Wednesday</option>
-              <option value="monday">Thursday</option>
-              <option value="tuesday">Friday</option>
-              <option value="Wednesday">Saturday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+              <option value="saturday">Saturday</option>
             </select>
-        </div>
+        </div><br>
 
         <div class="form-group">
              <select name="times" id="times">
@@ -78,7 +79,7 @@
               <option value="9:15">9:15</option>
               <option value="10:00">10:00</option>
             </select>
-        </div>
+        </div><br>
         
             <div class="form-group">
                 <input type="submit" name="action" value="Create"/><br><br>

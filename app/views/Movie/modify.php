@@ -26,6 +26,7 @@
         <br><br>
 
         <form action="" method="post">
+            <h1>Movie Information</h1>
             <div class="form-group">
                 <input type="text" class="form-control" name="title" placeholder="Title" value='<?= $data->title ?>' required>
             </div><br>
@@ -52,6 +53,31 @@
 
              <div class="form-group">
                 <input type="text" class="form-control" name="trailer" placeholder="Link to the trailer" value='<?= $data->trailer ?>' required>
+            </div><br>
+
+            <h1>Add a Screening Time</h1>
+            <div class="form-group">
+                <select name="days" id="days">
+                    <option value="sunday">Sunday</option>
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saturday">Saturday</option>
+                </select>
+            </div><br>
+
+            <div class="form-group">
+                <select name="times" id="times">
+                    <option value="1:00">1:00</option>
+                    <option value="3:20">3:20</option>
+                    <option value="6:30">6:30</option>
+                    <option value="7:05">7:05</option>
+                    <option value="8:20">8:20</option>
+                    <option value="9:15">9:15</option>
+                    <option value="10:00">10:00</option>
+                </select>
             </div><br>
 
             <div class="form-group">

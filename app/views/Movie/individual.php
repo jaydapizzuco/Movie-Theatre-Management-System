@@ -51,6 +51,7 @@
             foreach ($screenings as $index => $screening) { ?>
                <h2><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></h2>
             <?php } ?>
+
     </div>
 
 

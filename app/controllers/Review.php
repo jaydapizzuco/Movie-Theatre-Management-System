@@ -37,21 +37,30 @@ class Review extends \app\core\Controller{
     }
 
 
-    public function update(){
-        $review = new \app\models\Review();
-        $review = $review->getByID($_SESSION['review_id']);
+    public function update()
+{
+    
+    $review_id = $_SESSION['review_id'];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-            $review->review_text = $_POST['review_text'];
+    $review = new \app\models\Review();
+    $review = $review->getByID($review_id);
 
-            $review->update();
+   
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      
+        $review->review_text = $_POST['review_text'];
 
-            header('location:/User/profile');
-        }
-        else {
-            $this->view('Review/update');
-        }
+       
+        $review->update();
+
+        
+        header('location:/User/profile');
+        exit; 
+    } else {
+       
+        $this->view('Review/update', ['review' => $review]);
     }
+}
 
     public function approve(){
         $review = new \app\models\Review();

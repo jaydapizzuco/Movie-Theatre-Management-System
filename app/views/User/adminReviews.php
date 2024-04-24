@@ -52,7 +52,7 @@
 <?php endif; ?>
 
     <footer>
-        <p>&copy; 2024 Movie Theatre</p>
+       
     </footer>
 </body>
 </html>

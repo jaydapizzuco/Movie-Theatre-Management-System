@@ -1,24 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Movie Theatre</title>
-    <style><?php include 'app/css/movie.css'; ?></style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-</head>
-
-<!-- Navigation Bar -->
-<nav>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Reviews</title>
+    <link rel="stylesheet" href="app/css/movie.css"> 
+       <style>
+        .review-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .review-actions {
+            margin-top: 10px;
+        }
+    </style>
+    <nav>
     <a href="/User/profile">Account</a> &nbsp&nbsp
+    <a href="aboutus.html">About Us</a> &nbsp&nbsp
     <a href="/Movie/index">Movies</a>
 </nav>
+</head>
+<body>
+    <header>
+        <h1>Admin Reviews</h1>
+    </header>
+    <?php if (!empty($reviews) && is_array($reviews)) : ?>
+    <div class="review-container">
+        <?php foreach ($reviews as $review) : ?>
+            <div class="review-item">
+                <p>Review ID: <?php echo $review->review_id; ?></p>
+                <p>User ID: <?php echo $review->user_id; ?></p>
+                <p>Movie ID: <?php echo $review->movie_id; ?></p>
+                
+                <div class="review-actions">
+                    
+                    <form action="/Review/approve" method="post">
+                        <input type="hidden" name="review_id" value="<?php echo $review->review_id; ?>">
+                        <button type="submit">Approve</button>
+                    </form>
+                    <form action="/Review/reject" method="post">
+                        <input type="hidden" name="review_id" value="<?php echo $review->review_id; ?>">
+                        <button type="submit">Reject</button>
+                    </form>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php else : ?>
+    <p>there are no reviews </p>
+<?php endif; ?>
 
-<header>
-    <h1>Reviews</h1>
-</header>
-
-
-
+    <footer>
+        
+    </footer>
+</body>
 </html>

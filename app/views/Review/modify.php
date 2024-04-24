@@ -1,26 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Movie Theatre</title>
-    <style><?php include 'app/css/movie.css'; ?></style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Review</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
+<body>
 
-<!-- Navigation Bar -->
-<nav>
-    <a href="/User/profile">Account</a> &nbsp&nbsp
-    <a href="/Movie/index">Movies</a>
-</nav>
+<h2>Modify Review</h2>
 
-<header>
-    <h1>Modify review</h1>
-</header>
+<?php if ($review) : ?>
+   
+    <form method="POST" action="/Review/update">
+        <input type="hidden" name="review_id" value="<?= $review->review_id ?>">
 
-<a href="/User/profile">Cancel</a>
+        <label for="review_text">Review Text:</label>
+        <textarea id="review_text" name="review_text" rows="5"><?= $review->review_text ?></textarea>
+        <br>
 
+        <input type="submit" value="Update Review">
+    </form>
+<?php else : ?>
+    <p>Review not found </p>
+<?php endif; ?>
 
-
+</body>
 </html>
+

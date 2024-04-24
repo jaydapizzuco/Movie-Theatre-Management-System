@@ -52,18 +52,24 @@ class App{
         $this->addRoute('User/purchaseHistory' , 'Order,index');
 
         $this->addRoute('Movie/create' , 'Movie,create');
+        $this->addRoute('Movie/update' , 'Movie,update');
         $this->addRoute('Movie/delete' , 'Movie,delete');
         $this->addRoute('Movie/index' , 'Movie,index');
         $this->addRoute('Movie/adminIndex' , 'Movie,adminIndex');
         $this->addRoute('Movie/individual' , 'Movie,individual');
-        $this->addRoute('Movie/update' , 'Movie,update');
         $this->addRoute('Movie/activate' , 'Movie,activate');
         $this->addRoute('Movie/search' , 'Movie,search');
+
         $this->addRoute('MovieSchedule/create' , 'MovieSchedule,create');
         $this->addRoute('MovieSchedule/delete' , 'MovieSchedule,delete');
         $this->addRoute('MovieSchedule/index' , 'MovieSchedule,index');
 
-
+        $this->addRoute('Review/index' , 'Review,index');
+        $this->addRoute('Review/adminIndex' , 'Review,adminIndex');
+        $this->addRoute('Review/create' , 'Review,create');
+        $this->addRoute('Review/update' , 'Review,update');
+        $this->addRoute('Review/delete' , 'Review,delete');
+        $this->addRoute('Review/profileIndex' , 'Review,profileIndex');
 
         [$controllerMethod, $namedParams] = $this->resolve($url);
 

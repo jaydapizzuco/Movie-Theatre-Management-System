@@ -105,3 +105,10 @@ class User extends \app\core\Controller{
     }
 
 }
+public function adminReviews() {
+    $reviewModel = new \app\models\Review();
+    $reviews = $reviewModel->getAllDisapproved(); 
+
+    
+    $this->view('User/adminReviews', ['reviews' => $reviews]);
+}

@@ -3,21 +3,23 @@ namespace app\controllers;
 
 class MovieSchedule extends \app\core\Controller {
 
-    public function createSchedule() {
-
-         if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            $movie = new \app\models\Movie();
+    public function create() {
+         $movie = new \app\models\Movie();
             $movie = $movie->getByID($_GET['id']);
             $_SESSION['movie_id'] = $movie->movie_id;
+
+         if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
             $schedule = new \app\models\MovieSchedule();
             $schedule->movie_id = $movie->movie_id;
             $schedule->day = $_POST['days'];
-            $schedule->time_id = $movie_schedule->getTimeId($_POST['times']);
+            $schedule->time_id = $schedule->getTimeId($_POST['times']);
             $schedule->insert();
+             //redirect
+            header('location:/Movie/adminIndex');
         }
        else{
-            $this->view('MovieSchedule/create');
+            $this->view('MovieSchedule/create',$movie);
         }
     }
 

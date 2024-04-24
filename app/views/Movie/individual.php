@@ -40,6 +40,19 @@
         </div>
     </div>
 
+    <div class="container">
+        <h1>Screenings</h1>
+        <?php 
+            $schedule = new \app\models\MovieSchedule();
+            $screenings = $schedule->getByMovieID($data->movie_id);
+        ?>
+
+        <?php 
+            foreach ($screenings as $index => $screening) { ?>
+               <h2><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></h2>
+            <?php } ?>
+    </div>
+
 
     <footer>
         <br>Copyright &copy 2024 

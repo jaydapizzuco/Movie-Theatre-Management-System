@@ -56,7 +56,6 @@ class Movie extends \app\core\Controller{
             $movie->insert();
 
             $movie_schedule = new \app\models\MovieSchedule();
-
             $id = $movie->getByTitle($movie->title);
             $movie_schedule->movie_id = $id->movie_id;
             $movie_schedule->day = $_POST['days'];

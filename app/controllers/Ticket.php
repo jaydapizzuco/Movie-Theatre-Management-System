@@ -25,15 +25,12 @@ class Ticket extends \app\core\Controller {
         $ticket->movie_time = trim($screeningInfo[1]);
         $ticket->insert();
         }
-
     }
-    else{
     $this->view('Ticket/seatSelection',$movie);
     }
-}
 
     public function createTicket($order_id, $movie_id, $seat_id, $movie_day, $movie_time) {
-        $ticket = new \app\models\Ticket();
+        $ticket = new Ticket();
         $ticket->order_id = $order_id;
         $ticket->movie_id = $movie_id;
         $ticket->seat_id = $seat_id;
@@ -42,7 +39,7 @@ class Ticket extends \app\core\Controller {
         $ticket->insert();
 
        
-        $this->view('User/profile');
+        $this->view('/cart');//dont know where we going to redirect it 
     }
 
     public function deleteTicket($ticket_id) {

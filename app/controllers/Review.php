@@ -19,6 +19,14 @@ class Review extends \app\core\Controller{
             $this->view('Review/create');
         }
     }
+    public function index($movie_id) {
+        
+        $reviews = (new \app\models\Review())->getByMovie($movie_id);
+        $movie = (new \app\models\Movie())->getByID($movie_id);
+
+      
+        $this->view('review/index', ['reviews' => $reviews, 'movie' => $movie]);
+    }
 
 
     public function delete(){

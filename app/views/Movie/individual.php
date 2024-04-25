@@ -53,8 +53,11 @@
             <?php } ?>
 
             
-
+        
              <a href='/Ticket/seatSelection?id=<?= $movie->movie_id ?>'> <h2>Book Tickets</h2></i></a>
+             <a href='/Review/index?movie_id=<?= $movie->movie_id ?>' class="btn btn-primary">View Reviews</a>
+
+
 
              </div><br><br>
     </form>

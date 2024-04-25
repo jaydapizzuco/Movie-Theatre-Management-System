@@ -23,6 +23,7 @@ class Review extends \app\core\Model{
 			'review_text'=>$this->review_text]
 		);
 	}
+	
 
 	public function update(){
 		$SQL = 'UPDATE review SET review_text=:review_text WHERE review_id=:review_id';

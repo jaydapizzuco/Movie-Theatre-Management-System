@@ -70,6 +70,8 @@ class App{
         $this->addRoute('Review/update' , 'Review,update');
         $this->addRoute('Review/delete' , 'Review,delete');
         $this->addRoute('Review/profileIndex' , 'Review,profileIndex');
+        
+         $this->addRoute('Ticket/seatSelection' , 'Ticket,seatSelection');
 
         [$controllerMethod, $namedParams] = $this->resolve($url);
 

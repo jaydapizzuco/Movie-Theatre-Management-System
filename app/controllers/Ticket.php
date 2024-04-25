@@ -1,9 +1,11 @@
 <?php
 namespace app\controllers;
 
-use app\models\Ticket;
+class Ticket extends \app\core\Controller {
 
-class TicketController extends \app\core\Controller {
+    public function seatSelection(){
+        $this->view('Ticket/seatSelection');
+    }
 
     public function createTicket($order_id, $movie_id, $seat_id, $movie_day, $movie_time) {
         $ticket = new Ticket();

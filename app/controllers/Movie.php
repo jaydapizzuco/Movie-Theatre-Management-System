@@ -40,7 +40,7 @@ class Movie extends \app\core\Controller{
         $this->view('Movie/individual', $movie);
     }
 
-    // #[\app\filters\AdminLogin] 
+    #[\app\filters\AdminLogin] 
     public function create(){
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $movie = new \app\models\Movie();
@@ -70,7 +70,7 @@ class Movie extends \app\core\Controller{
         }
     }
 
-    // #[\app\filters\AdminLogin] 
+    #[\app\filters\AdminLogin] 
     public function update(){
         $movie = new \app\models\Movie();
         $movie = $movie->getByID($_GET['id']);
@@ -95,7 +95,7 @@ class Movie extends \app\core\Controller{
 
     }
 
-    // #[\app\filters\AdminLogin] 
+    #[\app\filters\AdminLogin] 
     public function delete(){
         $movie = new \app\models\Movie();
         $movie = $movie->getByID($_GET['id']);
@@ -108,7 +108,7 @@ class Movie extends \app\core\Controller{
         }
     }
 
-    // #[\app\filters\AdminLogin]
+    #[\app\filters\AdminLogin]
     public function activate(){
         $movie = new \app\models\Movie();
         $movie = $movie->getByID($_GET['id']);

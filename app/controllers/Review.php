@@ -3,9 +3,6 @@ namespace app\controllers;
 
 class Review extends \app\core\Controller{
 
-
-
-
     public function create(){
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $review = new \app\models\Review();

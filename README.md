@@ -1,5 +1,7 @@
 # Movie-Theatre-Management-System
 
-#Admin Login Credentials
+# Admin Login Credentials
+
 admin@email.com
-123
+
+passowrd: 123

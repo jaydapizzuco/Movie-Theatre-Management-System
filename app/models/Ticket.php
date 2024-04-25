@@ -13,7 +13,7 @@ class Ticket extends \app\core\Model {
 	public $movie_time;
 
 	public function insert(){
-		$SQL = 'INSERT INTO ticket(order_id,movie_id,seat_id,movie_day,movie_time) VALUE (:order_id,:movie_id,:seat_id,:movie_day,:movie_time';
+		$SQL = 'INSERT INTO ticket(order_id, movie_id,seat_id, movie_day, movie_time) VALUES (:order_id,:movie_id,:seat_id,:movie_day,:movie_time)';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['order_id'=>$this->order_id,

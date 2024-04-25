@@ -51,11 +51,10 @@
             <br>
 
         </div>
-    </form>
+    
   </div>
   <br><br>
  
-<form method="post">
 <div class = "container2">
   <?php
     $rows = 4;
@@ -63,7 +62,7 @@
 
     for ($i = 1; $i <= $rows; $i++) {
       for ($j = 1; $j <= $cols; $j++) {
-        echo '<input type="checkbox" class="seat visually-hidden" name="seats[]" value="' . $i . '-' . $j . '" id="' . $i . '-' . $j . '">';
+        echo '<input type="checkbox" class="seat visually-hidden" name="seats" value="' . $i . $j . '" id="' . $i . $j . '">';
         echo '<label class="seat" for="' . $i . '-' . $j . '"><span class="bi bi-square"></span></label>';
       }
       echo '<br>';

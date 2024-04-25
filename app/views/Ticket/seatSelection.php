@@ -73,6 +73,7 @@
 
   <script>
 document.addEventListener("DOMContentLoaded", function() {
+    getValue();
   var seats = document.querySelectorAll('.seat');
   seats.forEach(function(seat) {
     seat.addEventListener('click', function() {
@@ -86,15 +87,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function getValue() {
     let checkboxes =document.getElementsByName('seats');
-    let result = "";
+    let result = ""; 
       for (var i = 0; i < checkboxes.length; i++) {
           if (checkboxes[i].checked) {
                     result += checkboxes[i].value
-                        + ", ";
+                        + ",";
                 }
             }
- var div = document.getElementById('selectedSeats');
-div.innerHTML += "<p> You have selected : "                + result + "</p>";
+
+//  var div = document.getElementById('selectedSeats');
+// div.innerHTML += "<p> You have selected : "                + result + "</p>";
     // document.write("<p> You have selected : "
     //             + result + "</p>");
         }
@@ -107,7 +109,9 @@ div.innerHTML += "<p> You have selected : "                + result + "</p>";
     </button>
 
 <!-- pass result through url to fetch them in controller -->
-<input type="submit" value="Book Tickets" onclick="getValue()">
+<!-- we need to pass the js result variable into the php result variable -->
+<input type="submit" value="Book Tickets"/>
+ <input type="hidden" name="result" value="<?= $result ?>"/>
 </form>
 </div>
 

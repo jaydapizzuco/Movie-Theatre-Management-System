@@ -55,6 +55,8 @@
   </div>
   <br><br>
  
+ <div id = "selectedSeats"></div> 
+
 <div class = "container2">
   <?php
     $rows = 4;
@@ -88,20 +90,24 @@ function getValue() {
       for (var i = 0; i < checkboxes.length; i++) {
           if (checkboxes[i].checked) {
                     result += checkboxes[i].value
-                        + " " + " Seat, ";
+                        + ", ";
                 }
             }
-    document.write("<p> You have selected : "
-                + result + "</p>");
+ var div = document.getElementById('selectedSeats');
+div.innerHTML += "<p> You have selected : "                + result + "</p>";
+    // document.write("<p> You have selected : "
+    //             + result + "</p>");
         }
 </script>
 
 <!-- https://www.geeksforgeeks.org/how-to-get-all-checked-values-of-checkbox-in-javascript/ -->
+
 <button onclick="getValue()">
         Get Value
     </button>
 
-<input type="submit" value="Book Tickets">
+<!-- pass result through url to fetch them in controller -->
+<input type="submit" value="Book Tickets" onclick="getValue()">
 </form>
 </div>
 

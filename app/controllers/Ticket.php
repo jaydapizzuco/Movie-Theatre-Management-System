@@ -14,7 +14,8 @@ class Ticket extends \app\core\Controller {
         $screeningInfo = explode(':', $_POST['screening']);
         $schedule->day = trim($screeningInfo[0]);
 
-        $selectedSeats = explode(',' , $_POST['seats']);
+        // $selectedSeats = explode("," , $_POST['selected']);
+        $selectedSeats = $_POST['seats'];
 
         foreach ($selectedSeats as $seat) {
             $ticket = new \app\models\Ticket();
@@ -25,8 +26,7 @@ class Ticket extends \app\core\Controller {
             $ticket->movie_time = trim($screeningInfo[1]);
             $ticket->insert();
         }
-
-        $this->view('Order/checkout');
+        // $this->view('Order/checkout', $selectedSeats);
     }
     else{
         $this->view('Ticket/seatSelection',$movie);

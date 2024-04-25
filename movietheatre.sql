@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2024 at 06:53 PM
+-- Generation Time: Apr 25, 2024 at 10:14 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -208,7 +208,7 @@ CREATE TABLE `ticket` (
   `order_id` int(11) NOT NULL,
   `movie_id` int(11) NOT NULL,
   `seat_id` int(11) NOT NULL,
-  `movie_day` date NOT NULL,
+  `movie_day` varchar(15) NOT NULL,
   `movie_time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -393,7 +393,7 @@ ALTER TABLE `seat`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `times`

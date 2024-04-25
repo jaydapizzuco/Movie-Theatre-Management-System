@@ -57,47 +57,47 @@
  
  <div id = "selectedSeats"></div> 
 
-<div class = "container2">
-  <?php
-    $rows = 4;
-    $cols = 10;
+    <div class = "container2">
+        <form method="POST" name="form" action=""> 
+            <?php
+                $rows = 4;
+                $cols = 10;
 
-    for ($i = 1; $i <= $rows; $i++) {
-      for ($j = 1; $j <= $cols; $j++) {
-        echo '<input type="checkbox" class="seat visually-hidden" name="seats" value="' . $i . $j . '" id="' . $i . $j . '">';
-        echo '<label class="seat" for="' . $i . $j . '"><span class="bi bi-square"></span></label>';
-      }
-      echo '<br>';
-    }
-  ?>
+                for ($i = 1; $i <= $rows; $i++) {
+                    for ($j = 1; $j <= $cols; $j++) {
+                        echo '<input type="checkbox" class="seat visually-hidden" name="seats[]" value="' . $i . $j . '" id="' . $i . $j . '">';
+                        echo '<label class="seat" for="' . $i . $j . '"><span class="bi bi-square"></span></label>';
+                    }
+                    echo '<br>';
+                }
+            ?>
+            <input type="submit" name="selected" value="Book Tickets"/>
+        </form> 
 
-  <script>
-document.addEventListener("DOMContentLoaded", function() {
-    getValue();
-  var seats = document.querySelectorAll('.seat');
-  seats.forEach(function(seat) {
-    seat.addEventListener('click', function() {
-      var icon = this.querySelector('span');
-      icon.classList.toggle('bi-square'); 
-      icon.classList.toggle('bi-square-fill'); 
-    });
-  });
-});
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            getValue();
+            var seats = document.querySelectorAll('.seat');
+            seats.forEach(function(seat) {
+                seat.addEventListener('click', function() {
+                    var icon = this.querySelector('span');
+                    icon.classList.toggle('bi-square'); 
+                    icon.classList.toggle('bi-square-fill'); 
+                });
+            });
+        });
 
-    function getValue() {
-        let checkboxes =document.getElementsByName('seats');
-        let result = ""; 
-        for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-                result += checkboxes[i].value + ",";
+        function getValue() {
+            let checkboxes = document.getElementsByName('seats');
+            let result = ""; 
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                  result += checkboxes[i].value + ",";
+                }
             }
         }
-    }
-</script>
 
-    <form method="get" name="form" action="/Order/checkout">
-        <input type="submit" name="seats" value="Book Tickets"/>
-    </form>
+    </script>
 
     <footer>
         <br>Copyright &copy 2024 

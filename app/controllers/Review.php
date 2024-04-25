@@ -19,14 +19,36 @@ class Review extends \app\core\Controller{
             $this->view('Review/create');
         }
     }
-    public function index($movie_id) {
-        
-        $reviews = (new \app\models\Review())->getByMovie($movie_id);
-        $movie = (new \app\models\Movie())->getByID($movie_id);
+  
+    public function index($movie_id)
+{
+    $reviews = (new \app\models\Review())->getByMovie($movie_id);
+    $movie = (new \app\models\Movie())->getByID($movie_id);
+   
+    $this->view('review/index', ['reviews' => $reviews, 'movie' => $movie]);
+}
+public function store()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $review = new \app\models\Review();
 
-      
-        $this->view('review/index', ['reviews' => $reviews, 'movie' => $movie]);
+       
+        $review->user_id = $_SESSION['user_id'];
+        $review->movie_id = $_POST['movie_id'];
+        $review->stars = $_POST['stars'];
+        $review->review_text = $_POST['review_text'];
+
+        $review->insert();
+       
+        header('Location: /Movie/individual?id=' . $_POST['movie_id']);
+        exit;
+    } else {
+        
+        header('Location: /');
+        exit;
     }
+}
+
 
 
     public function delete(){
@@ -65,6 +87,14 @@ class Review extends \app\core\Controller{
        
         $this->view('Review/update', ['review' => $review]);
     }
+}
+
+public function modify()
+{
+    
+    $reviews = (new \app\models\Review())->getByUser($_SESSION['user_id']);
+    
+    $this->view('review/modify', ['reviews' => $reviews]);
 }
 
     public function approve(){

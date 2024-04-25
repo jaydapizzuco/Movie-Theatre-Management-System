@@ -12,6 +12,7 @@
     <div class="movie-cover">
         <img src="<?= $movie->image ?>" alt="<?= $movie->title ?>">
     </div>
+    
     <div class="review-list">
         <h2>All Reviews:</h2>
         <ul>
@@ -24,6 +25,7 @@
             <?php endif; ?>
         </ul>
     </div>
+    <a href="/Review/create?id=<?= $movie->movie_id ?>" class="btn btn-primary">Write Review</a>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

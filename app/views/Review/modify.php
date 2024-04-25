@@ -2,72 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modify Review</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-        h2 {
-            text-align: center;
-        }
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            resize: vertical;
-        }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<div class="container">
+    <h1>Modify Your Reviews</h1>
 
-<h2>Modify Review</h2>
+    <?php if (!empty($reviews)) : ?>
+        <ul class="list-group">
+            <?php foreach ($reviews as $review) : ?>
+                <li class="list-group-item">
+                    <div>
+                        <h3><?= $review->movie_title ?></h3>
+                        <p>Stars: <?= $review->stars ?></p>
+                        <p>Review Text: <?= $review->review_text ?></p>
+                    </div>
+                    <a href="/Review/update?id=<?= $review->review_id ?>" class="btn btn-primary">Modify Review</a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else : ?>
+        <p>No reviews found.</p>
+    <?php endif; ?>
+</div>
 
-<?php if ($review) : ?>
-   
-    <form method="POST" action="/Review/update">
-        <input type="hidden" name="review_id" value="<?= $review->review_id ?>">
-
-        <label for="review_text">Review Text:</label>
-        <textarea id="review_text" name="review_text" rows="5"><?= $review->review_text ?></textarea>
-        <br>
-
-        <input type="submit" value="Update Review">
-    </form>
-<?php else : ?>
-    <p>Review not found </p>
-<?php endif; ?>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

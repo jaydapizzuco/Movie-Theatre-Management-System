@@ -82,14 +82,12 @@ class Movie extends \app\core\Model{
 		return $movies;
 	}
 
-	public function getByID($movie_id){
-		$SQL = 'SELECT * FROM movie WHERE movie_id=:movie_id';
+	public function getByID($movie_id) {
+		$SQL = 'SELECT * FROM movie WHERE movie_id = :movie_id';
 		$STMT = self::$_conn->prepare($SQL);
-		$STMT->execute(
-			['movie_id'=>$movie_id]
-		);
+		$STMT->execute(['movie_id' => $movie_id]);
 		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Movie');
-		return $STMT->fetch();
+		return $STMT->fetch(); 
 	}
 
 	public function getByTitle($title){

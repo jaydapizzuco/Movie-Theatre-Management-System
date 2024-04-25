@@ -79,7 +79,7 @@ class Review extends \app\core\Model{
 	}
 
 	public function getByMovie($movie_id){
-		$SQL = 'SELECT * FROM review WHERE movie_id=:movie_id AND approved=1';
+		$SQL = 'SELECT * FROM review WHERE movie_id=:movie_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['movie_id'=>$movie_id]

@@ -1,49 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Movie Theatre</title>
-    <style><?php include 'app/css/movie.css'; ?></style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+    <meta charset="UTF-8">
+    <title>Create Review</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
-<!-- Navigation Bar -->
-<nav>
-    <a href="/User/profile">Account</a> &nbsp&nbsp
-    <a href="/Movie/index">Movies</a>
-</nav>
-
 <body>
-
-    <!-- Header Section-->
-    <header>
-        <h1>Create a Review</h1>
-    </header><br><br>
-
-    <!-- Register Section -->
-    <div class="container">
-        <br><br>
-
-        <form action="" method="post">
-            <h1>Review Information</h1>
-            <div class="form-group">
-                <input type="text" class="form-control" name="stars" placeholder="Number of Stars" required>
-            </div><br>
-
-            <div class="form-group">
-                <input type="text" class="form-control" name="review_text" placeholder="Review Text..." required>
-            </div><br>
-        
-            <div class="form-group">
-                <input type="submit" name="action" value="Submit Review for Approval"/><br><br>
-                <a href="/User/profile">Cancel</a>
-            </div><br>
-        </form>
+<div class="container">
+    <h1>Create Review for <?= $movie->title ?></h1>
+    <div class="movie-cover">
+        <img src="<?= $movie->image ?>" alt="<?= $movie->title ?>" style="max-width: 300px;">
     </div>
-
-    <footer>
-        <br>Copyright &copy 2024 
-    </footer>
+    <form method="POST" action="/Review/store">
+        <input type="hidden" name="movie_id" value="<?= $movie->movie_id ?>">
+        
+        <div class="mb-3">
+            <label for="stars" class="form-label">Stars:</label>
+            <select class="form-select" name="stars" id="stars" required>
+                <option value="1">1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label for="review_text" class="form-label">Review Text:</label>
+            <textarea class="form-control" name="review_text" id="review_text" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+    </form>
+    <a href="/Review/modify" class="btn btn-secondary mt-3">Modify Your Reviews</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+</html>

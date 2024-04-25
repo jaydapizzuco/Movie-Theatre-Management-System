@@ -9,6 +9,7 @@ class Movie extends \app\core\Controller{
         $this->view('Movie/index', $allMovies);
     }
 
+    #[\app\filters\AdminLogin] 
     public function adminIndex(){
         $allMovies = new \app\models\Movie();
         $allMovies = $allMovies->getAll();

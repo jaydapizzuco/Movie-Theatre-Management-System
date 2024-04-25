@@ -29,8 +29,31 @@
 </head>
 <body>
 	<header>
-        <h1>Select Your Seats</h1>
+        <h1>Book Tickets for <?= $data->title ?></h1>
     </header><br><br>
+
+    <?php 
+            $schedule = new \app\models\MovieSchedule();
+            $screenings = $schedule->getByMovieID($data->movie_id);
+        ?>
+
+          <div class = "container">
+          <h2> Select a Screening </h2>
+    <form action="" method="post">
+           <div class="form-group">
+            <select name="screening" id="screening">
+               <?php 
+            foreach ($screenings as $index => $screening) { ?>
+                <option value="<?= $screening->day ?>:<?= $screening->getTime($screening->time_id)?>"><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></option>
+            <?php } ?> 
+             
+            </select>
+            <br>
+
+        </div>
+    </form>
+  </div>
+  <br><br>
  
 <form method="post">
 <div class = "container2">

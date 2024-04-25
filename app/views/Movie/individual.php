@@ -52,7 +52,13 @@
                <h2><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></h2>
             <?php } ?>
 
-    </div>
+            
+
+             <a href='/Ticket/seatSelection?id=<?= $movie->movie_id ?>'> <h2>Book Tickets</h2></i></a>
+
+             </div><br><br>
+    </form>
+</div>
 
     <footer>
         <br>Copyright &copy 2024 

@@ -4,4 +4,4 @@
 
 admin@email.com
 
-passowrd: 123
+password: 123

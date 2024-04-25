@@ -63,7 +63,7 @@
     for ($i = 1; $i <= $rows; $i++) {
       for ($j = 1; $j <= $cols; $j++) {
         echo '<input type="checkbox" class="seat visually-hidden" name="seats" value="' . $i . $j . '" id="' . $i . $j . '">';
-        echo '<label class="seat" for="' . $i . '-' . $j . '"><span class="bi bi-square"></span></label>';
+        echo '<label class="seat" for="' . $i . $j . '"><span class="bi bi-square"></span></label>';
       }
       echo '<br>';
     }
@@ -80,8 +80,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
+
+function getValue() {
+    let checkboxes =document.getElementsByName('seats');
+    let result = "";
+      for (var i = 0; i < checkboxes.length; i++) {
+          if (checkboxes[i].checked) {
+                    result += checkboxes[i].value
+                        + " " + " Seat, ";
+                }
+            }
+    document.write("<p> You have selected : "
+                + result + "</p>");
+        }
 </script>
 
+<!-- https://www.geeksforgeeks.org/how-to-get-all-checked-values-of-checkbox-in-javascript/ -->
+<button onclick="getValue()">
+        Get Value
+    </button>
 
 <input type="submit" value="Book Tickets">
 </form>

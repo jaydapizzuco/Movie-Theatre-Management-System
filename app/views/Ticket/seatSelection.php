@@ -84,37 +84,20 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-
-function getValue() {
-    let checkboxes =document.getElementsByName('seats');
-    let result = ""; 
-      for (var i = 0; i < checkboxes.length; i++) {
-          if (checkboxes[i].checked) {
-                    result += checkboxes[i].value
-                        + ",";
-                }
+    function getValue() {
+        let checkboxes =document.getElementsByName('seats');
+        let result = ""; 
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                result += checkboxes[i].value + ",";
             }
-
-//  var div = document.getElementById('selectedSeats');
-// div.innerHTML += "<p> You have selected : "                + result + "</p>";
-    // document.write("<p> You have selected : "
-    //             + result + "</p>");
         }
+    }
 </script>
 
-<!-- https://www.geeksforgeeks.org/how-to-get-all-checked-values-of-checkbox-in-javascript/ -->
-
-<button onclick="getValue()">
-        Get Value
-    </button>
-
-<!-- pass result through url to fetch them in controller -->
-<!-- we need to pass the js result variable into the php result variable -->
-<input type="submit" value="Book Tickets"/>
- <input type="hidden" name="result" value="<?= $result ?>"/>
-</form>
-</div>
-
+    <form method="get" name="form" action="/Order/checkout">
+        <input type="submit" name="seats" value="Book Tickets"/>
+    </form>
 
     <footer>
         <br>Copyright &copy 2024 

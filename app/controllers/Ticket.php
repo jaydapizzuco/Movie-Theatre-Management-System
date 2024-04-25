@@ -14,21 +14,22 @@ class Ticket extends \app\core\Controller {
         $screeningInfo = explode(':', $_POST['screening']);
         $schedule->day = trim($screeningInfo[0]);
 
-    $selectedSeats = explode(',', $_POST['result']);
-     foreach ($selectedSeats as $seat) {
-        echo $seat;
-        $ticket = new \app\models\Ticket();
-        $ticket->order_id = 1;
-        $ticket->movie_id =$movie->movie_id;
-        $ticket->seat_id = $seat;
-        $ticket->movie_day = $schedule->day;
-        $ticket->movie_time = trim($screeningInfo[1]);
-        $ticket->insert();
+        $selectedSeats = explode(',' , $_POST['seats']);
+
+        foreach ($selectedSeats as $seat) {
+            $ticket = new \app\models\Ticket();
+            $ticket->order_id = 1;
+            $ticket->movie_id =$movie->movie_id;
+            $ticket->seat_id = $seat;
+            $ticket->movie_day = $schedule->day;
+            $ticket->movie_time = trim($screeningInfo[1]);
+            $ticket->insert();
         }
-        $this->view('User/profile');
+
+        $this->view('Order/checkout');
     }
     else{
-    $this->view('Ticket/seatSelection',$movie);
+        $this->view('Ticket/seatSelection',$movie);
     }
  }
 

@@ -9,21 +9,19 @@ class AdminLogin implements \app\core\AccessFilter{
 
 			$user = new \app\models\User();
 			$status = $user->isAdmin($_SESSION['user_id']);
-
+			
 			if($status == 1){
-				return true;
+				return false;
 			}
 
 			else{
 				header('location:/User/profile');
-				return false;		
+				return true;		
 			}
 		}
 		else{
 			header('location:/User/login');
-			return false;
+			return true;
 		}	
 	}
-
-
 }

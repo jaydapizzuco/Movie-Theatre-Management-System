@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 25, 2024 at 10:14 PM
+-- Generation Time: Apr 26, 2024 at 02:53 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -155,6 +155,13 @@ CREATE TABLE `orders` (
   `order_status` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `number_tickets`, `order_status`) VALUES
+(9, 1, '2024-04-26', 40, 4, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -196,6 +203,56 @@ CREATE TABLE `seat` (
   `seat_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `seat`
+--
+
+INSERT INTO `seat` (`seat_id`) VALUES
+(10),
+(11),
+(12),
+(13),
+(14),
+(15),
+(16),
+(17),
+(18),
+(19),
+(20),
+(21),
+(22),
+(23),
+(24),
+(25),
+(26),
+(27),
+(28),
+(29),
+(30),
+(31),
+(32),
+(33),
+(34),
+(35),
+(36),
+(37),
+(38),
+(39),
+(40),
+(41),
+(42),
+(43),
+(44),
+(45),
+(46),
+(47),
+(48),
+(49),
+(110),
+(210),
+(310),
+(410);
+
 -- --------------------------------------------------------
 
 --
@@ -211,6 +268,16 @@ CREATE TABLE `ticket` (
   `movie_day` varchar(15) NOT NULL,
   `movie_time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ticket`
+--
+
+INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_day`, `movie_time`) VALUES
+(5, 9, 19, 12, 'Thursday', '00:00:09'),
+(6, 9, 19, 13, 'Thursday', '00:00:09'),
+(7, 9, 19, 14, 'Thursday', '00:00:09'),
+(8, 9, 19, 16, 'Thursday', '00:00:09');
 
 -- --------------------------------------------------------
 
@@ -369,7 +436,7 @@ ALTER TABLE `movie_schedule`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `profile`
@@ -387,13 +454,13 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `seat`
 --
 ALTER TABLE `seat`
-  MODIFY `seat_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `seat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=411;
 
 --
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `times`

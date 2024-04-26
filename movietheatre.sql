@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 26, 2024 at 07:31 PM
+-- Generation Time: Apr 26, 2024 at 08:48 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -163,20 +163,8 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `number_tickets`, `cart_status`, `order_status`) VALUES
 (1, 1, '2024-04-26', 20, 2, 1, 0),
 (2, 1, '2024-04-26', 40, 4, 1, 0),
-(3, 1, '2024-04-26', 20, 2, 1, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `profile`
---
-
-DROP TABLE IF EXISTS `profile`;
-CREATE TABLE `profile` (
-  `profile_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(3, 1, '2024-04-26', 20, 2, 1, 0),
+(4, 1, '2024-04-26', 20, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -198,67 +186,6 @@ CREATE TABLE `review` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seat`
---
-
-DROP TABLE IF EXISTS `seat`;
-CREATE TABLE `seat` (
-  `seat_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `seat`
---
-
-INSERT INTO `seat` (`seat_id`) VALUES
-(10),
-(11),
-(12),
-(13),
-(14),
-(15),
-(16),
-(17),
-(18),
-(19),
-(20),
-(21),
-(22),
-(23),
-(24),
-(25),
-(26),
-(27),
-(28),
-(29),
-(30),
-(31),
-(32),
-(33),
-(34),
-(35),
-(36),
-(37),
-(38),
-(39),
-(40),
-(41),
-(42),
-(43),
-(44),
-(45),
-(46),
-(47),
-(48),
-(49),
-(110),
-(210),
-(310),
-(410);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `ticket`
 --
 
@@ -269,22 +196,25 @@ CREATE TABLE `ticket` (
   `movie_id` int(11) NOT NULL,
   `seat_id` int(11) NOT NULL,
   `movie_day` varchar(15) NOT NULL,
-  `movie_time` time NOT NULL
+  `movie_time` time NOT NULL,
+  `ticket_status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `ticket`
 --
 
-INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_day`, `movie_time`) VALUES
-(21, 1, 19, 14, 'Thursday', '09:15:00'),
-(22, 1, 19, 15, 'Thursday', '09:15:00'),
-(23, 2, 19, 12, 'Thursday', '09:15:00'),
-(24, 2, 19, 13, 'Thursday', '09:15:00'),
-(25, 2, 19, 14, 'Thursday', '09:15:00'),
-(26, 2, 19, 15, 'Thursday', '09:15:00'),
-(27, 3, 19, 13, 'Thursday', '09:15:00'),
-(28, 3, 19, 14, 'Thursday', '09:15:00');
+INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_day`, `movie_time`, `ticket_status`) VALUES
+(21, 1, 19, 14, 'Thursday', '09:15:00', 1),
+(22, 1, 19, 15, 'Thursday', '09:15:00', 1),
+(23, 2, 19, 12, 'Thursday', '09:15:00', 1),
+(24, 2, 19, 13, 'Thursday', '09:15:00', 1),
+(25, 2, 19, 14, 'Thursday', '09:15:00', 1),
+(26, 2, 19, 15, 'Thursday', '09:15:00', 1),
+(27, 3, 19, 13, 'Thursday', '09:15:00', 1),
+(28, 3, 19, 14, 'Thursday', '09:15:00', 1),
+(29, 4, 19, 33, 'Thursday', '09:15:00', 1),
+(30, 4, 19, 34, 'Thursday', '09:15:00', 1);
 
 -- --------------------------------------------------------
 
@@ -374,25 +304,12 @@ ALTER TABLE `orders`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `profile`
---
-ALTER TABLE `profile`
-  ADD PRIMARY KEY (`profile_id`),
-  ADD KEY `user_id` (`user_id`);
-
---
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
   ADD PRIMARY KEY (`review_id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `movie_id` (`movie_id`);
-
---
--- Indexes for table `seat`
---
-ALTER TABLE `seat`
-  ADD PRIMARY KEY (`seat_id`);
 
 --
 -- Indexes for table `ticket`
@@ -443,13 +360,7 @@ ALTER TABLE `movie_schedule`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `profile`
---
-ALTER TABLE `profile`
-  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -458,16 +369,10 @@ ALTER TABLE `review`
   MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `seat`
---
-ALTER TABLE `seat`
-  MODIFY `seat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=411;
-
---
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `times`
@@ -517,8 +422,7 @@ ALTER TABLE `review`
 --
 ALTER TABLE `ticket`
   ADD CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `ticket_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ticket_ibfk_3` FOREIGN KEY (`seat_id`) REFERENCES `seat` (`seat_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `ticket_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

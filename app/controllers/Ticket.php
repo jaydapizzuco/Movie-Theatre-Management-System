@@ -19,14 +19,20 @@ class Ticket extends \app\core\Controller {
         $selectedSeats = $_POST['seats'];
         $numberOfSeats = sizeof($selectedSeats);
 
-         $order = new \app\models\Order();
+        //get the last order before the creation of the new order
+        $allOrders = new \app\models\Order(); 
+        $allOrders = $allOrders->getAll();
+        $lastOrder = sizeof($allOrders); //amount of orders to find last id
+        $thisOrderID = $lastOrder + 1;
+
+        $order = new \app\models\Order();
         $order->user_id = $_SESSION['user_id'];
         $order->order_date = date("Y-m-d");;
         $order->total_price = $numberOfSeats * 10;
         $order->number_tickets = $numberOfSeats;
         $order->insert();
 
-        $order_id = $order->getByUserIDandDate($order->user_id, $order->order_date);
+        $order_id = $order->getByID($thisOrderID);
 
         foreach ($selectedSeats as $seat) {
             $ticket = new \app\models\Ticket();

@@ -28,6 +28,7 @@ class Movie extends \app\core\Model{
 			'trailer'=>$this->trailer,
 			'release_date'=>$this->release_date]
 		);
+		$this->movie_id = self::$_conn->lastInsertId();
 	}
 
 	public function update(){

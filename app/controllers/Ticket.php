@@ -32,7 +32,7 @@ class Ticket extends \app\core\Controller {
         $order->number_tickets = $numberOfSeats;
         $order->insert();
 
-        $order_id = $order->getByID(13); //THE ID HERE IS HARD CODED
+        $order_id = $order->getByID($thisOrderID); 
 
         foreach ($selectedSeats as $seat) {
             $ticket = new \app\models\Ticket();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 26, 2024 at 04:03 AM
+-- Generation Time: Apr 26, 2024 at 07:31 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -82,7 +82,7 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`movie_id`, `title`, `image`, `description`, `length`, `director`, `trailer`, `release_date`, `ticket_revenue`, `status`) VALUES
-(4, 'Monkey Man', 'https://upload.wikimedia.org/wikipedia/en/2/2b/Monkey_Man_film.jpg', 'Oscar® nominee Dev Patel (Lion, Slumdog Millionaire) achieves an astonishing, tour-de-force feature directing debut with an action', 122, 'Dev Patel', 'https://www.youtube.com/watch?v=g8zxiB5Qhsc', '2024-04-22', 0, 1),
+(4, 'Monkey Man (222)', 'https://upload.wikimedia.org/wikipedia/en/2/2b/Monkey_Man_film.jpg', 'Oscar® nominee Dev Patel (Lion, Slumdog Millionaire) achieves an astonishing, tour-de-force feature directing debut with an action', 122, 'Dev Patel', 'https://www.youtube.com/watch?v=g8zxiB5Qhsc', '2024-04-22', 0, 1),
 (18, 'Abigail', 'https://upload.wikimedia.org/wikipedia/en/b/bc/Abigail_Official_Poster.jpg', 'A group of would-be criminals kidnaps the 12-year-old daughter of a powerful underworld figure. Holding her for ransom in an isolated mansion, their plan starts to unravel when they discover their young captive is actually a bloodthirsty vampire.', 109, 'Matt Bettinelli-Olpin', 'https://www.youtube.com/watch?v=3PsP8MFH8p0', '2024-04-22', 0, 1),
 (19, 'Spy X Family Code: White', 'https://upload.wikimedia.org/wikipedia/en/a/ad/Spy_%C3%97_Family_Code_White_movie_poster.png', 'A spy and an assassin keep their double lives to themselves while pretending to be the perfect family.', 111, 'Takashi Katagiri', 'https://www.youtube.com/watch?v=m5TxWbtQ7qU', '2024-04-22', 0, 1),
 (20, 'The Fall Guy', 'https://upload.wikimedia.org/wikipedia/en/1/1f/The_Fall_Guy_%282024%29_poster.jpg', 'After leaving the business one year earlier, battle-scarred stuntman Colt Seavers springs back into action when the star of a big studio movie suddenly disappears. As the mystery surrounding the missing actor deepens, Colt soon finds himself ensnared in a sinister plot that pushes him to the edge of a fall more dangerous than any stunt.', 127, 'David Leitch', 'https://www.youtube.com/watch?v=EySdVK0NK1Y', '2024-04-22', 0, 1),
@@ -124,7 +124,6 @@ CREATE TABLE `movie_schedule` (
 
 INSERT INTO `movie_schedule` (`schedule_id`, `movie_id`, `day`, `time_id`) VALUES
 (4, 4, 'Wednesday', 7),
-(7, 4, 'Tuesday', 3),
 (8, 18, 'Monday', 2),
 (9, 18, 'Monday', 5),
 (10, 18, 'Wednesday', 7),
@@ -137,7 +136,8 @@ INSERT INTO `movie_schedule` (`schedule_id`, `movie_id`, `day`, `time_id`) VALUE
 (17, 22, 'Friday', 4),
 (18, 23, 'Monday', 3),
 (19, 24, 'Tuesday', 5),
-(20, 25, 'Monday', 3);
+(20, 25, 'Monday', 3),
+(21, 18, 'Tuesday', 3);
 
 -- --------------------------------------------------------
 
@@ -152,7 +152,7 @@ CREATE TABLE `orders` (
   `order_date` date NOT NULL,
   `total_price` double NOT NULL,
   `number_tickets` int(11) NOT NULL,
-  `cart_status` tinyint(1) NOT NULL DEFAULT 1,
+  `cart_status` tinyint(4) NOT NULL DEFAULT 1,
   `order_status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -161,10 +161,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `number_tickets`, `cart_status`, `order_status`) VALUES
-(9, 1, '2024-04-26', 40, 4, 1, 1),
-(10, 1, '2024-04-26', 30, 3, 1, 1),
-(11, 1, '2024-04-26', 60, 6, 1, 1),
-(12, 1, '2024-04-26', 20, 2, 1, 1);
+(1, 1, '2024-04-26', 20, 2, 1, 0),
+(2, 1, '2024-04-26', 40, 4, 1, 0),
+(3, 1, '2024-04-26', 20, 2, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -278,18 +277,14 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_day`, `movie_time`) VALUES
-(5, 9, 19, 12, 'Thursday', '00:00:09'),
-(6, 9, 19, 13, 'Thursday', '00:00:09'),
-(7, 9, 19, 14, 'Thursday', '00:00:09'),
-(8, 9, 19, 16, 'Thursday', '00:00:09'),
-(9, 11, 19, 11, 'Thursday', '09:15:00'),
-(10, 11, 19, 12, 'Thursday', '09:15:00'),
-(11, 11, 19, 13, 'Thursday', '09:15:00'),
-(12, 11, 19, 34, 'Thursday', '09:15:00'),
-(13, 11, 19, 35, 'Thursday', '09:15:00'),
-(14, 11, 19, 36, 'Thursday', '09:15:00'),
-(15, 12, 18, 48, 'Monday', '03:20:00'),
-(16, 12, 18, 49, 'Monday', '03:20:00');
+(21, 1, 19, 14, 'Thursday', '09:15:00'),
+(22, 1, 19, 15, 'Thursday', '09:15:00'),
+(23, 2, 19, 12, 'Thursday', '09:15:00'),
+(24, 2, 19, 13, 'Thursday', '09:15:00'),
+(25, 2, 19, 14, 'Thursday', '09:15:00'),
+(26, 2, 19, 15, 'Thursday', '09:15:00'),
+(27, 3, 19, 13, 'Thursday', '09:15:00'),
+(28, 3, 19, 14, 'Thursday', '09:15:00');
 
 -- --------------------------------------------------------
 
@@ -436,19 +431,19 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `movie_schedule`
 --
 ALTER TABLE `movie_schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `profile`
@@ -472,7 +467,7 @@ ALTER TABLE `seat`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `times`

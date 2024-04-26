@@ -34,7 +34,7 @@ class Ticket extends \app\core\Controller {
             $ticket->movie_id =$movie->movie_id;
             $ticket->seat_id = $seat;
             $ticket->movie_day = $schedule->day;
-            $ticket->movie_time = trim($screeningInfo[1]);
+            $ticket->movie_time = trim($screeningInfo[1]).trim($screeningInfo[2]).trim($screeningInfo[3]);
             $ticket->insert();
         }
          $this->view('Order/checkout');

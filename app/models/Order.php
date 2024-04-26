@@ -22,6 +22,7 @@ class Order extends \app\core\Model{
 			'total_price'=>$this->total_price,
 			'number_tickets'=>$this->number_tickets]
 		);
+		$this->order_id = self::$_conn->lastInsertId();
 	}
 
 	public function delete(){

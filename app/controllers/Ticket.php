@@ -19,12 +19,6 @@ class Ticket extends \app\core\Controller {
         $selectedSeats = $_POST['seats'];
         $numberOfSeats = sizeof($selectedSeats);
 
-        //get the last order before the creation of the new order
-        $allOrders = new \app\models\Order(); 
-        $allOrders = $allOrders->getAll();
-        $lastOrder = sizeof($allOrders); //amount of orders to find last id
-        $thisOrderID = $lastOrder + 1;
-
         $order = new \app\models\Order();
         $order->user_id = $_SESSION['user_id'];
         $order->order_date = date("Y-m-d");;
@@ -32,11 +26,9 @@ class Ticket extends \app\core\Controller {
         $order->number_tickets = $numberOfSeats;
         $order->insert();
 
-        $order_id = $order->getByID($thisOrderID); 
-
         foreach ($selectedSeats as $seat) {
             $ticket = new \app\models\Ticket();
-            $ticket->order_id =  $order_id->order_id;
+            $ticket->order_id =  $order->order_id;
             $ticket->movie_id =$movie->movie_id;
             $ticket->seat_id = $seat;
             $ticket->movie_day = $schedule->day;

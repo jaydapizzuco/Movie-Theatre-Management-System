@@ -72,6 +72,7 @@ class App{
         $this->addRoute('Review/profileIndex' , 'Review,profileIndex');
         
          $this->addRoute('Ticket/seatSelection' , 'Ticket,seatSelection');
+          $this->addRoute('Order/checkout' , 'Order,checkout');
 
         [$controllerMethod, $namedParams] = $this->resolve($url);
 

@@ -9,14 +9,17 @@ class Order extends \app\core\Model{
 	public $user_id;
 	public $order_date;
 	public $total_price;
+	public $number_tickets;
 	public $order_status;
 
 	public function insert(){
-		$SQL = 'INSERT INTO order(user_id,total_price) VALUE (:user_id,:total_price)';
+		$SQL = 'INSERT INTO orders(user_id,order_date,total_price,number_tickets) VALUES (:user_id,:order_date,:total_price,:number_tickets)';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['user_id'=>$this->user_id,
-			'total_price'=>$this->total_price]
+			'order_date'=>$this->order_date,
+			'total_price'=>$this->total_price,
+			'number_tickets'=>$this->number_tickets]
 		);
 	}
 
@@ -72,6 +75,17 @@ class Order extends \app\core\Model{
 		);
 		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
 		return $STMT->fetchAll();
+	}
+
+	public function getByUserIDandDate($user_id,$order_date){
+		$SQL = 'SELECT * FROM orders WHERE user_id=:user_id AND order_date=:order_date';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['user_id'=>$user_id,
+			'order_date'=>$order_date]
+		);
+		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
+		return $STMT->fetch();
 	}
 
 

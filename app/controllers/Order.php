@@ -14,6 +14,10 @@ class OrderController extends \app\core\Controller {
         $this->redirect('order/cart');
     }
 
+    public function checkout(){
+        $this->view('Order/checkout');
+    }
+
     public function deleteOrder($order_id) {
         $order = Order::getByID($order_id);
         if ($order) {

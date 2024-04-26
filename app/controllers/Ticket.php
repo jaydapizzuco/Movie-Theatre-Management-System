@@ -14,19 +14,30 @@ class Ticket extends \app\core\Controller {
         $screeningInfo = explode(':', $_POST['screening']);
         $schedule->day = trim($screeningInfo[0]);
 
+
         // $selectedSeats = explode("," , $_POST['selected']);
         $selectedSeats = $_POST['seats'];
+        $numberOfSeats = sizeof($selectedSeats);
+
+         $order = new \app\models\Order();
+        $order->user_id = $_SESSION['user_id'];
+        $order->order_date = date("Y-m-d");;
+        $order->total_price = $numberOfSeats * 10;
+        $order->number_tickets = $numberOfSeats;
+        $order->insert();
+
+        $order_id = $order->getByUserIDandDate($order->user_id, $order->order_date);
 
         foreach ($selectedSeats as $seat) {
             $ticket = new \app\models\Ticket();
-            $ticket->order_id = 1;
+            $ticket->order_id =  $order_id->order_id;
             $ticket->movie_id =$movie->movie_id;
             $ticket->seat_id = $seat;
             $ticket->movie_day = $schedule->day;
             $ticket->movie_time = trim($screeningInfo[1]);
             $ticket->insert();
         }
-        // $this->view('Order/checkout', $selectedSeats);
+         $this->view('Order/checkout');
     }
     else{
         $this->view('Ticket/seatSelection',$movie);

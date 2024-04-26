@@ -22,7 +22,7 @@
 
     <nav class="account">
         <a href="/User/adminProfile">Profile Information</a> &nbsp&nbsp
-         <a href="/Review/">Pending Reviews</a> &nbsp&nbsp
+         <a href="/Review/adminIndex">Pending Reviews</a> &nbsp&nbsp
          <a href="/Movie/adminIndex">Movies</a> &nbsp&nbsp
 
     </nav><br>

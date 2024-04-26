@@ -2,38 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Review</title>
+    <title>Write a Review</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<?php
+    $reviews = new \app\models\Review();
+    $reviews = $reviews->getByMovie($data->movie_id);
+     
+
+    $movie = new \app\models\Movie();
+    $movie = $movie->getByID($data->movie_id);
+
+     ?>
 <div class="container">
-    <h1>Create Review for <?= $movie->title ?></h1>
+    <h1>Write a Review for <?= $data->title ?></h1>
     <div class="movie-cover">
-        <img src="<?= $movie->image ?>" alt="<?= $movie->title ?>" style="max-width: 300px;">
+        <img src="<?= $data->image ?>" alt="<?= $data->title ?>">
     </div>
-    <form method="POST" action="/Review/store">
-        <input type="hidden" name="movie_id" value="<?= $movie->movie_id ?>">
-        
-        <div class="mb-3">
-            <label for="stars" class="form-label">Stars:</label>
-            <select class="form-select" name="stars" id="stars" required>
-                <option value="1">1 Star</option>
-                <option value="2">2 Stars</option>
-                <option value="3">3 Stars</option>
-                <option value="4">4 Stars</option>
-                <option value="5">5 Stars</option>
-            </select>
-        </div>
-        
-        <div class="mb-3">
-            <label for="review_text" class="form-label">Review Text:</label>
-            <textarea class="form-control" name="review_text" id="review_text" rows="5" required></textarea>
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Submit Review</button>
-    </form>
-    <a href="/Review/modify" class="btn btn-secondary mt-3">Modify Your Reviews</a>
+
+    <div class="review-form">
+        <form action="/Review/create" method="POST">
+            <input type="hidden" name="movie_id" value="<?= $data->movie_id ?>">
+            <div class="mb-3">
+                <label for="stars" class="form-label">Stars</label>
+                <input type="number" class="form-control" id="stars" name="stars" min="1" max="5" required>
+            </div>
+            <div class="mb-3">
+                <label for="review_text" class="form-label">Review</label>
+                <textarea class="form-control" id="review_text" name="review_text" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+        </form>
+    </div>
 </div>
+<a href="/Review/delete?movie_id=<?=$movie->movie_id ?>" class="btn btn-primary">View Reviews</a>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

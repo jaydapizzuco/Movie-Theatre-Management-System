@@ -14,15 +14,19 @@ class Review extends \app\core\Model{
 	public $approved;
 
 	public function insert(){
-		$SQL = 'INSERT INTO review(user_id,movie_id,stars,review_text) VALUE (:user_id,:movie_id,:stars,:review_text';
+		$SQL = 'INSERT INTO review(user_id, movie_id, stars, review_text, review_date, approved) VALUES (:user_id, :movie_id, :stars, :review_text, :review_date, :approved)';
 		$STMT = self::$_conn->prepare($SQL);
-		$STMT->execute(
-			['user_id'=>$this->user_id,
-			'movie_id'=>$this->movie_id,
-			'stars'=>$this->stars,
-			'review_text'=>$this->review_text]
-		);
+		$STMT->execute([
+			'user_id' => $this->user_id,
+			'movie_id' => $this->movie_id,
+			'stars' => $this->stars,
+			'review_text' => $this->review_text,
+			'review_date' => date('Y-m-d H:i:s'), 
+			'approved' => 0 
+		]);
 	}
+	
+	
 	
 
 	public function update(){

@@ -7,29 +7,21 @@
 </head>
 <body>
 <div class="container">
-    <h1>Delete Your Reviews</h1>
-
-    <?php if (!empty($reviews)) : ?>
-        <ul class="list-group">
-            <?php foreach ($reviews as $review) : ?>
-                <li class="list-group-item">
-                    <div>
-                        <h3><?= $review->movie_title ?></h3>
-                        <p>Stars: <?= $review->stars ?></p>
-                        <p>Review Text: <?= $review->review_text ?></p>
-                    </div>
-                    <form method="POST" action="/Review/Delete">
-                        <input type="hidden" name="review_id" value="<?= $review->review_id ?>">
-                        <button type="submit" class="btn btn-danger">Delete Review</button>
-                    </form>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php else : ?>
-        <p>No reviews found.</p>
-    <?php endif; ?>
+    <h1>Delete Review</h1>
+    <div class="reviews">
+        <?php foreach ($reviews as $review): ?>
+            <div class="review">
+                <h3><?= $review->movie_title ?></h3>
+                <p><?= $review->review_text ?></p>
+                <form action="/Review/delete" method="POST">
+                    <input type="hidden" name="review_id" value="<?= $review->review_id ?>">
+                    <button type="submit" class="btn btn-danger">Delete Review</button>
+                </form>
+            </div>
+        <?php endforeach; ?>
+    </div>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

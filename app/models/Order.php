@@ -24,7 +24,7 @@ class Order extends \app\core\Model{
 	}
 
 	public function delete(){
-		$SQL = 'DELETE FROM order WHERE order_id=:order_id';
+		$SQL = 'DELETE FROM orders WHERE order_id=:order_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['order_id'=>$this->order_id]
@@ -32,7 +32,7 @@ class Order extends \app\core\Model{
 	}
 
 	public function setStatusTrue(){
-		$SQL = 'UPDATE order SET order_status=1 WHERE order_id=:order_id';
+		$SQL = 'UPDATE orders SET order_status=1 WHERE order_id=:order_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['order_id'=>$this->order_id]
@@ -40,7 +40,7 @@ class Order extends \app\core\Model{
 	}
 
 	public function getAll(){
-		$SQL = 'SELECT * FROM order';
+		$SQL = 'SELECT * FROM orders';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute();
 		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
@@ -48,7 +48,7 @@ class Order extends \app\core\Model{
 	}
 
 	public function getByID($order_id){
-		$SQL = 'SELECT * FROM order WHERE order_id=:order_id';
+		$SQL = 'SELECT * FROM orders WHERE order_id=:order_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['order_id'=>$order_id]
@@ -58,7 +58,7 @@ class Order extends \app\core\Model{
 	}
 
 	public function getByMovieID($movie_id){
-		$SQL = 'SELECT * FROM order WHERE movie_id=:movie_id';
+		$SQL = 'SELECT * FROM orders WHERE movie_id=:movie_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['movie_id'=>$movie_id]
@@ -68,7 +68,7 @@ class Order extends \app\core\Model{
 	}
 
 	public function getByUserID($user_id){
-		$SQL = 'SELECT * FROM order WHERE user_id=:user_id';
+		$SQL = 'SELECT * FROM orders WHERE user_id=:user_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['user_id'=>$user_id]

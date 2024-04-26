@@ -10,6 +10,7 @@ class Order extends \app\core\Model{
 	public $order_date;
 	public $total_price;
 	public $number_tickets;
+	public $cart_status;
 	public $order_status;
 
 	public function insert(){
@@ -24,19 +25,29 @@ class Order extends \app\core\Model{
 	}
 
 	public function delete(){
-		$SQL = 'DELETE FROM orders WHERE order_id=:order_id';
+		$SQL = 'UPDATE orders SET order_status=0 WHERE order_id=:order_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['order_id'=>$this->order_id]
 		);
 	}
 
-	public function setStatusTrue(){
-		$SQL = 'UPDATE orders SET order_status=1 WHERE order_id=:order_id';
+	public function setCartStatusFalse(){
+		$SQL = 'UPDATE orders SET cart_status=0 WHERE order_id=:order_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['order_id'=>$this->order_id]
 		);
+	}
+
+	public function getForCart($user_id){
+		$SQL = 'SELECT * FROM orders WHERE user_id=:user_id AND cart_status=1 AND order_status=1';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['user_id'=>$user_id]
+		);
+		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
+		return $STMT->fetchAll();
 	}
 
 	public function getAll(){
@@ -58,7 +69,7 @@ class Order extends \app\core\Model{
 	}
 
 	public function getByMovieID($movie_id){
-		$SQL = 'SELECT * FROM orders WHERE movie_id=:movie_id';
+		$SQL = 'SELECT * FROM orders WHERE movie_id=:movie_id AND order_status=1';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['movie_id'=>$movie_id]
@@ -68,7 +79,7 @@ class Order extends \app\core\Model{
 	}
 
 	public function getByUserID($user_id){
-		$SQL = 'SELECT * FROM orders WHERE user_id=:user_id';
+		$SQL = 'SELECT * FROM orders WHERE user_id=:user_id AND order_status=1';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['user_id'=>$user_id]
@@ -78,7 +89,7 @@ class Order extends \app\core\Model{
 	}
 
 	public function getByUserIDandDate($user_id,$order_date){
-		$SQL = 'SELECT * FROM orders WHERE user_id=:user_id AND order_date=:order_date';
+		$SQL = 'SELECT * FROM orders WHERE user_id=:user_id AND order_date=:order_date AND order_status=1';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['user_id'=>$user_id,

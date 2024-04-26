@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 26, 2024 at 03:46 AM
+-- Generation Time: Apr 26, 2024 at 04:03 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -161,7 +161,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `number_tickets`, `cart_status`, `order_status`) VALUES
-(9, 1, '2024-04-26', 40, 4, 1, 1);
+(9, 1, '2024-04-26', 40, 4, 1, 1),
+(10, 1, '2024-04-26', 30, 3, 1, 1),
+(11, 1, '2024-04-26', 60, 6, 1, 1),
+(12, 1, '2024-04-26', 20, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -278,7 +281,15 @@ INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_day
 (5, 9, 19, 12, 'Thursday', '00:00:09'),
 (6, 9, 19, 13, 'Thursday', '00:00:09'),
 (7, 9, 19, 14, 'Thursday', '00:00:09'),
-(8, 9, 19, 16, 'Thursday', '00:00:09');
+(8, 9, 19, 16, 'Thursday', '00:00:09'),
+(9, 11, 19, 11, 'Thursday', '09:15:00'),
+(10, 11, 19, 12, 'Thursday', '09:15:00'),
+(11, 11, 19, 13, 'Thursday', '09:15:00'),
+(12, 11, 19, 34, 'Thursday', '09:15:00'),
+(13, 11, 19, 35, 'Thursday', '09:15:00'),
+(14, 11, 19, 36, 'Thursday', '09:15:00'),
+(15, 12, 18, 48, 'Monday', '03:20:00'),
+(16, 12, 18, 49, 'Monday', '03:20:00');
 
 -- --------------------------------------------------------
 
@@ -437,7 +448,7 @@ ALTER TABLE `movie_schedule`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `profile`
@@ -461,7 +472,7 @@ ALTER TABLE `seat`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `times`

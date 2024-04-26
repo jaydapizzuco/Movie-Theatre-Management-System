@@ -28,11 +28,11 @@ class Ticket extends \app\core\Controller {
         $order = new \app\models\Order();
         $order->user_id = $_SESSION['user_id'];
         $order->order_date = date("Y-m-d");;
-        $order->total_price = $numberOfSeats * 10;
+        $order->total_price = $numberOfSeats * 10; 
         $order->number_tickets = $numberOfSeats;
         $order->insert();
 
-        $order_id = $order->getByID($thisOrderID);
+        $order_id = $order->getByID(13); //THE ID HERE IS HARD CODED
 
         foreach ($selectedSeats as $seat) {
             $ticket = new \app\models\Ticket();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 26, 2024 at 02:53 AM
+-- Generation Time: Apr 26, 2024 at 03:46 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -152,15 +152,16 @@ CREATE TABLE `orders` (
   `order_date` date NOT NULL,
   `total_price` double NOT NULL,
   `number_tickets` int(11) NOT NULL,
-  `order_status` tinyint(4) NOT NULL DEFAULT 0
+  `cart_status` tinyint(1) NOT NULL DEFAULT 1,
+  `order_status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `number_tickets`, `order_status`) VALUES
-(9, 1, '2024-04-26', 40, 4, 0);
+INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `number_tickets`, `cart_status`, `order_status`) VALUES
+(9, 1, '2024-04-26', 40, 4, 1, 1);
 
 -- --------------------------------------------------------
 

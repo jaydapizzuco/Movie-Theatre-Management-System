@@ -19,6 +19,27 @@
     <h1>CART</h1>
 </header>
 
+<body>
+    <h1>Tickets</h1>
+        <?php 
+            $tickets = new \app\models\Ticket();
+            $tickets = $tickets->getByOrderID($data->order_id);
+        ?>
+
+        <?php 
+            foreach ($tickets as $index => $ticket) { 
+
+                $movie = new \app\models\Movie();
+                $movie = $movie->getById($ticket->movie_id);
+
+            ?>
+               <h2><?= $movie->title ?> </h2>
+               <!-- day,time,seats -->
+               <p><?= $ticket->movie_day ?> : <?= $ticket->movie_time ?> </p>
+               <p>Seat number: <?= $ticket->seat_id ?> </p>
+            <?php } ?>
+
+</body>
 
 
 </html>

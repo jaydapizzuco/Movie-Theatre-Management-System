@@ -23,7 +23,7 @@ class Ticket extends \app\core\Model {
 	}
 
 	public function delete($order_id){
-		$SQL = 'DELETE FROM review WHERE order_id=:order_id';
+		$SQL = 'DELETE FROM ticket WHERE order_id=:order_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['order_id'=>$order_id]
@@ -41,7 +41,7 @@ class Ticket extends \app\core\Model {
 	}
 
 	public function getByMovieID($movie_id){
-		$SQL = 'SELECT * FROM movie WHERE movie_id=:movie_id';
+		$SQL = 'SELECT * FROM ticket WHERE movie_id=:movie_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['movie_id'=>$movie_id]
@@ -51,7 +51,7 @@ class Ticket extends \app\core\Model {
 	}
 
 	public function getByOrderID($order_id){
-		$SQL = 'SELECT * FROM movie WHERE order_id=:order_id';
+		$SQL = 'SELECT * FROM ticket WHERE order_id=:order_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['order_id'=>$order_id]

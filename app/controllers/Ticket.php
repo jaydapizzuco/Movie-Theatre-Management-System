@@ -35,7 +35,7 @@ class Ticket extends \app\core\Controller {
             $ticket->movie_time = trim($screeningInfo[1]).trim($screeningInfo[2]).trim($screeningInfo[3]);
             $ticket->insert();
         }
-         $this->view('Order/checkout');
+         $this->view('Order/cart', $order);
     }
     else{
         $this->view('Ticket/seatSelection',$movie);

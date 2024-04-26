@@ -11,6 +11,7 @@
 
 <header>
     <h1>Checkout</h1><br>
+    
 
     <a href="/Order/cart">Cancel</a>
 </header>

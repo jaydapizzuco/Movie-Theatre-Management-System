@@ -14,6 +14,19 @@ class OrderController extends \app\core\Controller {
         $this->redirect('order/cart');
     }
 
+    public function cart(){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+            $order = new \app\models\Order();
+            $order = $order->getByID($_GET['order_id']);
+
+            $this->view('Order/checkout',$order);
+        }
+        else{
+        $this->view('Order/cart');
+    }
+    }
+
     public function checkout(){
         $this->view('Order/checkout');
     }

@@ -117,47 +117,46 @@ public function modify()
     $this->view('review/modify', ['reviews' => $reviews]);
 }
 
-    public function approve(){
+public function approve()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $review_id = $_POST['review_id'];
         $review = new \app\models\Review();
-        $review = $review->getByID($_SESSION['review_id']);
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-
+        $review = $review->getByID($review_id);
+        if ($review) {
             $review->approve();
-
-            header('location:/User/adminReviews');
-        }
-        else {
-            $this->view('User/adminReviews');
         }
     }
+    header('Location: /Review/adminIndex');
+}
 
 
-    public function reject() {
+    public function reject()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $review_id = $_POST['review_id'];
         $review = new \app\models\Review();
-        $review = $review->getByID($_SESSION['review_id']);
-    
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $review->reject(); 
-            header('location:/User/adminReviews'); 
-        } else {
-            $this->view('User/adminReviews'); 
+        $review = $review->getByID($review_id);
+        if ($review) {
+            $review->reject();
         }
     }
-
- 
-
+    header('Location: /Review/adminIndex');
+}
 
     
-
     public function adminIndex()
     {
-     
-        $reviews = (new \app\models\Review())->getAllDisapproved();
-    
-       
+        // Retrieve disapproved reviews
+        $reviewsModel = new \app\models\Review();
+        $reviews = $reviewsModel->getAllDisapproved();
+        
+        // You might need additional data here, such as movie titles or user names
+        
+        // Pass the reviews and any additional data to the view
         $this->view('Review/adminindex', ['reviews' => $reviews]);
     }
+    
     
   
 }

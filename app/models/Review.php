@@ -25,9 +25,7 @@ class Review extends \app\core\Model{
 			'approved' => 0 
 		]);
 	}
-	
-	
-	
+
 
 	public function update(){
 		$SQL = 'UPDATE review SET review_text=:review_text WHERE review_id=:review_id';
@@ -37,6 +35,10 @@ class Review extends \app\core\Model{
 			'review_id'=>$this->review_id]
 		);
 	}
+
+	
+	
+	
 
 	public function delete(){
 		$SQL = 'DELETE FROM review WHERE review_id=:review_id';
@@ -99,4 +101,22 @@ class Review extends \app\core\Model{
 		return $STMT->fetchAll();
 	}
 
+	public function getAllApproved(){
+		$SQL = 'SELECT * FROM review WHERE approved=1';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Review');
+		return $STMT->fetchAll();
+	}
+	
+	public function getReviewsByUser($user_id){
+		$SQL = 'SELECT * FROM review WHERE user_id=:user_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(['user_id' => $user_id]);
+		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Review');
+		return $STMT->fetchAll();
+	}
+
+	
+	
 }

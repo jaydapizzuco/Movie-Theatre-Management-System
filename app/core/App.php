@@ -69,7 +69,7 @@ class App{
         $this->addRoute('Review/create' , 'Review,create');
         $this->addRoute('Review/update' , 'Review,update');
         $this->addRoute('Review/delete' , 'Review,delete');
-        $this->addRoute('Review/profileIndex' , 'Review,profileIndex');
+        $this->addRoute('Review/profileindex' , 'Review,profileindex');
         
          $this->addRoute('Ticket/seatSelection' , 'Ticket,seatSelection');
           $this->addRoute('Order/checkout' , 'Order,checkout');

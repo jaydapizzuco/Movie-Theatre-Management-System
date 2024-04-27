@@ -27,12 +27,12 @@ public function create()
                 $this->view('Review/create', $movie);
             } else {
                
-                header('Location: /Movie/index');
+                header('Location: /User/login');
                 exit();
             }
         } else {
        
-            header('Location: /Movie/index');
+            header('Location: /User/login');
             exit();
         }
     }
@@ -46,7 +46,7 @@ private function handleReviewSubmission()
             $user_id = $_SESSION['user_id']; 
         } else {
           
-            header('Location: /');
+            header('Location: /User/login');
             exit();
         }
 
@@ -76,45 +76,44 @@ private function handleReviewSubmission()
     }
 }
 
-
 public function delete()
 {
-  
-}
-
-
-
-    public function update()
-{
-    
-    $review_id = $_SESSION['review_id'];
-
-    $review = new \app\models\Review();
-    $review = $review->getByID($review_id);
-
-   
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      
-        $review->review_text = $_POST['review_text'];
-
-       
-        $review->update();
-
+    if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
         
-        header('location:/User/profile');
-        exit; 
+        $review_id = $_GET['id'];
+
+        $reviewModel = new \app\models\Review();
+
+        $reviewModel->review_id = $review_id;
+        $reviewModel->delete();
+
+        header('Location: /Review/profileindex');
+        exit();
     } else {
-       
-        $this->view('Review/update', ['review' => $review]);
+        
+        header('Location: /');
+        exit();
     }
 }
 
-public function modify()
-{
-    
-    $reviews = (new \app\models\Review())->getByUser($_SESSION['user_id']);
-    
-    $this->view('review/modify', ['reviews' => $reviews]);
+public function update(){
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      
+        $review_id = $_POST['review_id'];
+        $review_text = $_POST['review_text'];
+
+        $reviewModel = new \app\models\Review();
+        $reviewModel->review_id = $review_id;
+        $reviewModel->review_text = $review_text;
+        $reviewModel->update();
+
+        header('Location: /User/profileindex');
+        exit();
+    } else {
+        
+        header('Location: /');
+        exit();
+    }
 }
 
 public function approve()
@@ -147,19 +146,34 @@ public function approve()
     
     public function adminIndex()
     {
-        // Retrieve disapproved reviews
+        
         $reviewsModel = new \app\models\Review();
         $reviews = $reviewsModel->getAllDisapproved();
         
-        // You might need additional data here, such as movie titles or user names
-        
-        // Pass the reviews and any additional data to the view
         $this->view('Review/adminindex', ['reviews' => $reviews]);
     }
     
+    public function profileindex()
+    {
+        
+        if (!isset($_SESSION['user_id'])) {
+           
+            header('Location: /User/login');
+            exit();
+        }
+        
+       
+        $user_id = $_SESSION['user_id'];
+
+        $reviews = (new \app\models\Review())->getReviewsByUser($user_id);
+
+        
+        $this->view('review/profileindex', ['reviews' => $reviews]);
+    }
+}
     
   
-}
+
 
     
 

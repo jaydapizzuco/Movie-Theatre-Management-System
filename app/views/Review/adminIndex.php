@@ -92,7 +92,7 @@
    $reviewsModel = new \app\models\Review();
    $reviews = $reviewsModel->getAllDisapproved();
    
-   // Fetch movie title for each review
+   
    foreach ($reviews as $review) {
        $movieModel = new \app\models\Movie();
        $movie = $movieModel->getByID($review->movie_id);
@@ -103,19 +103,19 @@
    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
        if (isset($_POST['approve_review'])) {
            $reviewId = $_POST['approve_review'];
-           // Approve the review with $reviewId
+        
            $reviewModel = new \app\models\Review();
            $reviewModel->approve($reviewId);
-           // After approving, remove the review from the list
+         
            $reviews = array_filter($reviews, function ($review) use ($reviewId) {
                return $review->review_id != $reviewId;
            });
        } elseif (isset($_POST['reject_review'])) {
            $reviewId = $_POST['reject_review'];
-           // Reject the review with $reviewId
+           
            $reviewModel = new \app\models\Review();
            $reviewModel->reject($reviewId);
-           // After rejecting, remove the review from the list
+         
            $reviews = array_filter($reviews, function ($review) use ($reviewId) {
                return $review->review_id != $reviewId;
            });

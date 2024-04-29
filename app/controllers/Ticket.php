@@ -14,8 +14,6 @@ class Ticket extends \app\core\Controller {
         $screeningInfo = explode(':', $_POST['screening']);
         $schedule->day = trim($screeningInfo[0]);
 
-
-        // $selectedSeats = explode("," , $_POST['selected']);
         $selectedSeats = $_POST['seats'];
         $numberOfSeats = sizeof($selectedSeats);
 

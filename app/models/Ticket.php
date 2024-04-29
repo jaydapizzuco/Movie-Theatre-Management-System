@@ -59,5 +59,17 @@ class Ticket extends \app\core\Model {
 		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Ticket');
 		return $STMT->fetchAll();
 	}
+
+	public function getAllTakenSeats($movie_id,$movie_day,$movie_time){
+		$SQL = 'SELECT seat_id FROM ticket WHERE movie_id=:movie_id and movie_day=:movie_day and movie_time=;movie_time';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['movie_id'=>$movie_id,
+			'movie_day'=>$movie_day,
+			'movie_time'=>$movie_time]
+		);
+		$STMT->setFetchMode(PDO::FETCH_COLUMN, 0);
+		return $STMT->fetchAll();
+	}
  
 }

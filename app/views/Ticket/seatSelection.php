@@ -54,6 +54,50 @@
     
   </div>
   <br><br>
+  
+  <!-- <script type="text/javascript">
+     document.addEventListener("DOMContentLoaded", function() {
+    var selectScreening = document.getElementById("screening");
+
+    selectScreening.addEventListener("change", function() {
+        var selectedOption = selectScreening.options[selectScreening.selectedIndex];
+        var selectedValue = selectedOption.value;
+        var selectedValues = selectedValue.split(":");
+        var selectedDay = selectedValues[0];
+        var selectedTime = selectedValues[1].selectedValues[2].selectedValues[3];
+        
+        // Send selected day and time to PHP script using AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", window.location.href, true); // Send the request to the same page
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                // Handle response from server if needed
+                console.log(xhr.responseText);
+            }
+        };
+       xhr.send("selectedDay=" + encodeURIComponent(selectedDay) + "&selectedTime=" + encodeURIComponent(selectedTime));
+    });
+});
+  </script> -->
+ 
+<<!-- ?php
+  // Retrieve selected day and time from AJAX request
+$selectedDay = isset($_POST['selectedDay']) ? $_POST['selectedDay'] : null;
+$selectedTime = isset($_POST['selectedTime']) ? $_POST['selectedTime'] : null;
+
+if ($selectedDay && $selectedTime) {
+    // Use $selectedDay and $selectedTime to retrieve seat availability data
+    $ticket = new \app\models\Ticket();
+    $takenSeats = $ticket->getAllTakenSeats($data->movie_id, $selectedDay, $selectedTime);
+    
+    // Return taken seats data as JSON
+    echo json_encode($takenSeats);
+} else {
+    // Handle case when the values are not received properly
+    echo json_encode(["error" => "Selected day and time not received."]);
+}
+ ?>  -->
  
  <div id = "selectedSeats"></div> 
 

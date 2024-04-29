@@ -49,7 +49,7 @@ class App{
         $this->addRoute('User/adminProfile' , 'User,adminProfile');
         $this->addRoute('User/profile' , 'User,profile');
         $this->addRoute('User/update' , 'User,modifyInfo');
-        $this->addRoute('User/purchaseHistory' , 'Order,index');
+        $this->addRoute('User/purchaseHistory' , 'User,purchaseHistory');
 
         $this->addRoute('Movie/create' , 'Movie,create');
         $this->addRoute('Movie/update' , 'Movie,update');

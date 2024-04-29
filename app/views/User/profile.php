@@ -21,8 +21,8 @@
     </header><br><br>
 
     <nav class="account">
-        <a href="account.html">Profile Information</a> &nbsp&nbsp
-        <a href="aboutus.html ">Purchase History</a> &nbsp&nbsp
+        <a href="/User/profile">Profile Information</a> &nbsp&nbsp
+        <a href="/User/purchaseHistory">Purchase History</a> &nbsp&nbsp
         <a class="active" href="movies.html">Points</a>
         <a href="/Review/profileindex"> Reviews   </a> <!-- Added link to reviews/profileindex -->
     </nav><br>

@@ -106,10 +106,17 @@ class User extends \app\core\Controller{
 
 
     public function adminReviews() {
-    $reviewModel = new \app\models\Review();
-    $reviews = $reviewModel->getAllDisapproved(); 
+        $reviewModel = new \app\models\Review();
+        $reviews = $reviewModel->getAllDisapproved(); 
 
-    
-    $this->view('User/adminReviews', ['reviews' => $reviews]);
+        
+        $this->view('User/adminReviews', ['reviews' => $reviews]);
+    }
+
+    public function purchaseHistory(){
+        $userOrders = new \app\models\Order();
+        $userOrders = $userOrders->getByUserID($_SESSION['user_id']);
+
+        $this->view('User/purchaseHistory', $userOrders);
     }
 }

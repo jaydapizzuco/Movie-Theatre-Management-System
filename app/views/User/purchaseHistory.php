@@ -17,23 +17,52 @@
 
 <body>
     <header>
-        <h1>$nameOfUser</h1>
+        <?php
+            $userName = new \app\models\User();
+            $userName = $userName->getById($_SESSION['user_id']);
+            $userName = $userName->name;
+         ?>
+        <h1>Orders History</h1>
     </header><br><br>
 
     <nav class="account">
-        <a href="account.html">Profile Information</a> &nbsp&nbsp
-        <a href="aboutus.html">Purchase History</a> &nbsp&nbsp
+        <a href="/User/profile">Profile Information</a> &nbsp&nbsp
+        <a href="/User/purchaseHistory">Purchase History</a> &nbsp&nbsp
         <a class="active" href="movies.html">Points</a>
+        <a href="/Review/profileindex"> Reviews</a>
     </nav><br>
 
-        <table class="table">
-                <tr>
-                    <th>Date</th>
-                    <th>Transaction Number</th>
-                    <th>Movie</th>
-                    <th>Num of Tickets</th>
-                </tr>
-        </table>
+        <div class="container2">
+     
+
+        <section class="orders-list">
+            <?php if (!empty($data)) : ?>
+                <?php foreach ($data as $order) : ?>
+                    <?php 
+                        $allTickets = new \app\models\Ticket();
+                        $allTickets = $allTickets->getByOrderID($order->order_id);
+                    ?>
+                    <div class="order_single">
+                        <p><b>Order number: <?= $order->order_id ?></b></p>
+                        <p><?= $review->review_text ?></p>
+
+                        <?php foreach ($allTickets as $ticket) : ?>
+                            <?php 
+                                $movie = new \app\models\Movie();
+                                $movie = $movie->getByID($ticket->movie_id);
+                            ?>
+
+                            <br><p>  - <?= $movie->title ?>  : <?= $ticket->movie_day ?> <?= $ticket->movie_time ?> | Seat <?= $ticket->seat_id?> </p>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
+            <?php else : ?>
+
+                <p>You have not made any orders.</p>
+
+            <?php endif; ?>
+        </section>
+    </div>
 
     <footer>
         <br>Copyright &copy 2024 

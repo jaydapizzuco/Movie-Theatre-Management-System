@@ -26,7 +26,7 @@
     <div class="gallery">
         <?php foreach ($data as $index => $movies): ?>
             <div class="gallery-item">
-                <a href="/Movie/individual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" class="zoom" alt="<?= $movies->title ?>"></a>
+                <a href="/Movie/adminIndividual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" class="zoom" alt="<?= $movies->title ?>"></a>
                 <?php if ($movies->status == 1): ?>
                     <a href='/MovieSchedule/index?id=<?= $movies->movie_id ?>'><i class="bi bi-clock"></i></a>
                     <a href='/Movie/update?id=<?= $movies->movie_id ?>'><i class='bi-pencil-fill'></i></a>

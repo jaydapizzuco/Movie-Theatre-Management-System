@@ -42,6 +42,14 @@ class Movie extends \app\core\Controller{
     }
 
     #[\app\filters\AdminLogin] 
+    public function adminIndividual(){
+        $movie = new \app\models\Movie();
+        $movie = $movie->getByID($_GET['id']);
+        $_SESSION['movie_id'] = $movie->movie_id;
+        $this->view('Movie/adminIndividual', $movie);
+    }
+
+    #[\app\filters\AdminLogin] 
     public function create(){
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $movie = new \app\models\Movie();

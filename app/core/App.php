@@ -57,6 +57,7 @@ class App{
         $this->addRoute('Movie/index' , 'Movie,index');
         $this->addRoute('Movie/adminIndex' , 'Movie,adminIndex');
         $this->addRoute('Movie/individual' , 'Movie,individual');
+        $this->addRoute('Movie/adminIndividual' , 'Movie,adminIndividual');
         $this->addRoute('Movie/activate' , 'Movie,activate');
         $this->addRoute('Movie/search' , 'Movie,search');
 

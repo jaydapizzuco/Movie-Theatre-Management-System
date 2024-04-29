@@ -74,6 +74,7 @@ class App{
          $this->addRoute('Ticket/seatSelection' , 'Ticket,seatSelection');
           $this->addRoute('Order/checkout' , 'Order,checkout');
           $this->addRoute('Order/cart' , 'Order,cart');
+          $this->addRoute('Order/delete' , 'Order,delete');
 
         [$controllerMethod, $namedParams] = $this->resolve($url);
 

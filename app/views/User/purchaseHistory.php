@@ -53,7 +53,13 @@
                             ?>
 
                             <br><p>  - <?= $movie->title ?>  : <?= $ticket->movie_day ?> <?= $ticket->movie_time ?> | Seat <?= $ticket->seat_id?> </p>
+                            
                         <?php endforeach; ?>
+
+                        <p>Price: <b>$<?= $order->total_price ?></b></p>
+
+                        <p>Order date: <?= $order->order_date ?></p>
+                        <a href='/Order/delete?id=<?= $order->order_id ?>'><i class='bi bi-trash'></i></a>
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>

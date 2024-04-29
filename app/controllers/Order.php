@@ -64,6 +64,18 @@ class OrderController extends \app\core\Controller {
             $this->view('error', ['message' => 'order not found']);
         }
     }
+
+    public function delete(){
+        $order = new \app\models\Order();
+        $order = $order->getByID($_GET['id']);
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $order->delete();
+            header('location:/User/purchaseHistory');
+        }else{
+            $this->view('Order/delete',$order);
+        }
+    }
 }
   
 ?>

@@ -67,10 +67,10 @@
               <option value="Friday">Friday</option>
               <option value="Saturday">Saturday</option>
             </select>
-        </div><br>
+            </div><br>
 
-        <div class="form-group">
-             <select name="times" id="times">
+            <div class="form-group">
+              <select name="times" id="times">
               <option value="1:00">1:00</option>
               <option value="3:20">3:20</option>
               <option value="6:30">6:30</option>
@@ -79,12 +79,12 @@
               <option value="9:15">9:15</option>
               <option value="10:00">10:00</option>
             </select>
-        </div><br>
-        
-            <div class="form-group">
-                <input type="submit" name="action" value="Create"/><br><br>
-                <a href="/User/adminProfile">Cancel</a>
             </div><br>
+        
+        <div class="form-group">
+            <input type="submit" name="action" value="Create"/><br><br>
+            <a href="">Cancel</a>
+        </div><br>
         </form>
     </div>
 

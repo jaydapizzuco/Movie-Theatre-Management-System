@@ -11,7 +11,83 @@
 
 <header>
     <h1>Checkout</h1><br>
+
+        <p>Order:</p>
+
+        <br><br>
+
+        <?php
+            $allTickets = new \app\models\Ticket();
+            $allTickets = $allTickets->getByOrderID($data->order_id);
+        ?>
+
+        <?php 
+            foreach ($tickets as $index => $ticket) { 
+
+                $movie = new \app\models\Movie();
+                $movie = $movie->getById($ticket->movie_id);
+
+        ?>
+        <h2><?= $movie->title ?> </h2>
+        <p><?= $ticket->movie_day ?> : <?= $ticket->movie_time ?> </p>
+        <p>Seat number: <?= $ticket->seat_id ?> </p>
+        <?php } ?>
+
+        <h3>Total cost: <?= $data->total_price ?></h3>
+
+        <form action="" method="post">
+            <h1>Payment Information</h1>
+            <div class="form-group">
+                <input type="text" class="form-control" name="cardholder_name" placeholder="Cardholder Name" required>
+            </div><br>
+
+            <div class="form-group">
+                <input type="number" class="form-control" name="card_no" placeholder="Card Number" required>
+            </div><br>
+
+            <h1>Expiration date</h1>
+           <div class="form-group">
+               <select name="months" id="months">
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+            </div>
+            <div class="form-group">
+               <select name="years" id="years">
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="number" class="form-control" name="security_no" placeholder="Security Number" required>
+            </div><br>
+        
+
+            <a href="">Confirm Payment</a>
+            
+            <div class="form-group">
+                <input type="submit" name="action" value="Create"/><br><br>
+                <a href="/User/adminProfile">Cancel</a>
+            </div><br>
+        </form>
     
+    <a href="/Order/checkout">Cancel</a>
 
     <a href="/Order/cart">Cancel</a>
 </header>

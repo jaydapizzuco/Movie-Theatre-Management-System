@@ -40,7 +40,11 @@ footer {text-align: center;
             border-radius: 10px;
             text-align: center;}
 
-.container2{text-align: center;}
+.container2{text-align: center;
+            padding: 30px;
+            height: 200px;
+            width: 400px;
+            margin: auto;}
 
 .account {text-align: center;
             background-color: black;}

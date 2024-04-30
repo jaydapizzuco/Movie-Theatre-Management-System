@@ -43,8 +43,17 @@ footer {text-align: center;
 .container2{text-align: center;
             padding: 30px;
             height: 200px;
-            width: 400px;
+            width: 700px;
             margin: auto;}
+
+.container3{background-color: rgb(245, 157, 245);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            height: auto;
+            width: 500px;
+            margin: auto;}
+
 
 .account {text-align: center;
             background-color: black;}

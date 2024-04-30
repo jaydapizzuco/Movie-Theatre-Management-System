@@ -24,7 +24,7 @@
     </header><br><br>
 
     <!-- Register Section -->
-    <div class="container">
+    <div class="container3">
         <br><h2>Create an Account</h2><br>
 
         <form action="" method="post">

@@ -46,7 +46,7 @@
  <div id = "selectedSeats"></div> 
 
     <div class = "container2">
-        <form method="POST" name="form" action=""> 
+        <form method="POST" name="form" action="/Ticket/seatSelection"> 
     <?php
        $rows = 4;
        $cols = 10;
@@ -64,11 +64,19 @@ for ($i = 1; $i <= $rows; $i++) {
     echo '<br>';
 }
 ?>
+
+<?php
+        $getSchedule = new \app\models\MovieSchedule();
+        $scheduleId = $getSchedule->getIdByMovieIDDayTime($data->movie_id,$data->day,$data->time_id);
+
+?>
+ <input type="hidden" name="schedule" value="<?= $scheduleId ?>"> 
             <input type="submit" name="selected" value="Book Tickets"/>
         </form> 
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+        getValue();
         var seats = document.querySelectorAll('.seat');
         seats.forEach(function(seat) {
             var icon = seat.querySelector('span');

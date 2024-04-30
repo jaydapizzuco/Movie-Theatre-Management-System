@@ -73,6 +73,19 @@ class MovieSchedule extends \app\core\Model{
 		$STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\MovieSchedule');
 		return $STMT->fetchAll();
 	}
+
+	public function getIdByMovieIDDayTime($movie_id, $day, $time_id){
+		$SQL = 'SELECT schedule_id FROM movie_schedule WHERE movie_id=:movie_id AND day=:day and time_id=:time_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(
+			['movie_id'=>$movie_id,
+			'day'=>$day,
+			'time_id'=>$time_id]
+		);
+		$STMT->setFetchMode(PDO::FETCH_COLUMN, 0);
+		return $STMT->fetch();
+	}
+
 	public function getTimeId($time){
 		$SQL = 'SELECT time_id FROM times WHERE time=:time';
 		$STMT = self::$_conn->prepare($SQL);

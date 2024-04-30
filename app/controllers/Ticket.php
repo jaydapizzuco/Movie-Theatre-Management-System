@@ -2,24 +2,20 @@
 namespace app\controllers;
 
 class Ticket extends \app\core\Controller {
+    private $schedule;
 
     public function seatSelection(){
-     $movie = new \app\models\Movie();
-     $movie = $movie->getByID($_GET['id']);
+    $schedule = new \app\models\MovieSchedule();
+    $schedule = $schedule->getById($_POST['schedule']);
 
      if($_SERVER['REQUEST_METHOD'] === 'POST'){
-
-        $schedule = new \app\models\MovieSchedule();
-        $schedule->movie_id = $movie->movie_id;
-        $screeningInfo = explode(':', $_POST['screening']);
-        $schedule->day = trim($screeningInfo[0]);
-
+        
         $selectedSeats = $_POST['seats'];
         $numberOfSeats = sizeof($selectedSeats);
 
         $order = new \app\models\Order();
         $order->user_id = $_SESSION['user_id'];
-        $order->order_date = date("Y-m-d");;
+        $order->order_date = date("Y-m-d");
         $order->total_price = $numberOfSeats * 10; 
         $order->number_tickets = $numberOfSeats;
         $order->insert();
@@ -27,18 +23,19 @@ class Ticket extends \app\core\Controller {
         foreach ($selectedSeats as $seat) {
             $ticket = new \app\models\Ticket();
             $ticket->order_id =  $order->order_id;
-            $ticket->movie_id =$movie->movie_id;
+            $ticket->movie_id =$schedule->movie_id;
             $ticket->seat_id = $seat;
             $ticket->movie_day = $schedule->day;
-            $ticket->movie_time = trim($screeningInfo[1]).trim($screeningInfo[2]).trim($screeningInfo[3]);
+            $ticket->movie_time = $schedule->getTime($schedule->time_id);
             $ticket->insert();
         }
          $this->view('Order/cart', $order);
     }
     else{
-        $this->view('Ticket/seatSelection',$movie);
+        $this->view('Ticket/seatSelection',$schedule);
     }
- }
+
+}
 
  public function selectScreening(){
      $movie = new \app\models\Movie();
@@ -51,6 +48,8 @@ class Ticket extends \app\core\Controller {
         $screeningInfo = explode(':', $_POST['screening']);
         $schedule->day = trim($screeningInfo[0]);
         $schedule->time_id = $schedule->getTimeId(trim($screeningInfo[1]).trim($screeningInfo[2]).trim($screeningInfo[3]));
+
+         $this->schedule = $schedule;
 
          $this->view('Ticket/seatSelection',$schedule);
 

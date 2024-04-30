@@ -25,6 +25,9 @@
     display: inline-block;
     cursor: pointer;
   }
+  .unclickable {
+    pointer-events: none;
+}
 </style>
 </head>
 <body>
@@ -54,7 +57,7 @@ for ($i = 1; $i <= $rows; $i++) {
     for ($j = 1; $j <= $cols; $j++) {
         $seatId = $i . $j;
         $status = in_array($seatId, $takenSeats) ? 'unavailable' : 'available';
-        
+
         echo '<input type="checkbox" class="seat visually-hidden" name="seats[]" value="' . $seatId . '" id="' . $seatId . '" data-status="' . $status . '" ' . ($status === 'unavailable' ? 'disabled' : '') . '>';
         echo '<label class="seat ' . $status . '" for="' . $seatId . '"><span class="bi ' . ($status === 'unavailable' ? 'bi-square-fill' : 'bi-square') . '"></span></label>';
     }
@@ -65,17 +68,18 @@ for ($i = 1; $i <= $rows; $i++) {
         </form> 
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            getValue();
-            var seats = document.querySelectorAll('.seat');
-            seats.forEach(function(seat) {
-                seat.addEventListener('click', function() {
-                    var icon = this.querySelector('span');
+      document.addEventListener("DOMContentLoaded", function() {
+        var seats = document.querySelectorAll('.seat');
+        seats.forEach(function(seat) {
+            var icon = seat.querySelector('span');
+            seat.addEventListener('click', function() {
+                if (!icon.classList.contains('bi-square-fill')) {
                     icon.classList.toggle('bi-square'); 
-                    icon.classList.toggle('bi-square-fill'); 
-                });
+                    icon.classList.toggle('bi-check-square-fill');
+                } 
             });
         });
+    });
 
         function getValue() {
             let checkboxes = document.getElementsByName('seats');

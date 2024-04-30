@@ -40,6 +40,27 @@ class Ticket extends \app\core\Controller {
     }
  }
 
+ public function selectScreening(){
+     $movie = new \app\models\Movie();
+     $movie = $movie->getByID($_GET['id']);
+
+     if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+        $schedule = new \app\models\MovieSchedule();
+        $schedule->movie_id = $movie->movie_id;
+        $screeningInfo = explode(':', $_POST['screening']);
+        $schedule->day = trim($screeningInfo[0]);
+        $schedule->time_id = $schedule->getTimeId(trim($screeningInfo[1]).trim($screeningInfo[2]).trim($screeningInfo[3]));
+
+         $this->view('Ticket/seatSelection',$schedule);
+
+    }
+    else{
+        $this->view('Ticket/selectScreening', $movie);
+    }
+
+ }
+
     public function createTicket($order_id, $movie_id, $seat_id, $movie_day, $movie_time) {
         $ticket = new Ticket();
         $ticket->order_id = $order_id;

@@ -28,93 +28,39 @@
 </style>
 </head>
 <body>
+
+    <?php
+        $movie = new \app\models\Movie();
+        $movie = $movie->getByID($data->movie_id);
+    ?>
+
 	<header>
-        <h1>Book Tickets for <?= $data->title ?></h1>
+        <h1>Book Tickets for <?= $movie->title ?></h1>
+        <h2><?= $data->day ?> : <?= $data->getTime($data->time_id)?></h2>
     </header><br><br>
 
-    <?php 
-            $schedule = new \app\models\MovieSchedule();
-            $screenings = $schedule->getByMovieID($data->movie_id);
-        ?>
-
-          <div class = "container">
-          <h2> Select a Screening </h2>
-    <form action="" method="post">
-           <div class="form-group">
-            <select name="screening" id="screening">
-               <?php 
-            foreach ($screenings as $index => $screening) { ?>
-                <option value="<?= $screening->day ?>:<?= $screening->getTime($screening->time_id)?>"><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></option>
-            <?php } ?> 
-             
-            </select>
-            <br>
-
-        </div>
-    
-  </div>
-  <br><br>
-  
-  <!-- <script type="text/javascript">
-     document.addEventListener("DOMContentLoaded", function() {
-    var selectScreening = document.getElementById("screening");
-
-    selectScreening.addEventListener("change", function() {
-        var selectedOption = selectScreening.options[selectScreening.selectedIndex];
-        var selectedValue = selectedOption.value;
-        var selectedValues = selectedValue.split(":");
-        var selectedDay = selectedValues[0];
-        var selectedTime = selectedValues[1].selectedValues[2].selectedValues[3];
-        
-        // Send selected day and time to PHP script using AJAX
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", window.location.href, true); // Send the request to the same page
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                // Handle response from server if needed
-                console.log(xhr.responseText);
-            }
-        };
-       xhr.send("selectedDay=" + encodeURIComponent(selectedDay) + "&selectedTime=" + encodeURIComponent(selectedTime));
-    });
-});
-  </script> -->
- 
-<<!-- ?php
-  // Retrieve selected day and time from AJAX request
-$selectedDay = isset($_POST['selectedDay']) ? $_POST['selectedDay'] : null;
-$selectedTime = isset($_POST['selectedTime']) ? $_POST['selectedTime'] : null;
-
-if ($selectedDay && $selectedTime) {
-    // Use $selectedDay and $selectedTime to retrieve seat availability data
-    $ticket = new \app\models\Ticket();
-    $takenSeats = $ticket->getAllTakenSeats($data->movie_id, $selectedDay, $selectedTime);
-    
-    // Return taken seats data as JSON
-    echo json_encode($takenSeats);
-} else {
-    // Handle case when the values are not received properly
-    echo json_encode(["error" => "Selected day and time not received."]);
-}
- ?>  -->
  
  <div id = "selectedSeats"></div> 
 
     <div class = "container2">
         <form method="POST" name="form" action=""> 
-            <?php
-                $rows = 4;
-                $cols = 10;
+    <?php
+       $rows = 4;
+       $cols = 10;
+       $ticket = new \app\models\Ticket();
+     $takenSeats = $ticket->getAllTakenSeats($data->movie_id, $data->day, $data->getTime($data->time_id)); 
 
-                for ($i = 1; $i <= $rows; $i++) {
-                    for ($j = 1; $j <= $cols; $j++) {
-                        echo '<input type="checkbox" class="seat visually-hidden" name="seats[]" value="' . $i . $j . '" id="' . $i . $j . '">';
-                        echo '<label class="seat" for="' . $i . $j . '"><span class="bi bi-square"></span></label>';
-                    }
-                    echo '<br>';
-                }
-            ?>
+for ($i = 1; $i <= $rows; $i++) {
+    for ($j = 1; $j <= $cols; $j++) {
+        $seatId = $i . $j;
+        $status = in_array($seatId, $takenSeats) ? 'unavailable' : 'available';
+        
+        echo '<input type="checkbox" class="seat visually-hidden" name="seats[]" value="' . $seatId . '" id="' . $seatId . '" data-status="' . $status . '" ' . ($status === 'unavailable' ? 'disabled' : '') . '>';
+        echo '<label class="seat ' . $status . '" for="' . $seatId . '"><span class="bi ' . ($status === 'unavailable' ? 'bi-square-fill' : 'bi-square') . '"></span></label>';
+    }
+    echo '<br>';
+}
+?>
             <input type="submit" name="selected" value="Book Tickets"/>
         </form> 
 

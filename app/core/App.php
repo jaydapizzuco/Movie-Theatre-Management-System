@@ -72,6 +72,7 @@ class App{
         $this->addRoute('Review/profileindex' , 'Review,profileindex');
         
          $this->addRoute('Ticket/seatSelection' , 'Ticket,seatSelection');
+                  $this->addRoute('Ticket/selectScreening' , 'Ticket,selectScreening');
           $this->addRoute('Order/checkout' , 'Order,checkout');
           $this->addRoute('Order/cart' , 'Order,cart');
           $this->addRoute('Order/delete' , 'Order,delete');

@@ -22,7 +22,7 @@
         ?>
 
         <?php 
-            foreach ($tickets as $index => $ticket) { 
+            foreach ($allTickets as $index => $ticket) { 
 
                 $movie = new \app\models\Movie();
                 $movie = $movie->getById($ticket->movie_id);
@@ -61,9 +61,8 @@
                   <option value="11">11</option>
                   <option value="12">12</option>
                 </select>
-            </div>
-            <div class="form-group">
-               <select name="years" id="years">
+
+                <select name="years" id="years">
                   <option value="23">23</option>
                   <option value="24">24</option>
                   <option value="25">25</option>
@@ -72,6 +71,9 @@
                   <option value="28">28</option>
                   <option value="29">29</option>
                 </select>
+            </div>
+            <div class="form-group">
+               
             </div>
 
             <div class="form-group">
@@ -82,14 +84,9 @@
             <a href="">Confirm Payment</a>
             
             <div class="form-group">
-                <input type="submit" name="action" value="Create"/><br><br>
-                <a href="/User/adminProfile">Cancel</a>
+                <a href="/Order/cart">Cancel</a>
             </div><br>
         </form>
-    
-    <a href="/Order/checkout">Cancel</a>
-
-    <a href="/Order/cart">Cancel</a>
 </header>
 
 

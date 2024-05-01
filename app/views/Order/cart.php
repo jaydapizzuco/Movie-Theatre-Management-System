@@ -86,7 +86,7 @@
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title">Total Price</h5>
-                        <p class="card-text">Total: $</p>
+                        <p class="card-text">Total: $  </p>
                         <a href="/checkout" class="btn btn-primary">Checkout</a>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title">Total Price</h5>
-                        <p class="card-text">Total: $</p>
+                        <p class="card-text">Total: $ <?= $data->total_price ?></p>
                         <a href="/Order/checkout?id=<?= $data->order_id ?>" class="btn btn-primary">Checkout</a>
                     </div>
                 </div>

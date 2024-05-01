@@ -7,7 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
 <!-- Navigation Bar -->
@@ -53,7 +57,53 @@
 
         </div>
     
-  
+    <div class="form-group">
+     <input type="date" id="datePicker" min="<?= date('Y-m-d') ?>">
+    </div>
+
+<script>
+    $(document).ready(function(){
+        $('#screening').change(function(){
+            var selectedValue = $(this).val();
+            var selectedDay = parseDay(selectedValue.split(':')[0]);
+            console.log(selectedDay);
+            enableSelectedDay(selectedDay);
+        });
+
+        function parseDay(dayString) {
+            switch (dayString.toLowerCase()) {
+                case 'monday':
+                    return 1;
+                case 'tuesday':
+                    return 2;
+                case 'wednesday':
+                    return 3;
+                case 'thursday':
+                    return 4;
+                case 'friday':
+                    return 5;
+                case 'saturday':
+                    return 6;
+                case 'sunday':
+                    return 0;
+                default:
+                    return NaN;
+            }
+        }
+
+        function enableSelectedDay(selectedDay) {
+            var datePicker = $("#datepicker");
+            datePicker.datepicker({
+                beforeShowDay: function(date) {
+                    var dayOfWeek = date.getDay();
+                    return [dayOfWeek === selectedDay, ''];
+                },
+            });
+        }
+    });
+</script>
+
+
 
     <input type="submit" name="selected" value="Select Screening"/>
         </form> 

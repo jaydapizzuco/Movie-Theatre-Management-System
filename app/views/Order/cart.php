@@ -115,7 +115,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Total Price</h5>
                         <p class="card-text">Total: $</p>
-                        <a href="/Order/checkout" class="btn btn-primary">Checkout</a>
+                        <a href="/Order/checkout?id=<?= $data->order_id ?>" class="btn btn-primary">Checkout</a>
                     </div>
                 </div>
             </div>

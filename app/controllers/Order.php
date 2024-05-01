@@ -1,9 +1,8 @@
 <?php
 namespace app\controllers;
 
-use app\models\Order;
 
-class OrderController extends \app\core\Controller {
+class Order extends \app\core\Controller {
 
     public function createOrder($user_id, $total_price) {
         $order = new Order();
@@ -18,17 +17,22 @@ class OrderController extends \app\core\Controller {
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
             $order = new \app\models\Order();
-            $order = $order->getByID($_GET['order_id']);
+            $order = $order->getByID($_GET['id']);
 
             $this->view('Order/checkout',$order);
         }
         else{
         $this->view('Order/cart');
     }
+
     }
 
     public function checkout(){
-        $this->view('Order/checkout');
+        $order = new \app\models\Order();
+        $order = $order->getByID($_GET['id']);
+
+        $this->view('Order/checkout',$order);
+    
     }
 
     public function deleteOrder($order_id) {

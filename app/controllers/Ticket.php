@@ -37,6 +37,38 @@ class Ticket extends \app\core\Controller {
 
 }
 
+public function selectScreeningVer2(){
+    $schedule = new \app\models\MovieSchedule();
+    $schedule = $schedule->getById($_POST['schedule']);
+
+     if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        
+        $selectedSeats = $_POST['seats'];
+        $numberOfSeats = sizeof($selectedSeats);
+
+        $order = new \app\models\Order();
+        $order->user_id = $_SESSION['user_id'];
+        $order->order_date = date("Y-m-d");
+        $order->total_price = $numberOfSeats * 10; 
+        $order->number_tickets = $numberOfSeats;
+        $order->insert();
+
+        foreach ($selectedSeats as $seat) {
+            $ticket = new \app\models\Ticket();
+            $ticket->order_id =  $order->order_id;
+            $ticket->movie_id =$schedule->movie_id;
+            $ticket->seat_id = $seat;
+            $ticket->movie_day = $schedule->day;
+            $ticket->movie_time = $schedule->getTime($schedule->time_id);
+            $ticket->insert();
+        }
+         $this->view('Order/cart', $order);
+    }
+    else{
+        $this->view('Ticket/seatSelection',$schedule);
+    }
+}
+
  public function selectScreening(){
      $movie = new \app\models\Movie();
      $movie = $movie->getByID($_GET['id']);

@@ -27,6 +27,24 @@ class Order extends \app\core\Controller {
 
     }
 
+
+    public function incomplete(){
+         $incompleteOrders = new \app\models\Order();
+         $incompleteOrders = $incompleteOrders->getByUserIDForCart($_SESSION['user_id']);
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+            $order = new \app\models\Order();
+            $order = $order->getByID($_GET['id']);
+
+            $this->view('Order/checkout',$order);
+        }
+        else{
+        $this->view('Order/incomplete', $incompleteOrders);
+    }
+
+    }
+
     public function checkout(){
         $order = new \app\models\Order();
         $order = $order->getByID($_GET['id']);

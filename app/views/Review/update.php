@@ -74,6 +74,7 @@
                 <li><a href="/Movie/index">Movies</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="/User/profile">Account</a></li>
+                <li><a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a></li>
             </ul>
         </nav>
     </header>

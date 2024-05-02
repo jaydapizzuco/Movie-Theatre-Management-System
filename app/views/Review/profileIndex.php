@@ -76,6 +76,7 @@
 <div class="navbar">
     <a href="/Movie/index">Movies</a>
     <a href="/User/profile">Account</a>
+    <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
 </div>
 
 <div class="main-content">

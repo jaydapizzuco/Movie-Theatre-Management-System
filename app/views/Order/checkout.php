@@ -33,7 +33,7 @@
         <p>Seat number: <?= $ticket->seat_id ?> </p>
         <?php } ?>
 
-        <h3>Total cost: <?= $data->total_price ?></h3>
+        <h3>Total cost: $ <?= $data->total_price ?></h3>
 
         <form action="" method="post">
             <h1>Payment Information</h1>
@@ -42,8 +42,16 @@
             </div><br>
 
             <div class="form-group">
-                <input type="number" class="form-control" name="card_no" placeholder="Card Number" required>
+                <input type="number" class="form-control" name="card_no" placeholder="Card Number"  oninput="limitDigits(16,this)"required>
             </div><br>
+
+            <script>
+            function limitDigits(noDigits,info) {
+                if (info.value.length > noDigits) {
+                    info.value = info.value.slice(0, noDigits);
+                }
+            }
+            </script>
 
             <h1>Expiration date</h1>
            <div class="form-group">
@@ -77,11 +85,14 @@
             </div>
 
             <div class="form-group">
-                <input type="number" class="form-control" name="security_no" placeholder="Security Number" required>
+                <input type="number" class="form-control" name="security_no" placeholder="Security Number (CVC)" oninput="limitDigits(3,this)"required>
             </div><br>
         
 
-            <a href="">Confirm Payment</a>
+           <div class="form-group">
+            <input type="submit" name="action" value="Confirm Payment"/><br><br>
+        </div><br>
+        </form>
             
             <div class="form-group">
                 <a href="/Order/cart">Cancel</a>

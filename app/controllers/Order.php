@@ -31,7 +31,14 @@ class Order extends \app\core\Controller {
         $order = new \app\models\Order();
         $order = $order->getByID($_GET['id']);
 
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $order->setCartStatusFalse();
+
+             $this->view('Order/receipt',$order);
+        }
+        else{
         $this->view('Order/checkout',$order);
+    }
     
     }
 

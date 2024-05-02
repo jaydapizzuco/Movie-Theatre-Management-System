@@ -49,7 +49,6 @@ class User extends \app\core\Controller{
                 $_SESSION['user_id'] = $user->user_id;
                 $_SESSION['secret'] = $user->secret;
 
-
                 if ($user->isAdmin($user->user_id) == 1) {
                     $this->view('User/adminProfile', $user);
                 } else {

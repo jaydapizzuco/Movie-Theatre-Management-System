@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Movie Theatre</title>
+    <title><?= __('Movie Theatre')?></title>
     <style><?php include 'app/css/movie.css'; ?></style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -11,8 +11,8 @@
 
 <!-- Navigation Bar -->
 <nav>
-    <a href="/User/adminProfile">Account</a> &nbsp&nbsp
-    <a href="/Movie/index">Movies</a>
+    <a href="/User/adminProfile"><?= __('Account')?></a> &nbsp&nbsp
+    <a href="/Movie/index"><?= __('Movies')?></a>
 </nav>
 
 <body>
@@ -20,27 +20,27 @@
      <?php 
         $movie = new \app\models\Movie();
         $movie = $movie->getByID($data->movie_id);
-        ?>
+      ?>
 
     <!-- Header Section-->
     <header>
-         <h1>Screening Times for <?= $movie->title ?></h1>
+         <h1><?= __('Screening Times for ')?><?= $movie->title ?></h1>
     </header><br><br>
 
     <!-- Register Section -->
     <div class="container">
         <br><br>
-        <h2>Add a New Screening Time</h2>
+        <h2><?= __('Add a New Screening Time')?></h2>
         <form action="" method="post">
            <div class="form-group">
            <select name="days" id="days">
-              <option value="Sunday">Sunday</option>
-              <option value="Monday">Monday</option>
-              <option value="Tuesday">Tuesday</option>
-              <option value="Wednesday">Wednesday</option>
-              <option value="Thursday">Thursday</option>
-              <option value="Friday">Friday</option>
-              <option value="saturday">Saturday</option>
+              <option value="Sunday"><?= __('Sunday')?></option>
+              <option value="Monday"><?= __('Monday')?></option>
+              <option value="Tuesday"><?= __('Tuesday')?></option>
+              <option value="Wednesday"><?= __('Wednesday')?></option>
+              <option value="Thursday"><?= __('Thursday')?></option>
+              <option value="Friday"><?= __('Friday')?></option>
+              <option value="saturday"><?= __('Saturday')?></option>
             </select>
         </div><br>
 
@@ -57,11 +57,11 @@
         </div><br>
         
             <div class="form-group">
-                <input type="submit" name="action" value="Add"/><br><br>
-                <a href="/User/adminProfile">Cancel</a>
+                <input type="submit" name="action" value="<?= __('Add')?>"/><br><br>
+                <a href="/User/adminProfile"><?= __('Cancel')?></a>
             </div><br>
 
-            <h2>Existing Screening Times</h2>
+            <h2><?= __('Existing Screening Times')?></h2>
             <?php 
             $schedule = new \app\models\MovieSchedule();
             $screenings = $schedule->getByMovieID($data->movie_id);
@@ -69,9 +69,7 @@
 
         <?php 
             foreach ($screenings as $index => $screening) { ?>
-               <h3><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?> 
-                <!-- <a href='/MovieSchedule/delete?id=<?= $screening->schedule_id ?>'><i class='bi bi-trash'></i></a> -->
-                </h3>
+               <h3><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?> </h3>
             <?php } ?>
         </form>
     </div>

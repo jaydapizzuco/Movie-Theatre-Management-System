@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Movie Theatre</title>
+    <title><?= __('Movie Theatre') ?></title>
     <style><?php include 'app/css/movie.css'; ?></style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -11,15 +11,15 @@
 
 <!-- Navigation Bar -->
 <nav>
-    <a href="/User/adminProfile">Account</a> &nbsp&nbsp
-    <a href="/Movie/index">Movies</a>
+    <a href="/User/adminProfile"><?= __('Account') ?></a> &nbsp&nbsp
+    <a href="/Movie/index"><?= __('Movies') ?></a>
 </nav>
 
 <body>
 
     <!-- Header Section-->
     <header>
-        <h1>Add a New Movie</h1>
+        <h1><?= __('Add a New Movie')?></h1>
     </header><br><br>
 
     <!-- Register Section -->
@@ -27,25 +27,25 @@
         <br><br>
 
         <form action="" method="post">
-            <h1>Movie Information</h1>
+            <h1><?= __('Movie Information') ?></h1>
             <div class="form-group">
-                <input type="text" class="form-control" name="title" placeholder="Title" required>
+                <input type="text" class="form-control" name="title" placeholder="<?= __('Title') ?>" required>
             </div><br>
 
             <div class="form-group">
-                <input type="text" class="form-control" name="image" placeholder="Source link of the Cover Image" required>
+                <input type="text" class="form-control" name="image" placeholder="<?= __('Source link of the Cover Image')?>" required>
             </div><br>
 
              <div class="form-group">
-                <input type="text" class="form-control" name="director" placeholder="Director Name" required>
+                <input type="text" class="form-control" name="director" placeholder="<?= __('Director Name')?>" required>
             </div><br>
 
             <div class="form-group">
-				<label>Synopsis:</label><textarea  class="form-control" name="description" rows="4" columns="50" ></textarea>
+				<label><?= __('Synopsis:')?></label><textarea  class="form-control" name="description" rows="4" columns="50" ></textarea>
 			</div><br>
 
             <div class="form-group">
-                <input type="number" class="form-control" name="length" placeholder="Length (minutes)" required>
+                <input type="number" class="form-control" name="length" placeholder="<?= __('Length (minutes)')?>" required>
             </div><br>
 
               <div class="form-group">
@@ -53,19 +53,19 @@
             </div><br>
 
              <div class="form-group">
-                <input type="text" class="form-control" name="trailer" placeholder="Link to the trailer" required>
+                <input type="text" class="form-control" name="trailer" placeholder="<?= __('Link to the trailer')?>" required>
             </div><br>
            
-           <h1>Add a Screening Time</h1>
+           <h1><?= __('Add a Screening Time') ?></h1>
            <div class="form-group">
            <select name="days" id="days">
-              <option value="Sunday">Sunday</option>
-              <option value="Monday">Monday</option>
-              <option value="Tuesday">Tuesday</option>
-              <option value="Wednesday">Wednesday</option>
-              <option value="Thursday">Thursday</option>
-              <option value="Friday">Friday</option>
-              <option value="Saturday">Saturday</option>
+              <option value="Sunday"><?= __('Sunday')?></option>
+              <option value="Monday"><?= __('Monday')?></option>
+              <option value="Tuesday"><?= __('Tuesday')?></option>
+              <option value="Wednesday"><?= __('Wednesday')?></option>
+              <option value="Thursday"><?= __('Thursday')?></option>
+              <option value="Friday"><?= __('Friday')?></option>
+              <option value="Saturday"><?= __('Saturday')?></option>
             </select>
             </div><br>
 
@@ -83,8 +83,8 @@
 
         
         <div class="form-group">
-            <input type="submit" name="action" value="Create"/><br><br>
-            <a href="">Cancel</a>
+            <input type="submit" name="action" value="<?= __('Create')?>"/><br><br>
+            <a href=""><?= __('Cancel') ?></a>
         </div><br>
         </form>
     </div>

@@ -7,7 +7,7 @@
 
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/Main/index">Home</a>
+    <a class="navbar-brand" href="/Main/index"><?= __('Home') ?></a>
   </div>
 </nav>
 
@@ -16,20 +16,20 @@
 		<br><h1></h1>
 		<form method='post' action=''>
 			<div class="form-group">
-				<label>Name:<input type="text" class="form-control" name="name" placeholder="name" /></label>
+				<label><?= __('Name:') ?><input type="text" class="form-control" name="name" placeholder="name" /></label>
 			</div><br>
 			<div class="form-group">
-				<label>Password:<input type="password" class="form-control" name="password" placeholder="password" /></label>
+				<label><?= __('Password:') ?><input type="password" class="form-control" name="password" placeholder="password" /></label>
 			</div><br>
 
 			<div class="form-group">
-				<input type="submit" name="action" value="Login" /><br> 
+				<input type="submit" name="action" value="<?= __('Login') ?>" /><br> 
 			</div><br>
 
 		</form>
 
 		<form action="/Admin/register">
-    		<input type="submit" value="I have no account, bring me to the registration page" />
+    		<input type="submit" value="<?= __('I have no account, bring me to the registration page') ?>" />
 		</form>
 	</div>
 

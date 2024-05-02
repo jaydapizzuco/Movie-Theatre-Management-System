@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <title>Movie Theatre</title>
@@ -11,8 +11,8 @@
 </head>
 
 <nav>
-    <a href="/User/profile">Account</a> &nbsp&nbsp
-    <a href="/Movie/index">Movies</a>
+    <a href="/User/profile"><?= __('Account') ?></a> &nbsp&nbsp
+    <a href="/Movie/index"><?= __('Movies') ?></a>
     <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
 </nav>
 
@@ -40,7 +40,7 @@
     </div><br>
 
    <header>
-        <h1>All Movies</h1>
+        <h1><?= __('All Movies')?></h1>
     </header><br><br>
 
     <div class="gallery">
@@ -55,7 +55,7 @@
 </body>
 
 <footer>
-        <br>Copyright &copy 2024 
-    </footer>
+        <br><?= __('Copyright &copy 2024') ?>
+</footer>
 
 </html>

@@ -1,0 +1,174 @@
+# French translations for PACKAGE package.
+# Copyright (C) 2024 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# root <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-02 18:08+0000\n"
+"PO-Revision-Date: 2024-05-02 18:32+0000\n"
+"Last-Translator: root <EMAIL@ADDRESS>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app/views/Admin/login.php:4
+msgid "Hello World!"
+msgstr "Salut"
+
+#: app/views/Admin/login.php:12 app/views/Admin/profile.php:10
+#: app/views/Admin/registration.php:10
+msgid "Home"
+msgstr "Maison"
+
+#: app/views/Admin/login.php:18
+msgid "Login as Administrator"
+msgstr "Connecter comme un administrateur"
+
+#: app/views/Admin/login.php:21 app/views/Admin/registration.php:20
+msgid "Username:"
+msgstr "Nom d'utilisateur"
+
+#: app/views/Admin/login.php:24 app/views/Admin/profile.php:22
+#: app/views/Admin/registration.php:26
+msgid "Password:"
+msgstr "Mot de passe"
+
+#: app/views/Admin/login.php:28 app/views/Admin/profile.php:26
+#: app/views/Admin/registration.php:11
+msgid "Login"
+msgstr "Se Connecter"
+
+#: app/views/Admin/login.php:34 app/views/Admin/profile.php:32
+msgid "I have no account, bring me to the registration page"
+msgstr "Je n'ai pas une compte."
+
+#: app/views/Admin/profile.php:19
+msgid "Name:"
+msgstr "Nom:"
+
+#: app/views/Admin/registration.php:17
+msgid "Create a New Administrator Account"
+msgstr "Crearer une nouveaux compte d'administrateur"
+
+#: app/views/Admin/registration.php:30
+msgid "Register"
+msgstr "Enregistreter"
+
+#: app/views/Admin/registration.php:35
+msgid "I have an account, bring me to the login page"
+msgstr "J'en ai une compte."
+
+#: app/views/Main/index.php:14 app/views/Movie/activate.php:14
+#: app/views/Movie/adminIndex.php:14 app/views/Movie/adminIndividual.php:14
+msgid "Account"
+msgstr "Compte"
+
+#: app/views/Main/index.php:15 app/views/Movie/activate.php:15
+#: app/views/Movie/adminIndex.php:15 app/views/Movie/adminIndividual.php:15
+msgid "Movies"
+msgstr "Films"
+
+#: app/views/Main/index.php:50
+msgid "$movies->title"
+msgstr "$movies->title"
+
+#: app/views/Main/index.php:58 app/views/Movie/activate.php:66
+#: app/views/Movie/adminIndex.php:41 app/views/Movie/adminIndividual.php:65
+msgid "Copyright &copy 2024"
+msgstr "Copyright &copy 2024"
+
+#: app/views/Movie/activate.php:5 app/views/Movie/adminIndex.php:5
+#: app/views/Movie/adminIndividual.php:5
+msgid "Movie Theatre"
+msgstr "Cinema"
+
+#: app/views/Movie/activate.php:22
+msgid "Activate a Movie"
+msgstr "Activer un film"
+
+#: app/views/Movie/activate.php:30
+msgid "Title"
+msgstr "Titre"
+
+#: app/views/Movie/activate.php:30 app/views/Movie/adminIndividual.php:26
+#: app/views/Movie/adminIndividual.php:33
+msgid "$data->title"
+msgstr "$data->title"
+
+#: app/views/Movie/activate.php:34
+msgid "Source link of the Cover Image"
+msgstr "Image"
+
+#: app/views/Movie/activate.php:38
+msgid "Director Name"
+msgstr "Nom du Directeur"
+
+#: app/views/Movie/activate.php:38 app/views/Movie/adminIndividual.php:34
+msgid "$data->director"
+msgstr "$data->director"
+
+#: app/views/Movie/activate.php:42
+msgid "Synopsis:"
+msgstr "Synopsis"
+
+#: app/views/Movie/activate.php:42 app/views/Movie/adminIndividual.php:35
+msgid "$data->description"
+msgstr "$data->description"
+
+#: app/views/Movie/activate.php:46
+msgid "Length (minutes)"
+msgstr "minutes"
+
+#: app/views/Movie/activate.php:46
+msgid "$data->length"
+msgstr "$data->length"
+
+#: app/views/Movie/activate.php:50
+msgid "$data->release_date"
+msgstr "$data->release_date"
+
+#: app/views/Movie/activate.php:54
+msgid "Link to the trailer"
+msgstr "Line"
+
+#: app/views/Movie/activate.php:54
+msgid "$data->trailer"
+msgstr "$data->trailer"
+
+#: app/views/Movie/activate.php:58
+msgid "RE-ACTIVATE MOVIE"
+msgstr "Activer le film"
+
+#: app/views/Movie/activate.php:59
+msgid "Cancel"
+msgstr "Annuler"
+
+#: app/views/Movie/adminIndex.php:21
+msgid "Update and Delete Movies"
+msgstr "Modifier and Supprimer des films"
+
+#: app/views/Movie/adminIndex.php:22
+msgid "Add Screening Times"
+msgstr "Ajouter des temps"
+
+#: app/views/Movie/adminIndividual.php:37
+msgid "minutes"
+msgstr "minutes"
+
+#: app/views/Movie/adminIndividual.php:54
+msgid "$screening->day"
+msgstr "$screening->day"
+
+#: app/views/Movie/adminIndividual.php:58
+msgid "Update Information"
+msgstr "Modifier L'information"
+
+#: app/views/Movie/adminIndividual.php:59
+msgid "View Reviews"
+msgstr "Regarder les Commentaires"

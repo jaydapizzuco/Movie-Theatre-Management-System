@@ -7,32 +7,32 @@
 
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/Main/index">Home</a>
-    <a class="navbar-brand" href="/Admin/login">Login</a>
+    <a class="navbar-brand" href="/Main/index"><?= __('Home') ?></a>
+    <a class="navbar-brand" href="/Admin/login"><?= __('Login') ?></a>
   </div>
 </nav>
 
 <body>
 	<div class='container'>
-		<br><h1>Create a New Administrator Account</h1>
+		<br><h1><?= __('Create a New Administrator Account') ?></h1>
 		<form method='post' action=''>
 			<div class="form-group">
-				<label>Username:<input type="text" class="form-control" name="username" placeholder="username" /></label>
+				<label><?= __('Username:') ?><input type="text" class="form-control" name="username" placeholder="username" /></label>
 			</div>
 			<div class="form-group">
 				<label>Email:<input type="text" class="form-control" name="email" placeholder="email" /></label>
 			</div>
 			<div class="form-group">
-				<label>Password:<input type="password" class="form-control" name="password" placeholder="password" /></label>
+				<label><?= __('Password:') ?><input type="password" class="form-control" name="password" placeholder="password" /></label>
 			</div>
 
 			<br><div class="form-group">
-				<input type="submit" name="action" value="Register" /><br><br> 
+				<input type="submit" name="action" value="<?= __('Register') ?>" /><br><br> 
 			</div>
 		</form>
 
 		<form action="/Admin/login">
-    		<input type="submit" value="I have an account, bring me to the login page" />
+    		<input type="submit" value="<?= __('I have an account, bring me to the login page') ?>" />
 		</form>
 	</div>
 </body>

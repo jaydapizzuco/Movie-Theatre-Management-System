@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Movie Theatre</title>
+    <title><?= __('Movie Theatre') ?></title>
     <style><?php include 'app/css/movie.css'; ?></style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -11,16 +11,15 @@
 
 <!-- Navigation Bar -->
 <nav>
-    <a href="/User/adminProfile">Account</a> &nbsp&nbsp
-    <a href="/Movie/index">Movies</a>
+    <a href="/User/adminProfile"><?= __('Account') ?></a> &nbsp&nbsp
+    <a href="/Movie/index"><?= __('Movies') ?></a>
 </nav>
-
 <body>
 
     <!-- Header Section-->
     <header>
-        <h1>Update and Delete Movies</h1>
-        <h1>Add Screening Times </h1>
+        <h1><?= __('Update and Delete Movies') ?></h1>
+        <h1><?= __('Add Screening Times') ?></h1>
     </header><br><br>
 
     <div class="gallery">
@@ -39,7 +38,7 @@
     </div>
 
     <footer>
-        <br>Copyright &copy 2024 
+        <br><?= __('Copyright &copy 2024')?> 
     </footer>
 </body>
 

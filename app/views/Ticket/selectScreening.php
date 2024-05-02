@@ -41,11 +41,13 @@
             $schedule = new \app\models\MovieSchedule();
             $screenings = $schedule->getByMovieID($data->movie_id);
 
-            date_default_timezone_set('GMT');
+            date_default_timezone_set('America/Montreal');
 
             $timestamp = date("Y-m-d");
+            echo $timestamp;
             $timestamp = strtotime($timestamp);
-            $day = date('l', $timestamp);echo $day;
+            $day = date('l', $timestamp);
+            echo "day is " . $day;
 
             $dayInt = 0;
 

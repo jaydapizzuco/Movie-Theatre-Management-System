@@ -47,7 +47,7 @@
             echo $timestamp;
             $timestamp = strtotime($timestamp);
             $day = date('l', $timestamp);
-            echo "day is " . $day;
+            echo "The " . $day;
 
             $dayInt = 0;
 
@@ -81,9 +81,9 @@
 
         ?>
 
-          <div class = "container">
-          <h2> Select a Screening </h2>
-    <form action="" method="post">
+    <div class = "container">
+        <h2> Select a Screening </h2>
+        <form action="" method="post">
            <div class="form-group">
             <select name="screening" id="screening">
                <?php 
@@ -122,20 +122,37 @@
                 ?>
 
                 <option value="<?= $screening->day ?>:<?= $screening->getTime($screening->time_id)?>"><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></option>
-            <?php } ?> 
-            <?php } ?> 
+            <?php }  } ?> 
              
             </select>
             <br>
+            
 
         </div>
-    
-    <div class="form-group">
-     <input type="date" id="datePicker" min="<?= date('Y-m-d') ?>">
-    </div>
+        <p id="confirming"></p>
+        <div class="form-group">
+         <input type="date" id="datePicker" min="<?= date('Y-m-d') ?>">
+        </div>
+
+        <input type="submit" name="selected" value="Select Screening"/>
+    </form> 
+
 
 <script>
+
+    let options;
+
+     window.onload = function getOptions(){
+        //checking if the drop down list is populated
+        options = jQuery("#screening option");
+
+        if(options.length == 0){
+            document.getElementById("confirming").innerHTML = 'There are no more screenings available this week.';
+        }
+    }
+
     $(document).ready(function(){
+
         $('#screening').change(function(){
             var selectedValue = $(this).val();
             var selectedDay = parseDay(selectedValue.split(':')[0]);
@@ -178,8 +195,7 @@
 
 
 
-    <input type="submit" name="selected" value="Select Screening"/>
-        </form> 
+    
 </div>
     <footer>
         <br>Copyright &copy 2024 

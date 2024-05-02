@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 02, 2024 at 03:38 AM
+-- Generation Time: May 02, 2024 at 04:20 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -161,28 +161,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `number_tickets`, `cart_status`, `order_status`) VALUES
-(1, 1, '2024-04-26', 20, 2, 1, 0),
-(2, 1, '2024-04-26', 40, 4, 1, 0),
-(3, 1, '2024-04-26', 20, 2, 1, 0),
-(4, 1, '2024-04-26', 20, 2, 1, 1),
-(5, 1, '2024-04-30', 20, 2, 1, 1),
-(6, 1, '2024-05-01', 10, 1, 1, 1),
-(7, 1, '2024-05-01', 10, 1, 1, 1),
-(8, 1, '2024-05-01', 10, 1, 1, 1),
-(9, 1, '2024-05-01', 10, 1, 1, 1),
-(10, 1, '2024-05-01', 10, 1, 1, 1),
-(11, 1, '2024-05-01', 10, 1, 1, 1),
-(12, 1, '2024-05-01', 10, 1, 1, 1),
-(13, 1, '2024-05-01', 10, 1, 1, 1),
-(14, 1, '2024-05-01', 10, 1, 1, 1),
-(15, 1, '2024-05-01', 10, 1, 1, 1),
-(16, 1, '2024-05-01', 10, 1, 1, 1),
-(17, 1, '2024-05-01', 10, 1, 1, 1),
-(18, 1, '2024-05-01', 10, 1, 1, 1),
-(19, 1, '2024-05-02', 23, 2, 1, 1),
-(20, 1, '2024-05-02', 11.5, 1, 1, 1),
-(21, 1, '2024-05-02', 34.5, 3, 1, 1),
-(22, 1, '2024-05-02', 11.5, 1, 1, 1);
+(1, 5, '2024-05-02', 23, 2, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -224,12 +203,8 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_date`, `movie_day`, `movie_time`, `ticket_status`) VALUES
-(21, 1, 19, 14, '0000-00-00', 'Thursday', '09:15:00', 1),
-(22, 1, 19, 15, '0000-00-00', 'Thursday', '09:15:00', 1),
-(23, 2, 19, 12, '0000-00-00', 'Thursday', '09:15:00', 1),
-(24, 2, 19, 13, '0000-00-00', 'Thursday', '09:15:00', 1),
-(25, 2, 19, 14, '0000-00-00', 'Thursday', '09:15:00', 1),
-(26, 2, 19, 15, '0000-00-00', 'Thursday', '09:15:00', 1);
+(1, 1, 19, 11, '2024-05-02', 'Thursday', '09:15:00', 1),
+(2, 1, 19, 12, '2024-05-02', 'Thursday', '09:15:00', 1);
 
 -- --------------------------------------------------------
 
@@ -278,7 +253,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`user_id`, `name`, `email`, `password_hash`, `is_admin`) VALUES
 (1, 'John', 'john@email.com', '$2y$10$UMiR4aGebyAxFRdzDKFIj.hcGsk93IPZf9eDSXQr7BOP61x16FXy.', 0),
 (2, 'Admin', 'admin@email.com', '$2y$10$FIKrGIYkZ9eHrJCkPlCFwu1mXTOSfn4AgmyGdc8Vax9pF/vElTxsS', 1),
-(4, 'Melissa', 'melissa@email.com', '$2y$10$.KUKTJksSpu336HBAx3xkOWgc8/87/9cR6hNU.A/C7EJSiMCUdp4K', 0);
+(4, 'Melissa', 'melissa@email.com', '$2y$10$.KUKTJksSpu336HBAx3xkOWgc8/87/9cR6hNU.A/C7EJSiMCUdp4K', 0),
+(5, 'Jayda', 'jayda@email.com', '$2y$10$aq5/uVxHCzjD5IanrPU66.RKRDsMRjZijxySXuOxGTL.5ltC2k.eK', 0);
 
 --
 -- Indexes for dumped tables
@@ -375,7 +351,7 @@ ALTER TABLE `movie_schedule`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -387,7 +363,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `times`
@@ -399,7 +375,7 @@ ALTER TABLE `times`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

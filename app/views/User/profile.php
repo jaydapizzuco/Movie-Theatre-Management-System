@@ -41,6 +41,10 @@
         <form action="/User/logout">
             <button type="submit">Logout</button>
         </form>
+
+        <form action="/User/setup2fa">
+            <button type="submit">Set Up 2FA</button>
+        </form>
     </div>
 
     <footer>

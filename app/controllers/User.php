@@ -1,6 +1,9 @@
 <?php
 namespace app\controllers;
 
+use chillerlan\Authenticator\{Authenticator, AuthenticatorOptions};
+use chillerlan\QRCode\QRCode;
+
 class User extends \app\core\Controller{
 
     function register(){
@@ -24,6 +27,7 @@ class User extends \app\core\Controller{
                 $user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
                     //insert the user
                     $user->insert();
+
                     //redirect to a good place
                     header('location:/User/login');
              }
@@ -43,6 +47,8 @@ class User extends \app\core\Controller{
             $password = $_POST['password'];
             if($user && password_verify($password, $user->password_hash)){
                 $_SESSION['user_id'] = $user->user_id;
+                $_SESSION['secret'] = $user->secret;
+//                $this->setup2fa();
 
                 if ($user->isAdmin($user->user_id) == 1) {
                     $this->view('User/adminProfile', $user);
@@ -58,6 +64,7 @@ class User extends \app\core\Controller{
         }
     }
 
+    #[\app\filters\Login] 
     #[\app\filters\AdminLogin] 
      public function adminProfile(){
         $profile = new \app\models\User();
@@ -119,4 +126,53 @@ class User extends \app\core\Controller{
 
         $this->view('User/purchaseHistory', $userOrders);
     }
+
+    function setup2fa(){
+        $options = new AuthenticatorOptions();
+        $authenticator = new Authenticator($options);
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            if(isset($_SESSION['secret_setup'])){
+                $authenticator->setSecret($_SESSION['secret_setup']);
+            }else{
+                header('location:/User/setup2fa');
+            }
+            //was submitted, check the TOTP
+            $totp = $_POST['totp'];
+            if($authenticator->verify($totp)){
+                //record to the user record
+                $user = new \app\models\User();
+                $user = $user->getById($_SESSION['user_id']);
+                $user->secret=$_SESSION['secret_setup'];
+                $user->add2FA();
+                header('location:/User/profile');
+            }else{
+                header('location:/User/login');
+            }
+        }else{
+            $_SESSION['secret_setup'] = $authenticator->createSecret();
+            //generate the URI with the secret for the user
+            $uri = $authenticator->getUri($_SESSION['user_id'], 'localhost');
+            $QRCode = (new QRCode)->render($uri);
+//var_dump($QRCode);
+            $this->view('User/setup2fa',$QRCode);
+        }
+    }
+
+    function check2fa(){
+    if($_SERVER['REQUEST_METHOD']==='POST'){
+        $options = new AuthenticatorOptions();
+        $authenticator = new Authenticator($options);
+        $authenticator->setSecret($_SESSION['secret']);
+        if($authenticator->verify($_POST['totp'])){
+            unset($_SESSION['secret']);
+            header('location:' . $_SESSION['redirect']);//the good place
+        }else{
+            session_destroy();
+            header('location:/User/login');
+        }
+    }else{
+        $this->view('User/check2fa');
+    }
+}
 }

@@ -9,6 +9,7 @@ class User extends \app\core\Model {
  public $email;
  public $password_hash;
  public $is_admin;
+ public $secret;
 
  public function insert(){
 		$SQL = 'INSERT INTO user (name, email, password_hash) VALUES (:name, :email, :password_hash)';
@@ -61,5 +62,13 @@ public function getById($user_id){
     	return $result['is_admin'] ?? 0;
 	}
 
+
+	public function add2FA(){
+		//change anything but the PK
+		$SQL = 'UPDATE user SET secret = :secret WHERE user_id = :user_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(['user_id'=>$this->user_id,
+						'secret'=>$this->secret]);
+	}
 	
 }

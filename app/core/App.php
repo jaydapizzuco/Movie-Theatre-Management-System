@@ -81,6 +81,9 @@ class App{
         $this->addRoute('Order/cart' , 'Order,cart');
         $this->addRoute('Order/delete' , 'Order,delete');
 
+        $this->addRoute('User/setup2fa' , 'User,setup2fa');
+        $this->addRoute('User/check2fa' , 'User,check2fa');
+
         [$controllerMethod, $namedParams] = $this->resolve($url);
 
         if(!$controllerMethod){

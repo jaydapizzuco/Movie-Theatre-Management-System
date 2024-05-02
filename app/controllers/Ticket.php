@@ -6,6 +6,7 @@ class Ticket extends \app\core\Controller {
 
     public function seatSelection(){
     $schedule = new \app\models\MovieSchedule();
+    echo $_POST['schedule'];
     $schedule = $schedule->getById($_POST['schedule']);
 
      if($_SERVER['REQUEST_METHOD'] === 'POST'){

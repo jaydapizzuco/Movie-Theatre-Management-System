@@ -31,7 +31,7 @@
         <a href="/User/purchaseHistory">Purchase History</a> &nbsp&nbsp
         <a class="active" href="movies.html">Points</a>
         <a href="/Review/profileindex"> Reviews</a>
-        <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
+    
     </nav><br>
 
         <div class="container2">
@@ -55,7 +55,13 @@
                                 $movie = $movie->getByID($ticket->movie_id);
                             ?>
 
-                            <br><p>  - <?= $movie->title ?>  : <?= $ticket->movie_day ?> <?= $ticket->movie_time ?> | Seat <?= $ticket->seat_id?> </p>
+                            <?php
+                            $date = new DateTime($ticket->movie_date);
+                            $date = $date->format('F j, Y');
+                            ?>
+                            <br><p>  - <?= $movie->title ?> </p>
+                            <p> <?= $ticket->movie_day ?> <?= $date ?> <?= $ticket->movie_time ?> </p>
+                            <p> Seat <?= $ticket->seat_id?> </p>
                             
                         <?php endforeach; ?>
 

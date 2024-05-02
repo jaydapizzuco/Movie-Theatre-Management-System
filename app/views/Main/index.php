@@ -12,6 +12,7 @@
 <nav>
     <a href="/User/profile">Account</a> &nbsp&nbsp
     <a href="/Movie/index">Movies</a>
+    <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
 </nav>
 
 <body>

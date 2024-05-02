@@ -77,6 +77,7 @@ class App{
         $this->addRoute('Ticket/selectScreeningVer2' , 'Ticket,selectScreeningVer2');
         
         $this->addRoute('Order/checkout' , 'Order,checkout');
+        $this->addRoute('Order/incomplete' , 'Order,incomplete');
         $this->addRoute('Order/cart' , 'Order,cart');
         $this->addRoute('Order/delete' , 'Order,delete');
 

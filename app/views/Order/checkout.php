@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Movie Theatre</title>
+    <title><?= __('Movie Theatre')?></title>
     <style><?php include 'app/css/movie.css'; ?></style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -10,9 +10,11 @@
 </head>
 
 <header>
-    <h1>Checkout</h1><br>
+    <h1><?= __('Checkout')?></h1><br>
+</header>
 
-        <p>Order:</p>
+<body>
+        <p><?= __('Order:')?></p>
 
         <br><br>
 
@@ -26,23 +28,23 @@
 
                 $movie = new \app\models\Movie();
                 $movie = $movie->getById($ticket->movie_id);
-
         ?>
+
         <h2><?= $movie->title ?> </h2>
         <p><?= $ticket->movie_day ?> : <?= $ticket->movie_time ?> </p>
-        <p>Seat number: <?= $ticket->seat_id ?> </p>
+        <p><?= __('Seat number: ')?><?= $ticket->seat_id ?> </p>
         <?php } ?>
 
-        <h3>Total cost: $ <?= $data->total_price ?></h3>
+        <h3><?= __('Total cost: $ ')?><?= $data->total_price ?></h3>
 
         <form action="" method="post">
-            <h1>Payment Information</h1>
+            <h1><?= __('Payment Information')?></h1>
             <div class="form-group">
-                <input type="text" class="form-control" name="cardholder_name" placeholder="Cardholder Name" required>
+                <input type="text" class="form-control" name="cardholder_name" placeholder="<?= __('Cardholder Name')?>" required>
             </div><br>
 
             <div class="form-group">
-                <input type="number" class="form-control" name="card_no" placeholder="Card Number"  oninput="limitDigits(16,this)"required>
+                <input type="number" class="form-control" name="card_no" placeholder="<?= __('Card Number')?>"  oninput="limitDigits(16,this)"required>
             </div><br>
 
             <script>
@@ -53,7 +55,7 @@
             }
             </script>
 
-            <h1>Expiration date</h1>
+            <h1><?= __('Expiration date')?></h1>
            <div class="form-group">
                <select name="months" id="months">
                   <option value="01">01</option>
@@ -85,21 +87,19 @@
             </div>
 
             <div class="form-group">
-                <input type="number" class="form-control" name="security_no" placeholder="Security Number (CVC)" oninput="limitDigits(3,this)"required>
+                <input type="number" class="form-control" name="security_no" placeholder="<?= __('Security Number (CVC)')?>" oninput="limitDigits(3,this)"required>
             </div><br>
         
 
            <div class="form-group">
-            <input type="submit" name="action" value="Confirm Payment"/><br><br>
+            <input type="submit" name="action" value="<?= __('Confirm Payment')?>"/><br><br>
         </div><br>
         </form>
             
             <div class="form-group">
-                <a href="/Order/cart">Cancel</a>
+                <a href="/Order/cart"><?= __('Cancel')?></a>
             </div><br>
         </form>
-</header>
-
-
+</body>
 
 </html>

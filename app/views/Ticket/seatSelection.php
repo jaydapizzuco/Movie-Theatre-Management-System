@@ -1,40 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Movie Theatre</title>
+    <title><?= __('Movie Theatre')?></title>
     <style><?php include 'app/css/movie.css'; ?></style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
+    <style>
+        .seat {width: 50px;
+                height: 50px;
+                margin: 5px;
+                display: inline-block;
+                cursor: pointer;}
+
+        .unclickable {pointer-events: none;}
+    </style>
+
 </head>
 
 <!-- Navigation Bar -->
 <nav>
-    <a href="/User/profile">Account</a> &nbsp&nbsp
-    <a href="/Movie/index">Movies</a>
+    <a href="/User/profile"><?= __('Account')?></a> &nbsp&nbsp
+    <a href="/Movie/index"><?= __('Movies')?></a>
     <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
 </nav>
 
 <body>
-	<style>
-  .seat {
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-    display: inline-block;
-    cursor: pointer;
-  }
-  .unclickable {
-    pointer-events: none;
-}
-</style>
-</head>
-<body>
-
     <?php
-
     //get index of day today 
         date_default_timezone_set('America/Montreal');
 
@@ -68,7 +62,6 @@
                     break;
                 
                 default:
-                    // code...
                     break;
             }
 
@@ -111,7 +104,7 @@
     ?>
 
 	<header>
-        <h1>Book Tickets for <?= $movie->title ?></h1>
+        <h1><?= __('Book Tickets for ')?><?= $movie->title ?></h1>
         <h2><?= $data->day ?> : <?= $data->getTime($data->time_id)?></h2>
     </header><br><br>
 

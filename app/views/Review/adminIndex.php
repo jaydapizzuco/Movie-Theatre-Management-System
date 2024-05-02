@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Admin Review Approvals</title>
-    <style>
+    <title><?= __('Movie Theatre')?></title>
+    <style><?php include 'app/css/movie.css'; ?></style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -72,19 +75,18 @@
             bottom: 0;
             width: 100%;
         }
-    </style>
+    </style> -->
 </head>
 <body>
 
 <div class="header">
-    <h1>Reviews</h1>
+    <h1><?= __('Reviews')?></h1>
 </div>
 
-<div class="navbar">
-    <a href="/Movie/index">Movies</a>
-
-    <a href="/User/profile">Account</a>
-</div>
+<nav>
+    <a href="/User/adminProfile"><?= __('Account') ?></a> &nbsp&nbsp
+    <a href="/Movie/index"><?= __('Movies') ?></a>
+</nav>
 
 <div class="main-content">
     <?php
@@ -131,8 +133,8 @@
             <p><?= $review->review_text ?></p>
             <form method="post">
                 <input type="hidden" name="review_id" value="<?= $review->review_id ?>">
-                <button type="submit" name="approve_review" value="<?= $review->review_id ?>" class="button approve">Approve</button>
-                <button type="submit" name="reject_review" value="<?= $review->review_id ?>" class="button reject">Reject</button>
+                <button type="submit" name="approve_review" value="<?= $review->review_id ?>" class="button approve"><?= __('Approve')?></button>
+                <button type="submit" name="reject_review" value="<?= $review->review_id ?>" class="button reject"><?= __('Reject')?></button>
             </form>
         </div>
     <?php endforeach; ?>

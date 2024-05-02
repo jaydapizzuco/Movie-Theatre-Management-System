@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Delete Review</title>
-    
+    <title><?= __('Movie Theatre')?></title>
+    <style><?php include 'app/css/movie.css'; ?></style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
+
 <body>
 
 <div class="header">
-    <h1>Delete Review</h1>
+    <h1><?= __('Delete Review')?></h1>
 </div>
 
 <div class="main-content">
     <div class="confirmation-box">
-        <p>Are you sure you want to delete this review?</p>
-        <p>This action cannot be undone.</p>
+        <p><?= __('Are you sure you want to delete this review?')?></p>
+        <p><?= __('This action cannot be undone.')?></p>
         <form action="/Review/delete" method="post">
             <input type="hidden" name="review_id" value="<?= $review_id ?>">
-            <button type="submit" class="button delete-button">Delete</button>
-            <a href="/Review/profileindex" class="button cancel-button">Cancel</a>
+            <button type="submit" class="button delete-button"><?= __('Delete')?></button>
+            <a href="/Review/profileindex" class="button cancel-button"><?= __('Cancel')?></a>
         </form>
     </div>
 </div>

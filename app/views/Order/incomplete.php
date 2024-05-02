@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Movie Theatre</title>
+    <title><?= __('Movie Theatre')?></title>
     <style><?php include 'app/css/movie.css'; ?></style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -11,12 +11,12 @@
 
 <!-- Navigation Bar -->
 <nav>
-    <a href="/User/profile">Account</a> &nbsp&nbsp
-    <a href="/Movie/index">Movies</a>
+    <a href="/User/profile"><?= __('Account')?></a> &nbsp&nbsp
+    <a href="/Movie/index"><?= __('Movies')?></a>
 </nav>
 
 <header>
-    <h1>CART</h1>
+    <h1><?= __('CART')?></h1>
 </header>
 
 <body>
@@ -38,30 +38,24 @@
                 <li class="list-group-item">
                     <h5 class="card-title"><?= $movie->title ?></h5><br>
                     <p class="card-text"><?= $ticket->movie_day ?> : <?= $ticket->movie_time ?> </p>
-                    <p class="card-text">Seat Number: <?= $ticket->seat_id ?></p>
+                    <p class="card-text"><?= __('Seat Number: ')?><?= $ticket->seat_id ?></p>
                 </li>
         </ul>
         <?php endforeach; ?>
         <div class="row justify-content-end mt-4">
-                        <h5 class="card-title">Total Price</h5>
-                        <p class="card-text">Total: $ <?= $incompleteOrder->total_price ?></p>
-                        <a href="/Order/checkout?id=<?= $incompleteOrder->order_id ?>" class="btn btn-primary">Complete Order</a>  
-               </div>
+                    <h5 class="card-title"><?= __('Total Price')?></h5>
+                    <p class="card-text"><?= __('Total: $ ')?><?= $incompleteOrder->total_price ?></p>
+                    <a href="/Order/checkout?id=<?= $incompleteOrder->order_id ?>" class="btn btn-primary"><?= __('Complete Order')?></a>  
         </div>
+    </div>
 
-<?php } ?>
+        <?php } ?>
 
 
     <div class="row justify-content-center">
         <div class="col-auto">
-            <a href="/Movie/index" class="btn btn-primary">Continue Browsing</a>
+            <a href="/Movie/index" class="btn btn-primary"><?= __('Continue Browsing')?></a>
         </div>
     </div>
-
-
-
-
 </body>
-
-
 </html>

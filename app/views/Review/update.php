@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modify Review</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
+    <title><?= __('Movie Theatre')?></title>
+    <style><?php include 'app/css/movie.css'; ?></style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+<!--     <style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -64,21 +66,21 @@
             padding: 10px 20px;
             text-align: center;
         }
-    </style>
+    </style> -->
 </head>
+
+<nav>
+    <a href="/User/profile"><?= __('Account')?></a> &nbsp&nbsp
+    <a href="/Movie/index"><?= __('Movies')?></a>
+    <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
+</nav>
+
 <body>
     <header>
-        <h1>Modify Review for <?= $data->title ?></h1>
-        <nav>
-            <ul>
-                <li><a href="/Movie/index">Movies</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="/User/profile">Account</a></li>
-                <li><a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a></li>
-            </ul>
-        </nav>
+        <h1><?= __('Modify Review for ')?><?= $data->title ?></h1>
     </header>
-    <main>
+
+    <body>
         <section class="movie-cover">
             <img src="<?= $data->image ?>" alt="<?= $data->title ?>" style="max-width: 100%;">
         </section>
@@ -86,17 +88,18 @@
             <form action="/Review/update" method="POST">
                 <input type="hidden" name="review_id" value="<?= $data->review_id ?>">
                 <div class="mb-3">
-                    <label for="stars" class="form-label">Stars</label>
+                    <label for="stars" class="form-label"><?= __('Stars')?></label>
                     <input type="number" class="form-control" id="stars" name="stars" min="1" max="5" required>
                 </div>
                 <div class="mb-3">
-                    <label for="review_text" class="form-label">Review Text</label>
+                    <label for="review_text" class="form-label"><?= __('Review Text')?></label>
                     <textarea class="form-control" id="review_text" name="review_text" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit Review</button>
+                <button type="submit" class="btn btn-primary"><?= __('Submit Review')?></button>
             </form>
         </section>
-    </main>
+    </body>
+
     <footer>
         <p>Footer</p>
     </footer>

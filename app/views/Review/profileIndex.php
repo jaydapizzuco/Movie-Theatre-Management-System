@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>User Reviews</title>
-    <style>
+    <title><?= __('Movie Theatre')?></title>
+    <style><?php include 'app/css/movie.css'; ?></style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <!-- <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -65,18 +69,19 @@
             bottom: 0;
             width: 100%;
         }
-    </style>
+    </style> -->
 </head>
+
+<nav>
+    <a href="/User/profile"><?= __('Account')?></a> &nbsp&nbsp
+    <a href="/Movie/index"><?= __('Movies')?></a>
+    <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
+</nav>
+
 <body>
 
 <div class="header">
     <h1>My Reviews</h1>
-</div>
-
-<div class="navbar">
-    <a href="/Movie/index">Movies</a>
-    <a href="/User/profile">Account</a>
-    <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
 </div>
 
 <div class="main-content">
@@ -104,17 +109,15 @@
                 <p class="stars"><?= str_repeat('⭐', $review->stars) ?></p>
                
                 <div>
-                    
-                    <a href="/Review/update?id=<?= $review->review_id ?>"><button class="button">Modify</button></a>
-                    
-                    <a href="/Review/delete?id=<?= $review->review_id ?>"><button class="button">Delete</button></a>
+                    <a href="/Review/update?id=<?= $review->review_id ?>"><button class="button"><?= __('Modify')?></button></a>
+                    <a href="/Review/delete?id=<?= $review->review_id ?>"><button class="button"><?= __('Delete')?></button></a>
                 </div>
             </div>
         <?php
         endforeach;
     } else {
        
-        echo "<p>No reviews found.</p>";
+        echo "<p><?= __('No reviews found.')?></p>";
     }
     ?>
 </div>

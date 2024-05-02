@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Movie Theatre</title>
+    <title><?= __('Movie Theatre')?></title>
     <style><?php include 'app/css/movie.css'; ?></style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -11,42 +11,42 @@
 
 <!-- Navigation Bar -->
 <nav>
-    <a href="/User/profile">Account</a> &nbsp&nbsp
-    <a href="aboutus.html">About Us</a> &nbsp&nbsp
-    <a href="/Movie/index">Movies</a>
+    <a href="/User/profile"><?= __('Account')?></a> &nbsp&nbsp
+    <a href="aboutus.html"><?= __('About Us')?></a> &nbsp&nbsp
+    <a href="/Movie/index"><?= __('Movies')?></a>
 </nav>
 
 <body>
 
     <!-- Header Section-->
     <header>
-        <h1>Account</h1>
+        <h1><?= __('Account')?></h1>
     </header><br><br>
 
     <!-- Register Section -->
     <div class="container3">
-        <br><h2>Create an Account</h2><br>
+        <br><h2><?= __('Create an Account')?></h2><br>
 
         <form action="" method="post">
             <div class="form-group">
-                <input type="text" class="form-control" name="name" placeholder="Name" required>
+                <input type="text" class="form-control" name="name" placeholder="<?= __('Name')?>" required>
             </div><br>
 
             <div class="form-group">
-                <input type="text" class="form-control" name="email" placeholder="Email" required>
+                <input type="text" class="form-control" name="email" placeholder="<?= __('Email')?>" required>
             </div><br>
 
             <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password" required>
+                <input type="password" class="form-control" name="password" placeholder="<?= __('Password')?>" required>
             </div><br>
 
             <div class="form-group">
-                <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm password" required>
+                <input type="password" class="form-control" name="confirmpassword" placeholder="<?= __('Confirm password')?>" required>
             </div><br>
 
             <div class="form-group">
-                <input type="submit" name="action" value="Register"/><br><br>
-                <a href="/User/login">Login</a>
+                <input type="submit" name="action" value="<?= __('Register')?>"/><br><br>
+                <a href="/User/login"><?= __('Login')?></a>
             </div><br>
             
         </form>

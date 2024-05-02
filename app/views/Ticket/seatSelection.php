@@ -33,6 +33,78 @@
 <body>
 
     <?php
+
+    //get index of day today 
+        date_default_timezone_set('America/Montreal');
+
+            $timestamp = date("Y-m-d");
+            $timestamp = strtotime($timestamp);
+            $day = date('l', $timestamp);
+
+            $dayInt = 0;
+
+            switch ($day) {
+                case 'Sunday':
+                    $dayInt = 0;
+                    break;
+                case 'Monday':
+                    $dayInt = 1;
+                    break;
+                case 'Tuesday':
+                    $dayInt = 2;
+                    break;
+                case 'Wednesday':
+                    $dayInt = 3;
+                    break;
+                case 'Thursday':
+                    $dayInt = 4;
+                    break;
+                case 'Friday':
+                    $dayInt = 5;
+                    break;
+                case 'Saturday':
+                    $dayInt = 6;
+                    break;
+                
+                default:
+                    // code...
+                    break;
+            }
+
+
+        //get index of movie day
+
+        $screenDayInt = 0;
+            switch ($data->day) {
+                case 'Sunday':
+                    $screenDayInt = 0;
+                    break;
+                case 'Monday':
+                    $screenDayInt = 1;
+                    break;
+                case 'Tuesday':
+                    $screenDayInt = 2;
+                    break;
+                case 'Wednesday':
+                    $screenDayInt = 3;
+                    break;
+                case 'Thursday':
+                    $screenDayInt = 4;
+                    break;
+                case 'Friday':
+                    $screenDayInt = 5;
+                    break;
+                case 'Saturday':
+                    $screenDayInt = 6;
+                    break;
+                        
+                default:
+                    // code...
+                    break;
+            }
+
+        $addingDays = $screenDayInt - $dayInt;
+        $movieDate = Date('Y-m-d', strtotime("+". $addingDays ." days"));
         $movie = new \app\models\Movie();
         $movie = $movie->getByID($data->movie_id);
     ?>
@@ -51,7 +123,7 @@
        $rows = 4;
        $cols = 10;
        $ticket = new \app\models\Ticket();
-     $takenSeats = $ticket->getAllTakenSeats($data->movie_id, $data->day, $data->getTime($data->time_id)); 
+     $takenSeats = $ticket->getAllTakenSeats($data->movie_id, $movieDate,$data->day, $data->getTime($data->time_id)); 
 
 for ($i = 1; $i <= $rows; $i++) {
     for ($j = 1; $j <= $cols; $j++) {
@@ -66,8 +138,9 @@ for ($i = 1; $i <= $rows; $i++) {
 ?>
 
 <?php
+
         $getSchedule = new \app\models\MovieSchedule();
-        $scheduleId = $getSchedule->getIdByMovieIDDayTime($data->movie_id,$data->day,$data->time_id);
+        $scheduleId = $getSchedule->getIdByMovieIDDayTime($data->movie_id,$movieDate,$data->day,$data->time_id);
 
 ?>
  <input type="hidden" name="schedule" value="<?= $scheduleId ?>"> 

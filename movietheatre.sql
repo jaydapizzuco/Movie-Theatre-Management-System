@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 26, 2024 at 08:48 PM
+-- Generation Time: May 02, 2024 at 03:38 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -164,7 +164,25 @@ INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `numbe
 (1, 1, '2024-04-26', 20, 2, 1, 0),
 (2, 1, '2024-04-26', 40, 4, 1, 0),
 (3, 1, '2024-04-26', 20, 2, 1, 0),
-(4, 1, '2024-04-26', 20, 2, 1, 1);
+(4, 1, '2024-04-26', 20, 2, 1, 1),
+(5, 1, '2024-04-30', 20, 2, 1, 1),
+(6, 1, '2024-05-01', 10, 1, 1, 1),
+(7, 1, '2024-05-01', 10, 1, 1, 1),
+(8, 1, '2024-05-01', 10, 1, 1, 1),
+(9, 1, '2024-05-01', 10, 1, 1, 1),
+(10, 1, '2024-05-01', 10, 1, 1, 1),
+(11, 1, '2024-05-01', 10, 1, 1, 1),
+(12, 1, '2024-05-01', 10, 1, 1, 1),
+(13, 1, '2024-05-01', 10, 1, 1, 1),
+(14, 1, '2024-05-01', 10, 1, 1, 1),
+(15, 1, '2024-05-01', 10, 1, 1, 1),
+(16, 1, '2024-05-01', 10, 1, 1, 1),
+(17, 1, '2024-05-01', 10, 1, 1, 1),
+(18, 1, '2024-05-01', 10, 1, 1, 1),
+(19, 1, '2024-05-02', 23, 2, 1, 1),
+(20, 1, '2024-05-02', 11.5, 1, 1, 1),
+(21, 1, '2024-05-02', 34.5, 3, 1, 1),
+(22, 1, '2024-05-02', 11.5, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -195,6 +213,7 @@ CREATE TABLE `ticket` (
   `order_id` int(11) NOT NULL,
   `movie_id` int(11) NOT NULL,
   `seat_id` int(11) NOT NULL,
+  `movie_date` date NOT NULL,
   `movie_day` varchar(15) NOT NULL,
   `movie_time` time NOT NULL,
   `ticket_status` tinyint(4) NOT NULL DEFAULT 1
@@ -204,17 +223,13 @@ CREATE TABLE `ticket` (
 -- Dumping data for table `ticket`
 --
 
-INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_day`, `movie_time`, `ticket_status`) VALUES
-(21, 1, 19, 14, 'Thursday', '09:15:00', 1),
-(22, 1, 19, 15, 'Thursday', '09:15:00', 1),
-(23, 2, 19, 12, 'Thursday', '09:15:00', 1),
-(24, 2, 19, 13, 'Thursday', '09:15:00', 1),
-(25, 2, 19, 14, 'Thursday', '09:15:00', 1),
-(26, 2, 19, 15, 'Thursday', '09:15:00', 1),
-(27, 3, 19, 13, 'Thursday', '09:15:00', 1),
-(28, 3, 19, 14, 'Thursday', '09:15:00', 1),
-(29, 4, 19, 33, 'Thursday', '09:15:00', 1),
-(30, 4, 19, 34, 'Thursday', '09:15:00', 1);
+INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_date`, `movie_day`, `movie_time`, `ticket_status`) VALUES
+(21, 1, 19, 14, '0000-00-00', 'Thursday', '09:15:00', 1),
+(22, 1, 19, 15, '0000-00-00', 'Thursday', '09:15:00', 1),
+(23, 2, 19, 12, '0000-00-00', 'Thursday', '09:15:00', 1),
+(24, 2, 19, 13, '0000-00-00', 'Thursday', '09:15:00', 1),
+(25, 2, 19, 14, '0000-00-00', 'Thursday', '09:15:00', 1),
+(26, 2, 19, 15, '0000-00-00', 'Thursday', '09:15:00', 1);
 
 -- --------------------------------------------------------
 
@@ -360,7 +375,7 @@ ALTER TABLE `movie_schedule`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -372,7 +387,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `times`

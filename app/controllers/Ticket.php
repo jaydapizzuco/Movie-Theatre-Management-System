@@ -21,11 +21,84 @@ class Ticket extends \app\core\Controller {
         $order->number_tickets = $numberOfSeats;
         $order->insert();
 
+        //get date today
+        date_default_timezone_set('America/Montreal');
+
+            $timestamp = date("Y-m-d");
+            $timestamp = strtotime($timestamp);
+            $day = date('l', $timestamp);
+
+            $dayInt = 0;
+
+            switch ($day) {
+                case 'Sunday':
+                    $dayInt = 0;
+                    break;
+                case 'Monday':
+                    $dayInt = 1;
+                    break;
+                case 'Tuesday':
+                    $dayInt = 2;
+                    break;
+                case 'Wednesday':
+                    $dayInt = 3;
+                    break;
+                case 'Thursday':
+                    $dayInt = 4;
+                    break;
+                case 'Friday':
+                    $dayInt = 5;
+                    break;
+                case 'Saturday':
+                    $dayInt = 6;
+                    break;
+                
+                default:
+                    // code...
+                    break;
+            }
+
+
+        //get index of movie day
+
+        $screenDayInt = 0;
+            switch ($schedule->day) {
+                case 'Sunday':
+                    $screenDayInt = 0;
+                    break;
+                case 'Monday':
+                    $screenDayInt = 1;
+                    break;
+                case 'Tuesday':
+                    $screenDayInt = 2;
+                    break;
+                case 'Wednesday':
+                    $screenDayInt = 3;
+                    break;
+                case 'Thursday':
+                    $screenDayInt = 4;
+                    break;
+                case 'Friday':
+                    $screenDayInt = 5;
+                    break;
+                case 'Saturday':
+                    $screenDayInt = 6;
+                    break;
+                        
+                default:
+                    // code...
+                    break;
+            }
+
+        $addingDays = $screenDayInt - $dayInt;
+        $movieDate = Date('Y-m-d', strtotime("+". $addingDays ." days"));
+
         foreach ($selectedSeats as $seat) {
             $ticket = new \app\models\Ticket();
             $ticket->order_id =  $order->order_id;
             $ticket->movie_id =$schedule->movie_id;
             $ticket->seat_id = $seat;
+            $ticket->movie_date = $movieDate;
             $ticket->movie_day = $schedule->day;
             $ticket->movie_time = $schedule->getTime($schedule->time_id);
             $ticket->insert();
@@ -36,38 +109,6 @@ class Ticket extends \app\core\Controller {
         $this->view('Ticket/seatSelection',$schedule);
     }
 
-}
-
-public function selectScreeningVer2(){
-    $schedule = new \app\models\MovieSchedule();
-    $schedule = $schedule->getById($_POST['schedule']);
-
-     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        
-        $selectedSeats = $_POST['seats'];
-        $numberOfSeats = sizeof($selectedSeats);
-
-        $order = new \app\models\Order();
-        $order->user_id = $_SESSION['user_id'];
-        $order->order_date = date("Y-m-d");
-        $order->total_price = $numberOfSeats * 10; 
-        $order->number_tickets = $numberOfSeats;
-        $order->insert();
-
-        foreach ($selectedSeats as $seat) {
-            $ticket = new \app\models\Ticket();
-            $ticket->order_id =  $order->order_id;
-            $ticket->movie_id =$schedule->movie_id;
-            $ticket->seat_id = $seat;
-            $ticket->movie_day = $schedule->day;
-            $ticket->movie_time = $schedule->getTime($schedule->time_id);
-            $ticket->insert();
-        }
-         $this->view('Order/cart', $order);
-    }
-    else{
-        $this->view('Ticket/seatSelection',$schedule);
-    }
 }
 
  public function selectScreening(){

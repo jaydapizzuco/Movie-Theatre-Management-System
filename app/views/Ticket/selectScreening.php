@@ -40,6 +40,43 @@
     <?php 
             $schedule = new \app\models\MovieSchedule();
             $screenings = $schedule->getByMovieID($data->movie_id);
+
+            date_default_timezone_set('GMT');
+
+            $timestamp = date("Y-m-d");
+            $timestamp = strtotime($timestamp);
+            $day = date('l', $timestamp);echo $day;
+
+            $dayInt = 0;
+
+            switch ($day) {
+                case 'Sunday':
+                    $dayInt = 0;
+                    break;
+                case 'Monday':
+                    $dayInt = 1;
+                    break;
+                case 'Tuesday':
+                    $dayInt = 2;
+                    break;
+                case 'Wednesday':
+                    $dayInt = 3;
+                    break;
+                case 'Thursday':
+                    $dayInt = 4;
+                    break;
+                case 'Friday':
+                    $dayInt = 5;
+                    break;
+                case 'Saturday':
+                    $dayInt = 6;
+                    break;
+                
+                default:
+                    // code...
+                    break;
+            }
+
         ?>
 
           <div class = "container">
@@ -49,7 +86,41 @@
             <select name="screening" id="screening">
                <?php 
             foreach ($screenings as $index => $screening) { ?>
+                <?php 
+                    $screenDayInt = 0;
+                    switch ($screening->day) {
+                        case 'Sunday':
+                            $screenDayInt = 0;
+                            break;
+                        case 'Monday':
+                            $screenDayInt = 1;
+                            break;
+                        case 'Tuesday':
+                            $screenDayInt = 2;
+                            break;
+                        case 'Wednesday':
+                            $screenDayInt = 3;
+                            break;
+                        case 'Thursday':
+                            $screenDayInt = 4;
+                            break;
+                        case 'Friday':
+                            $screenDayInt = 5;
+                            break;
+                        case 'Saturday':
+                            $screenDayInt = 6;
+                            break;
+                        
+                        default:
+                            // code...
+                            break;
+                    }
+
+                    if($screenDayInt >= $dayInt){
+                ?>
+
                 <option value="<?= $screening->day ?>:<?= $screening->getTime($screening->time_id)?>"><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></option>
+            <?php } ?> 
             <?php } ?> 
              
             </select>

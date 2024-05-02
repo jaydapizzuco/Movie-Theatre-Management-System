@@ -42,9 +42,10 @@
                         $allTickets = new \app\models\Ticket();
                         $allTickets = $allTickets->getByOrderID($order->order_id);
                     ?>
-                    <div class="order_single">
+
+                    <div class="receipt">
                         <p><b>Order number: <?= $order->order_id ?></b></p>
-                        <p><?= $review->review_text ?></p>
+                        <!-- <p><?= $review->review_text ?></p> -->
 
                         <?php foreach ($allTickets as $ticket) : ?>
                             <?php 
@@ -69,10 +70,6 @@
             <?php endif; ?>
         </section>
     </div>
-
-    <footer>
-        <br>Copyright &copy 2024 
-    </footer>
 </body>
 
 </html>

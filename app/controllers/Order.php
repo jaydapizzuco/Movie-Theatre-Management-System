@@ -27,7 +27,7 @@ class Order extends \app\core\Controller {
 
     }
 
-
+    #[\app\filters\Login] 
     public function incomplete(){
          $incompleteOrders = new \app\models\Order();
          $incompleteOrders = $incompleteOrders->getByUserIDForCart($_SESSION['user_id']);

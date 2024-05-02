@@ -70,6 +70,7 @@ public function selectScreeningVer2(){
     }
 }
 
+#[\app\filters\Login] 
  public function selectScreening(){
      $movie = new \app\models\Movie();
      $movie = $movie->getByID($_GET['id']);

@@ -42,10 +42,10 @@
             date_default_timezone_set('America/Montreal');
 
             $timestamp = date("Y-m-d");
-            echo $timestamp;
+            //echo $timestamp;
             $timestamp = strtotime($timestamp);
             $day = date('l', $timestamp);
-            echo "The " . $day;
+           // echo "The " . $day;
 
             $dayInt = 0;
 
@@ -125,10 +125,10 @@
             
 
         </div>
-        <p id="confirming"></p>
+        <!-- <p id="confirming"></p>
         <div class="form-group">
          <input type="date" id="datePicker" min="<?= date('Y-m-d') ?>">
-        </div>
+        </div> -->
 
         <input type="submit" name="selected" value="<?= __('Select Screening')?>"/>
     </form> 

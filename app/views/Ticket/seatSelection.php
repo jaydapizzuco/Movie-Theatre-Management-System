@@ -141,7 +141,7 @@ for ($i = 1; $i <= $rows; $i++) {
 <?php
 
         $getSchedule = new \app\models\MovieSchedule();
-        $scheduleId = $getSchedule->getIdByMovieIDDayTime($data->movie_id,$movieDate,$data->day,$data->time_id);
+        $scheduleId = $getSchedule->getIdByMovieIDDayTime($data->movie_id,$data->day,$data->time_id);
 
 ?>
  <input type="hidden" name="schedule" value="<?= $scheduleId ?>"> 

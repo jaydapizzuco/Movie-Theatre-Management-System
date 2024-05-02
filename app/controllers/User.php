@@ -37,7 +37,7 @@ class User extends \app\core\Controller{
         }
     }
 
-
+    // #[\app\filters\Login]
     function login(){
         //show the login form and log the user in
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -48,7 +48,7 @@ class User extends \app\core\Controller{
             if($user && password_verify($password, $user->password_hash)){
                 $_SESSION['user_id'] = $user->user_id;
                 $_SESSION['secret'] = $user->secret;
-//                $this->setup2fa();
+
 
                 if ($user->isAdmin($user->user_id) == 1) {
                     $this->view('User/adminProfile', $user);
@@ -152,18 +152,19 @@ class User extends \app\core\Controller{
         }else{
             $_SESSION['secret_setup'] = $authenticator->createSecret();
             //generate the URI with the secret for the user
-            $uri = $authenticator->getUri($_SESSION['user_id'], 'localhost');
+            $uri = $authenticator->getUri($_SESSION['user_id'], 'Movie Theatre');
             $QRCode = (new QRCode)->render($uri);
-//var_dump($QRCode);
             $this->view('User/setup2fa',$QRCode);
         }
     }
 
     function check2fa(){
     if($_SERVER['REQUEST_METHOD']==='POST'){
+
         $options = new AuthenticatorOptions();
         $authenticator = new Authenticator($options);
         $authenticator->setSecret($_SESSION['secret']);
+
         if($authenticator->verify($_POST['totp'])){
             unset($_SESSION['secret']);
             header('location:' . $_SESSION['redirect']);//the good place

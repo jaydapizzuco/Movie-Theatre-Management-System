@@ -19,22 +19,16 @@
     </nav>
 
     <header>
-        <h1><?= $data->name ?></h1>
+        <h1>About us</h1>
     </header><br><br>
 
-    <nav class="account">
-        <a href="/User/profile"><?= __('Profile Information')?></a> &nbsp&nbsp
-        <a href="/User/purchaseHistory"><?= __('Purchase History')?></a> &nbsp&nbsp
-        <a class="active" href="movies.html"><?= __('Points')?></a>
-        <a href="/Review/profileindex"> <?= __('Reviews')?></a> <!-- Added link to reviews/profileindex -->
-    </nav><br>
-
     <div class="container2">
-        <p><?= __('Name:')?><?= $data->name ?></p>
-        <p><?= __('Email:')?> <?= $data->email ?></p>
+        <p><?= $data->description ?></p>
+        <p><?= __('Contact us at')?></p>
+        <p><a href="<?= $data->about_email ?>"><?= $data->about_email ?></a></p>
      
 
-        <form action="/User/update">
+        <!-- <form action="/User/update">
             <button type="submit"><?= __('Edit Profile Information')?></button>
         </form><br><br><br><br><br>
 
@@ -44,7 +38,7 @@
 
         <form action="/User/setup2fa">
             <button type="submit"><?= __('Set Up 2FA')?></button>
-        </form>
+        </form> -->
     </div>
 
     <footer>

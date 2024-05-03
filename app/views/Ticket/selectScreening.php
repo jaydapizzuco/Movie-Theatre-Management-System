@@ -106,13 +106,14 @@
                         case 'Friday':
                             $screenDayInt = 5;
                             break;
-                        case 'Saturday':
+                        case 'saturday':
                             $screenDayInt = 6;
                             break;
                         
                         default:
                             break;
                     }
+
 
                     if($screenDayInt >= $dayInt){
                 ?>

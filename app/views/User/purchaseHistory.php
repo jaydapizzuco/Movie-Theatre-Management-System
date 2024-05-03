@@ -68,7 +68,20 @@
                         <p><?= __('Price: ')?><b>$<?= $order->total_price ?></b></p>
 
                         <p><?= __('Order date: ')?><?= $order->order_date ?></p>
-                        <a href='/Order/delete?id=<?= $order->order_id ?>'><i class='bi bi-trash'></i></a>
+                       <?php
+                    date_default_timezone_set('America/Montreal');
+                    $currentDayInt = date('N');
+
+                    foreach ($allTickets as $ticket) {
+                        $movieDayInt = date('N', strtotime($ticket->movie_date));
+
+                        if ($currentDayInt < $movieDayInt && ($movieDayInt - $currentDayInt) >= 1) {
+                ?>
+                            <a href='/Order/delete?id=<?= $order->order_id ?>'><i class='bi bi-trash'></i></a>
+                <?php
+                        }
+                    }
+                ?>
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>

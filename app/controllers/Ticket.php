@@ -81,7 +81,7 @@ class Ticket extends \app\core\Controller {
                 case 'Friday':
                     $screenDayInt = 5;
                     break;
-                case 'Saturday':
+                case 'saturday':
                     $screenDayInt = 6;
                     break;
                         

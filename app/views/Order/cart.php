@@ -20,6 +20,10 @@
 </header>
 
 <body>
+     <?php 
+            $tickets = new \app\models\Ticket();
+            $tickets = $tickets->getByOrderID($data->order_id);
+        ?>
     <div class="container2">
         <ul class="list-group">
             <?php 

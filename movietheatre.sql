@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 03, 2024 at 08:32 PM
+-- Generation Time: May 03, 2024 at 08:50 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -22,6 +22,26 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `movietheatre` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `movietheatre`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about`
+--
+
+DROP TABLE IF EXISTS `about`;
+CREATE TABLE `about` (
+  `about_id` int(11) NOT NULL,
+  `about_email` varchar(50) NOT NULL,
+  `description` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `about`
+--
+
+INSERT INTO `about` (`about_id`, `about_email`, `description`) VALUES
+(1, 'movietheater@email.com', '\'Welcome! We are a small Movie Theater company catered to all. All the most popular new movies can be found on our website. \'');
 
 -- --------------------------------------------------------
 
@@ -87,7 +107,7 @@ INSERT INTO `movie` (`movie_id`, `title`, `image`, `description`, `length`, `dir
 (19, 'Spy X Family Code: White', 'https://upload.wikimedia.org/wikipedia/en/a/ad/Spy_%C3%97_Family_Code_White_movie_poster.png', 'A spy and an assassin keep their double lives to themselves while pretending to be the perfect family.', 111, 'Takashi Katagiri', 'https://www.youtube.com/watch?v=m5TxWbtQ7qU', '2024-04-22', 0, 1),
 (20, 'The Fall Guy', 'https://upload.wikimedia.org/wikipedia/en/1/1f/The_Fall_Guy_%282024%29_poster.jpg', 'After leaving the business one year earlier, battle-scarred stuntman Colt Seavers springs back into action when the star of a big studio movie suddenly disappears. As the mystery surrounding the missing actor deepens, Colt soon finds himself ensnared in a sinister plot that pushes him to the edge of a fall more dangerous than any stunt.', 127, 'David Leitch', 'https://www.youtube.com/watch?v=EySdVK0NK1Y', '2024-04-22', 0, 1),
 (21, 'Challengers', 'https://upload.wikimedia.org/wikipedia/en/b/b4/Challengers_2024_poster.jpeg', 'Tashi, a tennis player turned coach, has transformed her husband from a mediocre player into a world-famous grand slam champion. To jolt him out of his recent losing streak, she makes him play a challenger event -- close to the lowest level of tournament on the pro tour. Tensions soon run high when he finds himself standing across the net from the once-promising, now burnt-out Patrick, his former best friend and Tashi\'s former boyfriend.', 131, 'Luca Guadagnino', 'https://www.youtube.com/watch?v=-2N3hmRmwHQ', '2024-04-22', 0, 1),
-(22, 'Civil War', 'https://upload.wikimedia.org/wikipedia/en/thumb/0/0d/Civil_War_2024_film_poster.jpeg/220px-Civil_War_2024_film_poster.jpeg', 'In a dystopian future America, a team of military-embedded journalists races against time to reach Washington, D.C., before rebel factions descend upon the White House.', 109, 'Alex Garland', 'https://www.youtube.com/watch?v=aDyQxtg0V2w', '2024-04-22', 0, 1),
+(22, 'Civil War', 'https://upload.wikimedia.org/wikipedia/en/thumb/0/0d/Civil_War_2024_film_poster.jpeg/220px-Civil_War_2024_film_poster.jpeg', 'In a dystopian future America, a team of military-embedded journalists races against time to reach Washington, D.C., before rebel factions descend upon the White House.', 109, 'Alex Garland', 'https://www.youtube.com/watch?v=aDyQxtg0V2w', '2024-04-22', 47.96, 1),
 (23, 'Unsung Hero', 'https://upload.wikimedia.org/wikipedia/en/c/c4/Unsung_Hero_poster.jpg', 'David Smallbone, his pregnant wife and their seven children leave Australia to rebuild their lives in America. David and Helen realize the musical talent of their children, who become two of the most successful acts in Inspirational Music history.', 112, 'Joel Smallbone and Richard Ramsey', 'https://www.youtube.com/watch?v=UHyrHRNX9Rk', '2024-04-22', 0, 1),
 (24, 'Dune: Part Two', 'https://upload.wikimedia.org/wikipedia/en/5/52/Dune_Part_Two_poster.jpeg', 'Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the universe, he must prevent a terrible future only he can foresee.', 166, 'Denis Villeneuve', 'https://www.youtube.com/watch?v=Way9Dexny3w', '2024-04-22', 0, 1),
 (25, 'Irena\'s Vow', 'https://m.media-amazon.com/images/M/MV5BZjkyMmY4YTAtZGFjMS00ZTk3LWIzYTEtODk2OWYzY2Y0ZDY4XkEyXkFqcGdeQXVyNDExMzMxNjE@._V1_.jpg', 'Caught in a German roundup to be used as a slave labourer, Polish nurse Irena Gut becomes a German army major\'s housekeeper during World War II. Irena risks her life to conceal a dozen Jews within the major\'s home.', 121, 'Louise Archambault', 'https://www.youtube.com/watch?v=yy7SM6TN4pw', '2024-04-22', 0, 1);
@@ -158,6 +178,13 @@ CREATE TABLE `orders` (
   `order_status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `number_tickets`, `cart_status`, `order_status`) VALUES
+(1, 5, '2024-05-03', 27.577, 2, 0, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -192,6 +219,14 @@ CREATE TABLE `ticket` (
   `movie_time` time NOT NULL,
   `ticket_status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ticket`
+--
+
+INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_date`, `movie_day`, `movie_time`, `ticket_status`) VALUES
+(1, 1, 22, 23, '2024-05-03', 'Friday', '07:05:00', 1),
+(2, 1, 22, 33, '2024-05-03', 'Friday', '07:05:00', 1);
 
 -- --------------------------------------------------------
 
@@ -246,6 +281,12 @@ INSERT INTO `user` (`user_id`, `name`, `email`, `password_hash`, `is_admin`) VAL
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `about`
+--
+ALTER TABLE `about`
+  ADD PRIMARY KEY (`about_id`);
 
 --
 -- Indexes for table `genre`
@@ -317,6 +358,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `about`
+--
+ALTER TABLE `about`
+  MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `genre`
 --
 ALTER TABLE `genre`
@@ -338,7 +385,7 @@ ALTER TABLE `movie_schedule`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -350,7 +397,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `times`

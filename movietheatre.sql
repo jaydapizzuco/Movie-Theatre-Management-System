@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 02, 2024 at 07:43 PM
+-- Generation Time: May 03, 2024 at 03:01 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -22,6 +22,26 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `movietheatre` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `movietheatre`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about`
+--
+
+DROP TABLE IF EXISTS `about`;
+CREATE TABLE `about` (
+  `about_id` int(11) NOT NULL,
+  `about_email` varchar(50) NOT NULL,
+  `description` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `about`
+--
+
+INSERT INTO `about` (`about_id`, `about_email`, `description`) VALUES
+(1, 'movietheater@email.com', 'Welcome! \r\n\r\nWe are a small Movie Theater company catered to all. \r\nAll the most popular new movies can be found on our website. ');
 
 -- --------------------------------------------------------
 
@@ -262,6 +282,12 @@ INSERT INTO `user` (`user_id`, `name`, `email`, `password_hash`, `is_admin`, `se
 --
 
 --
+-- Indexes for table `about`
+--
+ALTER TABLE `about`
+  ADD PRIMARY KEY (`about_id`);
+
+--
 -- Indexes for table `genre`
 --
 ALTER TABLE `genre`
@@ -329,6 +355,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `about`
+--
+ALTER TABLE `about`
+  MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `genre`

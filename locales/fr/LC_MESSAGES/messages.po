@@ -24,151 +24,151 @@ msgstr ""
 #: app/views/Admin/login.php:12 app/views/Admin/profile.php:10
 #: app/views/Admin/registration.php:10
 msgid "Home"
-msgstr ""
+msgstr "Page d'accueil"
 
 #: app/views/Admin/login.php:18
 msgid "Login as Administrator"
-msgstr ""
+msgstr "Connenter comme Administrateur"
 
 #: app/views/Admin/login.php:21 app/views/Admin/registration.php:20
 msgid "Username:"
-msgstr ""
+msgstr "Nom d'utilisateur:"
 
 #: app/views/Admin/login.php:24 app/views/Admin/profile.php:22
 #: app/views/Admin/registration.php:26
 msgid "Password:"
-msgstr ""
+msgstr "Mot de passe:"
 
 #: app/views/Admin/login.php:28 app/views/Admin/profile.php:26
 #: app/views/Admin/registration.php:11
 msgid "Login"
-msgstr ""
+msgstr "Connecter"
 
 #: app/views/Admin/login.php:34 app/views/Admin/profile.php:32
 msgid "I have no account, bring me to the registration page"
-msgstr ""
+msgstr "Je n'ai pas de compte, envoyez-moi à la page de régistration"
 
 #: app/views/Admin/profile.php:19
 msgid "Name:"
-msgstr ""
+msgstr "Nom:"
 
 #: app/views/Admin/registration.php:17
 msgid "Create a New Administrator Account"
-msgstr ""
+msgstr "Créer un nouveau compte d'administrateur"
 
 #: app/views/Admin/registration.php:30
 msgid "Register"
-msgstr ""
+msgstr "Régistrer"
 
 #: app/views/Admin/registration.php:35
 msgid "I have an account, bring me to the login page"
-msgstr ""
+msgstr "Jèai un compte, envoyez-moi à la page de connection"
 
 #: app/views/Main/index.php:14 app/views/Movie/activate.php:14
 #: app/views/Movie/adminIndex.php:14 app/views/Movie/adminIndividual.php:14
 msgid "Account"
-msgstr ""
+msgstr "Compte"
 
 #: app/views/Main/index.php:15 app/views/Movie/activate.php:15
 #: app/views/Movie/adminIndex.php:15 app/views/Movie/adminIndividual.php:15
 msgid "Movies"
-msgstr ""
+msgstr "Films"
 
 #: app/views/Main/index.php:50
 msgid "$movies->title"
-msgstr ""
+msgstr "$movies->title"
 
 #: app/views/Main/index.php:58 app/views/Movie/activate.php:66
 #: app/views/Movie/adminIndex.php:41 app/views/Movie/adminIndividual.php:65
 msgid "Copyright &copy 2024"
-msgstr ""
+msgstr "Copyright &copy 2024"
 
 #: app/views/Movie/activate.php:5 app/views/Movie/adminIndex.php:5
 #: app/views/Movie/adminIndividual.php:5
 msgid "Movie Theatre"
-msgstr ""
+msgstr "Cinéma"
 
 #: app/views/Movie/activate.php:22
 msgid "Activate a Movie"
-msgstr ""
+msgstr "Activer un film"
 
 #: app/views/Movie/activate.php:30
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 #: app/views/Movie/activate.php:30 app/views/Movie/adminIndividual.php:26
 #: app/views/Movie/adminIndividual.php:33
 msgid "$data->title"
-msgstr ""
+msgstr "$data->title"
 
 #: app/views/Movie/activate.php:34
 msgid "Source link of the Cover Image"
-msgstr ""
+msgstr "Lien de l'image couverture"
 
 #: app/views/Movie/activate.php:38
 msgid "Director Name"
-msgstr ""
+msgstr "Nom du directeur"
 
 #: app/views/Movie/activate.php:38 app/views/Movie/adminIndividual.php:34
 msgid "$data->director"
-msgstr ""
+msgstr "$data->director"
 
 #: app/views/Movie/activate.php:42
 msgid "Synopsis:"
-msgstr ""
+msgstr "Synopsis:"
 
 #: app/views/Movie/activate.php:42 app/views/Movie/adminIndividual.php:35
 msgid "$data->description"
-msgstr ""
+msgstr "$data->description"
 
 #: app/views/Movie/activate.php:46
 msgid "Length (minutes)"
-msgstr ""
+msgstr "Durée (minutes)"
 
 #: app/views/Movie/activate.php:46
 msgid "$data->length"
-msgstr ""
+msgstr "$data->length"
 
 #: app/views/Movie/activate.php:50
 msgid "$data->release_date"
-msgstr ""
+msgstr "$data->release_date"
 
 #: app/views/Movie/activate.php:54
 msgid "Link to the trailer"
-msgstr ""
+msgstr "Lien de la bande-annonce"
 
 #: app/views/Movie/activate.php:54
 msgid "$data->trailer"
-msgstr ""
+msgstr "$data->trailer"
 
 #: app/views/Movie/activate.php:58
 msgid "RE-ACTIVATE MOVIE"
-msgstr ""
+msgstr "RE-ACTIVER LE FILM"
 
 #: app/views/Movie/activate.php:59
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: app/views/Movie/adminIndex.php:21
 msgid "Update and Delete Movies"
-msgstr ""
+msgstr "Mettre à jour et effacer les films"
 
 #: app/views/Movie/adminIndex.php:22
 msgid "Add Screening Times"
-msgstr ""
+msgstr "Ajouter des temps de projection"
 
 #: app/views/Movie/adminIndividual.php:37
 msgid "minutes"
-msgstr ""
+msgstr "minutes"
 
 #: app/views/Movie/adminIndividual.php:54
 msgid "$screening->day"
-msgstr ""
+msgstr "$screening->day"
 
 #: app/views/Movie/adminIndividual.php:58
 msgid "Update Information"
-msgstr ""
+msgstr "Mettre à jour l'information"
 
 #: app/views/Movie/adminIndividual.php:59
 msgid "View Reviews"
-msgstr ""
+msgstr "Voir les commentaires"

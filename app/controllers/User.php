@@ -75,7 +75,16 @@ class User extends \app\core\Controller{
      public function profile(){
         $profile = new \app\models\User();
         $profile = $profile->getById($_SESSION['user_id']);
-        $this->view('User/profile',$profile);
+
+        $status = $profile->isAdmin($_SESSION['user_id']);
+
+        if($status == 1){
+          $this->view('User/adminProfile',$profile);   
+        }
+        else{
+           $this->view('User/profile',$profile);   
+        }
+       
     }
 
     function logout(){

@@ -68,6 +68,7 @@ class Ticket extends \app\core\Controller {
        
         $movieDate = Date('Y-m-d', strtotime("+". $addingDays ." days"));
 
+
         foreach ($selectedSeats as $seat) {
             $ticket = new \app\models\Ticket();
             $ticket->order_id =  $order->order_id;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 03, 2024 at 03:01 AM
+-- Generation Time: May 03, 2024 at 08:32 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -22,26 +22,6 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `movietheatre` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `movietheatre`;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `about`
---
-
-DROP TABLE IF EXISTS `about`;
-CREATE TABLE `about` (
-  `about_id` int(11) NOT NULL,
-  `about_email` varchar(50) NOT NULL,
-  `description` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `about`
---
-
-INSERT INTO `about` (`about_id`, `about_email`, `description`) VALUES
-(1, 'movietheater@email.com', 'Welcome! \r\n\r\nWe are a small Movie Theater company catered to all. \r\nAll the most popular new movies can be found on our website. ');
 
 -- --------------------------------------------------------
 
@@ -157,7 +137,9 @@ INSERT INTO `movie_schedule` (`schedule_id`, `movie_id`, `day`, `time_id`) VALUE
 (18, 23, 'Monday', 3),
 (19, 24, 'Tuesday', 5),
 (20, 25, 'Monday', 3),
-(21, 18, 'Tuesday', 3);
+(21, 18, 'Tuesday', 3),
+(24, 21, 'Sunday', 4),
+(26, 24, 'Saturday', 4);
 
 -- --------------------------------------------------------
 
@@ -175,13 +157,6 @@ CREATE TABLE `orders` (
   `cart_status` tinyint(4) NOT NULL DEFAULT 1,
   `order_status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `number_tickets`, `cart_status`, `order_status`) VALUES
-(1, 5, '2024-05-02', 23, 2, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -217,14 +192,6 @@ CREATE TABLE `ticket` (
   `movie_time` time NOT NULL,
   `ticket_status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ticket`
---
-
-INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_date`, `movie_day`, `movie_time`, `ticket_status`) VALUES
-(1, 1, 19, 11, '2024-05-02', 'Thursday', '09:15:00', 1),
-(2, 1, 19, 12, '2024-05-02', 'Thursday', '09:15:00', 1);
 
 -- --------------------------------------------------------
 
@@ -263,29 +230,22 @@ CREATE TABLE `user` (
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password_hash` varchar(60) NOT NULL,
-  `is_admin` tinyint(1) NOT NULL DEFAULT 0,
-  `secret` varchar(32) DEFAULT NULL
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `name`, `email`, `password_hash`, `is_admin`, `secret`) VALUES
-(1, 'John', 'john@email.com', '$2y$10$UMiR4aGebyAxFRdzDKFIj.hcGsk93IPZf9eDSXQr7BOP61x16FXy.', 0, NULL),
-(2, 'Admin', 'admin@email.com', '$2y$10$FIKrGIYkZ9eHrJCkPlCFwu1mXTOSfn4AgmyGdc8Vax9pF/vElTxsS', 1, NULL),
-(4, 'Melissa', 'melissa@email.com', '$2y$10$.KUKTJksSpu336HBAx3xkOWgc8/87/9cR6hNU.A/C7EJSiMCUdp4K', 0, '2ODH6KOPRVMXBBDMBO2O4Q6EH2VPQWG7'),
-(5, 'Jayda', 'jayda@email.com', '$2y$10$aq5/uVxHCzjD5IanrPU66.RKRDsMRjZijxySXuOxGTL.5ltC2k.eK', 0, NULL);
+INSERT INTO `user` (`user_id`, `name`, `email`, `password_hash`, `is_admin`) VALUES
+(1, 'John', 'john@email.com', '$2y$10$UMiR4aGebyAxFRdzDKFIj.hcGsk93IPZf9eDSXQr7BOP61x16FXy.', 0),
+(2, 'Admin', 'admin@email.com', '$2y$10$FIKrGIYkZ9eHrJCkPlCFwu1mXTOSfn4AgmyGdc8Vax9pF/vElTxsS', 1),
+(4, 'Melissa', 'melissa@email.com', '$2y$10$.KUKTJksSpu336HBAx3xkOWgc8/87/9cR6hNU.A/C7EJSiMCUdp4K', 0),
+(5, 'Jayda', 'jayda@email.com', '$2y$10$aq5/uVxHCzjD5IanrPU66.RKRDsMRjZijxySXuOxGTL.5ltC2k.eK', 0);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `about`
---
-ALTER TABLE `about`
-  ADD PRIMARY KEY (`about_id`);
 
 --
 -- Indexes for table `genre`
@@ -357,12 +317,6 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `about`
---
-ALTER TABLE `about`
-  MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `genre`
 --
 ALTER TABLE `genre`
@@ -378,13 +332,13 @@ ALTER TABLE `movie`
 -- AUTO_INCREMENT for table `movie_schedule`
 --
 ALTER TABLE `movie_schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -396,7 +350,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `times`

@@ -52,6 +52,17 @@ class Order extends \app\core\Controller {
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $order->setCartStatusFalse();
 
+            $tickets = new \app\models\Ticket();
+            $tickets = $tickets->getByOrderID($order->order_id);
+
+            $movie = new \app\models\Movie();
+            $movie = $movie->getByID($tickets[0]->movie_id);
+
+            foreach($tickets as $ticket){
+                $movie->updateRevenue();
+            }
+
+
              $this->view('Order/receipt',$order);
         }
         else{

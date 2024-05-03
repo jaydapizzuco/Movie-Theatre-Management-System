@@ -40,7 +40,7 @@
               <option value="Wednesday"><?= __('Wednesday')?></option>
               <option value="Thursday"><?= __('Thursday')?></option>
               <option value="Friday"><?= __('Friday')?></option>
-              <option value="saturday"><?= __('Saturday')?></option>
+              <option value="Saturday"><?= __('Saturday')?></option>
             </select>
         </div><br>
 

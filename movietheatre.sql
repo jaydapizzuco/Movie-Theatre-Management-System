@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 03, 2024 at 08:50 PM
+-- Generation Time: May 03, 2024 at 10:03 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -202,6 +202,14 @@ CREATE TABLE `review` (
   `approved` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`review_id`, `user_id`, `movie_id`, `stars`, `review_text`, `review_date`, `approved`) VALUES
+(2, 1, 24, 5, '  slayyyyyyyyyyyyyyyy', '2024-05-03 21:16:34', 0),
+(3, 1, 18, 5, 'spooky', '2024-05-03 21:50:11', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -265,18 +273,20 @@ CREATE TABLE `user` (
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password_hash` varchar(60) NOT NULL,
-  `is_admin` tinyint(1) NOT NULL DEFAULT 0
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0,
+  `secret` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `name`, `email`, `password_hash`, `is_admin`) VALUES
-(1, 'John', 'john@email.com', '$2y$10$UMiR4aGebyAxFRdzDKFIj.hcGsk93IPZf9eDSXQr7BOP61x16FXy.', 0),
-(2, 'Admin', 'admin@email.com', '$2y$10$FIKrGIYkZ9eHrJCkPlCFwu1mXTOSfn4AgmyGdc8Vax9pF/vElTxsS', 1),
-(4, 'Melissa', 'melissa@email.com', '$2y$10$.KUKTJksSpu336HBAx3xkOWgc8/87/9cR6hNU.A/C7EJSiMCUdp4K', 0),
-(5, 'Jayda', 'jayda@email.com', '$2y$10$aq5/uVxHCzjD5IanrPU66.RKRDsMRjZijxySXuOxGTL.5ltC2k.eK', 0);
+INSERT INTO `user` (`user_id`, `name`, `email`, `password_hash`, `is_admin`, `secret`) VALUES
+(1, 'John', 'john@email.com', '$2y$10$UMiR4aGebyAxFRdzDKFIj.hcGsk93IPZf9eDSXQr7BOP61x16FXy.', 0, ''),
+(2, 'Admin', 'admin@email.com', '$2y$10$FIKrGIYkZ9eHrJCkPlCFwu1mXTOSfn4AgmyGdc8Vax9pF/vElTxsS', 1, ''),
+(4, 'Melissa', 'melissa@email.com', '$2y$10$.KUKTJksSpu336HBAx3xkOWgc8/87/9cR6hNU.A/C7EJSiMCUdp4K', 0, ''),
+(5, 'Jayda', 'jayda@email.com', '$2y$10$aq5/uVxHCzjD5IanrPU66.RKRDsMRjZijxySXuOxGTL.5ltC2k.eK', 0, ''),
+(6, 'henry', 'henry@email.com', '$2y$10$CAOHHaXjfUD28BuTgNd4Bul7QC.i9oiPkJgwOzvY/.c6ig3Qw2ZWO', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -391,7 +401,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ticket`
@@ -409,7 +419,7 @@ ALTER TABLE `times`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

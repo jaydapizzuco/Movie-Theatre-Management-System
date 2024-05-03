@@ -25,7 +25,7 @@
     <div class="container2">
         <p><?= $data->description ?></p>
         <p><?= __('Contact us at')?></p>
-        <p><a href="<?= $data->about_email ?>"><?= $data->about_email ?></a></p>
+        <p><a href="mailto:<?= $data->about_email ?>"><?= $data->about_email ?></a></p>
      
 
         <!-- <form action="/User/update">

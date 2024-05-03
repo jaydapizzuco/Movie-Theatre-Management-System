@@ -16,7 +16,7 @@ class Ticket extends \app\core\Controller {
         $order = new \app\models\Order();
         $order->user_id = $_SESSION['user_id'];
         $order->order_date = date("Y-m-d");
-        $price = $numberOfSeats * 10;
+        $price = $numberOfSeats * 11.99;
         $order->total_price = $price + ($price * 0.15); 
         $order->number_tickets = $numberOfSeats;
         $order->insert();

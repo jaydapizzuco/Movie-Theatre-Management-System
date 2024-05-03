@@ -43,7 +43,7 @@
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title"><?= __('Total Price')?></h5>
-                        <p class="card-text">Total: $ <?= $data->total_price ?></p>
+                        <p class="card-text">Total: $ <?= round($data->total_price ,2) ?></p>
                         <a href="/Order/checkout?id=<?= $data->order_id ?>" class="btn btn-primary"><?= __('Checkout')?></a>
                     </div>
                 </div>

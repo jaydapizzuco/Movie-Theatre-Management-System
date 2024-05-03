@@ -44,7 +44,7 @@
         <?php endforeach; ?>
         <div class="row justify-content-end mt-4">
                     <h5 class="card-title"><?= __('Total Price')?></h5>
-                    <p class="card-text"><?= __('Total: $ ')?><?= $incompleteOrder->total_price ?></p>
+                    <p class="card-text"><?= __('Total: $ ')?><?= round($incompleteOrder->total_price, 2) ?></p>
                     <a href="/Order/checkout?id=<?= $incompleteOrder->order_id ?>" class="btn btn-primary"><?= __('Complete Order')?></a>  
         </div>
     </div>

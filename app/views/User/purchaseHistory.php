@@ -72,15 +72,20 @@
                     date_default_timezone_set('America/Montreal');
                     $currentDayInt = date('N');
 
+                    $counter = 0;
+
                     foreach ($allTickets as $ticket) {
                         $movieDayInt = date('N', strtotime($ticket->movie_date));
 
                         if ($currentDayInt < $movieDayInt && ($movieDayInt - $currentDayInt) >= 1) {
-                ?>
-                            <a href='/Order/delete?id=<?= $order->order_id ?>'><i class='bi bi-trash'></i></a>
-                <?php
+                            $counter = $counter + 1;
+                            
                         }
                     }
+
+                    if($counter == count($allTickets)){ ?>
+                        <a href='/Order/delete?id=<?= $order->order_id ?>'><i class='bi bi-trash'></i></a>
+                   <?php }
                 ?>
                     </div>
                 <?php endforeach; ?>
@@ -89,8 +94,11 @@
                 <p><?= __('You have not made any orders.')?></p>
 
             <?php endif; ?>
-        </section>
+        </section><footer>
+        <br>Copyright &copy 2024 
+    </footer>
     </div>
+
 </body>
 
 </html>

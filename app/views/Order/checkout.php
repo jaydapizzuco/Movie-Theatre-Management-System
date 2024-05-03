@@ -73,7 +73,6 @@
                 </select>
 
                 <select name="years" id="years">
-                  <option value="23">23</option>
                   <option value="24">24</option>
                   <option value="25">25</option>
                   <option value="26">26</option>
@@ -100,6 +99,10 @@
                 <a href="/Order/cart"><?= __('Cancel')?></a>
             </div><br>
         </form>
+
+        <footer>
+        <br>Copyright &copy 2024 
+    </footer>
 </body>
 
 </html>

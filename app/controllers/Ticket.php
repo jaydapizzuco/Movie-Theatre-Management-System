@@ -21,15 +21,12 @@ class Ticket extends \app\core\Controller {
         $order->number_tickets = $numberOfSeats;
         $order->insert();
 
-        //get date today
+        
         date_default_timezone_set('America/Montreal');
 
             $timestamp = date("Y-m-d");
             $timestamp = strtotime($timestamp);
             $dayInt = date('N', $timestamp);
-
-
-        //get index of movie day
 
         $screenDayInt = 0;
             switch ($schedule->day) {
@@ -60,7 +57,15 @@ class Ticket extends \app\core\Controller {
                     break;
             }
 
-        $addingDays = $screenDayInt - $dayInt;
+            $addigDays =0;
+
+            if ($screenDayInt >= $dayInt){
+                $addingDays = $screenDayInt - $dayInt; 
+            }
+            else {
+                $addingDays = (7 - $dayInt) + $screenDayInt;
+            }
+       
         $movieDate = Date('Y-m-d', strtotime("+". $addingDays ." days"));
 
         foreach ($selectedSeats as $seat) {
@@ -127,7 +132,7 @@ class Ticket extends \app\core\Controller {
             $this->redirect('order/cart');
         } else {
           
-            $this->view('error', ['message' => 'not a tickket']);
+            $this->view('error', ['message' => 'not a ticket']);
         }
     }
 

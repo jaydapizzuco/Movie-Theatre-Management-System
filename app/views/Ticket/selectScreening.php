@@ -115,11 +115,11 @@
                     }
 
 
-                    if($screenDayInt >= $dayInt){
+                   // if($screenDayInt >= $dayInt){
                 ?>
 
                 <option value="<?= $screening->day ?>:<?= $screening->getTime($screening->time_id)?>"><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></option>
-            <?php }  } ?> 
+            <?php }  //} ?> 
              
             </select>
             <br>

@@ -70,6 +70,7 @@
                         <p><?= __('Order date: ')?><?= $order->order_date ?></p>
                        <?php
                     date_default_timezone_set('America/Montreal');
+                    $today = date("Y-m-d");
                     $currentDayInt = date('N');
 
                     $counter = 0;
@@ -77,7 +78,7 @@
                     foreach ($allTickets as $ticket) {
                         $movieDayInt = date('N', strtotime($ticket->movie_date));
 
-                        if ($currentDayInt < $movieDayInt && ($movieDayInt - $currentDayInt) >= 1) {
+                        if ($today < $ticket->movie_date) {
                             $counter = $counter + 1;
                             
                         }

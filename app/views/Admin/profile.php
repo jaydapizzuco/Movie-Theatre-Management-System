@@ -16,10 +16,10 @@
 		<br><h1></h1>
 		<form method='post' action=''>
 			<div class="form-group">
-				<label><?= __('Name:') ?><input type="text" class="form-control" name="name" placeholder="name" /></label>
+				<label><?= __('Name:') ?><input type="text" class="form-control" name="name" placeholder="<?= __('name')?>" /></label>
 			</div><br>
 			<div class="form-group">
-				<label><?= __('Password:') ?><input type="password" class="form-control" name="password" placeholder="password" /></label>
+				<label><?= __('Password:') ?><input type="password" class="form-control" name="password" placeholder="<?= __('password')?>" /></label>
 			</div><br>
 
 			<div class="form-group">

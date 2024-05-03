@@ -31,10 +31,10 @@
             <div class="col-md-6 offset-md-3">
                 <img src="<?= $data->image ?>" class="movie-image" alt="<?= $data->title ?>">
                 <h2><?= __('$data->title') ?></h2>
-                <p><strong>Director:</strong> <?= __('$data->director') ?></p>
-                <p><strong>Description:</strong> <?= __('$data->description') ?></p>
+                <p><strong>Director:</strong> <?= $data->director ?></p>
+                <p><strong>Description:</strong> <?= $data->description ?></p>
                 <p><strong>Trailer:</strong> <?= $data->trailer ?></p>
-                <p><strong>Length:</strong> <?= $data->length ?> <?= __('minutes') ?></p>
+                <p><strong>Length:</strong> <?= $data->length ?> minutes </p>
                 <p><strong>Release Date:</strong> <?= $data->release_date ?></p>
 
                 <p><strong>Revenue:</strong> $<?= $data->ticket_revenue ?></p>
@@ -51,7 +51,7 @@
 
         <?php 
             foreach ($screenings as $index => $screening) { ?>
-               <h2><?= __('$screening->day') ?> : <?= $screening->getTime($screening->time_id)?></h2>
+               <h2><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></h2>
             <?php } ?>
 
             

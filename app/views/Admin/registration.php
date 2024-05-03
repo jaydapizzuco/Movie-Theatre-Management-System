@@ -17,13 +17,13 @@
 		<br><h1><?= __('Create a New Administrator Account') ?></h1>
 		<form method='post' action=''>
 			<div class="form-group">
-				<label><?= __('Username:') ?><input type="text" class="form-control" name="username" placeholder="username" /></label>
+				<label><?= __('Username:') ?><input type="text" class="form-control" name="username" placeholder="<?= __('username')?>" /></label>
 			</div>
 			<div class="form-group">
-				<label>Email:<input type="text" class="form-control" name="email" placeholder="email" /></label>
+				<label><?= __('Email:')?><input type="text" class="form-control" name="email" placeholder="<?= __('email')?>" /></label>
 			</div>
 			<div class="form-group">
-				<label><?= __('Password:') ?><input type="password" class="form-control" name="password" placeholder="password" /></label>
+				<label><?= __('Password:') ?><input type="password" class="form-control" name="password" placeholder="<?= __('password')?>" /></label>
 			</div>
 
 			<br><div class="form-group">

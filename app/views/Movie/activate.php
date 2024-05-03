@@ -27,7 +27,7 @@
 
         <form action="" method="post">
             <div class="form-group">
-                <input type="text" class="form-control" name="title" placeholder="<?= __('Title')?>" value='<?= __('$data->title') ?>' required>
+                <input type="text" class="form-control" name="title" placeholder="<?= __('Title')?>" value='<?= $data->title ?>' required>
             </div><br>
 
             <div class="form-group">
@@ -35,23 +35,23 @@
             </div><br>
 
              <div class="form-group">
-                <input type="text" class="form-control" name="director" placeholder="<?= __('Director Name') ?>" value='<?= __('$data->director') ?>' required>
+                <input type="text" class="form-control" name="director" placeholder="<?= __('Director Name') ?>" value='<?=$data->director ?>' required>
             </div><br>
 
             <div class="form-group">
-				<label><?= __('Synopsis:') ?></label><textarea  class="form-control" name="description" rows="4" columns="50" value=''><?= __('$data->description') ?></textarea>
+				<label><?= __('Synopsis:') ?></label><textarea  class="form-control" name="description" rows="4" columns="50" value=''><?= $data->description ?></textarea>
 			</div><br>
 
             <div class="form-group">
-                <input type="number" class="form-control" name="length" placeholder="<?= __('Length (minutes)') ?>" value='<?= __('$data->length') ?>' required>
+                <input type="number" class="form-control" name="length" placeholder="<?= __('Length (minutes)') ?>" value='<?= $data->length ?>' required>
             </div><br>
 
               <div class="form-group">
-                <input type="date" name="release_date" value="<?= __('$data->release_date') ?>" min="2024-04-22" max="2024-12-31"  />
+                <input type="date" name="release_date" value="<?= $data->release_date ?>" min="2024-04-22" max="2024-12-31"  />
             </div><br>
 
              <div class="form-group">
-                <input type="text" class="form-control" name="trailer" placeholder="<?= __('Link to the trailer') ?>" value='<?= __('$data->trailer') ?>' required>
+                <input type="text" class="form-control" name="trailer" placeholder="<?= __('Link to the trailer') ?>" value='<?= $data->trailer ?>' required>
             </div><br>
 
             <div class="form-group">

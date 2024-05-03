@@ -7,6 +7,6 @@
     "require": {
         "chillerlan/php-authenticator": "^5.1",
         "chillerlan/php-qrcode": "^5.0",
-        "symfony/translation": "^7.0",
+        "symfony/translation": "^7.0"
     }
 }

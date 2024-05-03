@@ -64,7 +64,9 @@ class Ticket extends \app\core\Model {
 	}
 
 	public function getAllTakenSeats($movie_id,$movie_date,$movie_day,$movie_time){
-		$SQL = 'SELECT seat_id FROM ticket WHERE movie_id=:movie_id and movie_date=:movie_date and movie_day=:movie_day and movie_time=:movie_time';
+		$SQL = 'SELECT seat_id FROM ticket 
+		INNER JOIN `orders` ON ticket.order_id = `orders`.order_id 
+		WHERE movie_id=:movie_id and movie_date=:movie_date and movie_day=:movie_day and movie_time=:movie_time AND `orders`.cart_status = 0';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['movie_id'=>$movie_id,

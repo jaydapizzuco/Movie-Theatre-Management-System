@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-02 18:08+0000\n"
-"PO-Revision-Date: 2024-05-02 19:59+0000\n"
+"POT-Creation-Date: 2024-05-03 02:47+0000\n"
+"PO-Revision-Date: 2024-05-03 02:48+0000\n"
 "Last-Translator: root <EMAIL@ADDRESS>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -40,7 +40,8 @@ msgid "Password:"
 msgstr ""
 
 #: app/views/Admin/login.php:28 app/views/Admin/profile.php:26
-#: app/views/Admin/registration.php:11
+#: app/views/Admin/registration.php:11 app/views/User/login.php:28
+#: app/views/User/register.php:49
 msgid "Login"
 msgstr ""
 
@@ -48,7 +49,7 @@ msgstr ""
 msgid "I have no account, bring me to the registration page"
 msgstr ""
 
-#: app/views/Admin/profile.php:19
+#: app/views/Admin/profile.php:19 app/views/User/profile.php:33
 msgid "Name:"
 msgstr ""
 
@@ -56,7 +57,7 @@ msgstr ""
 msgid "Create a New Administrator Account"
 msgstr ""
 
-#: app/views/Admin/registration.php:30
+#: app/views/Admin/registration.php:30 app/views/User/register.php:48
 msgid "Register"
 msgstr ""
 
@@ -66,16 +67,50 @@ msgstr ""
 
 #: app/views/Main/index.php:14 app/views/Movie/activate.php:14
 #: app/views/Movie/adminIndex.php:14 app/views/Movie/adminIndividual.php:14
+#: app/views/Movie/create.php:14 app/views/Movie/delete.php:14
+#: app/views/Movie/index.php:15 app/views/Movie/individual.php:15
+#: app/views/Movie/modify.php:14 app/views/Movie/search.php:15
+#: app/views/MovieSchedule/create.php:14 app/views/MovieSchedule/delete.php:14
+#: app/views/MovieSchedule/index.php:14 app/views/Order/cart.php:14
+#: app/views/Order/delete.php:13 app/views/Order/history.php:14
+#: app/views/Order/incomplete.php:14 app/views/Order/receipt.php:13
+#: app/views/Review/adminIndex.php:87 app/views/Review/create.php:92
+#: app/views/Review/index.php:104 app/views/Review/profileIndex.php:76
+#: app/views/Review/update.php:73 app/views/Ticket/seatSelection.php:25
+#: app/views/Ticket/selectScreening.php:25
+#: app/views/Ticket/selectScreeningVer2.php:25
+#: app/views/User/adminProfile.php:13 app/views/User/adminReviews.php:19
+#: app/views/User/login.php:14 app/views/User/login.php:23
+#: app/views/User/points.php:13 app/views/User/profile.php:15
+#: app/views/User/purchaseHistory.php:14 app/views/User/register.php:14
+#: app/views/User/register.php:23 app/views/User/update.php:14
 msgid "Account"
 msgstr ""
 
 #: app/views/Main/index.php:15 app/views/Movie/activate.php:15
 #: app/views/Movie/adminIndex.php:15 app/views/Movie/adminIndividual.php:15
+#: app/views/Movie/create.php:15 app/views/Movie/delete.php:15
+#: app/views/Movie/index.php:16 app/views/Movie/individual.php:16
+#: app/views/Movie/modify.php:15 app/views/Movie/search.php:16
+#: app/views/MovieSchedule/create.php:15 app/views/MovieSchedule/delete.php:15
+#: app/views/MovieSchedule/index.php:15 app/views/Order/cart.php:15
+#: app/views/Order/delete.php:15 app/views/Order/history.php:15
+#: app/views/Order/incomplete.php:15 app/views/Order/receipt.php:14
+#: app/views/Review/adminIndex.php:88 app/views/Review/create.php:93
+#: app/views/Review/index.php:105 app/views/Review/profileIndex.php:77
+#: app/views/Review/update.php:74 app/views/Ticket/seatSelection.php:26
+#: app/views/Ticket/selectScreening.php:26
+#: app/views/Ticket/selectScreeningVer2.php:26
+#: app/views/User/adminProfile.php:14 app/views/User/adminProfile.php:26
+#: app/views/User/adminReviews.php:20 app/views/User/login.php:16
+#: app/views/User/points.php:15 app/views/User/profile.php:17
+#: app/views/User/purchaseHistory.php:15 app/views/User/register.php:16
+#: app/views/User/update.php:16
 msgid "Movies"
 msgstr ""
 
-#: app/views/Main/index.php:50
-msgid "$movies->title"
+#: app/views/Main/index.php:43 app/views/Movie/index.php:31
+msgid "All Movies"
 msgstr ""
 
 #: app/views/Main/index.php:58 app/views/Movie/activate.php:66
@@ -84,7 +119,22 @@ msgid "Copyright &copy 2024"
 msgstr ""
 
 #: app/views/Movie/activate.php:5 app/views/Movie/adminIndex.php:5
-#: app/views/Movie/adminIndividual.php:5
+#: app/views/Movie/adminIndividual.php:5 app/views/Movie/create.php:5
+#: app/views/Movie/delete.php:5 app/views/Movie/index.php:5
+#: app/views/Movie/individual.php:5 app/views/Movie/modify.php:5
+#: app/views/Movie/search.php:5 app/views/MovieSchedule/create.php:5
+#: app/views/MovieSchedule/delete.php:5 app/views/MovieSchedule/index.php:5
+#: app/views/Order/cart.php:5 app/views/Order/checkout.php:5
+#: app/views/Order/delete.php:5 app/views/Order/history.php:5
+#: app/views/Order/incomplete.php:5 app/views/Order/receipt.php:5
+#: app/views/Review/adminIndex.php:4 app/views/Review/create.php:13
+#: app/views/Review/delete.php:4 app/views/Review/index.php:13
+#: app/views/Review/profileIndex.php:4 app/views/Review/update.php:4
+#: app/views/Ticket/seatSelection.php:5 app/views/Ticket/selectScreening.php:5
+#: app/views/Ticket/selectScreeningVer2.php:5 app/views/User/adminProfile.php:5
+#: app/views/User/login.php:5 app/views/User/points.php:5
+#: app/views/User/profile.php:5 app/views/User/purchaseHistory.php:5
+#: app/views/User/register.php:5 app/views/User/update.php:5
 msgid "Movie Theatre"
 msgstr ""
 
@@ -92,7 +142,8 @@ msgstr ""
 msgid "Activate a Movie"
 msgstr ""
 
-#: app/views/Movie/activate.php:30
+#: app/views/Movie/activate.php:30 app/views/Movie/create.php:32
+#: app/views/Movie/delete.php:30 app/views/Movie/modify.php:30
 msgid "Title"
 msgstr ""
 
@@ -101,11 +152,13 @@ msgstr ""
 msgid "$data->title"
 msgstr ""
 
-#: app/views/Movie/activate.php:34
+#: app/views/Movie/activate.php:34 app/views/Movie/create.php:36
+#: app/views/Movie/delete.php:34 app/views/Movie/modify.php:34
 msgid "Source link of the Cover Image"
 msgstr ""
 
-#: app/views/Movie/activate.php:38
+#: app/views/Movie/activate.php:38 app/views/Movie/create.php:40
+#: app/views/Movie/delete.php:38 app/views/Movie/modify.php:38
 msgid "Director Name"
 msgstr ""
 
@@ -113,7 +166,8 @@ msgstr ""
 msgid "$data->director"
 msgstr ""
 
-#: app/views/Movie/activate.php:42
+#: app/views/Movie/activate.php:42 app/views/Movie/create.php:44
+#: app/views/Movie/delete.php:42 app/views/Movie/modify.php:42
 msgid "Synopsis:"
 msgstr ""
 
@@ -121,7 +175,8 @@ msgstr ""
 msgid "$data->description"
 msgstr ""
 
-#: app/views/Movie/activate.php:46
+#: app/views/Movie/activate.php:46 app/views/Movie/create.php:48
+#: app/views/Movie/delete.php:46 app/views/Movie/modify.php:46
 msgid "Length (minutes)"
 msgstr ""
 
@@ -133,7 +188,8 @@ msgstr ""
 msgid "$data->release_date"
 msgstr ""
 
-#: app/views/Movie/activate.php:54
+#: app/views/Movie/activate.php:54 app/views/Movie/create.php:56
+#: app/views/Movie/delete.php:54 app/views/Movie/modify.php:54
 msgid "Link to the trailer"
 msgstr ""
 
@@ -145,7 +201,11 @@ msgstr ""
 msgid "RE-ACTIVATE MOVIE"
 msgstr ""
 
-#: app/views/Movie/activate.php:59
+#: app/views/Movie/activate.php:59 app/views/Movie/create.php:87
+#: app/views/Movie/delete.php:59 app/views/Movie/modify.php:84
+#: app/views/MovieSchedule/create.php:61 app/views/MovieSchedule/delete.php:42
+#: app/views/Order/checkout.php:100 app/views/Order/delete.php:55
+#: app/views/Review/delete.php:24
 msgid "Cancel"
 msgstr ""
 
@@ -171,4 +231,506 @@ msgstr ""
 
 #: app/views/Movie/adminIndividual.php:59
 msgid "View Reviews"
+msgstr ""
+
+#: app/views/Movie/create.php:22 app/views/User/adminProfile.php:35
+msgid "Add a New Movie"
+msgstr ""
+
+#: app/views/Movie/create.php:30 app/views/Movie/modify.php:28
+msgid "Movie Information"
+msgstr ""
+
+#: app/views/Movie/create.php:59 app/views/Movie/modify.php:57
+msgid "Add a Screening Time"
+msgstr ""
+
+#: app/views/Movie/create.php:62 app/views/Movie/modify.php:60
+#: app/views/MovieSchedule/create.php:37
+msgid "Sunday"
+msgstr ""
+
+#: app/views/Movie/create.php:63 app/views/Movie/modify.php:61
+#: app/views/MovieSchedule/create.php:38
+msgid "Monday"
+msgstr ""
+
+#: app/views/Movie/create.php:64 app/views/Movie/modify.php:62
+#: app/views/MovieSchedule/create.php:39
+msgid "Tuesday"
+msgstr ""
+
+#: app/views/Movie/create.php:65 app/views/Movie/modify.php:63
+#: app/views/MovieSchedule/create.php:40
+msgid "Wednesday"
+msgstr ""
+
+#: app/views/Movie/create.php:66 app/views/Movie/modify.php:64
+#: app/views/MovieSchedule/create.php:41
+msgid "Thursday"
+msgstr ""
+
+#: app/views/Movie/create.php:67 app/views/Movie/modify.php:65
+#: app/views/MovieSchedule/create.php:42
+msgid "Friday"
+msgstr ""
+
+#: app/views/Movie/create.php:68 app/views/Movie/modify.php:66
+#: app/views/MovieSchedule/create.php:43
+msgid "Saturday"
+msgstr ""
+
+#: app/views/Movie/create.php:86
+msgid "Create"
+msgstr ""
+
+#: app/views/Movie/delete.php:22
+msgid "Delete a Movie"
+msgstr ""
+
+#: app/views/Movie/delete.php:58
+msgid "DELETE MOVIE"
+msgstr ""
+
+#: app/views/Movie/index.php:23 app/views/Movie/search.php:23
+msgid "eg: Movie 1"
+msgstr ""
+
+#: app/views/Movie/index.php:24 app/views/Movie/search.php:24
+msgid "Search by Title"
+msgstr ""
+
+#: app/views/Movie/index.php:25 app/views/Movie/search.php:25
+msgid "Search by Description"
+msgstr ""
+
+#: app/views/Movie/individual.php:36
+msgid "Director:"
+msgstr ""
+
+#: app/views/Movie/individual.php:37
+msgid "Description:"
+msgstr ""
+
+#: app/views/Movie/individual.php:38
+msgid "Trailer:"
+msgstr ""
+
+#: app/views/Movie/individual.php:39
+msgid "Length:"
+msgstr ""
+
+#: app/views/Movie/individual.php:40
+msgid "Release Date:"
+msgstr ""
+
+#: app/views/Movie/individual.php:46
+msgid "Screenings"
+msgstr ""
+
+#: app/views/Movie/modify.php:21
+msgid "Update a Movie"
+msgstr ""
+
+#: app/views/Movie/modify.php:83
+msgid "Update"
+msgstr ""
+
+#: app/views/Movie/search.php:30
+msgid "Movies from Search Results"
+msgstr ""
+
+#: app/views/MovieSchedule/create.php:27 app/views/MovieSchedule/index.php:26
+msgid "Screening Times for "
+msgstr ""
+
+#: app/views/MovieSchedule/create.php:33 app/views/MovieSchedule/index.php:32
+msgid "Add a New Screening Time"
+msgstr ""
+
+#: app/views/MovieSchedule/create.php:60
+msgid "Add"
+msgstr ""
+
+#: app/views/MovieSchedule/create.php:64 app/views/MovieSchedule/index.php:33
+msgid "Existing Screening Times"
+msgstr ""
+
+#: app/views/MovieSchedule/delete.php:29
+msgid "Are you sure you wish to delete this screening time?"
+msgstr ""
+
+#: app/views/MovieSchedule/delete.php:35
+msgid "Movie"
+msgstr ""
+
+#: app/views/MovieSchedule/delete.php:37
+msgid "Screening Time"
+msgstr ""
+
+#: app/views/MovieSchedule/delete.php:41 app/views/Review/delete.php:23
+#: app/views/Review/profileIndex.php:113
+msgid "Delete"
+msgstr ""
+
+#: app/views/Order/cart.php:19 app/views/Order/incomplete.php:19
+msgid "CART"
+msgstr ""
+
+#: app/views/Order/cart.php:41 app/views/Order/incomplete.php:46
+msgid "Total Price"
+msgstr ""
+
+#: app/views/Order/cart.php:43 app/views/Order/checkout.php:13
+msgid "Checkout"
+msgstr ""
+
+#: app/views/Order/checkout.php:17
+msgid "Order:"
+msgstr ""
+
+#: app/views/Order/checkout.php:35
+msgid "Seat number: "
+msgstr ""
+
+#: app/views/Order/checkout.php:38
+msgid "Total cost: $ "
+msgstr ""
+
+#: app/views/Order/checkout.php:41
+msgid "Payment Information"
+msgstr ""
+
+#: app/views/Order/checkout.php:43
+msgid "Cardholder Name"
+msgstr ""
+
+#: app/views/Order/checkout.php:47
+msgid "Card Number"
+msgstr ""
+
+#: app/views/Order/checkout.php:58
+msgid "Expiration date"
+msgstr ""
+
+#: app/views/Order/checkout.php:90
+msgid "Security Number (CVC)"
+msgstr ""
+
+#: app/views/Order/checkout.php:95
+msgid "Confirm Payment"
+msgstr ""
+
+#: app/views/Order/delete.php:14 app/views/User/login.php:15
+#: app/views/User/points.php:14 app/views/User/profile.php:16
+#: app/views/User/register.php:15 app/views/User/update.php:15
+msgid "About Us"
+msgstr ""
+
+#: app/views/Order/delete.php:20 app/views/User/purchaseHistory.php:26
+msgid "Orders History"
+msgstr ""
+
+#: app/views/Order/delete.php:48
+msgid "Total Price: "
+msgstr ""
+
+#: app/views/Order/delete.php:49
+msgid "Date ordered: "
+msgstr ""
+
+#: app/views/Order/delete.php:54
+msgid "DELETE ORDER"
+msgstr ""
+
+#: app/views/Order/history.php:19
+msgid "ORDER HISTORY"
+msgstr ""
+
+#: app/views/Order/incomplete.php:41
+msgid "Seat Number: "
+msgstr ""
+
+#: app/views/Order/incomplete.php:47 app/views/Order/receipt.php:42
+msgid "Total: $ "
+msgstr ""
+
+#: app/views/Order/incomplete.php:48
+msgid "Complete Order"
+msgstr ""
+
+#: app/views/Order/incomplete.php:57
+msgid "Continue Browsing"
+msgstr ""
+
+#: app/views/Order/receipt.php:18
+msgid "Booking Successful"
+msgstr ""
+
+#: app/views/Order/receipt.php:32
+msgid "Receipt #: "
+msgstr ""
+
+#: app/views/Order/receipt.php:33
+msgid "Showtime: "
+msgstr ""
+
+#: app/views/Order/receipt.php:35
+msgid "Seats:"
+msgstr ""
+
+#: app/views/Order/receipt.php:43
+msgid "Enjoy the Show!"
+msgstr ""
+
+#: app/views/Order/receipt.php:50
+msgid "Browse Movies"
+msgstr ""
+
+#: app/views/Review/adminIndex.php:83 app/views/Review/index.php:100
+#: app/views/User/profile.php:29 app/views/User/purchaseHistory.php:33
+msgid "Reviews"
+msgstr ""
+
+#: app/views/Review/adminIndex.php:136 app/views/User/adminReviews.php:39
+msgid "Approve"
+msgstr ""
+
+#: app/views/Review/adminIndex.php:137 app/views/User/adminReviews.php:43
+msgid "Reject"
+msgstr ""
+
+#: app/views/Review/create.php:88
+msgid "Write a Review for "
+msgstr ""
+
+#: app/views/Review/create.php:105 app/views/Review/update.php:91
+msgid "Stars"
+msgstr ""
+
+#: app/views/Review/create.php:109
+msgid "Review"
+msgstr ""
+
+#: app/views/Review/create.php:112 app/views/Review/update.php:98
+msgid "Submit Review"
+msgstr ""
+
+#: app/views/Review/delete.php:14
+msgid "Delete Review"
+msgstr ""
+
+#: app/views/Review/delete.php:19
+msgid "Are you sure you want to delete this review?"
+msgstr ""
+
+#: app/views/Review/delete.php:20
+msgid "This action cannot be undone."
+msgstr ""
+
+#: app/views/Review/index.php:109
+msgid "Write a Review"
+msgstr ""
+
+#: app/views/Review/index.php:115
+msgid "All Reviews:"
+msgstr ""
+
+#: app/views/Review/index.php:124
+msgid "No reviews for this movie yet."
+msgstr ""
+
+#: app/views/Review/profileIndex.php:112
+msgid "Modify"
+msgstr ""
+
+#: app/views/Review/update.php:80
+msgid "Modify Review for "
+msgstr ""
+
+#: app/views/Review/update.php:95
+msgid "Review Text"
+msgstr ""
+
+#: app/views/Ticket/seatSelection.php:107
+#: app/views/Ticket/selectScreening.php:35
+#: app/views/Ticket/selectScreeningVer2.php:32
+msgid "Book Tickets for "
+msgstr ""
+
+#: app/views/Ticket/selectScreening.php:82
+msgid "Select a Screening "
+msgstr ""
+
+#: app/views/Ticket/selectScreening.php:133
+#: app/views/Ticket/selectScreeningVer2.php:57
+msgid "Select Screening"
+msgstr ""
+
+#: app/views/Ticket/selectScreening.php:146
+msgid "There are no more screenings available this week."
+msgstr ""
+
+#: app/views/Ticket/selectScreeningVer2.php:41
+msgid "Select a Screening"
+msgstr ""
+
+#: app/views/User/adminProfile.php:19
+msgid "Administrator Profile"
+msgstr ""
+
+#: app/views/User/adminProfile.php:24 app/views/User/points.php:25
+#: app/views/User/profile.php:26 app/views/User/purchaseHistory.php:30
+#: app/views/User/update.php:26
+msgid "Profile Information"
+msgstr ""
+
+#: app/views/User/adminProfile.php:25
+msgid "Pending Reviews"
+msgstr ""
+
+#: app/views/User/adminProfile.php:31 app/views/User/update.php:34
+msgid "Name: "
+msgstr ""
+
+#: app/views/User/adminProfile.php:32
+msgid "Email: "
+msgstr ""
+
+#: app/views/User/adminProfile.php:39 app/views/User/profile.php:42
+msgid "Logout"
+msgstr ""
+
+#: app/views/User/adminReviews.php:25
+msgid "Admin Reviews"
+msgstr ""
+
+#: app/views/User/adminReviews.php:31
+msgid "Review ID: "
+msgstr ""
+
+#: app/views/User/adminReviews.php:32
+msgid "User ID: "
+msgstr ""
+
+#: app/views/User/adminReviews.php:33
+msgid "Movie ID: "
+msgstr ""
+
+#: app/views/User/adminReviews.php:50
+msgid "there are no reviews"
+msgstr ""
+
+#: app/views/User/check2fa.php:4
+msgid "Check 2FA"
+msgstr ""
+
+#: app/views/User/check2fa.php:8
+msgid "Submit the 6-digit code for this site from your Authenticator app."
+msgstr ""
+
+#: app/views/User/check2fa.php:10 app/views/User/setup2fa.php:13
+msgid "Current code:"
+msgstr ""
+
+#: app/views/User/check2fa.php:11 app/views/User/setup2fa.php:14
+msgid "Verify code"
+msgstr ""
+
+#: app/views/User/login.php:32
+msgid "email"
+msgstr ""
+
+#: app/views/User/login.php:36
+msgid "password"
+msgstr ""
+
+#: app/views/User/login.php:41
+msgid "Create Account"
+msgstr ""
+
+#: app/views/User/points.php:26 app/views/User/profile.php:27
+#: app/views/User/purchaseHistory.php:31 app/views/User/update.php:27
+msgid "Purchase History"
+msgstr ""
+
+#: app/views/User/points.php:27 app/views/User/profile.php:28
+#: app/views/User/purchaseHistory.php:32 app/views/User/update.php:28
+msgid "Points"
+msgstr ""
+
+#: app/views/User/profile.php:34
+msgid "Email:"
+msgstr ""
+
+#: app/views/User/profile.php:38
+msgid "Edit Profile Information"
+msgstr ""
+
+#: app/views/User/profile.php:46 app/views/User/setup2fa.php:4
+msgid "Set Up 2FA"
+msgstr ""
+
+#: app/views/User/purchaseHistory.php:49
+msgid "Order number: "
+msgstr ""
+
+#: app/views/User/purchaseHistory.php:64
+msgid "Seat "
+msgstr ""
+
+#: app/views/User/purchaseHistory.php:68
+msgid "Price: "
+msgstr ""
+
+#: app/views/User/purchaseHistory.php:70
+msgid "Order date: "
+msgstr ""
+
+#: app/views/User/purchaseHistory.php:76
+msgid "You have not made any orders."
+msgstr ""
+
+#: app/views/User/register.php:28
+msgid "Create an Account"
+msgstr ""
+
+#: app/views/User/register.php:32
+msgid "Name"
+msgstr ""
+
+#: app/views/User/register.php:36
+msgid "Email"
+msgstr ""
+
+#: app/views/User/register.php:40
+msgid "Password"
+msgstr ""
+
+#: app/views/User/register.php:44
+msgid "Confirm password"
+msgstr ""
+
+#: app/views/User/setup2fa.php:10
+msgid ""
+"Scan the above QR-code with your mobile Authenticator app, such as Google "
+"Authenticator. The authenticator app will generate codes that are valid for "
+"30 seconds only. Enter such a code and submit it while it is still valid to "
+"apply the 2-factor authentication protection to your account."
+msgstr ""
+
+#: app/views/User/update.php:34
+msgid "Jon Doe"
+msgstr ""
+
+#: app/views/User/update.php:37
+msgid "Password: "
+msgstr ""
+
+#: app/views/User/update.php:37
+msgid "enter new password"
+msgstr ""
+
+#: app/views/User/update.php:40
+msgid "Submit"
 msgstr ""

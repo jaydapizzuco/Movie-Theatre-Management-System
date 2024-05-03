@@ -110,6 +110,29 @@ class User extends \app\core\Controller{
 
     }
 
+    #[\app\filters\AdminLogin] 
+    public function updateAbout(){
+        if(!isset($_SESSION['user_id'])){
+            header('location:/User/login');
+            return;
+        }
+
+        $about = new \app\models\About();
+        $about = $about->get();
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $about->about_email = $_POST['about_email'];
+            $about->description = $_POST['description'];
+            
+            $about->update();
+            header('location:/User/adminProfile');
+        }
+        else{
+            $this->view('User/updateAbout', $about);
+        }
+
+    }
+
 
     public function adminReviews() {
         $reviewModel = new \app\models\Review();

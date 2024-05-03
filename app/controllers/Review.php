@@ -97,22 +97,18 @@ public function delete()
 }
 
 public function update(){
+     $review = new \app\models\Review();
+     $review = $review->getByID($_GET['id']);
+     
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       
-        $review_id = $_POST['review_id'];
-        $review_text = $_POST['review_text'];
+        $review->stars = $_POST['stars'];
+        $review->review_text = $_POST['review_text'];
+        $review->update();
 
-        $reviewModel = new \app\models\Review();
-        $reviewModel->review_id = $review_id;
-        $reviewModel->review_text = $review_text;
-        $reviewModel->update();
-
-        header('Location: /User/profileindex');
-        exit();
-    } else {
-        
-        header('Location: /');
-        exit();
+        $this->view('/Review/profileIndex');
+    } else {   
+        $this->view('/Review/update',$review );
     }
 }
 

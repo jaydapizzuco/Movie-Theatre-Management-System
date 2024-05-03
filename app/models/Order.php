@@ -26,7 +26,7 @@ class Order extends \app\core\Model{
 	}
 
 	public function delete(){
-		$SQL = 'UPDATE orders SET order_status=0 WHERE order_id=:order_id';
+		$SQL = 'DELETE FROM orders WHERE order_id=:order_id';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['order_id'=>$this->order_id]

@@ -71,18 +71,6 @@ class Order extends \app\core\Controller {
     
     }
 
-    public function deleteOrder($order_id) {
-        $order = Order::getByID($order_id);
-        if ($order) {
-            $order->delete();
-            
-            $this->redirect('');
-        } else {
-        
-            $this->view('error', ['message' => 'not a order']);
-        }
-    }
-
     public function setOrderStatus($order_id) {
         $order = Order::getByID($order_id);
         if ($order) {
@@ -110,12 +98,33 @@ class Order extends \app\core\Controller {
         $order = $order->getByID($_GET['id']);
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        
+            if($order->cart_status == 0){
+
+            $tickets = new \app\models\Ticket();
+            $tickets = $tickets->getByOrderID($order->order_id);
+
+            $movie = new \app\models\Movie();
+            $movie = $movie->getByID($tickets[0]->movie_id);
+
+             foreach($tickets as $ticket){
+                  $movie->refundTicket();
+              }
+            }
+
             $order->delete();
-            header('location:/User/purchaseHistory');
-        }else{
+            $userOrders = new \app\models\Order();
+            $userOrders = $userOrders->getByUserID($_SESSION['user_id']);
+            $this->view('User/purchaseHistory',$userOrders);
+        }
+        else{
+           
             $this->view('Order/delete',$order);
         }
+     }
+  
+
     }
-}
+
   
 ?>

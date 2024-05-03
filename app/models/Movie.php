@@ -138,6 +138,11 @@ class Movie extends \app\core\Model{
 		$STMT->execute(['movie_id'=>$this->movie_id]);
 	}
 
+	public function refundTicket(){
+		$SQL = 'UPDATE movie SET `movie`.ticket_revenue = `movie`.ticket_revenue - 11.99 WHERE movie_id=:movie_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(['movie_id'=>$this->movie_id]);
+	}
 
 
 }

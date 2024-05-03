@@ -47,7 +47,9 @@
                     <h5 class="card-title"><?= __('Total Price')?></h5>
                     <p class="card-text"><?= __('Total: $ ')?><?= round($incompleteOrder->total_price, 2) ?></p>
                     <a href="/Order/checkout?id=<?= $incompleteOrder->order_id ?>" class="btn btn-primary"><?= __('Complete Order')?></a> 
-                     <a href='/Order/delete?id=<?= $order->order_id ?>'><i class='bi bi-trash'></i></a> 
+                    <div>
+                     <a href="/Order/delete?id=<?= $incompleteOrder->order_id ?>"><i class='bi bi-trash'></i></a>
+                     </div> 
         </div>
     </div>
 

@@ -17,46 +17,50 @@
 
 <body>
     <header>
-        <h1><?= __('Orders History')?></h1>
-    </header><br><br>
+        <?php
 
+             $tickets = new \app\models\Ticket();
+             $tickets = $tickets->getByOrderID($data->order_id);
+
+              $movie = new \app\models\Movie();
+              $movie = $movie->getById($tickets[0]->movie_id);      
+          ?>
+        <h1><?= __('Are you sure you want to delete your tickets for ' . $movie->title) . '?'?></h1>
+    </header><br><br>
 
         <div class="container2">
             <div class="row">
             <div class="col-md-6 offset-md-3">
-                <?
                 
-                ?>
-                <img src="<?= $data->image ?>" class="movie-image" alt="<?= $data->title ?>">
-                <h2>Order ID: <?= $data->order_id ?></h2><br>
+                <img src="<?= $movie->image ?>" class="movie-image" alt="<?= $movie->title ?>">
 
-                <?php 
-                    $allTickets = new \app\models\Ticket();
-                    $allTickets = $allTickets->getByOrderID($data->order_id);
-                ?>
-                <?php foreach ($allTickets as $ticket) : ?>
-                    <?php 
-                        $movie = new \app\models\Movie();
-                        $movie = $movie->getByID($ticket->movie_id);
-                    ?>
+              <div class="receipt">
+        <ul class="list-group">
+            <?php
+            foreach ($tickets as $index => $ticket) :
+                $movie = new \app\models\Movie();
+                $movie = $movie->getById($ticket->movie_id);
+            ?>
+                <li class="list-group-item">
+                    <h5 class="card-title"><?= $movie->title ?></h5><br>
+                    <p class="card-text"><?= $ticket->movie_day ?> : <?= $ticket->movie_time ?> </p>
+                    <p class="card-text"><?= __('Seat Number: ')?><?= $ticket->seat_id ?></p>
+                </li>
+        </ul>
+        <?php endforeach; ?>
+        <div class="row justify-content-end mt-4">
+                    <h5 class="card-title"><?= __('Total Price')?></h5>
+                    <p class="card-text"><?= __('Total: $ ')?><?= round($data->total_price, 2) ?></p>
+        </div>
+    </div>
 
-                    <br>
-                    <p><b><?= $movie->title ?></b></p>
-                    <p><?= $ticket->movie_day ?> <?= $ticket->movie_time ?></p>
-                    <p>Seat <?= $ticket->seat_id?> </p>
-                    <br>
-                            
-                <?php endforeach; ?>
-
-                <p><b><?= __('Total Price: ')?><?= $order->total_price ?></b></p>
-                <p><b><?= __('Date ordered: ')?><?= $order->order_date ?></b></p>
-
-            </div>
-
+        <?php  ?>
+        <form method="post">
             <div class="form-group">
-                <input type="submit" name="action" value=" <?= __('DELETE ORDER')?> "/><br><br>
+                <input type="submit" name="action" value=" <?= __('Delete')?> "/><br><br>
                 <a href="/User/purchaseHistory"><?= __('Cancel')?></a>
             </div><br>
+          </form>   
         </div>
 
         </div>

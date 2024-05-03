@@ -80,7 +80,10 @@ class Order extends \app\core\Model{
 	}
 
 	public function getByUserID($user_id){
-		$SQL = 'SELECT * FROM orders WHERE user_id=:user_id AND order_status=1 AND cart_status=0';
+		$SQL = 'SELECT * FROM orders
+		 WHERE user_id=:user_id AND order_status=1 AND cart_status=0
+		 ORDER BY `orders`.order_id DESC';
+
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['user_id'=>$user_id]

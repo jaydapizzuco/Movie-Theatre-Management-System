@@ -24,6 +24,9 @@
         <div class="container2">
             <div class="row">
             <div class="col-md-6 offset-md-3">
+                <?
+                
+                ?>
                 <img src="<?= $data->image ?>" class="movie-image" alt="<?= $data->title ?>">
                 <h2>Order ID: <?= $data->order_id ?></h2><br>
 

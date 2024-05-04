@@ -15,6 +15,7 @@ class Review extends \app\core\Controller{
 
 public function create()
 {
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $this->handleReviewSubmission();
     } else {

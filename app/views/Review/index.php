@@ -106,7 +106,26 @@
         <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
     </nav>
 
-    <a href="/Review/create?movie_id=<?= $data->movie_id ?>" class="btn btn-primary"><?= __('Write a Review')?></a>
+    <?php 
+
+    //checking if a ticket from the user has the movie id and check if the date of the order passed
+    $orders = new \app\models\Order();
+    $orders = $orders->getByUserID($_SESSION['user_id']);
+
+    foreach($orders as $order){
+        $tickets = new \app\models\Ticket();
+        $tickets = $tickets->getByOrderID($order->order_id);
+        if(($tickets[0]->movie_id == $_GET['movie_id']) && ($tickets[0]->movie_date < date('Y-m-d'))): ?>
+        <a href="/Review/create?movie_id=<?= $data->movie_id ?>" class="btn btn-primary"><?= __('Write a Review')?></a>
+        <?php
+        break;
+        endif;
+    }
+
+
+    ?>
+
+    
     <main>
         <section class="movie-cover">
             <img src="<?= $data->image ?>" alt="<?= $data->title ?>" style="max-width: 100%;">

@@ -6,6 +6,6 @@ Feature: adminlogin
 Scenario: adminlogin
   Given I am on the login page
   When I enter username ‘admin’ 
-  And password ‘admin123’  
+  And I enter password ‘admin123’  
   Then I am redirected to the admin’s profile page.
 

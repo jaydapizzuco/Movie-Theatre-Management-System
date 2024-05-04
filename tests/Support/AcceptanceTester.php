@@ -28,7 +28,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheLoginPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the login page` is not defined");
+        $this->amOnPage("/User/login");
      }
 
     /**
@@ -36,15 +36,16 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iEnterUsernameadmin()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I enter username ‘admin’` is not defined");
+         $this->fillField('email','admin@email.com');
      }
 
     /**
      * @When password ‘admin:num1:num2:num3’
      */
-     public function passwordadmin($num1, $num2, $num3)
+     public function iEnterPasswordadmin123()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `password ‘admin:num1:num2:num3’` is not defined");
+         $this->fillField('password','123');
+         $this->click("Login");
      }
 
     /**
@@ -52,7 +53,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheAdminsProfilePage($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the admin’s profile page:num1` is not defined");
+         $this->see("Administrator Profile");
      }
 
     /**

@@ -158,4 +158,11 @@ class Movie extends \app\core\Controller{
         }
     }
 
+    public function revenue(){
+        $movie = new \app\models\Movie();
+        $movie = $movie->getByID($_GET['id']);
+
+        $this->view('Movie/revenue',$movie);
+    }
+
 }

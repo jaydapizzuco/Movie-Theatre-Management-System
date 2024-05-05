@@ -62,6 +62,7 @@ class App{
         $this->addRoute('Movie/adminIndividual' , 'Movie,adminIndividual');
         $this->addRoute('Movie/activate' , 'Movie,activate');
         $this->addRoute('Movie/search' , 'Movie,search');
+        $this->addRoute('Movie/revenue' , 'Movie,revenue');
 
         $this->addRoute('MovieSchedule/create' , 'MovieSchedule,create');
         $this->addRoute('MovieSchedule/delete' , 'MovieSchedule,delete');

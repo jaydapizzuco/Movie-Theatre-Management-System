@@ -15,18 +15,12 @@ class App{
         foreach ($this->routes as $routePattern => $controllerMethod) {
             if(preg_match("#^$routePattern$#", $url, $matches)){//match the route
 
-                /*print_r($matches);
-                echo "\n";*/
-
                 // Filter named parameters
                 $namedParams = array_filter($matches,
                     function($key) {
                         return !is_numeric($key);
                     }
                     , ARRAY_FILTER_USE_KEY);
-
-                /*print_r($namedParams);
-                echo "\n";*/
 
                 return [$controllerMethod, $namedParams];
             }
@@ -62,6 +56,7 @@ class App{
         $this->addRoute('Movie/adminIndividual' , 'Movie,adminIndividual');
         $this->addRoute('Movie/activate' , 'Movie,activate');
         $this->addRoute('Movie/search' , 'Movie,search');
+        $this->addRoute('Movie/revenue' , 'Movie,revenue');
 
         $this->addRoute('MovieSchedule/create' , 'MovieSchedule,create');
         $this->addRoute('MovieSchedule/delete' , 'MovieSchedule,delete');

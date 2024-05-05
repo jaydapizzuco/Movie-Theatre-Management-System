@@ -70,7 +70,9 @@ class Order extends \app\core\Model{
 	}
 
 	public function getByMovieID($movie_id){
-		$SQL = 'SELECT * FROM orders WHERE movie_id=:movie_id AND order_status=1';
+		$SQL = 'SELECT  DISTINCT o.* FROM orders o 
+            INNER JOIN ticket t ON o.order_id = t.order_id
+            WHERE t.movie_id = :movie_id AND o.order_status = 1';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute(
 			['movie_id'=>$movie_id]

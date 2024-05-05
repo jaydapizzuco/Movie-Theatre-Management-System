@@ -95,11 +95,13 @@
                 <p><?= __('You have not made any orders.')?></p>
 
             <?php endif; ?>
-        </section><footer>
-        <br>Copyright &copy 2024 
-    </footer>
+        </section>
     </div>
 
 </body>
+
+    <footer class="footer2">
+        <br>Copyright &copy 2024 
+    </footer>
 
 </html>

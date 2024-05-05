@@ -41,17 +41,14 @@
             <hr>
             <p><?= __('Total: $ ')?><?= $data->total_price?></p>
             <p><?= __('Enjoy the Show!')?></p>
+
       </div>
 
-          <div class="row justify-content-end mt-4">
-            <div class="col-md-6">
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-body">
-                       <a href="/Movie/index"><?= __('Browse Movies')?></a>
-                   </div>
-               </div>
-           </div>
-       </div>
+      <div class="row justify-content-center">
+        <div class="col-auto">
+            <a href="/Movie/index" class="btn btn-primary"><?= __('Browse Movies')?></a>
+        </div>
+    </div>
 
 </body>
 </html>

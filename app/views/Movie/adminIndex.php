@@ -37,7 +37,8 @@
                 <?php else: ?>
                     <a href='/Movie/activate?id=<?= $movies->movie_id ?>'><i class='bi bi-arrow-repeat'></i></a>
                 <?php endif; ?>
-            </div>
+             <a href='/Movie/revenue?id=<?= $movies->movie_id ?>'><i class="bi bi-cash"></i></a> 
+         </div>
         <?php endforeach; ?>
     </div>
 

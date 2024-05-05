@@ -36,6 +36,14 @@ footer {text-align: center;
         color: black;
         bottom: 0 }
 
+.footer2 {position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        color: black;
+        background-color:  rgb(245, 157, 245);}
+
 .container{background-color: rgb(245, 157, 245);
             padding: 20px;
             border-radius: 10px;
@@ -46,6 +54,14 @@ footer {text-align: center;
             height: 200px;
             width: 700px;
             margin: auto;}
+
+.containerCheckout {max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);}
+
 
 .container3{background-color: rgb(245, 157, 245);
             padding: 20px;
@@ -110,3 +126,6 @@ footer {text-align: center;
     text-align: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
+
+
+

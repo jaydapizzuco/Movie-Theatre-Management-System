@@ -52,10 +52,10 @@ class Review extends \app\core\Model{
 	}
 	
 
-	public function reject() {
-        $SQL = 'UPDATE review SET approved = 0 WHERE review_id = :review_id';
+	public function reject($review_id) {
+        $SQL = 'DELETE FROM review WHERE review_id=:review_id';
         $STMT = self::$_conn->prepare($SQL);
-        $STMT->execute(['review_id' => $this->review_id]);
+        $STMT->execute(['review_id' => $review_id]);
     }
 
 	

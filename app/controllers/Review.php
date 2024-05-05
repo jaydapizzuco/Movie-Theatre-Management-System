@@ -134,7 +134,7 @@ public function approve()
         $review = new \app\models\Review();
         $review = $review->getByID($review_id);
         if ($review) {
-            $review->reject();
+            $review->delete();
         }
     }
     header('Location: /Review/adminIndex');

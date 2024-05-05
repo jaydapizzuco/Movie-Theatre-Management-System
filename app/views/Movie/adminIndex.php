@@ -22,6 +22,10 @@
         <h1><?= __('Add Screening Times') ?></h1>
     </header><br><br>
 
+    <div>
+        <a href="/Movie/create" class="btn btn-primary"><?= __('Add Movie')?></a>
+    </div>
+
     <div class="gallery">
         <?php foreach ($data as $index => $movies): ?>
             <div class="gallery-item">

@@ -72,8 +72,10 @@ class Movie extends \app\core\Controller{
 
             $movie_schedule->insert();
 
+            $this->view('Movie/adminIndividual',$movie);
+
             //redirect
-            header('location:/Movie/adminIndex');
+            //header('location:/Movie/adminIndex');
         }else{
             $this->view('Movie/create');
         }

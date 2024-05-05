@@ -83,7 +83,7 @@
 
         
         <div class="form-group">
-            <input type="submit" name="action" value="<?= __('Create')?>"/><br><br>
+            <input type="submit" name="action" value="<?= __('Add Movie')?>"/><br><br>
             <a href=""><?= __('Cancel') ?></a>
         </div><br>
         </form>

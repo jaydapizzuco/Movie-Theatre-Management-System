@@ -30,6 +30,7 @@
     <header>
         <h1><?= __('All Movies')?></h1>
     </header><br><br>
+    
 
     <div class="gallery">
         <?php foreach ($data as $index => $movies): ?>

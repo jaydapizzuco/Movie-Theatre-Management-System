@@ -127,22 +127,31 @@
 
     
     <main>
-        <section class="movie-cover">
-            <img src="<?= $data->image ?>" alt="<?= $data->title ?>" style="max-width: 100%;">
-        </section>
-        <section class="review-list">
-            <h2><?= __('All Reviews:')?></h2>
+        <div  style="display: flex; flex-direction: column; align-items: center;"> 
+         <img src="<?= $data->image ?>" alt="<?= $data->title ?>" style="max-width: 100%;">
+     <h2><?= __('All Reviews:')?></h2>
+      </div>
+        <section class="gallery">
+        <section class="gallery-item">
             <?php if (!empty($reviews)) : ?>
                 <?php foreach ($reviews as $review) : ?>
+
+     <?php 
+        $user = new \app\models\User();
+        $user = $user->getByID ($review->user_id);
+        ?>
                     <div class="review">
                         <p class="stars"><?= str_repeat('⭐', $review->stars) ?></p>
+                        <p><?= $user->name ?></p>
                         <p><?= $review->review_text ?></p>
+                        <p><?= $review->review_date ?></p>
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>
                 <p><?= __('No reviews for this movie yet.')?></p>
             <?php endif; ?>
         </section>
+    </section>
     </main>
     <footer>
         <p>Footer</p>:

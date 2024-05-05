@@ -84,7 +84,7 @@
     <h1>My Reviews</h1>
 </div>
 
-<div class="main-content">
+<div class="gallery">
     <?php
     
     $reviewsModel = new \app\models\Review();
@@ -98,13 +98,14 @@
             $movieModel = new \app\models\Movie();
             $movie = $movieModel->getByID($review->movie_id);
             ?>
-            <div class="review-box">
+            <div class="gallery-item">
               
-                <img src="<?= $movie->image ?>" alt="Movie Cover" style="width: 100%">
+                <img src="<?= $movie->image ?>" alt="Movie Cover" style="width: 200px; height: 300px;">
                
                 <h3><?= $movie->title ?></h3>
                 
                 <p><?= $review->review_text ?></p>
+                <p><?= $review->review_date ?></p>
                 
                 <p class="stars"><?= str_repeat('⭐', $review->stars) ?></p>
                

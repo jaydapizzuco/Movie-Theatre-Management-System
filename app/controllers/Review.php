@@ -18,6 +18,7 @@ public function create()
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $this->handleReviewSubmission();
+        
     } else {
         if (isset($_GET['movie_id'])) {
             $movie_id = $_GET['movie_id'];
@@ -28,12 +29,12 @@ public function create()
                 $this->view('Review/create', $movie);
             } else {
                
-                header('Location: /User/login');
+                header('Location: /Movie/index');
                 exit();
             }
         } else {
        
-            header('Location: /User/login');
+            header('Location: /Movie/index');
             exit();
         }
     }
@@ -61,15 +62,19 @@ private function handleReviewSubmission()
         $review->stars = $stars;
         $review->review_text = $review_text;
 
-        if ($review->insert()) {
+        $review->insert();
+
+        $this->view('Review/submitted', $review);
+
+        // if ($review->insert()) {
             
-            header('Location: /Review/index?movie_id=' . $movie_id);
-            exit();
-        } else {
+        //     header('Location: /Review/index?movie_id=' . $movie_id);
+        //     exit();
+        // } else {
             
-            header('Location: /Movie/index');
-            exit();
-        }
+        //     header('Location: /Movie/index');
+        //     exit();
+        // }
     } else {
       
         header('Location: /Movie/index');

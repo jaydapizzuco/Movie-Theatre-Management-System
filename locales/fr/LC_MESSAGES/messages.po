@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-03 03:07+0000\n"
-"PO-Revision-Date: 2024-05-03 03:08+0000\n"
+"POT-Creation-Date: 2024-05-05 22:10+0000\n"
+"PO-Revision-Date: 2024-05-05 22:12+0000\n"
 "Last-Translator: root <EMAIL@ADDRESS>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -32,7 +32,7 @@ msgstr "Nom d'utilisateur:"
 
 #: app/views/Admin/login.php:19 app/views/Admin/registration.php:20
 msgid "username"
-msgstr "nom d'utilisateur:"
+msgstr "nom d'utilisateur"
 
 #: app/views/Admin/login.php:22 app/views/Admin/profile.php:22
 #: app/views/Admin/registration.php:26
@@ -68,15 +68,15 @@ msgstr "Creer un nouveau compte d'administrateur"
 
 #: app/views/Admin/registration.php:23 app/views/User/profile.php:34
 msgid "Email:"
-msgstr ""
+msgstr "Couriel"
 
 #: app/views/Admin/registration.php:23 app/views/User/login.php:32
 msgid "email"
-msgstr "email"
+msgstr "couriel"
 
 #: app/views/Admin/registration.php:30 app/views/User/register.php:48
 msgid "Register"
-msgstr "Registrer"
+msgstr "Enregistrer"
 
 #: app/views/Admin/registration.php:35
 msgid "I have an account, bring me to the login page"
@@ -86,14 +86,15 @@ msgstr "J'ai un compte, Connectez-moi"
 #: app/views/Movie/adminIndex.php:5 app/views/Movie/adminIndividual.php:5
 #: app/views/Movie/create.php:5 app/views/Movie/delete.php:5
 #: app/views/Movie/index.php:5 app/views/Movie/individual.php:5
-#: app/views/Movie/modify.php:5 app/views/Movie/search.php:5
-#: app/views/MovieSchedule/create.php:5 app/views/MovieSchedule/delete.php:5
-#: app/views/MovieSchedule/index.php:5 app/views/Order/cart.php:5
-#: app/views/Order/checkout.php:5 app/views/Order/delete.php:5
-#: app/views/Order/history.php:5 app/views/Order/incomplete.php:5
-#: app/views/Order/receipt.php:5 app/views/Review/adminIndex.php:4
-#: app/views/Review/create.php:13 app/views/Review/delete.php:4
-#: app/views/Review/index.php:13 app/views/Review/profileIndex.php:4
+#: app/views/Movie/modify.php:5 app/views/Movie/revenue.php:5
+#: app/views/Movie/search.php:5 app/views/MovieSchedule/create.php:5
+#: app/views/MovieSchedule/delete.php:5 app/views/MovieSchedule/index.php:5
+#: app/views/Order/cart.php:5 app/views/Order/checkout.php:5
+#: app/views/Order/delete.php:5 app/views/Order/history.php:5
+#: app/views/Order/incomplete.php:5 app/views/Order/receipt.php:5
+#: app/views/Review/adminIndex.php:4 app/views/Review/create.php:13
+#: app/views/Review/delete.php:4 app/views/Review/index.php:13
+#: app/views/Review/profileIndex.php:4 app/views/Review/submitted.php:5
 #: app/views/Review/update.php:4 app/views/Ticket/seatSelection.php:5
 #: app/views/Ticket/selectScreening.php:5
 #: app/views/Ticket/selectScreeningVer2.php:5 app/views/User/adminProfile.php:5
@@ -109,13 +110,14 @@ msgstr "Cinema"
 #: app/views/Movie/adminIndividual.php:14 app/views/Movie/create.php:14
 #: app/views/Movie/delete.php:14 app/views/Movie/index.php:15
 #: app/views/Movie/individual.php:15 app/views/Movie/modify.php:14
-#: app/views/Movie/search.php:15 app/views/MovieSchedule/create.php:14
-#: app/views/MovieSchedule/delete.php:14 app/views/MovieSchedule/index.php:14
-#: app/views/Order/cart.php:14 app/views/Order/delete.php:13
-#: app/views/Order/history.php:14 app/views/Order/incomplete.php:14
-#: app/views/Order/receipt.php:13 app/views/Review/adminIndex.php:87
-#: app/views/Review/create.php:92 app/views/Review/index.php:104
-#: app/views/Review/profileIndex.php:76 app/views/Review/update.php:73
+#: app/views/Movie/revenue.php:29 app/views/Movie/search.php:15
+#: app/views/MovieSchedule/create.php:14 app/views/MovieSchedule/delete.php:14
+#: app/views/MovieSchedule/index.php:14 app/views/Order/cart.php:14
+#: app/views/Order/delete.php:13 app/views/Order/history.php:14
+#: app/views/Order/incomplete.php:15 app/views/Order/receipt.php:13
+#: app/views/Review/adminIndex.php:87 app/views/Review/create.php:92
+#: app/views/Review/index.php:104 app/views/Review/profileIndex.php:76
+#: app/views/Review/submitted.php:14 app/views/Review/update.php:73
 #: app/views/Ticket/seatSelection.php:25
 #: app/views/Ticket/selectScreening.php:25
 #: app/views/Ticket/selectScreeningVer2.php:25
@@ -140,13 +142,14 @@ msgstr "A propos"
 #: app/views/Movie/adminIndividual.php:15 app/views/Movie/create.php:15
 #: app/views/Movie/delete.php:15 app/views/Movie/index.php:16
 #: app/views/Movie/individual.php:16 app/views/Movie/modify.php:15
-#: app/views/Movie/search.php:16 app/views/MovieSchedule/create.php:15
-#: app/views/MovieSchedule/delete.php:15 app/views/MovieSchedule/index.php:15
-#: app/views/Order/cart.php:15 app/views/Order/delete.php:15
-#: app/views/Order/history.php:15 app/views/Order/incomplete.php:15
-#: app/views/Order/receipt.php:14 app/views/Review/adminIndex.php:88
-#: app/views/Review/create.php:93 app/views/Review/index.php:105
-#: app/views/Review/profileIndex.php:77 app/views/Review/update.php:74
+#: app/views/Movie/revenue.php:30 app/views/Movie/search.php:16
+#: app/views/MovieSchedule/create.php:15 app/views/MovieSchedule/delete.php:15
+#: app/views/MovieSchedule/index.php:15 app/views/Order/cart.php:15
+#: app/views/Order/delete.php:15 app/views/Order/history.php:15
+#: app/views/Order/incomplete.php:16 app/views/Order/receipt.php:14
+#: app/views/Review/adminIndex.php:88 app/views/Review/create.php:93
+#: app/views/Review/index.php:105 app/views/Review/profileIndex.php:77
+#: app/views/Review/submitted.php:15 app/views/Review/update.php:74
 #: app/views/Ticket/seatSelection.php:26
 #: app/views/Ticket/selectScreening.php:26
 #: app/views/Ticket/selectScreeningVer2.php:26
@@ -181,7 +184,7 @@ msgid "All Movies"
 msgstr "Tous les films"
 
 #: app/views/Main/index.php:58 app/views/Movie/activate.php:66
-#: app/views/Movie/adminIndex.php:41 app/views/Movie/adminIndividual.php:65
+#: app/views/Movie/adminIndex.php:42 app/views/Movie/adminIndividual.php:65
 msgid "Copyright &copy 2024"
 msgstr "Copyright &copy 2024"
 
@@ -226,7 +229,7 @@ msgstr "RE-ACTIVER LE FILM"
 #: app/views/Movie/activate.php:59 app/views/Movie/create.php:87
 #: app/views/Movie/delete.php:59 app/views/Movie/modify.php:84
 #: app/views/MovieSchedule/create.php:61 app/views/MovieSchedule/delete.php:42
-#: app/views/Order/checkout.php:100 app/views/Order/delete.php:55
+#: app/views/Order/checkout.php:99 app/views/Order/delete.php:61
 #: app/views/Review/delete.php:24 app/views/User/updateAbout.php:41
 msgid "Cancel"
 msgstr "Annuler"
@@ -317,11 +320,11 @@ msgstr "ex: Film 1"
 
 #: app/views/Movie/index.php:24 app/views/Movie/search.php:24
 msgid "Search by Title"
-msgstr "Chercher par titre"
+msgstr "Cherche par titre"
 
 #: app/views/Movie/index.php:25 app/views/Movie/search.php:25
 msgid "Search by Description"
-msgstr "Chercher par description"
+msgstr "Cherche par description"
 
 #: app/views/Movie/individual.php:36
 msgid "Director:"
@@ -355,9 +358,13 @@ msgstr "Mettre a jour un film"
 msgid "Update"
 msgstr "Mettre a jour"
 
+#: app/views/Movie/revenue.php:34
+msgid "'s Ticket Revenue"
+msgstr "'s Revenue de Billet"
+
 #: app/views/Movie/search.php:30
 msgid "Movies from Search Results"
-msgstr "Films à partir des résultats de recherche"
+msgstr "Movies from Search Results"
 
 #: app/views/MovieSchedule/create.php:27 app/views/MovieSchedule/index.php:26
 msgid "Screening Times for "
@@ -387,16 +394,17 @@ msgstr "Film"
 msgid "Screening Time"
 msgstr "Horaire"
 
-#: app/views/MovieSchedule/delete.php:41 app/views/Review/delete.php:23
-#: app/views/Review/profileIndex.php:113
+#: app/views/MovieSchedule/delete.php:41 app/views/Order/delete.php:60
+#: app/views/Review/delete.php:23 app/views/Review/profileIndex.php:114
 msgid "Delete"
 msgstr "Supprimer"
 
-#: app/views/Order/cart.php:19 app/views/Order/incomplete.php:19
+#: app/views/Order/cart.php:19 app/views/Order/incomplete.php:20
 msgid "CART"
 msgstr "CHARIOT"
 
-#: app/views/Order/cart.php:45 app/views/Order/incomplete.php:46
+#: app/views/Order/cart.php:45 app/views/Order/delete.php:52
+#: app/views/Order/incomplete.php:47
 msgid "Total Price"
 msgstr "Prix total"
 
@@ -410,7 +418,7 @@ msgstr "Commande:"
 
 #: app/views/Order/checkout.php:35
 msgid "Seat number: "
-msgstr "Numore de siege: "
+msgstr "Numero de siege: "
 
 #: app/views/Order/checkout.php:38
 msgid "Total cost: $ "
@@ -432,47 +440,36 @@ msgstr "Numero de la carte"
 msgid "Expiration date"
 msgstr "Date d'expiration"
 
-#: app/views/Order/checkout.php:90
+#: app/views/Order/checkout.php:89
 msgid "Security Number (CVC)"
 msgstr "Numero do securite (CVC)"
 
-#: app/views/Order/checkout.php:95
+#: app/views/Order/checkout.php:94
 msgid "Confirm Payment"
 msgstr "Confirmer le paiement"
 
-#: app/views/Order/delete.php:20 app/views/User/purchaseHistory.php:26
-msgid "Orders History"
-msgstr "Historique des commandes"
+#: app/views/Order/delete.php:28
+msgid "Are you sure you want to delete your tickets for "
+msgstr "Voulez-vous supprimer les billets pour "
 
-#: app/views/Order/delete.php:48
-msgid "Total Price: "
-msgstr "Cout total: "
-
-#: app/views/Order/delete.php:49
-msgid "Date ordered: "
-msgstr "Date de la commande: "
-
-#: app/views/Order/delete.php:54
-msgid "DELETE ORDER"
-msgstr "SUPPRIMER L'ORDRE"
-
-#: app/views/Order/history.php:19
-msgid "ORDER HISTORY"
-msgstr "HISTORIQUE DES COMMANDES"
-
-#: app/views/Order/incomplete.php:41
+#: app/views/Order/delete.php:47 app/views/Order/incomplete.php:42
 msgid "Seat Number: "
 msgstr "Numero de siege: "
 
-#: app/views/Order/incomplete.php:47 app/views/Order/receipt.php:42
+#: app/views/Order/delete.php:53 app/views/Order/incomplete.php:48
+#: app/views/Order/receipt.php:42
 msgid "Total: $ "
 msgstr "Total: $ "
 
-#: app/views/Order/incomplete.php:48
+#: app/views/Order/history.php:19
+msgid "ORDER HISTORY"
+msgstr "Historique des commandes"
+
+#: app/views/Order/incomplete.php:49
 msgid "Complete Order"
 msgstr "Completer l'ordre"
 
-#: app/views/Order/incomplete.php:57
+#: app/views/Order/incomplete.php:61 app/views/Review/submitted.php:48
 msgid "Continue Browsing"
 msgstr "Continuer la navigation"
 
@@ -505,11 +502,11 @@ msgstr "Naviguez les films"
 msgid "Reviews"
 msgstr "Commentaires"
 
-#: app/views/Review/adminIndex.php:136 app/views/User/adminReviews.php:39
+#: app/views/Review/adminIndex.php:142 app/views/User/adminReviews.php:39
 msgid "Approve"
 msgstr "Approuver"
 
-#: app/views/Review/adminIndex.php:137 app/views/User/adminReviews.php:43
+#: app/views/Review/adminIndex.php:143 app/views/User/adminReviews.php:43
 msgid "Reject"
 msgstr "Rejeter"
 
@@ -517,7 +514,7 @@ msgstr "Rejeter"
 msgid "Write a Review for "
 msgstr "Ecrire un commentaire pour "
 
-#: app/views/Review/create.php:105 app/views/Review/update.php:91
+#: app/views/Review/create.php:105 app/views/Review/update.php:96
 msgid "Stars"
 msgstr "Etoiles"
 
@@ -525,7 +522,7 @@ msgstr "Etoiles"
 msgid "Review"
 msgstr "Commentaire"
 
-#: app/views/Review/create.php:112 app/views/Review/update.php:98
+#: app/views/Review/create.php:112 app/views/Review/update.php:103
 msgid "Submit Review"
 msgstr "Soumettre le commentaire"
 
@@ -539,33 +536,41 @@ msgstr "Etes-vous surs de vouloir supprimer le commentaire?"
 
 #: app/views/Review/delete.php:20
 msgid "This action cannot be undone."
-msgstr "Cette action ne peut pas être annulée."
+msgstr "Cette action ne peut pas etre annuler."
 
-#: app/views/Review/index.php:109
+#: app/views/Review/index.php:119
 msgid "Write a Review"
 msgstr "Ecrire un commentaire"
 
-#: app/views/Review/index.php:115
+#: app/views/Review/index.php:132
 msgid "All Reviews:"
 msgstr "Tous les commentaires:"
 
-#: app/views/Review/index.php:124
+#: app/views/Review/index.php:151
 msgid "No reviews for this movie yet."
 msgstr "Il n'y a pas encore de commentaires pour ce film."
 
-#: app/views/Review/profileIndex.php:112
+#: app/views/Review/profileIndex.php:113
 msgid "Modify"
 msgstr "Modifier"
 
-#: app/views/Review/update.php:80
+#: app/views/Review/submitted.php:19
+msgid "Thank You for Sharing Your Feedback"
+msgstr "Merci pour votre avis"
+
+#: app/views/Review/submitted.php:20
+msgid "Your review has been submitted for revision"
+msgstr "Ta commentaire est soumis pour revision"
+
+#: app/views/Review/update.php:85
 msgid "Modify Review for "
 msgstr "Modifier le commentaire pour "
 
-#: app/views/Review/update.php:95
+#: app/views/Review/update.php:100
 msgid "Review Text"
 msgstr "Texte du commentaire"
 
-#: app/views/Ticket/seatSelection.php:107
+#: app/views/Ticket/seatSelection.php:78
 #: app/views/Ticket/selectScreening.php:35
 #: app/views/Ticket/selectScreeningVer2.php:32
 msgid "Book Tickets for "
@@ -575,12 +580,12 @@ msgstr "Reserver des billets pour "
 msgid "Select a Screening "
 msgstr "Selectioner un horaire"
 
-#: app/views/Ticket/selectScreening.php:133
+#: app/views/Ticket/selectScreening.php:134
 #: app/views/Ticket/selectScreeningVer2.php:57
 msgid "Select Screening"
 msgstr "Selectioner un horaire"
 
-#: app/views/Ticket/selectScreening.php:146
+#: app/views/Ticket/selectScreening.php:147
 msgid "There are no more screenings available this week."
 msgstr "Il n'y a plus de dates pour cette semaine."
 
@@ -612,7 +617,7 @@ msgstr "Nom: "
 
 #: app/views/User/adminProfile.php:33
 msgid "Email: "
-msgstr "Email: "
+msgstr "Couriel: "
 
 #: app/views/User/adminReviews.php:25
 msgid "Admin Reviews"
@@ -664,6 +669,10 @@ msgstr "Historique des achats"
 msgid "Points"
 msgstr "Points"
 
+#: app/views/User/purchaseHistory.php:26
+msgid "Orders History"
+msgstr "Historique des achats"
+
 #: app/views/User/purchaseHistory.php:49
 msgid "Order number: "
 msgstr "Numero de l'ordre"
@@ -674,13 +683,13 @@ msgstr "Siege"
 
 #: app/views/User/purchaseHistory.php:68
 msgid "Price: "
-msgstr "Prix:"
+msgstr "Prix: "
 
 #: app/views/User/purchaseHistory.php:70
 msgid "Order date: "
 msgstr "Date de l'ordre: "
 
-#: app/views/User/purchaseHistory.php:76
+#: app/views/User/purchaseHistory.php:95
 msgid "You have not made any orders."
 msgstr "Vous n'aves pas fait d'ordres."
 
@@ -694,15 +703,15 @@ msgstr "Nom"
 
 #: app/views/User/register.php:36
 msgid "Email"
-msgstr "Email"
+msgstr "Couriel"
 
 #: app/views/User/register.php:40
 msgid "Password"
-msgstr "Mot de passe"
+msgstr ""
 
 #: app/views/User/register.php:44
 msgid "Confirm password"
-msgstr "Confirmer le mot de passe"
+msgstr "Mot de passe"
 
 #: app/views/User/setup2fa.php:10
 msgid ""

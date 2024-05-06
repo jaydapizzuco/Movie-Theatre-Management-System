@@ -1,8 +1,7 @@
 Feature: selectScreeningTime
 
- As a user,
- I want to select a screening time for a movie so that I can select seats, book tickets and place an order.
-
+As a user,
+I want to select a screening time for a movie so that I can select seats, book tickets and place an order.
 
 Scenario: selectScreeningTime
   Given I am on the selectScreening page for "Example Movie 2"

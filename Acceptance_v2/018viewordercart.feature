@@ -1,7 +1,7 @@
 Feature: viewordercart
 
- As a user,
- I want to view my cart with all the pending orders to be able to finish or cancel my orders
+As a user,
+I want to view my cart with all the pending orders to be able to finish or cancel my orders
 
 Scenario: viewordercart
   Given I am on the Profile page

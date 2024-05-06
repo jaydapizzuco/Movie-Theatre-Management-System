@@ -1,7 +1,7 @@
 Feature: selectseats
 
- As a user,
- I want to select seats for my order in order to book them in advance.
+As a user,
+I want to select seats for my order in order to book them in advance.
 
 Scenario: selectseats
   Given I am on the Seat Selection page

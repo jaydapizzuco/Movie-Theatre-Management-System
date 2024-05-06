@@ -3,7 +3,6 @@ Feature: userlogin
 As a user
 I want to log into my account so that I can have access to user privileges
 
-
 Scenario: userlogin
 	Given I am on the login page (localhost/User/Login)
 	And the account with email “test@email.com” 

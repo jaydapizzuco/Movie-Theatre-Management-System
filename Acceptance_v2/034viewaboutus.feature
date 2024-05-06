@@ -1,7 +1,7 @@
 Feature: viewsaboutus
 
- As a user,
- I want to view the about us page to see information on the website.
+As a user,
+I want to view the about us page to see information on the website.
 
 Scenario: viewsaboutus
   Given I am on the Home page

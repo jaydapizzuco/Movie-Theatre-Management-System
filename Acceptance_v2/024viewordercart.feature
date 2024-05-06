@@ -1,7 +1,7 @@
 Feature: viewordercart
 
- As a user,
- I want to view the order and complete the transaction for this order.
+As a user,
+I want to view the order and complete the transaction for this order.
 
 Scenario: viewordercart
   Given I am on the cart page 

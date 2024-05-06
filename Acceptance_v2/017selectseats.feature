@@ -1,7 +1,7 @@
 Feature: selectSeats
 
- As a user,
- I want to select seats for a specific movie screening so that I can tickets that do not already belong to someone.
+As a user,
+I want to select seats for a specific movie screening so that I can tickets that do not already belong to someone.
 
 Scenario: selectSeats
   Given I am on the seatSelection page for "Example Movie 2"

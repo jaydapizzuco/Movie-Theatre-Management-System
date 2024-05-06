@@ -1,7 +1,7 @@
 Feature: orderhistory
 
- As a user,
- I want to view my purchase history so that I can see all my past orders and my upcoming orders.
+As a user,
+I want to view my purchase history so that I can see all my past orders and my upcoming orders.
 
 Scenario: orderhistory
   Given I am on my profile page

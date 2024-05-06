@@ -1,7 +1,7 @@
 Feature: reviewsapprove 
 
-  As an administrator, 
-  I want to approve reviews to display them on the movie reviews pages.
+As an administrator, 
+I want to approve reviews to display them on the movie reviews pages.
 
 Scenario: reviewsapprove
   Given I am logged in as "admin@email.com"

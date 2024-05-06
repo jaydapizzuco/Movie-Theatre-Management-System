@@ -1,7 +1,7 @@
 Feature: confirmorder
 
- As a user,
- I want to checkout so that I can book tickets.
+As a user,
+I want to checkout so that I can book tickets.
 
 Scenario: confirmorder
   Given I am on checkout page 

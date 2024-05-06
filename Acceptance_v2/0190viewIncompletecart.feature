@@ -1,7 +1,7 @@
 Feature: viewincompletecart
 
- As a user,
- I want to view incomplete orders from my cart so I can either complete or delete them.
+As a user,
+I want to view incomplete orders from my cart so I can either complete or delete them.
 
 Scenario: viewincompletecart
   Given I am on the Profile page

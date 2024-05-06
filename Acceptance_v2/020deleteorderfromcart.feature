@@ -1,7 +1,7 @@
 Feature: deleteorderfromcart
 
- As a user,
- I want to delete orders from the cart to not have to process them
+As a user,
+I want to delete orders from the cart to not have to process them
 
 Scenario: deleteorderfromcart
   Given I am on the Cart page

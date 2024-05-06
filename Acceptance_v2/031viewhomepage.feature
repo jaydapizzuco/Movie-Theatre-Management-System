@@ -1,7 +1,7 @@
 Feature: viewhomepage
 
- As a user,
- I want to access the home page to be able to see the most popular movies.
+As a user,
+I want to access the home page to be able to see the most popular movies.
 
 Scenario: viewhomepage
   Given I am on the profile page

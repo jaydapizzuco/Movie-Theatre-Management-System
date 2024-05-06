@@ -1,7 +1,7 @@
 Feature: selectscreeningtime
 
- As a user,
- I want to select screen times to display pages with the seats according to the screen time.
+As a user,
+I want to select screen times to display pages with the seats according to the screen time.
 
 Scenario: selectscreeningtime
   Given I am on the Select Schedule page for "Example Movie 2"

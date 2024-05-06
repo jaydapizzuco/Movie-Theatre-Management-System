@@ -1,13 +1,11 @@
-Feature: selectseats
+Feature: selectSeats
 
  As a user,
- I want to select seats for my order in order to book them in advance.
+ I want to select seats for a specific movie screening so that I can tickets that do not already belong to someone.
 
-Scenario: selectseats
-  Given I am on the Seat Selection page
-  And the day is "Sunday"
-  And the time is "1:00:00"
-  And I select seat 12 
-  And I select seat 13
-  When I click on the "Book Tickets" button
-  Then I am redirected to the cart page where the order information is displayed
+Scenario: selectSeats
+  Given I am on the seatSelection page for "Example Movie"
+  And the screening time "Sunday : 1:00:00",
+  When I click on an available seat 
+  Then the id of the seats I have selected is added to the seat array
+  And the icon for this seat becomes the checkmark icon

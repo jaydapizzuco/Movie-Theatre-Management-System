@@ -100,8 +100,8 @@
 
 </body>
 
-    <footer class="footer2">
+  <!--   <footer class="footer2">
         <br>Copyright &copy 2024 
-    </footer>
+    </footer> -->
 
 </html>

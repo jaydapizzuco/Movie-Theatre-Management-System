@@ -5,7 +5,7 @@ Feature: selectScreeningTime
 
 
 Scenario: selectScreeningTime
-  Given I am on the selectScreening page for "Example Movie"
+  Given I am on the selectScreening page for "Example Movie 2"
   And I select the screening time "Sunday : 1:00:00", 
   When I click "Select Screening", 
-  Then I am redirected to the seat selection page for "Example Movie" on "Sunday" at "1:00:00"
+  Then I am redirected to the seat selection page for "Example Movie" on "Sunday" at "1:00:00" 

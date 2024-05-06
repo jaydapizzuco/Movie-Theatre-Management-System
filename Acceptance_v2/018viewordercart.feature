@@ -5,7 +5,7 @@ Feature: viewordercart
 
 Scenario: viewordercart
   Given I am on the Profile page
-  And I am logged in as "Demo User"
+  And I am logged in as "test@email.com"
   When I click on the cart button
   Then I am redirected to the cart page
   And all my unprocessed orders are displayed

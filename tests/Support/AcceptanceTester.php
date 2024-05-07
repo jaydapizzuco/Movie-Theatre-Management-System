@@ -217,7 +217,7 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @Given the movie title is “Example Movie”,
      */
-     public function theMovieTitleIsExampleMovie()
+     public function theMovieTitleIsExampleMovie2()
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `the movie title is “Example Movie”,` is not defined");
      }
@@ -737,7 +737,7 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @When I click on :arg1
      */
-     public function iClickOn($arg1)
+     public function iClickOn2($arg1)
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on :arg1` is not defined");
      }
@@ -977,7 +977,7 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @Given I am on the cart page
      */
-     public function iAmOnTheCartPage()
+     public function iAmOnTheCartPage2()
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the cart page` is not defined");
      }
@@ -1153,7 +1153,7 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @Given I am on the profile page
      */
-     public function iAmOnTheProfilePage()
+     public function iAmOnTheProfilePage2()
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the profile page` is not defined");
      }
@@ -1209,7 +1209,7 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @Given I am on the profile page,
      */
-     public function iAmOnTheProfilePage()
+     public function iAmOnTheProfilePage3()
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the profile page,` is not defined");
      }
@@ -1305,7 +1305,7 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @Given I am on the Home page
      */
-     public function iAmOnTheHomePage()
+     public function iAmOnTheHomePage2()
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the Home page` is not defined");
      }

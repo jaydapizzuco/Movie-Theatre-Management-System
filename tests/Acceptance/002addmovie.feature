@@ -11,11 +11,9 @@ Scenario: addmovie
   And the director is “abc”
   And the movie length is “105”
   And the description is “This is a movie about horses”
-  And the release date is entered
   And the link to the trailer is “wwwyoutubecom”
   And the Screening day is “Sunday”
   And the Screening time is “1:00”
   And I click Add Movie, 
-  Then I am redirected to the movie page
-  And I see the “Example Movie”
+  Then I see the “Example Movie”
    

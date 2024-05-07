@@ -33,7 +33,7 @@
         <p><?= __('Email: ')?><?= $data->email ?></p>
 
         <form action="/Movie/create">
-            <button type="submit"><?= __('Add a New Movie')?></button>
+            <button type="submit" name="add"><?= __('Add a New Movie')?></button>
         </form><br><br><br><br><br>
 
         <form action="/User/logout">

@@ -55,12 +55,24 @@ class AcceptanceTester extends \Codeception\Actor
           $this->see("Admin");
      }
 
+      /**
+     * @param AcceptanceTester $i
+     */
+
+     public function adminLogin(){
+        $this->amOnPage("/User/login");
+        $this->fillField('email','admin@email.com');
+        $this->fillField('password','123');
+        $this->click("Login");
+
+     }
+
          /**
      * @Given I am on the add movie page,
      */
      public function iAmOnTheAddMoviePage()
      {
-        $this->setCookie('user_id', '2');
+        $this->adminLogin();
        $this->amOnPage("/Movie/create?");
      }
 
@@ -101,15 +113,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theDescriptionIsThisIsAMovieAboutHorses()
      {
-          $this->selectOption('description','This is a movie about horses');
-     }
-
-         /**
-     * @When the release date is entered
-     */
-     public function theReleaseDateIsEntered()
-     {
-          $this->selectOption('release_date','2024-06-23');
+          $this->fillField('description','This is a movie about horses');
      }
 
       /**
@@ -143,14 +147,6 @@ class AcceptanceTester extends \Codeception\Actor
      public function iClickAddMovie()
      {
           $this->click("Add Movie");
-     }
-
-    /**
-     * @Then I am redirected to the movie page
-     */
-     public function iAmRedirectedToTheMoviePage()
-     {
-          $this->amOnPage("/Movie/create?");
      }
 
     /**

@@ -27,39 +27,41 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheLoginPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the login page` is not defined");
+         $this->amOnPage("/User/login");
      }
 
-    /**
-     * @When I enter email ‘admin@email:num1com’
+      /**
+     * @When I enter email for admin
      */
-     public function iEnterEmailadminemailcom($num1)
+     public function iEnterEmailForAdmin()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I enter email ‘admin@email:num1com’` is not defined");
+          $this->fillField('email','admin@email.com');
      }
 
     /**
      * @When I enter password ‘:num1:num2:num3’
      */
-     public function iEnterPassword($num1, $num2, $num3)
+     public function iEnterPassword123()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I enter password ‘:num1:num2:num3’` is not defined");
+        $this->fillField('password','123');
+        $this->click("Login");
      }
 
     /**
      * @Then I am redirected to the admin’s profile page:num1
      */
-     public function iAmRedirectedToTheAdminsProfilePage($num1)
+     public function iAmRedirectedToTheAdminsProfilePage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the admin’s profile page:num1` is not defined");
+          $this->see("Admin");
      }
 
-    /**
+         /**
      * @Given I am on the add movie page,
      */
      public function iAmOnTheAddMoviePage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the add movie page,` is not defined");
+        $this->setCookie('user_id', '2');
+       $this->amOnPage("/Movie/create?");
      }
 
     /**
@@ -67,15 +69,15 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theMovieTitleIsExampleMovie()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the movie title is “Example Movie”` is not defined");
+         $this->fillField('title','Example Movie');
      }
 
-    /**
-     * @When the source link of the cover image is “https://upload:num1wikimedia:num1org/wikipedia/en/b/bc/Abigail_Official_Poster:num1jpg”
+      /**
+     * @When the source link of the cover image is “Posterjpg”
      */
-     public function theSourceLinkOfTheCoverImageIshttpsuploadwikimediaorgwikipediaenbbcAbigail_Official_Posterjpg($num1, $num2, $num3)
+     public function theSourceLinkOfTheCoverImageIsPosterjpg()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the source link of the cover image is “https://upload:num1wikimedia:num1org/wikipedia/en/b/bc/Abigail_Official_Poster:num1jpg”` is not defined");
+       $this->fillField('image','https://upload:num1wikimedia:num1org/wikipedia/en/b/bc/Abigail_Official_Poster.jpg');
      }
 
     /**
@@ -83,7 +85,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theDirectorIsabc()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the director is “abc”` is not defined");
+          $this->fillField('director','abc');
      }
 
     /**
@@ -91,7 +93,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theMovieLengthIs($num1, $num2, $num3)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the movie length is “:num1:num2:num3”` is not defined");
+        $this->fillField('length','123');
      }
 
     /**
@@ -99,31 +101,32 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theDescriptionIsThisIsAMovieAboutHorses()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the description is “This is a movie about horses”` is not defined");
+          $this->selectOption('description','This is a movie about horses');
      }
 
-    /**
-     * @When the release date is “:num:num7:num:num:num6:num:num7:num4-:num:num:num6:num6-:num7:num:num:num6”
+         /**
+     * @When the release date is entered
      */
-     public function theReleaseDateIs($num1, $num2, $num3, $num4, $num5, $num6, $num7, $num8)
+     public function theReleaseDateIsEntered()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the release date is “:num:num7:num:num:num6:num:num7:num4-:num:num:num6:num6-:num7:num:num:num6”` is not defined");
+          $this->selectOption('release_date','2024-06-23');
      }
 
-    /**
-     * @When the link to the trailer is “:num:num7:num:num:num6:num:num7:num4-:num:num:num6:num6-:num7:num:num:num6”
+      /**
+     * @When the link to the trailer is “wwwyoutubecom”
      */
-     public function theLinkToTheTrailerIs($num1, $num2, $num3, $num4, $num5, $num6, $num7, $num8)
+     public function theLinkToTheTrailerIswwwyoutubecom()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the link to the trailer is “:num:num7:num:num:num6:num:num7:num4-:num:num:num6:num6-:num7:num:num:num6”` is not defined");
+           $this->fillField('trailer','www.youtube.com');
      }
+     
 
     /**
      * @When the Screening day is “Sunday”
      */
      public function theScreeningDayIsSunday()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the Screening day is “Sunday”` is not defined");
+         $this->selectOption('days','Sunday');
      }
 
     /**
@@ -131,15 +134,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theScreeningTimeIs($num1, $num2, $num3)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the Screening time is “:num1::num2:num2”` is not defined");
-     }
-
-    /**
-     * @When the movie information is not null and does not already exist in the database,
-     */
-     public function theMovieInformationIsNotNullAndDoesNotAlreadyExistInTheDatabase()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the movie information is not null and does not already exist in the database,` is not defined");
+        $this->selectOption('times','1:00');
      }
 
     /**
@@ -147,7 +142,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickAddMovie()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click Add Movie,` is not defined");
+          $this->click("Add Movie");
      }
 
     /**
@@ -155,7 +150,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheMoviePage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the movie page` is not defined");
+          $this->amOnPage("/Movie/create?");
      }
 
     /**
@@ -163,16 +158,9 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iSeeTheExampleMovie()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I see the “Example Movie”` is not defined");
+         $this->see("Example Movie");
      }
 
-    /**
-     * @Then a movie with title “Example Movie”,source link of the cover image: :arg1, director: :arg2,  length: “:num:num1:num11:num:num:num7:num:num9”,  description: “This is a movie about horses”, release date: “:num:num7:num:num:num7:num:num7:num7-:num:num:num7:num9-:num:num1:num11:num:num:num7” and link to trailer: :arg3 is added to the database:num12
-     */
-     public function aMovieWithTitleExampleMoviesourceLinkOfTheCoverImageDirectorLengthDescriptionThisIsAMovieAboutHorsesReleaseDateAndLinkToTrailerIsAddedToTheDatabase($num1, $num2, $num3, $num4, $num5, $num6, $num7, $num8, $num9, $num10, $num11, $num12, $arg1, $arg2, $arg3)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `a movie with title “Example Movie”,source link of the cover image: :arg1, director: :arg2,  length: “:num:num1:num11:num:num:num7:num:num9”,  description: “This is a movie about horses”, release date: “:num:num7:num:num:num7:num:num7:num7-:num:num:num7:num9-:num:num1:num11:num:num:num7” and link to trailer: :arg3 is added to the database:num12` is not defined");
-     }
 
     /**
      * @Given I am on the update movie page for “Example Movie”,

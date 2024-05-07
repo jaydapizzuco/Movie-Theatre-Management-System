@@ -23,14 +23,14 @@
 
     <!-- Header Section-->
     <header>
-        <h1><?= __('$data->title') ?></h1>
+        <h1><?= __( $data->title) ?></h1>
     </header><br><br>
  
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <img src="<?= $data->image ?>" class="movie-image" alt="<?= $data->title ?>">
-                <h2><?= __('$data->title') ?></h2>
+                <h2><?= __($data->title) ?></h2>
                 <p><strong>Director:</strong> <?= $data->director ?></p>
                 <p><strong>Description:</strong> <?= $data->description ?></p>
                 <p><strong>Trailer:</strong> <?= $data->trailer ?></p>

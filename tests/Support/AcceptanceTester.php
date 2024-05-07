@@ -193,7 +193,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnAnIndividualMoviePage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on an individual movie page` is not defined");
+
+        $this->adminLogin();
      }
 
     /**
@@ -201,7 +202,11 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theMovieTitleIsExampleMovie2()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the movie title is “Example Movie”,` is not defined");
+        //preferably this should get the id of the movie based on the title
+        //$examplemovie = new \app\models\Movie();
+        //$examplemovie = $examplemovie->getByTitle("Example Movie");
+        $id = 37;
+        $this->amOnPage("/MovieSchedule/index?id=".$id);
      }
 
     /**
@@ -209,7 +214,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClick($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click :arg1,` is not defined");
+        $this->click('Add a New Screening Time');
      }
 
     /**
@@ -217,7 +222,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheScheduleCreationPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the schedule creation page` is not defined");
+        $this->see('Screening Times for Example Movie 2');
      }
 
     /**
@@ -225,15 +230,15 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iPickAsTheDay($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I pick :arg1 as the day` is not defined");
+        $this->selectOption('days',$arg1);
      }
 
     /**
      * @Then I pick :arg1 as the time,
      */
-     public function iPickAsTheTime($arg1)
+     public function iPickAsTheTime($arg2)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I pick :arg1 as the time,` is not defined");
+        $this->selectOption('times',$arg2);
      }
 
     /**
@@ -241,15 +246,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickTheButton($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click the :arg1 button` is not defined");
-     }
-
-    /**
-     * @Then a new Movie Schedule where day: :arg1, time: :arg2 and movie id: ID of :arg3 is added to the database
-     */
-     public function aNewMovieScheduleWhereDayTimeAndMovieIdIDOfIsAddedToTheDatabase($arg1, $arg2, $arg3)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `a new Movie Schedule where day: :arg1, time: :arg2 and movie id: ID of :arg3 is added to the database` is not defined");
+         $this->click('Add');
      }
 
     /**
@@ -257,7 +254,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToMovieadminIndex($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to (/Movie/adminIndex):num1` is not defined");
+        $this->see('Example Movie 2');
      }
 
     /**

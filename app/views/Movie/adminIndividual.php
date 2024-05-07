@@ -54,7 +54,7 @@
                <h2><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></h2>
             <?php } ?>
 
-            
+            <a href='Movie/update?id=<?= $movie->movie_id ?>'> <h2><?= __('Update Information') ?></h2></i></a>
             <a href='Movie/update?id=<?= $movie->movie_id ?>'> <h2><?= __('Update Information') ?></h2></i></a>
             <a href="/Review/index?movie_id=<?= $movie->movie_id ?>" class="btn btn-primary"><?= __('View Reviews') ?></a>
              </div><br><br>

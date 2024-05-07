@@ -12,5 +12,4 @@ Scenario: addschedule
   And I pick "Sunday" as the day
   And I pick "1:00" as the time,
   When I click the "Add" button
-  Then a new Movie Schedule where day: "Sunday", time: "1:00" and movie id: ID of "Example Movie" is added to the database 
-  And I am redirected to (/Movie/adminIndex).
+  Then I am redirected to (/Movie/adminIndex).

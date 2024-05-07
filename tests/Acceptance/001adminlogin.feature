@@ -5,7 +5,7 @@ Feature: adminlogin
 
 Scenario: adminlogin
   Given I am on the login page
-  When I enter username ‘admin’ 
-  And I enter password ‘admin123’  
+  When I enter email ‘admin@email.com’ 
+  And I enter password ‘123’  
   Then I am redirected to the admin’s profile page.
 

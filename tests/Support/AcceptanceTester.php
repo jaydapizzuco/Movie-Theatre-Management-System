@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace Tests\Support;
+use app\models;
 
 /**
  * Inherited Methods
@@ -163,7 +164,11 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheUpdateMoviePageForExampleMovie()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the update movie page for “Example Movie”,` is not defined");
+        $this->adminLogin();
+        //$examplemovie = new \app\models\Movie();
+        //$examplemovie = $examplemovie->getByTitle("Example Movie");
+        $id = 37;
+        $this->amOnPage("/Movie/update?id=".$id);
      }
 
     /**
@@ -171,7 +176,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iEditExampleMoviesInformationToMovieTitleIsExampleMovieAndClickUpdate($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I edit “Example Movie’s” information to movie title is “Example Movie :num1” and click Update,` is not defined");
+        $this->fillField('title','Example Movie '.$num1);
+        $this->click('Update');
      }
 
     /**
@@ -179,15 +185,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iShouldBeRedirectedToMovieDetailsPageWithTheTitleExampleMovie($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I should be redirected to movie details page with the title “Example Movie :num1”` is not defined");
-     }
-
-    /**
-     * @Then then the movie with title “Example Movie” does not exist in the database but the movie with title “Example Movie :num1” does:num2
-     */
-     public function thenTheMovieWithTitleExampleMovieDoesNotExistInTheDatabaseButTheMovieWithTitleExampleMovieDoes($num1, $num2)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `then the movie with title “Example Movie” does not exist in the database but the movie with title “Example Movie :num1” does:num2` is not defined");
+        $this->see("Example Movie ".$num1);
      }
 
     /**

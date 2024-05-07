@@ -98,7 +98,7 @@ class Movie extends \app\core\Controller{
 
             $movie->update();
 
-            header('location:/User/adminProfile');
+            header('location:/Movie/adminIndividual?id='.$_GET['id']);
         }
         else {
             $this->view('Movie/modify', $movie);

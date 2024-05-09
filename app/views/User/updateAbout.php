@@ -32,9 +32,8 @@
             </div><br>
 
             <div class="form-group">
-                <label><?= __('Description:')?></label><textarea  class="form-control" name="description" rows="4" columns="50" value=''><?= $data->description ?></textarea>
+                <label"><?= __('Description:')?></label><textarea  class="form-control" id="description" name="description" rows="4" columns="50" value=''><?= $data->description ?></textarea>
             </div><br>
-
 
             <div class="form-group">
                 <input type="submit" name="action" value="<?= __('Update')?>"/><br><br>

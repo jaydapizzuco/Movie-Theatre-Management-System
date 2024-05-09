@@ -66,7 +66,7 @@ class AcceptanceTester extends \Codeception\Actor
         $this->amOnPage("/User/login");
         $this->fillField('email','admin@email.com');
         $this->fillField('password','123');
-        $this->click("Login");
+        $this->click("action");
 
      }
 
@@ -159,7 +159,6 @@ class AcceptanceTester extends \Codeception\Actor
      public function iSeeTheExampleMovie()
      {
          $this->see("Example Movie");
-        // $this->saveSessionSnapshot('movie');
      }
 
     // ----------------------003 UPDATE MOVIE-----------------------
@@ -213,9 +212,7 @@ class AcceptanceTester extends \Codeception\Actor
      public function iClick()
      {
       $id = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
-        //$url = "(//a[@href = '/MovieSchedule/index?id=".$id."'])";
-
-       
+ 
         $this->amOnPage('/MovieSchedule/create?id=' .$id);
      }
 
@@ -261,7 +258,7 @@ class AcceptanceTester extends \Codeception\Actor
         $this->seeInDatabase('movie_schedule', ['movie_id' => $id, 'day' => 'Sunday', 'time_id' => '1']);
      }
 
-    // ----------------------0050 DELETE SCHEDULE-------------------
+    // ----------------------005 DELETE SCHEDULE-------------------
     /**
      * @Given the movie title is “Example Movie”,
      */
@@ -314,29 +311,21 @@ class AcceptanceTester extends \Codeception\Actor
         $this->seeInCurrentUrl("/Movie/adminIndex");
      }
 
-     // ---------------------0051 ADD SCHEDULE--------------------- 
+     // ---------------006 MODIFY ABOUT US----------------------- 
     /**
-     * @Given I am Logged in as Admin
+     * @Given I am on the updateAbout page
      */
-     public function iAmLoggedInAsAdmin()
+     public function iAmOnTheUpdateAboutPage()
      {
-        $this->adminLogin();
+        $this->amOnPage("/User/updateAbout");
      }
 
     /**
-     * @Given I am on the (/User/updateAbout) page
+     * @Given I change the email to :arg1
      */
-     public function iAmOnTheUserupdateAboutPage()
+     public function iChangeTheEmailTo($arg1)
      {
-        $this->amOnPage('/User/updateAbout');
-     }
-
-    /**
-     * @Given I change the email to 'movietheater@email:num1com'
-     */
-     public function iChangeTheEmailTomovietheateremailcom($num1)
-     {
-        $this->fillField('email',$num1);
+        $this->fillField('email', 'movietheater@email.com');
      }
 
     /**
@@ -344,7 +333,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iChangeTheDescriptionTo($arg1)
      {
-        $this->fillField('description',$arg1);
+        $this->fillField("//input[@type='text']", 'Welcome! We are a small Movie Theater company catered to all. All the popular new movies can be found on our website.');
      }
 
     /**
@@ -352,17 +341,18 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnTheButton($arg1)
      {
-        $this->click('Update');
+        $this->click('action');
      }
 
     /**
-     * @Then I am redirected to the profile page
+     * @Given I am redirected to the profile page
      */
      public function iAmRedirectedToTheProfilePage()
      {
         $this->amOnPage('Admin');
      }
 
+     // -----------------007 ADMIN LOGOUT-------------------------
     /**
      * @Given that I am logged into the user account “Admin”,
      */
@@ -402,6 +392,8 @@ class AcceptanceTester extends \Codeception\Actor
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `I should be redirected to the homepage and the userId session variable should be null:num1` is not defined");
      }
+
+     // ------------008 ACCOUNT CREATION -----------------------
 
     /**
      * @Given I am on “/User/login/”

@@ -29,7 +29,7 @@
     <!-- Register Section -->
     <div class="container">
         <br><br>
-        <a name='add' href='/MovieSchedule/create?id=<?= $movie->movie_id ?>'><h2><?= __('Add a New Screening Time')?></h2></a>
+        <a href='/MovieSchedule/create?id=<?= $movie->movie_id ?>'><h2><?= __('Add a New Screening Time')?></h2></a>
             <h2><?= __('Existing Screening Times')?></h2>
                 <?php 
                     $schedule = new \app\models\MovieSchedule();

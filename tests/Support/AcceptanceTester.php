@@ -23,6 +23,8 @@ use app\models;
 class AcceptanceTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
+
+    // ----------------------------001 ADMIN LOGIN------------------
       /**
      * @Given I am on the login page
      */
@@ -68,7 +70,8 @@ class AcceptanceTester extends \Codeception\Actor
 
      }
 
-         /**
+    // --------------------------002 ADD MOVIE----------------------
+    /**
      * @Given I am on the add movie page,
      */
      public function iAmOnTheAddMoviePage()
@@ -80,7 +83,7 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @When the movie title is “Example Movie”
      */
-     public function theMovieTitleIsExampleMovie()
+     public function theMovieTitleIsExampleMovies()
      {
          $this->fillField('title','Example Movie');
      }
@@ -159,7 +162,7 @@ class AcceptanceTester extends \Codeception\Actor
         // $this->saveSessionSnapshot('movie');
      }
 
-
+    // ----------------------003 UPDATE MOVIE-----------------------
     /**
      * @Given I am on the update movie page for “Example Movie”,
      */
@@ -191,6 +194,8 @@ class AcceptanceTester extends \Codeception\Actor
         $this->see("Example Movie ".$num1);
      }
 
+    // -------------------------004 ADD SCHEDULE--------------------
+
     /**
      * @Given I am on an individual movie page
      */
@@ -200,7 +205,6 @@ class AcceptanceTester extends \Codeception\Actor
         $id = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
 
         $this->amOnPage("/MovieSchedule/index?id=".$id);
-
      }
 
     /**
@@ -214,14 +218,6 @@ class AcceptanceTester extends \Codeception\Actor
        
         $this->amOnPage('/MovieSchedule/create?id=' .$id);
      }
-
-    // /**
-    //  * @Then I am redirected to the schedule creation page
-    //  */
-    //  public function iAmRedirectedToTheScheduleCreationPage()
-    //  {
-    //     $this->see('Add a New Screening Time');
-    //  }
 
     /**
      * @Then I pick :arg1 as the day
@@ -261,17 +257,29 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theNewScreeningTimeWasAddedToTheDatabase()
      {
-         $id = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
-         $this->seeInDatabase('movie_schedule', ['movie_id' => $id, 'day' => 'Sunday', 'time_id' => '1']);
+        $id = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
+        $this->seeInDatabase('movie_schedule', ['movie_id' => $id, 'day' => 'Sunday', 'time_id' => '1']);
      }
+
+    // ----------------------0050 DELETE SCHEDULE-------------------
     /**
-     * @When I click to delete the screening time
+     * @Given the movie title is “Example Movie”,
      */
-     public function iClickToDeleteTheScreeningTime()
+     public function theMovieTitleIsExampleMovie()
      {
-        $this->adminLogin();
-        $this->amOnPage("/MovieSchedule/index?id=".$id);
-        //I instead click delete in fuction theTimeIs
+        $id = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
+        $this->amOnPage('/MovieSchedule/index?id=' .$id);
+        $this->see("Screening Times for Example Movie");
+     }
+
+    /**
+     * @When I click the 'delete' screening time button
+     */
+     public function iClickThedeleteScreeningTimeButton()
+     {
+        $movieID = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
+        $scheduleID = $this->grabFromDatabase('movie_schedule', 'schedule_id', ['movie_id' => $movieID]);
+        $this->amOnPage('/MovieSchedule/delete?id=' .$scheduleID);
      }
 
     /**
@@ -279,7 +287,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theDayIs($arg1)
      {
-        $this->selectOption('days',$arg1);
+        $this->see('Sunday');
      }
 
     /**
@@ -287,18 +295,26 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theTimeIs($arg1)
      {
-        $this->selectOption('time',$arg1);
-        $this->click('Delete'); //define index for this???
+        $this->see('1:00:00');
+     }
+
+     /**
+     * @When I click 'Delete'
+     */
+     public function iClickDeleteSchedule()
+     {
+        $this->click('action');
      }
 
     /**
-     * @Then I am redirected to the deletion confirmation page
+     * @Then I am redirected to AdminIndex page:num1
      */
-     public function iAmRedirectedToTheDeletionConfirmationPage()
+     public function iAmRedirectedToAdminIndex($num1)
      {
-        $this->amOnPage("/MovieSchedule/index?id=".$id);
+        $this->seeInCurrentUrl("/Movie/adminIndex");
      }
 
+     // ---------------------0051 ADD SCHEDULE--------------------- 
     /**
      * @Given I am Logged in as Admin
      */

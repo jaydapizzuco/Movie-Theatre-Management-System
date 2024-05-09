@@ -5,10 +5,8 @@ Feature: deleteschedule
 
 Scenario: deleteschedule
   Given I am on an individual movie page
-  And the movie title is “Example Movie”, 
-  When I click to delete the screening time
+  When I click the 'delete' screening time button
   And the day is "Sunday" 
   And the time is "1:00" 
-  Then I am redirected to the deletion confirmation page
-  When I click the "Delete" button
-  And I am redirected to (/Movie/adminIndex).
+  And I click 'Delete'
+  Then I am redirected to AdminIndex page.

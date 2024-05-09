@@ -36,11 +36,10 @@
             <button type="submit" name="add"><?= __('Add a New Movie')?></button>
         </form><br><br><br><br><br>
 
-        <form action="/User/logout">
-            <button type="submit"><?= __('Logout')?></button>
-        </form>
+        <div class="form-group">
+            <input type="submit" name="action" value="Logout"/><br><br>
+        </div><br>
     </div>
-
 
     <footer>
         <br>Copyright &copy 2024 

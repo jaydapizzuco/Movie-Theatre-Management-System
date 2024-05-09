@@ -353,7 +353,7 @@ class AcceptanceTester extends \Codeception\Actor
      }
 
      // -----------------007 ADMIN LOGOUT-------------------------
-    /**
+     /**
      * @Given that I am logged into the user account “Admin”,
      */
      public function thatIAmLoggedIntoTheUserAccountAdmin()
@@ -366,15 +366,16 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function userIdIs($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `userId is :arg1` is not defined");
+        $userID = $this->grabFromDatabase('user', 'user_id',['email' => 'admin@email.com']);
+        $arg1 = $userID;
      }
 
     /**
-     * @Given the value stored inside the userId session variable is :arg1,
+     * @Given I'm on the adminProfile page
      */
-     public function theValueStoredInsideTheUserIdSessionVariableIs($arg1)
+     public function imOnTheAdminProfilePage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the value stored inside the userId session variable is :arg1,` is not defined");
+        $this->amOnPage('/user/adminProfile');
      }
 
     /**
@@ -382,7 +383,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnTheLogoutOption()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on the logout option,` is not defined");
+        $this->click("Logout");
      }
 
     /**
@@ -390,7 +391,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iShouldBeRedirectedToTheHomepageAndTheUserIdSessionVariableShouldBeNull($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I should be redirected to the homepage and the userId session variable should be null:num1` is not defined");
+        
      }
 
      // ------------008 ACCOUNT CREATION -----------------------

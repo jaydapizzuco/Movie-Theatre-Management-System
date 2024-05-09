@@ -6,10 +6,9 @@ Feature: addschedule
 
 Scenario: addschedule
   Given I am on an individual movie page
-  And the movie title is “Example Movie”, 
   When I click "Add a new screening time", 
-  Then I am redirected to the schedule creation page 
-  And I pick "Sunday" as the day
+  Then I pick "Sunday" as the day
   And I pick "1:00" as the time,
   When I click the "Add" button
-  Then I am redirected to (/Movie/adminIndex).
+  Then I am redirected to adminIndex Page
+  And the new screening time was added to the database

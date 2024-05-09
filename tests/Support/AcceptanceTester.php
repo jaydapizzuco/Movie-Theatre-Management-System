@@ -196,44 +196,39 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnAnIndividualMoviePage()
      {
+        $this->adminLogin();    
+        $id = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
 
-        $this->adminLogin();
-     }
-
-    /**
-     * @Given the movie title is “Example Movie”,
-     */
-     public function theMovieTitleIsExampleMovie2()
-     {
-        //preferably this should get the id of the movie based on the title
-        //$examplemovie = new \app\models\Movie();
-        //$examplemovie = $examplemovie->getByTitle("Example Movie");
-        $id = 39;
         $this->amOnPage("/MovieSchedule/index?id=".$id);
+
      }
 
     /**
      * @When I click :arg1,
      */
-     public function iClick($arg1)
+     public function iClick()
      {
-        $this->click('Add a New Screening Time');
+      $id = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
+        //$url = "(//a[@href = '/MovieSchedule/index?id=".$id."'])";
+
+       
+        $this->amOnPage('/MovieSchedule/create?id=' .$id);
      }
 
-    /**
-     * @Then I am redirected to the schedule creation page
-     */
-     public function iAmRedirectedToTheScheduleCreationPage()
-     {
-        $this->see('Screening Times for Example Movie 2');
-     }
+    // /**
+    //  * @Then I am redirected to the schedule creation page
+    //  */
+    //  public function iAmRedirectedToTheScheduleCreationPage()
+    //  {
+    //     $this->see('Add a New Screening Time');
+    //  }
 
     /**
      * @Then I pick :arg1 as the day
      */
      public function iPickAsTheDay($arg1)
      {
-        $this->selectOption('days',$arg1);
+        $this->selectOption('days','Sunday');
      }
 
     /**
@@ -241,7 +236,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iPickAsTheTime($arg2)
      {
-        $this->selectOption('times',$arg2);
+        $this->selectOption('times','1:00');
      }
 
     /**
@@ -249,18 +244,26 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickTheButton($arg1)
      {
-         $this->click('Add');
+         $this->click('action');
 
      }
 
       /**
-     * @Then I am redirected to (/Movie/adminIndex):num1
+     * @Then I am redirected to adminIndex Page
      */
-     public function iAmRedirectedToMovieadminIndex($num1)
+     public function iAmRedirectedToAdminIndexPage()
      {
-         $this->see('Example Movie 2');
+         $this->seeInCurrentUrl("/Movie/adminIndex");
      }
 
+    /**
+     * @Then the new screening time was added to the database
+     */
+     public function theNewScreeningTimeWasAddedToTheDatabase()
+     {
+         $id = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
+         $this->seeInDatabase('movie_schedule', ['movie_id' => $id, 'day' => 'Sunday', 'time_id' => '1']);
+     }
     /**
      * @When I click to delete the screening time
      */

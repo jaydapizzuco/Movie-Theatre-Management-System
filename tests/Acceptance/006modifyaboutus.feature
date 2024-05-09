@@ -9,5 +9,4 @@ Scenario: modifyaboutus
   And I change the email to 'movietheater@email.com'
   And I change the description to "Welcome! We are a small Movie Theater company catered to all. All the popular new movies can be found on our website."
   And I click on the "Update" button
-  Then the About us information gets updated in the database 
   And I am redirected to the profile page

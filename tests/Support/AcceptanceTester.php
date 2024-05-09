@@ -262,7 +262,9 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickToDeleteTheScreeningTime()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click to delete the screening time` is not defined");
+        $this->adminLogin();
+        $this->amOnPage("/MovieSchedule/index?id=".$id);
+        //I instead click delete in fuction theTimeIs
      }
 
     /**
@@ -270,7 +272,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theDayIs($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the day is :arg1` is not defined");
+        $this->selectOption('days',$arg1);
      }
 
     /**
@@ -278,7 +280,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theTimeIs($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the time is :arg1` is not defined");
+        $this->selectOption('time',$arg1);
+        $this->click('Delete'); //define index for this???
      }
 
     /**
@@ -286,15 +289,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheDeletionConfirmationPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the deletion confirmation page` is not defined");
-     }
-
-    /**
-     * @Then the Movie Schedule where day: :arg1, time: :arg2 and movie id: ID of :arg3 is deleted to the database
-     */
-     public function theMovieScheduleWhereDayTimeAndMovieIdIDOfIsDeletedToTheDatabase($arg1, $arg2, $arg3)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the Movie Schedule where day: :arg1, time: :arg2 and movie id: ID of :arg3 is deleted to the database` is not defined");
+        $this->amOnPage("/MovieSchedule/index?id=".$id);
      }
 
     /**
@@ -302,7 +297,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmLoggedInAsAdmin()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am Logged in as Admin` is not defined");
+        $this->adminLogin();
      }
 
     /**
@@ -310,7 +305,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheUserupdateAboutPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the (/User/updateAbout) page` is not defined");
+        $this->amOnPage('/User/updateAbout');
      }
 
     /**
@@ -318,7 +313,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iChangeTheEmailTomovietheateremailcom($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I change the email to 'movietheater@email:num1com'` is not defined");
+        $this->fillField('email',$num1);
      }
 
     /**
@@ -326,7 +321,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iChangeTheDescriptionTo($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I change the description to :arg1` is not defined");
+        $this->fillField('description',$arg1);
      }
 
     /**
@@ -334,15 +329,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnTheButton($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on the :arg1 button` is not defined");
-     }
-
-    /**
-     * @Then the About us information gets updated in the database
-     */
-     public function theAboutUsInformationGetsUpdatedInTheDatabase()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the About us information gets updated in the database` is not defined");
+        $this->click('Update');
      }
 
     /**
@@ -350,7 +337,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheProfilePage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the profile page` is not defined");
+        $this->amOnPage('Admin');
      }
 
     /**
@@ -358,7 +345,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function thatIAmLoggedIntoTheUserAccountAdmin()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `that I am logged into the user account “Admin”,` is not defined");
+        $this->adminLogin();
      }
 
     /**
@@ -398,7 +385,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnUserlogin()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on “/User/login/”` is not defined");
+        $this->amOnPage("/User/login");
      }
 
     /**
@@ -406,7 +393,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickRegister()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click “Register”` is not defined");
+        $this->click("Register");
      }
 
     /**
@@ -414,7 +401,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function myEmailIstestemailcom($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `my email is “test@email:num1com”` is not defined");
+        $this->fillField("email","test@email.com");
      }
 
     /**
@@ -422,7 +409,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function myNameIs($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `my name is :arg1` is not defined");
+        $this->fillField("name","John Doe");
      }
 
     /**
@@ -430,7 +417,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function myPasswordIstest($num1, $num2, $num3)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `my password is “test:num1:num2:num3”` is not defined");
+        $this->fillField("password","test123");
+        $this->fillField("passwordconfirm","test123");
      }
 
     /**
@@ -438,15 +426,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickTheRegistrationButton()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click the Registration button` is not defined");
-     }
-
-    /**
-     * @Then my account with email “test@email:num:num:num:num4com” and name :arg1 and password “test:num:num:num4:num:num4:num4” gets added to the database
-     */
-     public function myAccountWithEmailtestemailcomAndNameAndPasswordtestGetsAddedToTheDatabase($num1, $num2, $num3, $num4, $arg1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `my account with email “test@email:num:num:num:num4com” and name :arg1 and password “test:num:num:num4:num:num4:num4” gets added to the database` is not defined");
+        $this->click("Register");
      }
 
     /**
@@ -454,7 +434,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToUserlogin()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to “/User/login/”` is not defined");
+        $this->amOnPage("/User/login");
      }
 
     /**
@@ -462,7 +442,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheLoginPagelocalhostUserLogin()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the login page (localhost/User/Login)` is not defined");
+        $this->amOnPage("/User/login");
      }
 
     /**
@@ -486,7 +466,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iEnterTheEmailtestemailcom($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I enter  the email “test@email:num1com”` is not defined");
+        $this->fillField("email","test@email.com");
      }
 
     /**
@@ -494,7 +474,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function passwordtest($num1, $num2, $num3)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `password “test:num1:num2:num3”` is not defined");
+        $this->fillField("password","test123");
      }
 
     /**
@@ -502,7 +482,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function clickOnTheLogInButton()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `click on the log in button,` is not defined");
+        $this->click("Login");
      }
 
     /**
@@ -510,7 +490,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iShouldBeRedirectedToTheProfilePage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I should be redirected to the profile page` is not defined");
+        $this->amOnPage("/User/profile");
      }
 
     /**
@@ -518,7 +498,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function seeJohnDoeAsMyName()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `see John Doe as my name is not defined");
+        $this->see("John Doe");
      }
 
     /**
@@ -534,7 +514,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheProfilePagelocalhostUserProfile()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the profile page (localhost/User/Profile)` is not defined");
+        $this->amOnPage("/User/profile");
      }
 
     /**

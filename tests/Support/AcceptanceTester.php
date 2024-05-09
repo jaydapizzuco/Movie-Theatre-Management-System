@@ -156,6 +156,7 @@ class AcceptanceTester extends \Codeception\Actor
      public function iSeeTheExampleMovie()
      {
          $this->see("Example Movie");
+        // $this->saveSessionSnapshot('movie');
      }
 
 
@@ -165,9 +166,11 @@ class AcceptanceTester extends \Codeception\Actor
      public function iAmOnTheUpdateMoviePageForExampleMovie()
      {
         $this->adminLogin();
-        //$examplemovie = new \app\models\Movie();
-        //$examplemovie = $examplemovie->getByTitle("Example Movie");
-        $id = 37;
+        //$this->loadSessionSnapshot('movie');
+    
+        $id = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
+
+    
         $this->amOnPage("/Movie/update?id=".$id);
      }
 
@@ -177,7 +180,7 @@ class AcceptanceTester extends \Codeception\Actor
      public function iEditExampleMoviesInformationToMovieTitleIsExampleMovieAndClickUpdate($num1)
      {
         $this->fillField('title','Example Movie '.$num1);
-        $this->click('Update');
+        $this->click('action');
      }
 
     /**
@@ -205,7 +208,7 @@ class AcceptanceTester extends \Codeception\Actor
         //preferably this should get the id of the movie based on the title
         //$examplemovie = new \app\models\Movie();
         //$examplemovie = $examplemovie->getByTitle("Example Movie");
-        $id = 37;
+        $id = 39;
         $this->amOnPage("/MovieSchedule/index?id=".$id);
      }
 
@@ -247,14 +250,15 @@ class AcceptanceTester extends \Codeception\Actor
      public function iClickTheButton($arg1)
      {
          $this->click('Add');
+
      }
 
-    /**
+      /**
      * @Then I am redirected to (/Movie/adminIndex):num1
      */
      public function iAmRedirectedToMovieadminIndex($num1)
      {
-        $this->see('Example Movie 2');
+         $this->see('Example Movie 2');
      }
 
     /**

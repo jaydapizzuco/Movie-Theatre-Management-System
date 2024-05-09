@@ -2,7 +2,8 @@
     "require-dev": {
         "codeception/codeception": "^5.1",
         "codeception/module-phpbrowser": "*",
-        "codeception/module-asserts": "*"
+        "codeception/module-asserts": "*",
+        "codeception/module-db": "^3.1"
     },
     "require": {
         "chillerlan/php-authenticator": "^5.1",

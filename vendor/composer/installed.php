@@ -100,6 +100,15 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'codeception/module-db' => array(
+            'pretty_version' => '3.1.3',
+            'version' => '3.1.3.0',
+            'reference' => '0d636cb8fa0d61fea10f42f6d434e998dfc80d53',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../codeception/module-db',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
         'codeception/module-phpbrowser' => array(
             'pretty_version' => '3.0.1',
             'version' => '3.0.1.0',

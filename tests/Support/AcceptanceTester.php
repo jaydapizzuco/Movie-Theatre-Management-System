@@ -733,6 +733,60 @@ class AcceptanceTester extends \Codeception\Actor
         // $this->see('a[name="' . $movieID . '"]');
      }
 
+     //---------------014SEARCHMOVIEDESC-------------
+ /**
+     * @Given I am logged in
+     */
+     public function iAmLoggedIn()
+     {
+        $this->userLogin();
+     }
+
+    /**
+     * @Given I amon the movies page
+     */
+     public function iAmonTheMoviesPage2()
+     {
+         $this->amOnPage('/Movie/index');
+     }
+
+    /**
+     * @When I enter description in the search bar
+     */
+     public function iEnterDescriptionInTheSearchBar()
+     {
+          $this->fillField(['name' => 'search'], 'horses');
+     }
+
+       /**
+     * @When click I on the search by description button
+     */
+     public function clickIOnTheSearchByDescriptionButton()
+     {
+         $this->click("action");
+     }
+
+         /**
+     * @Then I should be redirected to the search results page
+     */
+     public function iShouldBeRedirectedToTheSearchResultsPage()
+     {
+         $this->seeInCurrentUrl('/Movie/search');
+     }
+
+      /**
+     * @Then I should see the results for example movie :num1
+     */
+     public function iShouldSeeTheResultsForExampleMovie($num1)
+     {
+          $movieID = $this->grabFromDatabase('movie', 'movie_id',['description like' => 'This is a movie about horses']);
+         $this->click('a[name="' . $movieID . '"]');
+         $this->seeInCurrentUrl("Movie/individual?id=".$movieID);
+         $this->see("Example Movie 2");
+
+     }
+     //---------------015SELECTSCREENING----------------
+
     /**
      * @Given I am on the selectScreening page for :arg1
      */

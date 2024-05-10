@@ -464,37 +464,30 @@ class AcceptanceTester extends \Codeception\Actor
 
      //------------------009USERLOGIN-----------------------
 
-    /**
+         /**
      * @Given I am on the login page (localhost/User/Login)
      */
      public function iAmOnTheLoginPagelocalhostUserLogin()
      {
-        $this->amOnPage("/User/login");
+         $this->amOnPage("/User/login");
      }
-
-    /**
-     * @Given the account with email “test@email:num1com”
+         /**
+     * @Given the account with test email exists in the database
      */
-     public function theAccountWithEmailtestemailcom($num1)
+     public function theAccountWithTestEmailExistsInTheDatabase()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the account with email “test@email:num1com”` is not defined");
-     }
+        $this->seeInDatabase('user', ['email' => 'test@email.com']);
 
-    /**
-     * @Given password “test:num1:num2:num3” exists in the database,
-     */
-     public function passwordtestExistsInTheDatabase($num1, $num2, $num3)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `password “test:num1:num2:num3” exists in the database,` is not defined");
      }
+     
+       /**
+     * @When I enter  the email
+     */
+     public function iEnterTheEmail()
+     {
+           $this->fillField("email","test@email.com");
+      }
 
-    /**
-     * @When I enter  the email “test@email:num1com”
-     */
-     public function iEnterTheEmailtestemailcom($num1)
-     {
-        $this->fillField("email","test@email.com");
-     }
 
     /**
      * @When password “test:num1:num2:num3”
@@ -528,13 +521,6 @@ class AcceptanceTester extends \Codeception\Actor
         $this->see("John Doe");
      }
 
-    /**
-     * @Then the value inside the userId session variable should match the value of the userId for :arg1 in the database :num1
-     */
-     public function theValueInsideTheUserIdSessionVariableShouldMatchTheValueOfTheUserIdForInTheDatabase($num1, $arg1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step the value inside the userId session variable should match the value of the userId for :arg1 in the database :num1 is not defined");
-     }
 
     /**
      * @Given I am on the profile page (localhost/User/Profile)

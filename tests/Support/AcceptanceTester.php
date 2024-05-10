@@ -926,6 +926,24 @@ class AcceptanceTester extends \Codeception\Actor
          throw new \PHPUnit\Framework\IncompleteTestError("Step `the icon for this seat becomes the checkmark icon` is not defined");
      }
 
+     //---------------0180BOOKTICKETS----------------
+
+      /**
+     * @Given I am on the seatSelection page for Example Movie :num1
+     */
+     public function iAmOnTheSeatSelectionPageForExampleMovie($num1)
+     {
+         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the seatSelection page for Example Movie :num1` is not defined");
+     }
+
+     /**
+     * @Given the screening time  is Sunday : :num1::num2:num2::num2:num2,
+     */
+     public function theScreeningTimeIsSunday($num1, $num2, $num3, $num4, $num5)
+     {
+         throw new \PHPUnit\Framework\IncompleteTestError("Step `the screening time  is Sunday : :num1::num2:num2::num2:num2,` is not defined");
+     }
+
     /**
      * @Given I have selected a seat with id :arg1
      */
@@ -1021,6 +1039,8 @@ class AcceptanceTester extends \Codeception\Actor
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `the seat_id should be :arg1` is not defined");
      }
+
+     //---------------0181VIEWORDERCART----------------
 
     /**
      * @Given I am on the Profile page

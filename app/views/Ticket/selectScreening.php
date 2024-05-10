@@ -118,9 +118,8 @@
                    // if($screenDayInt >= $dayInt){
                 ?>
 
-                <select name = "screenings">
                 <option value="<?= $screening->day ?>:<?= $screening->getTime($screening->time_id)?>"><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></option>
-                </select>
+
             <?php }  //} ?> 
              
             </select>

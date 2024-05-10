@@ -907,7 +907,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theScreeningTime($arg1)
      {
-         $this->selectOption('screenings','Sunday:01:00:00');
+         $this->selectOption('screening','Sunday:01:00:00');
          $this->click("selected");
      }
 
@@ -1053,72 +1053,44 @@ class AcceptanceTester extends \Codeception\Actor
          throw new \PHPUnit\Framework\IncompleteTestError("Step `the seat_id should be :arg1` is not defined");
      }
 
-     //---------------0181VIEWORDERCART----------------
+     //---------------0190VIEWINCOMPLETECART----------------
 
-    /**
-     * @Given I am on the Profile page
+         /**
+     * @Given I am on my Profile page
      */
-     public function iAmOnTheProfilePage()
+     public function iAmOnMyProfilePage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the Profile page` is not defined");
+         $this->testLogin();
+         $this->amOnPage("/User/profile");
      }
 
     /**
-     * @Given I am logged in as :arg1
+     * @When I click on the cart button on top of page
      */
-     public function iAmLoggedInAs($arg1)
+     public function iClickOnTheCartButtonOnTopOfPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am logged in as :arg1` is not defined");
+        $this->click('a[name = "cart"]');
      }
 
     /**
-     * @When I click on the cart button
+     * @Then I get redirected to my incomplete cart page
      */
-     public function iClickOnTheCartButton()
+     public function iGetRedirectedToMyIncompleteCartPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on the cart button` is not defined");
+         $this->amOnPage("/Order/incomplete");
      }
 
     /**
-     * @Then I am redirected to the cart page
+     * @Then I see my incomplete order
      */
-     public function iAmRedirectedToTheCartPage()
+     public function iSeeMyIncompleteOrder()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the cart page` is not defined");
+        $this->see("Cart");
+        $this->see("Example Movie 2");
+        $this->see('23');
      }
 
-    /**
-     * @Then all my unprocessed orders are displayed
-     */
-     public function allMyUnprocessedOrdersAreDisplayed()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `all my unprocessed orders are displayed` is not defined");
-     }
-
-    /**
-     * @Then I get redirected to the cart page
-     */
-     public function iGetRedirectedToTheCartPage()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I get redirected to the cart page` is not defined");
-     }
-
-    /**
-     * @Then the seat displayed has an id of :num1:num2
-     */
-     public function theSeatDisplayedHasAnIdOf($num1, $num2)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the seat displayed has an id of :num1:num2` is not defined");
-     }
-
-    /**
-     * @Then the total price is :arg1
-     */
-     public function theTotalPriceIs($arg1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the total price is :arg1` is not defined");
-     }
-
+     //----------------------- 020DELETORDERFROMCART---------------------------------------
     /**
      * @Given I am on the Cart page
      */
@@ -1298,7 +1270,7 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @Given I am on my profile page
      */
-     public function iAmOnMyProfilePage()
+     public function iAmOnMyProfilePage2()
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on my profile page` is not defined");
      }

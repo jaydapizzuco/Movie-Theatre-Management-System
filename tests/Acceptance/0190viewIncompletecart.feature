@@ -4,11 +4,7 @@ As a user,
 I want to view incomplete orders from my cart so I can either complete or delete them.
 
 Scenario: viewincompletecart
-  Given I am on the Profile page
-  And I am logged in as "test@email.com"
-  When I click on the cart button 
-  Then I get redirected to the cart page 
-  And the seat displayed has an id of 23
-  And the day is "Sunday"
-  And the time is "1:00:00"
-  And the total price is "13.7885"
+  Given I am on my Profile page
+  When I click on the cart button on top of page
+  Then I get redirected to my incomplete cart page 
+  And I see my incomplete order

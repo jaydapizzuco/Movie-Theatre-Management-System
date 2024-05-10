@@ -614,12 +614,21 @@ class AcceptanceTester extends \Codeception\Actor
         $this->click('a[name="movies"]');
      }
 
-    /**
+        /**
      * @Then I should be redirected to the page with all the current movies:num1
      */
      public function iShouldBeRedirectedToThePageWithAllTheCurrentMovies($num1)
      {
-        $this->amOnPage("/Movie/index");
+         $this->amOnPage("/Movie/index");
+     }
+
+      //-----------------------012BROWSEMOVIESINDIVIDUAL-----------------
+      /**
+     * @Given I am on the movies page,
+     */
+     public function iAmOnTheMoviesPage()
+     {
+          $this->amOnPage("/Movie/index");
      }
 
     /**
@@ -627,7 +636,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheMoviesPageMoviesindex()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the movies page (/Movies/index),` is not defined");
+         
+        $this->amOnPage("/Movie/index");
      }
 
     /**
@@ -635,15 +645,25 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOn($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on :arg1,` is not defined");
+         $movieID = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
+         $this->click('a[name="' . $movieID . '"]');
      }
 
-    /**
-     * @Then I should be redirected to the movie details page:num1
+        /**
+     * @Then I should be redirected to the movie details page
      */
-     public function iShouldBeRedirectedToTheMovieDetailsPage($num1)
+     public function iShouldBeRedirectedToTheMovieDetailsPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I should be redirected to the movie details page:num1` is not defined");
+          $movieID = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
+         $this->seeInCurrentUrl("Movie/individual?id=".$movieID);
+     }
+
+        /**
+     * @Then I should see the correct title
+     */
+     public function iShouldSeeTheCorrectTitle()
+     {
+         $this->see("Example Movie 2");
      }
 
     /**

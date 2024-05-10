@@ -86,12 +86,12 @@
         <form method="POST" name="form" action="/Ticket/seatSelection"> 
     <?php
        $rows = 4;
-       $cols = 10;
+       $cols = 9;
        $ticket = new \app\models\Ticket();
      $takenSeats = $ticket->getAllTakenSeats($data->movie_id, $movieDate,$data->day, $data->getTime($data->time_id)); 
 
 for ($i = 1; $i <= $rows; $i++) {
-    for ($j = 1; $j <= $cols; $j++) {
+    for ($j = 0; $j <= $cols; $j++) {
         $seatId = $i . $j;
         $status = in_array($seatId, $takenSeats) ? 'unavailable' : 'available';
 

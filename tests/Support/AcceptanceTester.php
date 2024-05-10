@@ -936,13 +936,33 @@ class AcceptanceTester extends \Codeception\Actor
         $this->seeCheckboxIsChecked('#13');
      }
 
-// -------------------- 018OBOOKTICKETS -----------------------------
+     //---------------0180BOOKTICKETS----------------
+
+      /**
+     * @Given I am on the seatSelection page for Example Movie :num1
+     */
+     public function iAmOnTheSeatSelectionPageForExampleMovie($num1)
+     {
+         $movieID = $this->getIdOfExampleMovie();
+         $this->amOnPage("/Ticket/selectScreening?id=".$movieID);
+
+     }
+
+     /**
+     * @Given the screening time  is Sunday : :num1::num2:num2::num2:num2,
+     */
+     public function theScreeningTimeIsSunday($num1, $num2, $num3, $num4, $num5)
+     {
+        $this->selectOption('screenings','Sunday : 1:00:00');
+         $this->click("selected");
+     }
+
     /**
      * @Given I have selected a seat with id :arg1
      */
      public function iHaveSelectedASeatWithId($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I have selected a seat with id :arg1` is not defined");
+        
      }
 
     /**
@@ -1032,6 +1052,8 @@ class AcceptanceTester extends \Codeception\Actor
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `the seat_id should be :arg1` is not defined");
      }
+
+     //---------------0181VIEWORDERCART----------------
 
     /**
      * @Given I am on the Profile page

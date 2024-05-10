@@ -95,6 +95,11 @@ class AcceptanceTester extends \Codeception\Actor
 
      }
 
+     public function getIdOfExampleMovie(){
+        $movieID = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
+        return $movieID;
+     }
+
     // --------------------------002 ADD MOVIE----------------------
     /**
      * @Given I am on the add movie page,
@@ -886,12 +891,15 @@ class AcceptanceTester extends \Codeception\Actor
         $this->see('Sunday : 01:00:00');
      }
 
+// --------------------------- 017SELECTSEATS -----------------------
     /**
      * @Given I am on the seatSelection page for :arg1
      */
      public function iAmOnTheSeatSelectionPageFor($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the seatSelection page for :arg1` is not defined");
+        $this->testLogin();
+        $movieID = $this->getIdOfExampleMovie();
+        $this->amOnPage("/Ticket/selectScreening?id=" .  $movieID);
      }
 
     /**
@@ -899,15 +907,25 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theScreeningTime($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the screening time :arg1,` is not defined");
+         $this->selectOption('screenings','Sunday : 1:00:00');
+         $this->click("selected");
      }
+
+        /**
+     * @Then I should be redirected to the selectscreening page
+     */
+     public function iShouldBeRedirectedToTheSelectscreeningPage()
+     {
+      $this->see('Sunday : 1:00:00');
+     }
+
 
     /**
      * @When I click on an available seat
      */
      public function iClickOnAnAvailableSeat()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on an available seat` is not defined");
+         $this->click();
      }
 
     /**
@@ -933,7 +951,9 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheSeatSelectionPageForExampleMovie($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the seatSelection page for Example Movie :num1` is not defined");
+         $movieID = $this->getIdOfExampleMovie();
+         $this->amOnPage("/Ticket/selectScreening?id=".$movieID);
+
      }
 
      /**
@@ -941,7 +961,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theScreeningTimeIsSunday($num1, $num2, $num3, $num4, $num5)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the screening time  is Sunday : :num1::num2:num2::num2:num2,` is not defined");
+        $this->selectOption('screenings','Sunday : 1:00:00');
+         $this->click("selected");
      }
 
     /**
@@ -949,7 +970,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iHaveSelectedASeatWithId($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I have selected a seat with id :arg1` is not defined");
+        
      }
 
     /**

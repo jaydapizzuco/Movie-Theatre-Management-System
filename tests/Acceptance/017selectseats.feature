@@ -7,5 +7,6 @@ Scenario: selectSeats
   Given I am on the seatSelection page for "Example Movie 2"
   And the screening time "Sunday : 1:00:00",
   When I click on an available seat 
-  Then the id of the seats I have selected is added to the seat array
+  Then I should be redirected to the selectscreening page
+  And the id of the seats I have selected is added to the seat array
   And the icon for this seat becomes the checkmark icon

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Support;
 use app\models;
+use Codeception\Util\Locator;
 
 /**
  * Inherited Methods
@@ -66,6 +67,30 @@ class AcceptanceTester extends \Codeception\Actor
         $this->amOnPage("/User/login");
         $this->fillField('email','admin@email.com');
         $this->fillField('password','123');
+        $this->click("action");
+
+     }
+
+     /**
+     * @param AcceptanceTester $j
+     */
+
+     public function testLogin(){
+        $this->amOnPage("/User/login");
+        $this->fillField('email','test@email.com');
+        $this->fillField('password','test123');
+        $this->click("action");
+
+     }
+
+     /**
+     * @param AcceptanceTester $k
+     */
+
+     public function demoLogin(){
+        $this->amOnPage("/User/login");
+        $this->fillField('email','demo@email.com');
+        $this->fillField('password','demo123');
         $this->click("action");
 
      }
@@ -666,12 +691,15 @@ class AcceptanceTester extends \Codeception\Actor
          $this->see("Example Movie 2");
      }
 
-    /**
-     * @Given I am logged in and on the movies page  (/Movies/index),
+     //-----------------------013SEARCHMOVIESTITLE-----------------
+
+      /**
+     * @Given I am logged in and on the movies page
      */
-     public function iAmLoggedInAndOnTheMoviesPageMoviesindex()
+     public function iAmLoggedInAndOnTheMoviesPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am logged in and on the movies page  (/Movies/index),` is not defined");
+         $this->demoLogin();
+        $this->amOnPage("/Movie/index");
      }
 
     /**
@@ -679,7 +707,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iEnterInTheSearchBar($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I enter :arg1 in the search bar` is not defined");
+        $this->fillField(['name' => 'search'], 'Example Movie 2');
      }
 
     /**
@@ -687,7 +715,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function clickOnTheButton($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `click on the button :arg1,` is not defined");
+        $this->click('action');
      }
 
     /**
@@ -695,7 +723,14 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iSee($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I see :arg1` is not defined");
+
+        $movieID = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie 2%']);
+         $this->click('a[name="' . $movieID . '"]');
+         $this->see("Example Movie 2");
+
+        // $movieID = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie 2%']);
+        // //$this->see(''.$movieID.'', 'a');
+        // $this->see('a[name="' . $movieID . '"]');
      }
 
     /**

@@ -907,7 +907,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theScreeningTime($arg1)
      {
-         $this->selectOption('screenings','Sunday : 1:00:00');
+         $this->selectOption('screenings','Sunday:01:00:00');
          $this->click("selected");
      }
 
@@ -925,15 +925,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnAnAvailableSeat()
      {
-         $this->click();
-     }
-
-    /**
-     * @Then the id of the seats I have selected is added to the seat array
-     */
-     public function theIdOfTheSeatsIHaveSelectedIsAddedToTheSeatArray()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the id of the seats I have selected is added to the seat array` is not defined");
+         $this->checkOption('#13');
      }
 
     /**
@@ -941,7 +933,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theIconForThisSeatBecomesTheCheckmarkIcon()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the icon for this seat becomes the checkmark icon` is not defined");
+        $this->seeCheckboxIsChecked('#13');
      }
 
 // -------------------- 018OBOOKTICKETS -----------------------------

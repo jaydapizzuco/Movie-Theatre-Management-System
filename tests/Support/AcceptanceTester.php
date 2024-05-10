@@ -521,37 +521,79 @@ class AcceptanceTester extends \Codeception\Actor
         $this->see("John Doe");
      }
 
+      public function userLogin(){
+        $this->amOnPage("/User/login");
+        $this->fillField('email','test@email.com');
+        $this->fillField('password','test123');
+        $this->click("action");
 
-    /**
-     * @Given I am on the profile page (localhost/User/Profile)
+     }
+
+ // ----------------010ACCOUNTUPDATE-------------------
+
+         /**
+     * @Given I am logged into the account with the test email
      */
-     public function iAmOnTheProfilePagelocalhostUserProfile()
+     public function iAmLoggedIntoTheAccountWithTheTestEmail()
      {
-        $this->amOnPage("/User/profile");
+        $this->userLogin();
+     }
+
+      /**
+     * @Given I am on the update profile page
+     */
+     public function iAmOnTheUpdateProfilePage()
+     {
+         $this->amOnPage('/User/update?');
+     }   
+  
+   /**
+     * @When I update my name to “John Smith”
+     */
+     public function iUpdateMyNameToJohnSmith()
+     {
+         $this->fillField('name','John Smith');
+     }
+
+      /**
+     * @When I enter the password “test:num1:num2:num3”
+     */
+     public function iEnterThePasswordtest($num1, $num2, $num3)
+     {
+         $this->fillField('password','test123');
+     }
+
+
+        /**
+     * @When I click  Submit
+     */
+     public function iClickSubmit()
+     {
+         $this->click("submit");
+     }
+
+   /**
+     * @Then I should be redirected to my profile page
+     */
+     public function iShouldBeRedirectedToMyProfilePage()
+     {
+         $this->amOnPage('/User/profile');
+     }
+
+      /**
+     * @Then I should see the name as “John Smith”
+     */
+     public function iShouldSeeTheNameAsJohnSmith()
+     {
+        $this->see("John Smith");
      }
 
     /**
-     * @Given the password hash stored in the database for my account corresponds to “test:num1:num2:num3”,
+     * @Then the name should be updated in the database
      */
-     public function thePasswordHashStoredInTheDatabaseForMyAccountCorrespondsTotest($num1, $num2, $num3)
+     public function theNameShouldBeUpdatedInTheDatabase()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the password hash stored in the database for my account corresponds to “test:num1:num2:num3”,` is not defined");
-     }
-
-    /**
-     * @When I update my name to “John Smith” and enter the password “test:num1:num2:num3” ,
-     */
-     public function iUpdateMyNameToJohnSmithAndEnterThePasswordtest($num1, $num2, $num3)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I update my name to “John Smith” and enter the password “test:num1:num2:num3” ,` is not defined");
-     }
-
-    /**
-     * @Then I should be redirected to my profile page and see the name as “John Smith”:num1
-     */
-     public function iShouldBeRedirectedToMyProfilePageAndSeeTheNameAsJohnSmith($num1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I should be redirected to my profile page and see the name as “John Smith”:num1` is not defined");
+         $this->seeInDatabase('user', ['name' => 'John Smith', 'email' => 'test@email.com']);
      }
 
     /**

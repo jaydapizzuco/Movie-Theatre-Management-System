@@ -4,7 +4,11 @@ As a user
 I want to update my account so that I can modify my account information  in order to keep it current
 
 Scenario: userprofilechange
-	Given I am on the profile page (localhost/User/Profile)
-	And the password hash stored in the database for my account corresponds to “test123”,
-	When I update my name to “John Smith” and enter the password “test123” , 
-	Then I should be redirected to my profile page and see the name as “John Smith”.
+	Given I am logged into the account with the test email 
+	And I am on the update profile page 
+	When I update my name to “John Smith” 
+	And I enter the password “test123” 
+	And I click  Submit
+	Then I should be redirected to my profile page 
+	And I should see the name as “John Smith”
+	And the name should be updated in the database

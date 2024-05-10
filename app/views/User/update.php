@@ -37,7 +37,7 @@
                 <label><?= __('Password: ')?><input type="Password" class="form-group" name="password" placeholder="<?= __('enter new password')?>"/></label>
             </div><br>
             <div class="form-group">
-                <input type="submit" name="action" value="<?= __('Submit')?>"/>
+                <input type="submit" name="submit" value="<?= __('Submit')?>"/>
                 <a href="/User/profile"></a>
             </div> 
         </form>

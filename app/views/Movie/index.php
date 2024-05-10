@@ -21,8 +21,7 @@
 
     <form class="form-inline" method="POST" action='/Movie/search'>
         <input name="search" placeholder="<?= __('eg: Movie 1')?>" >
-        <input type="submit" name='action' value="<?= __('Search by Title')?>" >
-        <input type="submit" name='action' value="<?= __('Search by Description')?>" >
+        <input type="submit" name='action' value="<?= __('Search')?>" >
     </form><br>
 
 

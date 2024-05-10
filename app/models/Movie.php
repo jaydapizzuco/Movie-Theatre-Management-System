@@ -107,6 +107,14 @@ class Movie extends \app\core\Model{
 		return $STMT->fetchAll();
 	}
 
+	public function getByDescAndTitle($word){
+		$SQL = "SELECT DISTINCT * FROM movie WHERE description LIKE :word OR title LIKE :word AND status=1";
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(['word'=>"%" . $word . "%"]);
+		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Movie');
+		return $STMT->fetchAll();
+	}
+
 
 	public function getByOrderedDates(){
 		$SQL = "SELECT * FROM movie WHERE status=1 ORDER BY release_date";

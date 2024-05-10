@@ -218,6 +218,70 @@ class AcceptanceTester extends \Codeception\Actor
         $this->see("Example Movie ".$num1);
      }
 
+// -------------------------0041 ADD SCHEDULE--------------------
+
+         /**
+     * @Given I am on an individual movie page for example:num1
+     */
+     public function iAmOnAnIndividualMoviePageForExample($num1)
+     {
+          $this->adminLogin();    
+        $id = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
+
+        $this->amOnPage("/MovieSchedule/index?id=".$id);
+     }
+
+    /**
+     * @When I click :arg1 button,
+     */
+     public function iClickButton($arg1)
+     {
+          $id = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
+ 
+        $this->amOnPage('/MovieSchedule/create?id=' .$id);
+     }
+
+    /**
+     * @Then I pick :arg1 as the day of the screening
+     */
+     public function iPickAsTheDayOfTheScreening($arg1)
+     {
+         $this->selectOption('days','Friday');
+     }
+
+    /**
+     * @Then I pick :arg1 as the time of the screening,
+     */
+     public function iPickAsTheTimeOfTheScreening($arg1)
+     {
+        $this->selectOption('times','7:05');
+     }
+
+    /**
+     * @When I click :arg1 button
+     */
+     public function iClickButtonn($arg1)
+     {
+          $this->click('action');
+     }
+
+    /**
+     * @Then I am redirected to the adminIndex Page
+     */
+     public function iAmRedirectedToTheAdminIndexPage()
+     {
+         $this->seeInCurrentUrl("/Movie/adminIndex");
+     }
+
+    /**
+     * @Then the new screening time was added to database
+     */
+     public function theNewScreeningTimeWasAddedToDatabase()
+     {
+          $id = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
+        $this->seeInDatabase('movie_schedule', ['movie_id' => $id, 'day' => 'Sunday', 'time_id' => '1']);
+     }
+
     // -------------------------004 ADD SCHEDULE--------------------
 
     /**
@@ -300,7 +364,7 @@ class AcceptanceTester extends \Codeception\Actor
      public function iClickThedeleteScreeningTimeButton()
      {
         $movieID = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie%']);
-        $scheduleID = $this->grabFromDatabase('movie_schedule', 'schedule_id', ['movie_id' => $movieID]);
+        $scheduleID = $this->grabFromDatabase('movie_schedule', 'schedule_id', ['movie_id' => $movieID, 'day' => 'Friday']);
         $this->amOnPage('/MovieSchedule/delete?id=' .$scheduleID);
      }
 
@@ -309,7 +373,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theDayIs($arg1)
      {
-        $this->see('Sunday');
+        $this->see('Friday');
      }
 
     /**
@@ -317,7 +381,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theTimeIs($arg1)
      {
-        $this->see('1:00:00');
+        $this->see('7:05:00');
      }
 
      /**

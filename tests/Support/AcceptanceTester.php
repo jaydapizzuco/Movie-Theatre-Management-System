@@ -1091,12 +1091,14 @@ class AcceptanceTester extends \Codeception\Actor
      }
 
      //----------------------- 020DELETORDERFROMCART---------------------------------------
-    /**
+
+  /**
      * @Given I am on the Cart page
      */
      public function iAmOnTheCartPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the Cart page` is not defined");
+         $this->testLogin();
+         $this->amOnPage("/Order/incomplete");
      }
 
     /**
@@ -1104,23 +1106,43 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnTheTrashCanButtonWhereTheSeatDisplayedIs($num1, $num2)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on the trash can button where the seat displayed is :num1:num2` is not defined");
+        $userID = $this->grabFromDatabase('users', 'users_id',['email like' => 'test@email.com']);
+
+         // $orderId = $this->grabFromDatabase('orders', 'order_id',['user_id like' => $userID, 'total_price' => '13.7885', 'order_date' => todays date]);
+
+         $this->click()
      }
 
     /**
-     * @Then the order gets removed from the cart
+     * @Then I am redirected to the order delete page
      */
-     public function theOrderGetsRemovedFromTheCart()
+     public function iAmRedirectedToTheOrderDeletePage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the order gets removed from the cart` is not defined");
+         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the order delete page` is not defined");
      }
 
     /**
-     * @Then I am redirected to the refreshed cart page
+     * @When I click delete the order gets removed from the cart
      */
-     public function iAmRedirectedToTheRefreshedCartPage()
+     public function iClickDeleteTheOrderGetsRemovedFromTheCart()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the refreshed cart page` is not defined");
+         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click delete the order gets removed from the cart` is not defined");
+     }
+
+    /**
+     * @When the order gets removed from the database
+     */
+     public function theOrderGetsRemovedFromTheDatabase()
+     {
+         throw new \PHPUnit\Framework\IncompleteTestError("Step `the order gets removed from the database` is not defined");
+     }
+
+    /**
+     * @When I am redirected to the order history page
+     */
+     public function iAmRedirectedToTheOrderHistoryPage()
+     {
+         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the order history page` is not defined");
      }
 
     /**

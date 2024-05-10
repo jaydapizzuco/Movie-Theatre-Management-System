@@ -386,46 +386,47 @@ class AcceptanceTester extends \Codeception\Actor
         $this->click("Logout");
      }
 
-    /**
-     * @Then I should be redirected to the homepage and the userId session variable should be null:num1
+         /**
+     * @Then I should be redirected to the homepage
      */
-     public function iShouldBeRedirectedToTheHomepageAndTheUserIdSessionVariableShouldBeNull($num1)
+     public function iShouldBeRedirectedToTheHomepage()
      {
-        
+          $this->seeInCurrentUrl("/Main/index"); 
+     }
+
+      /**
+     * @Then if I click on Account I should be redirected to the login page:num1
+     */
+     public function ifIClickOnAccountIShouldBeRedirectedToTheLoginPage($num1)
+     {
+         $this->click('a[name="account"]');
+         $this->seeInCurrentUrl("/User/login");
      }
 
      // ------------008 ACCOUNT CREATION -----------------------
 
-    /**
-     * @Given I am on “/User/login/”
+  /**
+     * @Given I am on the registration page
      */
-     public function iAmOnUserlogin()
+     public function iAmOnTheRegistrationPage()
      {
-        $this->amOnPage("/User/login");
+        $this->amOnPage('User/register');
      }
 
-    /**
-     * @Given I click “Register”
+      /**
+     * @Given I enter my email
      */
-     public function iClickRegister()
-     {
-        $this->click("Register");
-     }
-
-    /**
-     * @When my email is “test@email:num1com”
-     */
-     public function myEmailIstestemailcom($num1)
+     public function iEnterMyEmail()
      {
         $this->fillField("email","test@email.com");
      }
 
-    /**
-     * @When my name is :arg1
+      /**
+     * @Given I enter John Doe
      */
-     public function myNameIs($arg1)
+     public function iEnterJohnDoe()
      {
-        $this->fillField("name","John Doe");
+         $this->fillField("name","John Doe");
      }
 
     /**
@@ -434,7 +435,7 @@ class AcceptanceTester extends \Codeception\Actor
      public function myPasswordIstest($num1, $num2, $num3)
      {
         $this->fillField("password","test123");
-        $this->fillField("passwordconfirm","test123");
+        $this->fillField("confirmpassword","test123");
      }
 
     /**
@@ -442,16 +443,26 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickTheRegistrationButton()
      {
-        $this->click("Register");
+        $this->click("register");
+     }
+
+       /**
+     * @Then I am redirected to the login page
+     */
+     public function iAmRedirectedToTheLoginPage()
+     {
+         $this->seeInCurrentUrl('/User/login');
      }
 
     /**
-     * @Then I am redirected to “/User/login/”
+     * @Then the user John Doe is created in the database
      */
-     public function iAmRedirectedToUserlogin()
+     public function theUserJohnDoeIsCreatedInTheDatabase()
      {
-        $this->amOnPage("/User/login");
+         $this->seeInDatabase('user', ['name' => 'John Doe', 'email' => 'test@email.com']);
      }
+
+     //------------------009USERLOGIN-----------------------
 
     /**
      * @Given I am on the login page (localhost/User/Login)

@@ -13,7 +13,9 @@ class User extends \app\core\Controller{
             //populate the User
             $user->name = $_POST['name'];
              $user->email = $_POST['email'];
-             $status = $_GET['admin'];
+
+            // $status = $_GET['admin'];
+
              if($_POST['password'] != $_POST['confirmpassword']){
                  echo '<script type="text/javascript">
 
@@ -90,7 +92,7 @@ class User extends \app\core\Controller{
     function logout(){
         session_destroy();
         $_SESSION['user_id'] = null;
-        header('location:/User/login');
+        header('location:/Main/index');
     }
 
 

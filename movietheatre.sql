@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 03, 2024 at 10:03 PM
+-- Generation Time: May 10, 2024 at 02:47 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -274,7 +274,7 @@ CREATE TABLE `user` (
   `email` varchar(50) NOT NULL,
   `password_hash` varchar(60) NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0,
-  `secret` varchar(32) NOT NULL
+  `secret` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -286,7 +286,9 @@ INSERT INTO `user` (`user_id`, `name`, `email`, `password_hash`, `is_admin`, `se
 (2, 'Admin', 'admin@email.com', '$2y$10$FIKrGIYkZ9eHrJCkPlCFwu1mXTOSfn4AgmyGdc8Vax9pF/vElTxsS', 1, ''),
 (4, 'Melissa', 'melissa@email.com', '$2y$10$.KUKTJksSpu336HBAx3xkOWgc8/87/9cR6hNU.A/C7EJSiMCUdp4K', 0, ''),
 (5, 'Jayda', 'jayda@email.com', '$2y$10$aq5/uVxHCzjD5IanrPU66.RKRDsMRjZijxySXuOxGTL.5ltC2k.eK', 0, ''),
-(6, 'henry', 'henry@email.com', '$2y$10$CAOHHaXjfUD28BuTgNd4Bul7QC.i9oiPkJgwOzvY/.c6ig3Qw2ZWO', 0, '');
+(6, 'henry', 'henry@email.com', '$2y$10$CAOHHaXjfUD28BuTgNd4Bul7QC.i9oiPkJgwOzvY/.c6ig3Qw2ZWO', 0, ''),
+(7, 'Jess', 'jess@email.com', '$2y$10$xW3sFSqVS5lvnVtxHwFNa.6uBXIBfiWAimMjUFXljB6aeowTTyyKy', 0, NULL),
+(8, 'John Doe', 'test@email.com', '$2y$10$vgg2uwLfHHSC1e/lM/AbseCegcJXpJblnpGcLXVg9ixk9oYihrIVa', 0, NULL);
 
 --
 -- Indexes for dumped tables
@@ -419,7 +421,7 @@ ALTER TABLE `times`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

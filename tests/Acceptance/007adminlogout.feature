@@ -8,4 +8,5 @@ Scenario: adminlogout
 	And userId is "2"  
 	And I'm on the adminProfile page
 	When I click on the logout option, 
-	Then I should be redirected to the homepage and the userId session variable should be null.
+	Then I should be redirected to the homepage 
+	And if I click on Account I should be redirected to the login page.

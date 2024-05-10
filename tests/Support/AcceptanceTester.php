@@ -943,6 +943,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheSeatSelectionPageForExampleMovie($num1)
      {
+        $this->testLogin();
          $movieID = $this->getIdOfExampleMovie();
          $this->amOnPage("/Ticket/selectScreening?id=".$movieID);
 
@@ -953,7 +954,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theScreeningTimeIsSunday($num1, $num2, $num3, $num4, $num5)
      {
-        $this->selectOption('screenings','Sunday : 1:00:00');
+        $this->selectOption('screening', 'Sunday:01:00:00');
          $this->click("selected");
      }
 
@@ -962,6 +963,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iHaveSelectedASeatWithId($arg1)
      {
+        $this->checkOption('#13');
+        $this->seeCheckboxIsChecked('#13');
         
      }
 
@@ -970,7 +973,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOn2($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on :arg1` is not defined");
+        $this->click('selected');
      }
 
     /**
@@ -978,80 +981,22 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function anOrderShouldBeMadeWithUserIdCorrespondingToTheEmail($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `an order should be made with user id corresponding to the email :arg1` is not defined");
+         $userId = $this->grabFromDatabase('user', 'user_id',['email like' => 'test@email.com']);
+         $this->seeInDatabase('orders', ['user_id' => $userId, 'total_price' => 13.7885, 'number_tickets' => 1]);
+         //$dateOrder = $this->grabFromDatabase('orders', 'order_date',['user_id like' => $userId]);
+         //$this->seeDateIsToday($dateOrder);
+         //$this->assertTrue(_ParseDate($dateOrder)->isToday());
+         //\PHPUnit_Framework_Assert::assertTrue($this->_ParseDate($dateOrder)->isToday());
      }
 
-    /**
-     * @Then the order_date should be the current date
+     /**
+     * @Then I am redirected to Ticket Cart page
      */
-     public function theOrder_dateShouldBeTheCurrentDate()
+     public function iAmRedirectedToTicketCartPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the order_date should be the current date` is not defined");
-     }
-
-    /**
-     * @Then the total price should be :arg1
-     */
-     public function theTotalPriceShouldBe($arg1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the total price should be :arg1` is not defined");
-     }
-
-    /**
-     * @Then the cart status should be :num1
-     */
-     public function theCartStatusShouldBe($num1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the cart status should be :num1` is not defined");
-     }
-
-    /**
-     * @Then the order status should be one
-     */
-     public function theOrderStatusShouldBeOne()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the order status should be one` is not defined");
-     }
-
-    /**
-     * @Then one ticket associated with the order should be created
-     */
-     public function oneTicketAssociatedWithTheOrderShouldBeCreated()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `one ticket associated with the order should be created` is not defined");
-     }
-
-    /**
-     * @Then the movie id should be the movie id for :arg1
-     */
-     public function theMovieIdShouldBeTheMovieIdFor($arg1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the movie id should be the movie id for :arg1` is not defined");
-     }
-
-    /**
-     * @Then the movie_day should be :arg1
-     */
-     public function theMovie_dayShouldBe($arg1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the movie_day should be :arg1` is not defined");
-     }
-
-    /**
-     * @Then the movie_time should be :arg1
-     */
-     public function theMovie_timeShouldBe($arg1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the movie_time should be :arg1` is not defined");
-     }
-
-    /**
-     * @Then the seat_id should be :arg1
-     */
-     public function theSeat_idShouldBe($arg1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the seat_id should be :arg1` is not defined");
-     }
+         $this->see('CART');
+         $this->see('Example Movie 2', '.card-title');
+    }
 
      //---------------0190VIEWINCOMPLETECART----------------
 
@@ -1087,7 +1032,7 @@ class AcceptanceTester extends \Codeception\Actor
      {
         $this->see("Cart");
         $this->see("Example Movie 2");
-        $this->see('23');
+        $this->see('13');
      }
 
      //----------------------- 020DELETORDERFROMCART---------------------------------------

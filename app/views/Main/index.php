@@ -12,7 +12,7 @@
 
 <nav>
     <a name ="account" href="/User/profile"><?= __('Account') ?></a> &nbsp&nbsp
-    <a href="/Movie/index"><?= __('Movies') ?></a>
+    <a name="movies" href="/Movie/index"><?= __('Movies') ?></a>
     <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
 </nav>
 

@@ -596,12 +596,14 @@ class AcceptanceTester extends \Codeception\Actor
          $this->seeInDatabase('user', ['name' => 'John Smith', 'email' => 'test@email.com']);
      }
 
+     //-----------------------011BROWSEALLMOVIES-----------------
+
     /**
      * @Given I am on the homepage,
      */
      public function iAmOnTheHomepage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the homepage,` is not defined");
+         $this->amOnPage("/Main/index");
      }
 
     /**
@@ -609,7 +611,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnMoviesInTheNavigation()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on Movies in the navigation,` is not defined");
+        $this->click('a[name="movies"]');
      }
 
     /**
@@ -617,7 +619,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iShouldBeRedirectedToThePageWithAllTheCurrentMovies($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I should be redirected to the page with all the current movies:num1` is not defined");
+        $this->amOnPage("/Movie/index");
      }
 
     /**

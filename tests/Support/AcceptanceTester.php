@@ -375,7 +375,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function imOnTheAdminProfilePage()
      {
-        $this->amOnPage('/user/adminProfile');
+        $this->amOnPage('/User/adminProfile');
      }
 
     /**

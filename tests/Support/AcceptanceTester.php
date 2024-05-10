@@ -856,7 +856,9 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheSelectScreeningPageFor($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the selectScreening page for :arg1` is not defined");
+        $this->testLogin();
+         $movieID = $this->grabFromDatabase('movie', 'movie_id',['title like' => 'Example Movie 2']);
+        $this->amOnPage('/Ticket/selectScreening?id='.$movieID);
      }
 
     /**
@@ -864,7 +866,15 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iSelectTheScreeningTime($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I select the screening time :arg1,` is not defined");
+        $this->selectOption('screening', 'Sunday:01:00:00');
+     }
+
+      /**
+     * @When I click Select Screening button,
+     */
+     public function iClickSelectScreeningButton()
+     {
+        $this->click('selected');
      }
 
     /**
@@ -872,7 +882,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheSeatSelectionPageForOnAt($arg1, $arg2, $arg3)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the seat selection page for :arg1 on :arg2 at :arg3` is not defined");
+        $this->see('Book Tickets for Example Movie 2');
+        $this->see('Sunday : 01:00:00');
      }
 
     /**

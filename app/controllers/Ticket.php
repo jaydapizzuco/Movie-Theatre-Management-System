@@ -57,7 +57,7 @@ class Ticket extends \app\core\Controller {
                     break;
             }
 
-            $addigDays =0;
+            $addingDays =0;
 
             if ($screenDayInt >= $dayInt){
                 $addingDays = $screenDayInt - $dayInt; 

@@ -68,8 +68,15 @@
                     break;
             }
 
-        $addingDays = $screenDayInt - $dayInt;
-        $movieDate = Date('Y-m-d', strtotime("+". $addingDays ." days"));
+       $addingDays = 0;
+
+        if ($screenDayInt >= $dayInt) {
+            $addingDays = $screenDayInt - $dayInt; 
+        } else {
+            $addingDays = (7 - $dayInt) + $screenDayInt;
+        }
+
+        $movieDate = date('Y-m-d', strtotime("+" . $addingDays . " days"));
         $movie = new \app\models\Movie();
         $movie = $movie->getByID($data->movie_id);
     ?>

@@ -12,6 +12,7 @@ class Ticket extends \app\core\Controller {
         
         $selectedSeats = $_POST['seats'];
         $numberOfSeats = sizeof($selectedSeats);
+         date_default_timezone_set('America/Montreal');
 
         $order = new \app\models\Order();
         $order->user_id = $_SESSION['user_id'];
@@ -21,8 +22,6 @@ class Ticket extends \app\core\Controller {
         $order->number_tickets = $numberOfSeats;
         $order->insert();
 
-        
-        date_default_timezone_set('America/Montreal');
 
             $timestamp = date("Y-m-d");
             $timestamp = strtotime($timestamp);

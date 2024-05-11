@@ -1131,30 +1131,54 @@ class AcceptanceTester extends \Codeception\Actor
         $this->see('Book Tickets for Example Movie 2');
         $this->see('Sunday : 01:00:00');
      }
+     //-------------------023BOOKTICKETS----------------------
 
     /**
-     * @Given I am on the Seat Selection page
+     * @Given I have selected seat with the id :num1:num2
      */
-     public function iAmOnTheSeatSelectionPage()
+     public function iHaveSelectedSeatWithTheId($num1, $num2)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the Seat Selection page` is not defined");
+         $this->checkOption('#12');
+        $this->seeCheckboxIsChecked('#12');
      }
 
     /**
-     * @Given I select seat :num1:num2
+     * @Given I have selected seat with the id of :num1:num2
      */
-     public function iSelectSeat($num1, $num2)
+     public function iHaveSelectedSeatWithTheIdOf($num1, $num2)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I select seat :num1:num2` is not defined");
+         $this->checkOption('#13');
+        $this->seeCheckboxIsChecked('#13');
      }
 
     /**
-     * @Then I am redirected to the cart page where the order information is displayed
+     * @Then an order should be made with user id corresponding to the email :arg1 with both seats
      */
-     public function iAmRedirectedToTheCartPageWhereTheOrderInformationIsDisplayed()
+     public function anOrderShouldBeMadeWithUserIdCorrespondingToTheEmailWithBothSeats($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the cart page where the order information is displayed` is not defined");
+        $userId = $this->grabFromDatabase('user', 'user_id',['email like' => 'test@email.com']);
+
+        $date = date("Y-m-d");
+         $this->seeInDatabase('orders', ['user_id' => $userId, 'total_price' => 27.577, 'number_tickets' => 2, 'order_date' => $date]);
+
+        $this->seeInDatabase('ticket', ['movie_day' => "Sunday", 'movie_time' => "01:00:00", 'seat_id' => 13]);
+        $this->seeInDatabase('ticket', ['movie_day' => "Sunday", 'movie_time' => "01:00:00", 'seat_id' => 12]);
      }
+
+
+    /**
+     * @Then I am redirected to Ticket Cart page with the correct order
+     */
+     public function iAmRedirectedToTicketCartPageWithTheCorrectOrder()
+     {
+         $this->see('CART');
+         $this->see('Example Movie 2', '.card-title');
+         $this->see('Sunday : 01:00:00');
+         $this->see('Seat Number: 12');
+         $this->see('Seat Number: 13');
+     }
+
+     //-------------------024VIEWORDERCART------------------------
 
     /**
      * @Given I have selected a seat with id :arg1 and a seat with id :arg2

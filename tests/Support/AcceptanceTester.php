@@ -1280,20 +1280,13 @@ class AcceptanceTester extends \Codeception\Actor
 
      //-------------------------026ORDERHISTORY------------------------
 
-    /**
-     * @Given I am on my profile page
+      /**
+     * @Given I am on the profile page for :arg1
      */
-     public function iAmOnMyProfilePage2()
+     public function iAmOnTheProfilePageFor($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on my profile page` is not defined");
-     }
-
-    /**
-     * @Given I logged into account :arg1
-     */
-     public function iLoggedIntoAccount($arg1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I logged into account :arg1` is not defined");
+         $this->testLogin();
+         $this->amOnPage("/User/profile");
      }
 
     /**
@@ -1301,16 +1294,34 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnPurchaseHistory()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on Purchase History` is not defined");
+         $this->click('a[name="purchaseHistory"]');
      }
 
     /**
-     * @Then I should be redirected to the purchase hostory page and I should see the order for :arg1 on :arg2 at ":num2::num3:num3::num3:num3
+     * @Then I should be redirected to the purchase history page
      */
-     public function iShouldBeRedirectedToThePurchaseHostoryPageAndIShouldSeeTheOrderForOnAt($num1, $num2, $num3, $num4, $num5, $num6, $arg1, $arg2)
+     public function iShouldBeRedirectedToThePurchaseHistoryPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I should be redirected to the purchase hostory page and I should see the order for :arg1 on :arg2 at :num2::num3:num3::num3:num3` is not defined");
+         $this->amOnPage("/User/purchaseHistory");
      }
+
+        /**
+     * @Then I should see my order for Example Movie :num1
+     */
+     public function iShouldSeeMyOrderForExampleMovie($num1)
+     {
+        $orderid = $this->grabFromDatabase('ticket', 'order_id', ['movie_day' => "Sunday", 'movie_time' => "01:00:00", 'seat_id' => 13]);
+
+         $this->see("Order number: " . $orderid);
+         $this->see("Example Movie 2");
+         $this->see("Sunday");
+         $this->see("01:00:00");
+         $this->see("Seat 12");
+         $this->see("Seat 13");
+     }
+
+
+     //---------------------029userlogout------------------------
 
     /**
      * @Given that I am logged into the user account “John Smith”

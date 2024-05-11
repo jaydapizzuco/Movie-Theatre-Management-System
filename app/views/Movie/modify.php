@@ -54,31 +54,6 @@
                 <input type="text" class="form-control" name="trailer" placeholder="<?= __('Link to the trailer')?>" value='<?= $data->trailer ?>' required>
             </div><br>
 
-            <h1><?= __('Add a Screening Time')?></h1>
-            <div class="form-group">
-                <select name="days" id="days">
-                    <option value="sunday"><?= __('Sunday')?></option>
-                    <option value="monday"><?= __('Monday')?></option>
-                    <option value="tuesday"><?= __('Tuesday')?></option>
-                    <option value="wednesday"><?= __('Wednesday')?></option>
-                    <option value="thursday"><?= __('Thursday')?></option>
-                    <option value="friday"><?= __('Friday')?></option>
-                    <option value="saturday"><?= __('Saturday')?></option>
-                </select>
-            </div><br>
-
-            <div class="form-group">
-                <select name="times" id="times">
-                    <option value="1:00">1:00</option>
-                    <option value="3:20">3:20</option>
-                    <option value="6:30">6:30</option>
-                    <option value="7:05">7:05</option>
-                    <option value="8:20">8:20</option>
-                    <option value="9:15">9:15</option>
-                    <option value="10:00">10:00</option>
-                </select>
-            </div><br>
-
             <div class="form-group">
                 <input type="submit" name="action" value="<?= __('Update')?>"/><br><br>
                 <a href="/User/adminProfile"><?= __('Cancel')?></a>

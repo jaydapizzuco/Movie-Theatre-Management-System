@@ -983,7 +983,11 @@ class AcceptanceTester extends \Codeception\Actor
      {
          $userId = $this->grabFromDatabase('user', 'user_id',['email like' => 'test@email.com']);
          $this->seeInDatabase('orders', ['user_id' => $userId, 'total_price' => 13.7885, 'number_tickets' => 1]);
-         //$dateOrder = $this->grabFromDatabase('orders', 'order_date',['user_id like' => $userId]);
+         // $dateOrder = $this->grabFromDatabase('orders', 'order_date',['user_id like' => $userId]);
+
+         //$date =  date("Y-m-d");
+
+         //$this->assertEquals($date,$dateOrder);
          //$this->seeDateIsToday($dateOrder);
          //$this->assertTrue(_ParseDate($dateOrder)->isToday());
          //\PHPUnit_Framework_Assert::assertTrue($this->_ParseDate($dateOrder)->isToday());
@@ -1051,11 +1055,13 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnTheTrashCanButtonWhereTheSeatDisplayedIs($num1, $num2)
      {
-        $userID = $this->grabFromDatabase('users', 'users_id',['email like' => 'test@email.com']);
+        $userID = $this->grabFromDatabase('user', 'user_id',['email like' => 'test@email.com']);
 
-         // $orderId = $this->grabFromDatabase('orders', 'order_id',['user_id like' => $userID, 'total_price' => '13.7885', 'order_date' => todays date]);
+        $date = date("Y-m-d");
 
-         $this->click()
+         $orderId = $this->grabFromDatabase('orders', 'order_id',['user_id like' => $userID, 'total_price' => '13.7885', 'order_date' =>$date]);
+
+         $this->click('a[name="' . $orderId . '"]');
      }
 
     /**
@@ -1063,23 +1069,21 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheOrderDeletePage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the order delete page` is not defined");
+        $this->seeInCurrentUrl("/Order/delete");
      }
 
-    /**
-     * @When I click delete the order gets removed from the cart
+        /**
+     * @When I click delete the order gets removed from the database
      */
-     public function iClickDeleteTheOrderGetsRemovedFromTheCart()
+     public function iClickDeleteTheOrderGetsRemovedFromTheDatabase()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click delete the order gets removed from the cart` is not defined");
-     }
+         $userID = $this->grabFromDatabase('user', 'user_id',['email like' => 'test@email.com']);
 
-    /**
-     * @When the order gets removed from the database
-     */
-     public function theOrderGetsRemovedFromTheDatabase()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the order gets removed from the database` is not defined");
+        $date = date("Y-m-d");
+
+         $orderId = $this->grabFromDatabase('orders', 'order_id',['user_id like' => $userID, 'total_price' => '13.7885', 'order_date' =>$date]);
+         $this->click("delete");
+         $this->dontSeeInDatabase('orders', ['order_id' => $orderId]);
      }
 
     /**
@@ -1087,7 +1091,9 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheOrderHistoryPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the order history page` is not defined");
+        $this->amOnPage('User/purchaseHistory');
+        $this->dontSee("Example Movie 2");
+        $this->dontSee("Sunday");
      }
 
     /**

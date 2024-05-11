@@ -57,7 +57,7 @@
         <?php  ?>
         <form method="post">
             <div class="form-group">
-                <input type="submit" name="action" value=" <?= __('Delete')?> "/><br><br>
+                <input type="submit" name="delete" value=" <?= __('Delete')?> "/><br><br>
                 <a href="/User/purchaseHistory"><?= __('Cancel')?></a>
             </div><br>
           </form>   

@@ -1322,22 +1322,31 @@ class AcceptanceTester extends \Codeception\Actor
 
 
      //---------------------029userlogout------------------------
-
-    /**
+         /**
      * @Given that I am logged into the user account “John Smith”
      */
      public function thatIAmLoggedIntoTheUserAccountJohnSmith()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `that I am logged into the user account “John Smith”` is not defined");
+        $this->testLogin();
      }
 
     /**
-     * @Given my userId is :arg1
+     * @Given I am on my profile page
      */
-     public function myUserIdIs($arg1)
+     public function iAmOnMyProfilePagee()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `my userId is :arg1` is not defined");
+        $this->amOnPage("/User/profile");
      }
+
+    /**
+     * @Then when I try to click on Account I should be redirected to the login page
+     */
+     public function whenITryToClickOnAccountIShouldBeRedirectedToTheLoginPage()
+     {
+        $this->click('a[name="account"]');
+        $this->seeInCurrentUrl("/User/login");
+     }
+
 
     /**
      * @Given the account with email “demo@email:num1com”

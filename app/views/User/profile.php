@@ -30,21 +30,22 @@
     </nav><br>
 
     <div class="container2">
-        <p><?= __('Name:')?><?= $data->name ?></p>
-        <p><?= __('Email:')?> <?= $data->email ?></p>
+        <h2><?= __('Name:')?><?= $data->name ?></h2>
+        <h2><?= __('Email:')?> <?= $data->email ?></h2>
      
 
         <form action="/User/update">
-            <button type="submit"><?= __('Edit Profile Information')?></button>
-        </form><br><br><br><br><br>
+            <button class = "addbutton" type="submit"><?= __('Edit Profile Information')?></button>
+        </form><br>
+        <form action="/User/setup2fa">
+            <button class = "addbutton" type="submit"><?= __('Set Up 2FA')?></button>
+        </form><br>
 
         <form action="/User/logout">
-            <button type="submit"><?= __('Logout')?></button>
+            <button class="btn btn-danger" type="submit"><?= __('Logout')?></button>
         </form>
 
-        <form action="/User/setup2fa">
-            <button type="submit"><?= __('Set Up 2FA')?></button>
-        </form>
+        
     </div>
 
     <footer>

@@ -29,19 +29,17 @@
     </nav><br>
 
      <div class="container2">
-        <p><?= __('Name: ')?><?= $data->name ?></p>
-        <p><?= __('Email: ')?><?= $data->email ?></p>
+        <h2><?= __('Name: ')?><?= $data->name ?></h2>
+        <h2><?= __('Email: ')?><?= $data->email ?></h2>
 
         <form action="/Movie/create">
-            <button type="submit" name="add"><?= __('Add a New Movie')?></button>
-        </form><br><br><br><br><br>
+            <button type="submit" class="addbutton"name="add"><?= __('Add a New Movie')?></button>
+        </form><br>
 
     <form action ='/User/logout'>
-        <div class="form-group">
-            <input type="submit" name="action" value="Logout"/><br><br>
-        </div><br>
-    </div>
+            <input type="submit" name="action" class="btn btn-danger" value="Logout"/><br><br>
     </form>
+     </div>
 
     <footer>
         <br>Copyright &copy 2024 

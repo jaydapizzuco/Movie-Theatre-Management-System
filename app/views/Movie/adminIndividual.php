@@ -39,7 +39,9 @@
 
                 <p><strong>Revenue:</strong> $<?= $data->ticket_revenue ?></p>
             </div>
+             <a href='/Movie/update?id=<?= $movie->movie_id ?>'> <h2><?= __('Update Information') ?></h2></i></a>
         </div>
+        <a href="/Review/index?movie_id=<?= $movie->movie_id ?>" class="btn btn-primary"><?= __('View Reviews') ?></a>
     </div><br><br>
 
     <div class="container">
@@ -53,10 +55,7 @@
             foreach ($screenings as $index => $screening) { ?>
                <h2><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></h2>
             <?php } ?>
-
-            <a href='Movie/update?id=<?= $movie->movie_id ?>'> <h2><?= __('Update Information') ?></h2></i></a>
-            <a href='Movie/update?id=<?= $movie->movie_id ?>'> <h2><?= __('Update Information') ?></h2></i></a>
-            <a href="/Review/index?movie_id=<?= $movie->movie_id ?>" class="btn btn-primary"><?= __('View Reviews') ?></a>
+            <a href='/MovieSchedule/create?id=<?= $movie->movie_id ?>' class="btn btn-primary"><?= __('Add a New Screening Time')?></a>
              </div><br><br>
     </form>
 </div>

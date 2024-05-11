@@ -1178,54 +1178,27 @@ class AcceptanceTester extends \Codeception\Actor
          $this->see('Seat Number: 13');
      }
 
-     //-------------------024VIEWORDERCART------------------------
-
-    /**
-     * @Given I have selected a seat with id :arg1 and a seat with id :arg2
-     */
-     public function iHaveSelectedASeatWithIdAndASeatWithId($arg1, $arg2)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I have selected a seat with id :arg1 and a seat with id :arg2` is not defined");
-     }
-
-    /**
-     * @Given I am on the cart page
-     */
-     public function iAmOnTheCartPage2()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the cart page` is not defined");
-     }
-
-    /**
-     * @Then I am redirected to the checkout page
-     */
-     public function iAmRedirectedToTheCheckoutPage()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the checkout page` is not defined");
-     }
-
-    /**
-     * @Then the title should be :arg1
-     */
-     public function theTitleShouldBe($arg1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the title should be :arg1` is not defined");
-     }
+    //----------------------0250CONFIRMORDER------------------------
 
     /**
      * @Given I am on checkout page
      */
      public function iAmOnCheckoutPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on checkout page` is not defined");
+        $this->testLogin();
+         $orderid = $this->grabFromDatabase('ticket', 'order_id', ['movie_day' => "Sunday", 'movie_time' => "01:00:00", 'seat_id' => 13]);
+         $this->amOnPage("/Order/checkout?id=".$orderid);
      }
 
-    /**
-     * @Given I have an order containing two tickets with seat ids :num:num:num4:num2 and :num:num:num4:num4 for :arg1 on :arg2
+        /**
+     * @Given I see my order and both of my tickets
      */
-     public function iHaveAnOrderContainingTwoTicketsWithSeatIdsAndForOn($num1, $num2, $num3, $num4, $arg1, $arg2)
+     public function iSeeMyOrderAndBothOfMyTickets()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I have an order containing two tickets with seat ids :num:num:num4:num2 and :num:num:num4:num4 for :arg1 on :arg2` is not defined");
+        $this->see("Example Movie 2");
+         $this->see("Sunday : 01:00:00");
+         $this->see("Seat number: 12");
+         $this->see("Seat number: 13");
      }
 
     /**
@@ -1233,7 +1206,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iEnterMy($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I enter my :arg1` is not defined");
+        $this->fillField("cardholder_name", "John");
      }
 
     /**
@@ -1241,7 +1214,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iEnterIEnterA($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I enter I enter a :arg1` is not defined");
+         $this->fillField("card_no","1927139734687129");
      }
 
     /**
@@ -1249,7 +1222,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iEnterISelectTheMonth($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I enter I select the month :arg1` is not defined");
+         $this->selectOption("months","04");
      }
 
     /**
@@ -1257,7 +1230,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iSelectTheYear($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I select the year :arg1` is not defined");
+         $this->selectOption("years","25");
      }
 
     /**
@@ -1265,16 +1238,47 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iEnterTheCvc($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I enter the cvc :arg1` is not defined");
+        $this->fillField("security_no","869");
+     }
+    /**
+     * @When I click on Confirm Payment button
+     */
+     public function iClickOnConfirmPaymentButton()
+     {
+        $this->click("pay");
      }
 
-    /**
+      /**
      * @Then I should be redirected to the receipt page
      */
      public function iShouldBeRedirectedToTheReceiptPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I should be redirected to the receipt page` is not defined");
+        $this->see("Booking Successful");
      }
+
+    /**
+     * @Then I should see my receipt
+     */
+     public function iShouldSeeMyReceipt()
+     {
+         $this->see("Receipt");
+         $this->see("Seats: 12, 13,");
+     }
+
+    /**
+     * @Then the cart status for my order should be changed to :num1 in the database
+     */
+     public function theCartStatusForMyOrderShouldBeChangedToInTheDatabase($num1)
+     {
+         $orderid = $this->grabFromDatabase('ticket', 'order_id', ['movie_day' => "Sunday", 'movie_time' => "01:00:00", 'seat_id' => 13]);
+
+         $userId = $this->grabFromDatabase('user', 'user_id',['email like' => 'test@email.com']);
+
+         $this->seeInDatabase('orders', ['order_id' => $orderid,'user_id' => $userId, 'cart_status'=> 0]);
+       
+     }
+
+     //-------------------------026ORDERHISTORY------------------------
 
     /**
      * @Given I am on my profile page

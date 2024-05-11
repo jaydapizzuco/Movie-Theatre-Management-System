@@ -161,7 +161,7 @@
                 <input type="number" class="form-control" name="security_no" placeholder="<?= __('Security Number (CVC)') ?>" oninput="limitDigits(3,this)" required>
             </div>
             <div class="mb-3">
-                <button type="submit" class="btn btn-primary"><?= __('Confirm Payment') ?></button>
+                <button type="submit" name ="pay" class="btn btn-primary"><?= __('Confirm Payment') ?></button>
             </div>
             <div class="mb-3">
                 <a href="/Order/cart" class="btn btn-secondary"><?= __('Cancel') ?></a>

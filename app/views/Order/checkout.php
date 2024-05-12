@@ -116,9 +116,6 @@ input:invalid:focus {
     </div>
 
 
-        <footer class="footer2">
-        <br>Copyright &copy 2024 
-    </footer>
 
 </body>
 

@@ -1781,7 +1781,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnThePage($arg1)
      {
-        $this->amOnPage('/Reviews/adminIndex');
+        $this->amOnPage('/Review/adminIndex');
      }
 
      /**
@@ -1789,7 +1789,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theReviewTitleIsBestMovieIveSeenInALongTime()
      {
-        $this->see('Best movie I’ve seen in a long time!!!');
+        $reviewid = $this->grabFromDatabase('review', 'review_id', ['review_text'=>'Best movie I’ve seen in a long time!!!']);
+        $this->see('Best movie I’ve seen in a long time!!!', 'p[name="reviewtext'.$reviewid.'"]');
      }
 
     /**
@@ -1798,16 +1799,16 @@ class AcceptanceTester extends \Codeception\Actor
      public function iClickOnTheApproveButton()
      {
         $reviewId = $this->grabFromDatabase('review', 'review_id', ['review_text'=>'Best movie I’ve seen in a long time!!!']);
-        $this->click('a[name="approve_review'.$reviewId.'"]');
+        $this->click('button[value="'.$reviewId.'"]');
      }
 
-    /**
-     * @Then the review with description “Best movie I’ve seen in a long time!!!”, :arg1Admin Reviews index" page
+     /**
+     * @Then the review with description “Best movie I’ve seen in a long time!!!”, gets removed from the Admin Reviews index page
      */
-     public function theReviewWithDescriptionBestMovieIveSeenInALongTimeAdminReviewsIndexPage($arg1)
+     public function theReviewWithDescriptionBestMovieIveSeenInALongTimeGetsRemovedFromTheAdminReviewsIndexPage()
      {
-         $this->seeInDatabase('review', ['review_text'=>'Best movie I’ve seen in a long time!!!', 'approved'=>'1']);
-         $this->dontSee('Best movie I’ve seen in a long time!!!');
+        $this->seeInDatabase('review', ['review_text'=>'Best movie I’ve seen in a long time!!!', 'approved'=>'1']);
+         $this->dontSee('p["Best movie I’ve seen in a long time!!!"]');
      }
 
     /**
@@ -1815,7 +1816,10 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theReviewWithDescriptionBestMovieIveSeenInALongTimeGetsAddedOnTheReviewsPageFor($arg1)
      {
-        
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title'=>'Abigail']);
+        $this->amOnPage('/Review/index?movie_id='.$movie_id);
+        $reviewId = $this->grabFromDatabase('review', 'review_id', ['review_text'=>'Best movie I’ve seen in a long time!!!']);
+        $this->see('Best movie I’ve seen in a long time!!!','p[name="review'.$reviewId.'"]');
      }
 
      //-------------- 038REVIEWSREJECT -------------------

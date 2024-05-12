@@ -135,12 +135,12 @@
             <img src="<?= $review->movie_image ?>" alt="Movie Cover" style="width: 200px; height: 300px;">
             <h3><?= $review->movie_title ?></h3>
             <p><?= $user->name ?></p>
-            <p><?= $review->review_text ?></p>
+            <p name="reviewtext<?= $review->review_id ?>"><?= $review->review_text ?></p>
             <p><?= $review->review_date ?></p>
             <form method="post">
                 <input type="hidden" name="review_id" value="<?= $review->review_id ?>">
-                <button type="submit" name="approve_review<?= $review->review_id ?>" value="<?= $review->review_id ?>" class="button approve"><?= __('Approve')?></button>
-                <button type="submit" name="reject_review<?= $review->review_id ?>" value="<?= $review->review_id ?>" class="button reject"><?= __('Reject')?></button>
+                <button type="submit" name="approve_review" value="<?= $review->review_id ?>" class="button approve"><?= __('Approve')?></button>
+                <button type="submit" name="reject_review" value="<?= $review->review_id ?>" class="button reject"><?= __('Reject')?></button>
             </form>
         </div>
     <?php endforeach; ?>

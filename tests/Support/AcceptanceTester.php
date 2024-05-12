@@ -1392,12 +1392,15 @@ class AcceptanceTester extends \Codeception\Actor
         $this->see("Demo");
      }
 
+     //-------------- 031VIEWHOMEPAGE-------------------
+
     /**
      * @Given I am on the profile page
      */
      public function iAmOnTheProfilePage2()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the profile page` is not defined");
+        $this->demoLogin();
+        $this->amOnPage('/User/profile');
      }
 
     /**
@@ -1405,7 +1408,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnHomePage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on Home Page` is not defined");
+        $this->click('a[name="homepage"]');
      }
 
     /**
@@ -1413,7 +1416,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheHomePage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the Home page` is not defined");
+        $this->see('All Movies');
      }
 
     /**
@@ -1421,7 +1424,9 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theFirstMovieDisplayedIsMoneyMan()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the first movie displayed is Money Man` is not defined");
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Monkey Man"]);
+        $this->click('a[name="'.$movie_id.'"]');
+        $this->see('Monkey Man');
      }
 
     /**

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 12, 2024 at 05:15 AM
+-- Generation Time: May 12, 2024 at 05:27 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `movietheatre`
 --
-CREATE DATABASE IF NOT EXISTS `movietheatre` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `movietheatre`;
 
 -- --------------------------------------------------------
 
@@ -29,7 +27,6 @@ USE `movietheatre`;
 -- Table structure for table `about`
 --
 
-DROP TABLE IF EXISTS `about`;
 CREATE TABLE `about` (
   `about_id` int(11) NOT NULL,
   `about_email` varchar(50) NOT NULL,
@@ -49,7 +46,6 @@ INSERT INTO `about` (`about_id`, `about_email`, `description`) VALUES
 -- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL DEFAULT 1,
   `username` varchar(50) NOT NULL,
@@ -71,7 +67,6 @@ INSERT INTO `admin` (`admin_id`, `username`, `email`, `password_hash`) VALUES
 -- Table structure for table `genre`
 --
 
-DROP TABLE IF EXISTS `genre`;
 CREATE TABLE `genre` (
   `genre_id` int(11) NOT NULL,
   `genre_title` varchar(20) NOT NULL
@@ -83,7 +78,6 @@ CREATE TABLE `genre` (
 -- Table structure for table `movie`
 --
 
-DROP TABLE IF EXISTS `movie`;
 CREATE TABLE `movie` (
   `movie_id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
@@ -102,7 +96,7 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`movie_id`, `title`, `image`, `description`, `length`, `director`, `trailer`, `release_date`, `ticket_revenue`, `status`) VALUES
-(4, 'Monkey Man (222)', 'https://upload.wikimedia.org/wikipedia/en/2/2b/Monkey_Man_film.jpg', 'Oscar® nominee Dev Patel (Lion, Slumdog Millionaire) achieves an astonishing, tour-de-force feature directing debut with an action', 122, 'Dev Patel', 'https://www.youtube.com/watch?v=g8zxiB5Qhsc', '2024-04-22', 0, 1),
+(4, 'Monkey Man', 'https://upload.wikimedia.org/wikipedia/en/2/2b/Monkey_Man_film.jpg', 'Oscar® nominee Dev Patel (Lion, Slumdog Millionaire) achieves an astonishing, tour-de-force feature directing debut with an action', 122, 'Dev Patel', 'https://www.youtube.com/watch?v=g8zxiB5Qhsc', '2024-04-22', 0, 1),
 (18, 'Abigail', 'https://upload.wikimedia.org/wikipedia/en/b/bc/Abigail_Official_Poster.jpg', 'A group of would-be criminals kidnaps the 12-year-old daughter of a powerful underworld figure. Holding her for ransom in an isolated mansion, their plan starts to unravel when they discover their young captive is actually a bloodthirsty vampire.', 109, 'Matt Bettinelli-Olpin', 'https://www.youtube.com/watch?v=3PsP8MFH8p0', '2024-04-22', 0, 1),
 (19, 'Spy X Family Code: White', 'https://upload.wikimedia.org/wikipedia/en/a/ad/Spy_%C3%97_Family_Code_White_movie_poster.png', 'A spy and an assassin keep their double lives to themselves while pretending to be the perfect family.', 111, 'Takashi Katagiri', 'https://www.youtube.com/watch?v=m5TxWbtQ7qU', '2024-04-22', 0, 1),
 (20, 'The Fall Guy', 'https://upload.wikimedia.org/wikipedia/en/1/1f/The_Fall_Guy_%282024%29_poster.jpg', 'After leaving the business one year earlier, battle-scarred stuntman Colt Seavers springs back into action when the star of a big studio movie suddenly disappears. As the mystery surrounding the missing actor deepens, Colt soon finds himself ensnared in a sinister plot that pushes him to the edge of a fall more dangerous than any stunt.', 127, 'David Leitch', 'https://www.youtube.com/watch?v=EySdVK0NK1Y', '2024-04-22', 0, 1),
@@ -119,7 +113,6 @@ INSERT INTO `movie` (`movie_id`, `title`, `image`, `description`, `length`, `dir
 -- Table structure for table `movie_genre`
 --
 
-DROP TABLE IF EXISTS `movie_genre`;
 CREATE TABLE `movie_genre` (
   `movie_id` int(11) NOT NULL,
   `genre_id` int(11) NOT NULL
@@ -131,7 +124,6 @@ CREATE TABLE `movie_genre` (
 -- Table structure for table `movie_schedule`
 --
 
-DROP TABLE IF EXISTS `movie_schedule`;
 CREATE TABLE `movie_schedule` (
   `schedule_id` int(11) NOT NULL,
   `movie_id` int(11) NOT NULL,
@@ -170,7 +162,6 @@ INSERT INTO `movie_schedule` (`schedule_id`, `movie_id`, `day`, `time_id`) VALUE
 -- Table structure for table `orders`
 --
 
-DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -195,7 +186,6 @@ INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `numbe
 -- Table structure for table `review`
 --
 
-DROP TABLE IF EXISTS `review`;
 CREATE TABLE `review` (
   `review_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -220,7 +210,6 @@ INSERT INTO `review` (`review_id`, `user_id`, `movie_id`, `stars`, `review_text`
 -- Table structure for table `ticket`
 --
 
-DROP TABLE IF EXISTS `ticket`;
 CREATE TABLE `ticket` (
   `ticket_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
@@ -248,7 +237,6 @@ INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_dat
 -- Table structure for table `times`
 --
 
-DROP TABLE IF EXISTS `times`;
 CREATE TABLE `times` (
   `time_id` int(11) NOT NULL,
   `time` time NOT NULL
@@ -273,7 +261,6 @@ INSERT INTO `times` (`time_id`, `time`) VALUES
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,

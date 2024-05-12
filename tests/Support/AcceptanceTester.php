@@ -1641,7 +1641,15 @@ class AcceptanceTester extends \Codeception\Actor
          $this->seeInCurrentUrl('/Review/profileindex');
      }
 
-      //-------------- 03601WRITEREVIEWS -------------------
+      //-------------- 03600WRITEREVIEWS -------------------
+
+     /**
+     * @Given I am logged into Demo User
+     */
+     public function iAmLoggedIntoDemoUser2()
+     {
+         $this->demoLogin();
+     }
 
     /**
      * @Given I am on the individual page for “Movie :num1”
@@ -1650,14 +1658,6 @@ class AcceptanceTester extends \Codeception\Actor
      {
         $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Abigail"]);
         $this->amOnPage("/Movie/individual?id=".$movie_id);
-     }
-
-    /**
-     * @Given “Movie :num1” is found in my order history,
-     */
-     public function movieIsFoundInMyOrderHistory($num1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `“Movie :num1” is found in my order history,` is not defined");
      }
 
     /**
@@ -1700,7 +1700,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToReviewSubmittedPage()
      {
-        $this->seeInCurrentUrl('/Review/submitted');
+        $this->seeInCurrentUrl('/Review/create');
+        $this->see('Thank You for Sharing Your Feedback');
      }
 
     /**
@@ -1710,6 +1711,11 @@ class AcceptanceTester extends \Codeception\Actor
      {
         $this->see('Best movie I’ve seen in a long time!!!');
      }
+
+
+
+
+
 
     /**
      * @Then this review is added to the database

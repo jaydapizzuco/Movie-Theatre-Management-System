@@ -30,7 +30,11 @@
 <body>
         <div class="receipt">
             <p><?= __('Receipt #: ')?><?= $data->order_id ?></p>
-            <p><?= __('Showtime: ')?><?= $allTickets[0]->movie_day ?> <?= $allTickets[0]->movie_time ?></p>
+            <?php
+             $date = new DateTime( $allTickets[0]->movie_date);
+                            $date = $date->format('F j, Y');
+                            ?>
+            <p><?= __('Showtime: ')?><?= $allTickets[0]->movie_day ?> <?= $date ?> <?= $allTickets[0]->movie_time ?></p>
             <p><?= $movie->title ?></p>
             <p> <?= __('Seats:')?>
             <?php 
@@ -39,7 +43,7 @@
             }
             ?> </p>
             <hr>
-            <p><?= __('Total: $ ')?><?= $data->total_price?></p>
+            <p><?= __('Total: $ ')?><?= round($data->total_price, 2)?></p>
             <p><?= __('Enjoy the Show!')?></p>
 
       </div>

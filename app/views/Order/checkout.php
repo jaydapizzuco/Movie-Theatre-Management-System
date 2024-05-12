@@ -46,11 +46,15 @@ input:invalid:focus {
                     <?php $movie = new \app\models\Movie();
                     $movie = $movie->getById($ticket->movie_id); ?>
                     <h2><?= $movie->title ?></h2>
-                    <p><?= $ticket->movie_day ?> : <?= $ticket->movie_time ?></p>
+                    <?php
+                            $date = new DateTime($ticket->movie_date);
+                            $date = $date->format('F j, Y');
+                            ?>
+                <p> <?= $ticket->movie_day ?> <?= $date ?> <?= $ticket->movie_time ?> </p>
                     <p><?= __('Seat number: ') ?><?= $ticket->seat_id ?></p>
                 </div>
             <?php } ?>
-            <h3><?= __('Total cost: $ ') ?><?= $data->total_price ?></h3>
+            <h3><?= __('Total cost: $ ') ?><?=  round($data->total_price, 2) ?></h3>
         </div>
 
         <!-- Payment form section -->

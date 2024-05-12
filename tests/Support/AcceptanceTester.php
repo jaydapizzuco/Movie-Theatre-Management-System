@@ -1883,7 +1883,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnTheCashIconAssociatedWith($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on the cash icon associated with :arg1` is not defined");
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title'=>'Example Movie 2']);
+         $this->click('a[name="revenue'.$movie_id.'"]');
      }
 
     /**
@@ -1891,7 +1892,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iShouldBeRedirectedToTheRevenuePageFor($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I should be redirected to the revenue page for :arg1` is not defined");
+         $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title'=>'Example Movie 2']);
+         $this->seeInCurrentUrl("/Movie/revenue?id=".$movie_id);
      }
 
     /**
@@ -1899,7 +1901,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theTotalTicketRevenueForThisMovieShouldBe($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the total ticket revenue for this movie should be :arg1` is not defined");
+         $this->see('Total Ticket Revenue: $ 23.98');
      }
 
      //-------------- 042DELETEORDER -------------------

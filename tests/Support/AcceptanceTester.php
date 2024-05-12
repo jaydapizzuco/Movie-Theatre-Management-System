@@ -1609,7 +1609,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheReviewsHistoryPage()
      {
-        $this->amOnPage('/Review/profileIndex');
+        $this->amOnPage('/Review/profileindex');
      }
 
     /**
@@ -1619,7 +1619,7 @@ class AcceptanceTester extends \Codeception\Actor
      {
         $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Abigail"]);
         $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
-        $reviewId = $this->grabFromDatabase('review', 'review_id',['user_id' => $userId, 'movie_id' => $movie_id]);
+        $reviewId = $this->grabFromDatabase('review', 'review_id',['user_id' => $user_id, 'movie_id' => $movie_id]);
         $this->click('a[name="delete'.$reviewId.'"]');
      }
 
@@ -1638,7 +1638,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheReviewsHistoryPage($num1)
      {
-         $this->seeInCurrentUrl('/Review/profileIndex');
+         $this->seeInCurrentUrl('/Review/profileindex');
      }
 
       //-------------- 03601WRITEREVIEWS -------------------

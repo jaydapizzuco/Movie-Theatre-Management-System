@@ -1974,6 +1974,13 @@ class AcceptanceTester extends \Codeception\Actor
         $this->dontSeeInDatabase('ticket',['movie_id'=>$movieid,'seat_id'=>'12']);
      }
 
-     //-------------- 044ADMINLOGIN -------------------
      //-------------- 045CHECKREVENUE -------------------
+
+      /**
+     * @Then the total ticket revenue for this movie should be :num1 $
+     */
+     public function theTotalTicketRevenueForThisMovieShouldBe2($num1)
+     {
+        $this->see('Total Ticket Revenue: $ 0');
+     }
 }

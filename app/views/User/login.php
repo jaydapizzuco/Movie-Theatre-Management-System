@@ -11,6 +11,7 @@
 
 <!-- Navigation Bar -->
 <nav>
+     <a name='homepage' href="/Main/index"><?= __('Home Page')?></a> &nbsp&nbsp
     <a href="/User/profile"><?= __('Account')?></a> &nbsp&nbsp
     <a href="/Main/aboutus"><?= __('About Us')?></a> &nbsp&nbsp
     <a href="/Movie/index"><?= __('Movies')?></a>

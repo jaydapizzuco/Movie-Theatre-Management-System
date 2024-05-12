@@ -96,15 +96,18 @@
     </style> -->
 </head>
 <body>
+    <nav>
+         <a name='homepage' href="/Main/index"><?= __('Home Page')?></a> &nbsp&nbsp
+        <a href="/User/profile"><?= __('Account')?></a> &nbsp&nbsp
+        <a href="/Main/aboutus"><?= __('About Us')?></a> &nbsp&nbsp
+        <a href="/Movie/index"><?= __('Movies')?></a>
+        <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
+    </nav>
     <header>
         <h1><?= $data->title ?> <?= __('Reviews')?></h1>
     </header>
 
-    <nav>
-        <a href="/User/profile"><?= __('Account')?></a> &nbsp&nbsp
-        <a href="/Movie/index"><?= __('Movies')?></a>
-        <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
-    </nav>
+
 
     <?php 
 

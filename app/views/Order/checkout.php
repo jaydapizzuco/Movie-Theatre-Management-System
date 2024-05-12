@@ -110,7 +110,9 @@ input:invalid:focus {
                 <button type="submit" name ="pay" class="btn btn-primary"><?= __('Confirm Payment') ?></button>
             </div>
             <div class="mb-3">
-                <a href="/Order/cart" class="btn btn-secondary"><?= __('Cancel') ?></a>
+                <form action= "/Order/incomplete">
+                <a href="/Order/incomplete" class="btn btn-secondary"><?= __('Cancel') ?></a>
+                </form>
             </div>
         </form>
     </div>

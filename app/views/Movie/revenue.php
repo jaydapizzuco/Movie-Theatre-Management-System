@@ -15,7 +15,8 @@
         th, td {
             border: 1px solid #dddddd;
             text-align: left;
-            padding: 8px;
+            padding: 15px;
+            width: 400px;
         }
         th {
             background-color: #f2f2f2;
@@ -47,7 +48,8 @@
                 <th>Order Id</th>
                 <th>User Id</th>
                 <th>Order Date</th>
-                <th>Total Price (Including Taxes)</th>
+                <th>Revenue (Before Taxes)</th>
+                <th>Total Price (After Taxes)</th>
             </tr>
             <?php 
                 foreach ($orders as $index => $order) : 
@@ -56,6 +58,10 @@
                     <td><?= $order->order_id ?></td>
                     <td><?= $order->user_id ?></td>
                     <td><?= $order->order_date ?></td>
+                    <?php
+                    $revenue = ($order->total_price / 13.7885) *11.99
+                     ?>
+                    <td>$ <?= $revenue ?> </td>
                     <td>$ <?= $order->total_price ?></td>
                 </tr>
             <?php endforeach; ?>

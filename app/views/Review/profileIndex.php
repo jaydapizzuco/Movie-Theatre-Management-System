@@ -82,21 +82,20 @@
 
 <body>
 
-<div class="header">
+<header>
     <h1>My Reviews</h1>
-</div>
+</header>
 
 <div class="gallery">
     <?php
     
     $reviewsModel = new \app\models\Review();
     $reviews = $reviewsModel->getReviewsByUser($_SESSION['user_id']);
-
+?>
     
-    if (!empty($reviews)) {
-       
-        foreach ($reviews as $review):
-           
+      <?php if (!empty($reviews)) : ?>
+                <?php foreach ($reviews as $review) : ?>
+           <?php
             $movieModel = new \app\models\Movie();
             $movie = $movieModel->getByID($review->movie_id);
             ?>
@@ -116,18 +115,15 @@
                     <a name= "delete<?= htmlspecialchars($review->review_id) ?>" href="/Review/delete?id=<?= $review->review_id ?>"><button class="button"><?= __('Delete')?></button></a>
                 </div>
             </div>
-        <?php
-        endforeach;
-    } else {
-       
-        echo "<p><?= __('No reviews found.')?></p>";
-    }
-    ?>
+        <?php endforeach; ?>
+            <?php else : ?>
+                <p><?= __('You have not written any reviews yet.')?></p>
+            <?php endif; ?>
 </div>
 
-<div class="footer">
+<footer>
     <p>Footer</p>
-</div>
+</footer>
 
 </body>
 </html>

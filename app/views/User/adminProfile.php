@@ -11,7 +11,7 @@
 <!-- Navigation Bar -->
 <nav>
     <a href="/User/adminProfile"><?= __('Account')?></a> &nbsp&nbsp
-    <a href="/Movie/index"><?= __('Movies')?></a>
+    <a href="/Movie/adminIndex"><?= __('Movies')?></a>
 </nav>
 
 <body>

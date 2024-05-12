@@ -1712,35 +1712,58 @@ class AcceptanceTester extends \Codeception\Actor
         $this->see('Best movie I’ve seen in a long time!!!');
      }
 
+     //--------------- 03601WRITEREVIEWS ----------------------
 
+     /**
+     * @Given I am on the individual page for movie Monkey Man
+     */
+     public function iAmOnTheIndividualPageForMovieMonkeyMan()
+     {
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Monkey Man"]);
+        $this->amOnPage("/Movie/individual?id=".$movie_id);
+     }
 
+     /**
+     * @Then I am redirected to the create review page for Movie :num1
+     */
+     public function iAmRedirectedToTheCreateReviewPageForMovie($num1)
+     {
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Monkey Man"]);
+        $this->seeInCurrentUrl('/Review/create?movie_id='.$movie_id);
+     }
 
+     /**
+     * @Then the message I write is I really did not enjoy this movie,
+     */
+     public function theMessageIWriteIsIReallyDidNotEnjoyThisMovie()
+     {
+        $this->fillField('stars', '1');
+         $this->fillField('review_text', 'I really did not enjoy this movie');
+     }
 
+      /**
+     * @Then I am redirected to submitted review page
+     */
+     public function iAmRedirectedToSubmittedReviewPage()
+     {
+        $this->seeInCurrentUrl('/Review/create');
+        $this->see('Thank You for Sharing Your Feedback');
+     }
+
+     /**
+     * @Then I see my review with the message “I really did not enjoy this movie”
+     */
+     public function iSeeMyReviewWithTheMessageIReallyDidNotEnjoyThisMovie()
+     {
+        $this->see('I really did not enjoy this movie');
+     }
 
     /**
      * @Then this review is added to the database
      */
      public function thisReviewIsAddedToTheDatabase()
      {
-        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Abigail"]);
-        $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
-        $this->seeInDatabase('review',['movie_id'=>$movie_id, 'user_id'=>$user_id, 'review_text'=>'Best movie I’ve seen in a long time!!!']);
-     }
-
-    /**
-     * @Then the message I write is “I really did not enjoy this movie”,
-     */
-     public function theMessageIWriteIsIReallyDidNotEnjoyThisMovie()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the message I write is “I really did not enjoy this movie”,` is not defined");
-     }
-
-    /**
-     * @Then I see my review with the message “I really did not enjoy this movie”
-     */
-     public function iSeeMyReviewWithTheMessageIReallyDidNotEnjoyThisMovie()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I see my review with the message “I really did not enjoy this movie”` is not defined");
+        $this->seeInDatabase('review', ['review_text'=>'I really did not enjoy this movie']);
      }
 
      //-------------- 03600WRITEREVIEWS -------------------

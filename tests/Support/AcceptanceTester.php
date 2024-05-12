@@ -1506,7 +1506,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmLoggedIntoDemoUser()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am logged into “Demo User”` is not defined");
+         $this->demoLogin();
      }
 
     /**
@@ -1514,23 +1514,18 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheReviewsHistoryPageForMyProfile()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the reviews history page for my profile` is not defined");
+         $this->amOnPage('/Review/profileIndex');
      }
 
     /**
-     * @Given the title of the review is “Good Movie!”
+     * @Given the title of the review is “Good Movie!” and the message is “hello”,
      */
-     public function theTitleOfTheReviewIsGoodMovie()
+     public function theTitleOfTheReviewIsGoodMovieAndTheMessageIshello()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the title of the review is “Good Movie!”` is not defined");
-     }
-
-    /**
-     * @Given the message is “hello”,
-     */
-     public function theMessageIshello()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the message is “hello”,` is not defined");
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Monkey Man"]);
+        $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
+        $reviewId = $this->grabFromDatabase('review', 'review_id',['user_id' => $userId, 'movie_id' => $movie_id]);
+        $this->click('a[name="'.$reviewId.'"]');
      }
 
     /**
@@ -1538,7 +1533,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iEditTheReviewToSaychanged()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I edit the review to say “changed”` is not defined");
+        $this->fillField('review_text', 'changed');
      }
 
     /**
@@ -1546,23 +1541,15 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function clickSubmitTheReview()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `click Submit the review` is not defined");
+        $this->click('Submit Review');
      }
 
     /**
-     * @Then my review with title “Good Movie”
+     * @Then my review with title “Good Movie” and message “hello” is changed in the database to have the message as “changed”
      */
-     public function myReviewWithTitleGoodMovie()
+     public function myReviewWithTitleGoodMovieAndMessagehelloIsChangedInTheDatabaseToHaveTheMessageAschanged()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `my review with title “Good Movie”` is not defined");
-     }
-
-    /**
-     * @Then message “hello” is changed in the database to have the message as “changed”
-     */
-     public function messagehelloIsChangedInTheDatabaseToHaveTheMessageAschanged()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `message “hello” is changed in the database to have the message as “changed”` is not defined");
+         throw new \PHPUnit\Framework\IncompleteTestError("Step `my review with title “Good Movie” and message “hello” is changed in the database to have the message as “changed”` is not defined");
      }
 
     /**
@@ -1580,7 +1567,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheHomePage2()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the Home page` is not defined");
+        $this->amOnPage('/Main/index');
      }
 
     /**
@@ -1588,7 +1575,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnAboutUsInTheNavigationBar()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on About us in the navigation bar` is not defined");
+        $this->click('a[name="aboutus"]');
      }
 
     /**
@@ -1596,7 +1583,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheAboutUsPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the about us page` is not defined");
+        $this->seeInCurrentUrl("/Main/aboutus");
      }
 
     /**
@@ -1604,7 +1591,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theEmailDisplayedIs($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the email displayed is :arg1` is not defined");
+        $this->see('movietheater@email.com');
      }
 
       //-------------- 035DELETEREVIEWS -------------------
@@ -1614,7 +1601,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmLoggedIntoTheAccountUser($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am logged into the account User:num1` is not defined");
+        $this->demoLogin();
      }
 
     /**
@@ -1622,7 +1609,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheReviewsHistoryPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the reviews history page` is not defined");
+        $this->amOnPage('/Review/profileIndex');
      }
 
     /**
@@ -1630,7 +1617,10 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnTheDeleteButtonForTheReviewForMovieWithTheTitleExcellentMovie($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on the delete button for the review for Movie:num1 with the title “Excellent Movie”,` is not defined");
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Abigail"]);
+        $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
+        $reviewId = $this->grabFromDatabase('review', 'review_id',['user_id' => $userId, 'movie_id' => $movie_id]);
+        $this->click('a[name="delete'.$reviewId.'"]');
      }
 
     /**
@@ -1638,7 +1628,9 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theReviewForMovieWithTheTitleExcellentMovieIsDeletedFromTheDatabaseAndMyProfile($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the review for Movie:num1 with the title “Excellent Movie” is deleted from the database and my profile` is not defined");
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Abigail"]);
+        $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
+        $this->dontSeeInDatabase('review', ['movie_id' => $movie_id, 'user_id' => $user_id]);
      }
 
     /**
@@ -1646,7 +1638,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheReviewsHistoryPage($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the reviews history page:num1` is not defined");
+         $this->seeInCurrentUrl('/Review/profileIndex');
      }
 
       //-------------- 03601WRITEREVIEWS -------------------
@@ -1656,7 +1648,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheIndividualPageForMovie($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the individual page for “Movie :num1”` is not defined");
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Abigail"]);
+        $this->amOnPage("/Movie/individual?id=".$movie_id);
      }
 
     /**
@@ -1672,7 +1665,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickWriteAReviewForMovie($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click write a review for “Movie :num1”` is not defined");
+        $this->click('View Reviews');
+        $this->click('Write a Review');
      }
 
     /**
@@ -1680,7 +1674,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedTiTheCreateReviewPageForMovie($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected ti the create review page for Movie :num1` is not defined");
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Abigail"]);
+        $this->seeInCurrentUrl('/Review/create?movie_id='.$movie_id);
      }
 
     /**
@@ -1688,7 +1683,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theMessageIWriteIsBestMovieIveSeenInALongTime()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the message I write is “Best movie I’ve seen in a long time!!!”,` is not defined");
+         $this->fillField('stars', '5');
+         $this->fillField('review_text', 'Best movie I’ve seen in a long time!!!');
      }
 
     /**
@@ -1696,7 +1692,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnSubmitReview()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on submit review` is not defined");
+        $this->click('Submit Review');
      }
 
     /**
@@ -1704,7 +1700,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToReviewSubmittedPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to review submitted page` is not defined");
+        $this->seeInCurrentUrl('/Review/submitted');
      }
 
     /**
@@ -1712,7 +1708,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iSeeMyReviewWithTheMessageBestMovieIveSeenInALongTime()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I see my review with the message “Best movie I’ve seen in a long time!!!”` is not defined");
+        $this->see('Best movie I’ve seen in a long time!!!');
      }
 
     /**
@@ -1720,7 +1716,9 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function thisReviewIsAddedToTheDatabase()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `this review is added to the database` is not defined");
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Abigail"]);
+        $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
+        $this->seeInDatabase('review',['movie_id'=>$movie_id, 'user_id'=>$user_id, 'review_text'=>'Best movie I’ve seen in a long time!!!']);
      }
 
     /**
@@ -1848,7 +1846,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnAdminIndexMoviePage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on admin index movie page` is not defined");
+        $this->adminLogin();
+        $this->amOnPage('/Movie/adminIndex');
      }
 
     /**
@@ -1890,7 +1889,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnThePurchaseHistoryPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the purchase history page` is not defined");
+        $this->amOnPage('/User/purchaseHistory');
      }
 
     /**
@@ -1914,7 +1913,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickDelete()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click delete` is not defined");
+         $this->click('Delete');
      }
 
     /**

@@ -98,7 +98,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="review_text" class="form-label"><?= __('Review Text')?></label>
-                    <textarea class="form-control" id="review_text" name="review_text" required> <?= $data->review_text ?></textarea>
+                    <textarea class="form-control" id="review_text" name="review_text" required><?= $data->review_text ?></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary"><?= __('Submit Review')?></button>
             </form>

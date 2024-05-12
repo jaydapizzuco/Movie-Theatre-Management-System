@@ -1153,6 +1153,14 @@ class AcceptanceTester extends \Codeception\Actor
         $this->seeCheckboxIsChecked('#13');
      }
 
+     /**
+     * @When I click on Book Tickets button
+     */
+     public function iClickOnBookTicketsButton()
+     {
+         $this->click('Book Tickets');
+     }
+
     /**
      * @Then an order should be made with user id corresponding to the email :arg1 with both seats
      */
@@ -1905,13 +1913,13 @@ class AcceptanceTester extends \Codeception\Actor
      }
 
      //-------------- 042DELETEORDER -------------------
-
+    
     /**
-     * @Then see “John Smith" as my name
+     * @Given I am logged in as a user
      */
-     public function seeJohnSmithAsMyName()
+     public function iAmLoggedInAsAUser()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `see “John Smith as my name` is not defined");
+        $this->demoLogin();
      }
 
     /**
@@ -1920,14 +1928,17 @@ class AcceptanceTester extends \Codeception\Actor
      public function iAmOnThePurchaseHistoryPage()
      {
         $this->amOnPage('/User/purchaseHistory');
-     }
+     }     
 
-    /**
-     * @When I click on the trash can button where the seats displayed are :num:num:num4:num2 and :num:num:num4:num4
+     /**
+     * @When I click on the trash can button where the movie is example movie :num1
      */
-     public function iClickOnTheTrashCanButtonWhereTheSeatsDisplayedAreAnd($num1, $num2, $num3, $num4)
+     public function iClickOnTheTrashCanButtonWhereTheMovieIsExampleMovie($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on the trash can button where the seats displayed are :num:num:num4:num2 and :num:num:num4:num4` is not defined");
+         $movieid = $this->grabFromDatabase('movie','movie_id',['title'=>'Example Movie 2']);
+         $user_id = $this->grabFromDatabase('user','user_id',['email'=>'test@email.com']);
+         $orderid = $this->grabFromDatabase('ticket','order_id',['movie_id'=>$movieid,'seat_id'=>'12']);
+         $this->click('a[name="delete'.$orderid.'"]');
      }
 
     /**
@@ -1935,7 +1946,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheDeleteOrderPageForThisOrder()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the delete Order page for this order` is not defined");
+         $this->see('Are you sure you want to delete your tickets for Example Movie 2?');
      }
 
     /**
@@ -1951,7 +1962,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToMyPurchaseHistoryPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to my purchase history page` is not defined");
+        $this->see('Orders History');
      }
 
     /**
@@ -1959,7 +1970,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theOrderGetsRemovedFromMyPurchaseHistoryPage()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the order gets removed from my purchase history page` is not defined");
+        $movieid = $this->grabFromDatabase('movie','movie_id',['title'=>'Example Movie 2']);
+        $this->dontSeeInDatabase('ticket',['movie_id'=>$movieid,'seat_id'=>'12']);
      }
 
      //-------------- 044ADMINLOGIN -------------------

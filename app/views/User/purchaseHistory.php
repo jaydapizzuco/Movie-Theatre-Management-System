@@ -87,7 +87,7 @@
                     }
 
                     if($counter == count($allTickets)){ ?>
-                        <a href='/Order/delete?id=<?= $order->order_id ?>'><i class='bi bi-trash'></i></a>
+                        <a name="delete<?= $order->order_id ?>" href='/Order/delete?id=<?= $order->order_id ?>'><i class='bi bi-trash'></i></a>
                    <?php }
                 ?>
                     </div>

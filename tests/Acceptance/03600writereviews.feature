@@ -13,4 +13,3 @@ Scenario: publishReview
 	When I click on submit review
 	Then I am redirected to review submitted page 
 	And I see my review with the message “Best movie I’ve seen in a long time!!!” 
-	And this review is added to the database

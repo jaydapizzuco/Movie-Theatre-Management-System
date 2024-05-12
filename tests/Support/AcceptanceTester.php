@@ -1499,7 +1499,7 @@ class AcceptanceTester extends \Codeception\Actor
         $this->see('My Reviews');
      }
 
-      //-------------- 034MODIFYREVIEWS -------------------
+      //-------------- 034MODIFYREVIEWS ------------------- 
 
     /**
      * @Given I am logged into “Demo User”
@@ -1514,17 +1514,17 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheReviewsHistoryPageForMyProfile()
      {
-         $this->amOnPage('/Review/profileIndex');
+         $this->amOnPage('/Review/profileindex');
      }
 
-    /**
-     * @Given the title of the review is “Good Movie!” and the message is “hello”,
+     /**
+     * @Given the title of the review is Good Movie! and the message is hello,
      */
-     public function theTitleOfTheReviewIsGoodMovieAndTheMessageIshello()
+     public function theTitleOfTheReviewIsGoodMovieAndTheMessageIsHello()
      {
         $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Monkey Man"]);
         $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
-        $reviewId = $this->grabFromDatabase('review', 'review_id',['user_id' => $userId, 'movie_id' => $movie_id]);
+        $reviewId = $this->grabFromDatabase('review', 'review_id',['user_id' => $user_id, 'movie_id' => $movie_id]);
         $this->click('a[name="'.$reviewId.'"]');
      }
 
@@ -1549,7 +1549,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function myReviewWithTitleGoodMovieAndMessagehelloIsChangedInTheDatabaseToHaveTheMessageAschanged()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `my review with title “Good Movie” and message “hello” is changed in the database to have the message as “changed”` is not defined");
+        $this->seeInDatabase('review',['review_text'=>'changed']);
      }
 
     /**
@@ -1557,7 +1557,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iShouldBeRedirectedToTheReviewsHistoryPage($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I should be redirected to the reviews history page:num1` is not defined");
+        $this->see('My Reviews');
      }
 
       //-------------- 034VIEWABOUTUS -------------------

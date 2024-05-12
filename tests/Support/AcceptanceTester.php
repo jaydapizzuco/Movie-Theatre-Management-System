@@ -1824,60 +1824,47 @@ class AcceptanceTester extends \Codeception\Actor
 
      //-------------- 038REVIEWSREJECT -------------------
 
-    /**
-     * @Given I am on the Admin's Index Review page
+     /**
+     * @Given I am logged in as :arg1
      */
-     public function iAmOnTheAdminsIndexReviewPage()
+     public function iAmLoggedInAs($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the Admin's Index Review page` is not defined");
+        $this->adminLogin();
      }
 
     /**
-     * @When I click the reject button
-     */
-     public function iClickTheRejectButton()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click the reject button` is not defined");
-     }
-
-    /**
-     * @Then the review with id :num1 is removed from the database
-     */
-     public function theReviewWithIdIsRemovedFromTheDatabase($num1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the review with id :num1 is removed from the database` is not defined");
-     }
-
-    /**
-     * @Then I am redirected to the Admin's Index Review page
-     */
-     public function iAmRedirectedToTheAdminsIndexReviewPage()
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the Admin's Index Review page` is not defined");
-     }
-
-    /**
-     * @Given the review description is I really did not enjoy this movie”
+     * @Given the review description is I really did not enjoy this movie
      */
      public function theReviewDescriptionIsIReallyDidNotEnjoyThisMovie()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the review description is I really did not enjoy this movie”` is not defined");
+         $reviewid = $this->grabFromDatabase('review', 'review_id', ['review_text'=>'I really did not enjoy this movie']);
+         $this->see('I really did not enjoy this movie', 'p[name="reviewtext'.$reviewid.'"]');
      }
 
     /**
-     * @Then the review with description I really did not enjoy this movie” gets removed from the :arg1 page
+     * @When I click on the reject button
+     */
+     public function iClickOnTheRejectButton()
+     {
+        $reviewId = $this->grabFromDatabase('review', 'review_id', ['review_text'=>'I really did not enjoy this movie']);
+         $this->click('//button[@name="reject_review" and @value="' . $reviewId . '"]');
+
+     }
+
+    /**
+     * @Then the review with description I really did not enjoy this movie gets removed from the :arg1 page
      */
      public function theReviewWithDescriptionIReallyDidNotEnjoyThisMovieGetsRemovedFromThePage($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the review with description I really did not enjoy this movie” gets removed from the :arg1 page` is not defined");
+        $this->dontSee('p["I really did not enjoy this movie"]');
      }
 
     /**
-     * @Then the review with title I really did not enjoy this movie” gets removed from the database
+     * @Then the review with title I really did not enjoy this movie gets removed from the database
      */
      public function theReviewWithTitleIReallyDidNotEnjoyThisMovieGetsRemovedFromTheDatabase()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the review with title I really did not enjoy this movie” gets removed from the database` is not defined");
+        $this->dontSeeInDatabase('review', ['review_text'=>'I really did not enjoy this movie']);
      }
 
      //-------------- 039CHECKREVENUE -------------------

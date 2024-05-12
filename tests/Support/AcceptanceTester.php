@@ -1766,22 +1766,30 @@ class AcceptanceTester extends \Codeception\Actor
         $this->seeInDatabase('review', ['review_text'=>'I really did not enjoy this movie']);
      }
 
-     //-------------- 03600WRITEREVIEWS -------------------
+     //-------------- 037REVIEWSAPPROVE -------------------
+
+     /**
+     * @Given I am logged in as Administrator
+     */
+     public function iAmLoggedInAsAdministrator()
+     {
+        $this->adminLogin();
+     }
 
     /**
      * @Given I am on the :arg1 page
      */
      public function iAmOnThePage($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the :arg1 page` is not defined");
+        $this->amOnPage('/Reviews/adminIndex');
      }
 
-    /**
+     /**
      * @Given the review title is “Best movie I’ve seen in a long time!!!”,
      */
      public function theReviewTitleIsBestMovieIveSeenInALongTime()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the review title is “Best movie I’ve seen in a long time!!!”,` is not defined");
+        $this->see('Best movie I’ve seen in a long time!!!');
      }
 
     /**
@@ -1789,7 +1797,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnTheApproveButton()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on the approve button` is not defined");
+        $reviewId = $this->grabFromDatabase('review', 'review_id', ['review_text'=>'Best movie I’ve seen in a long time!!!']);
+        $this->click('a[name="approve_review'.$reviewId.'"]');
      }
 
     /**
@@ -1797,7 +1806,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theReviewWithDescriptionBestMovieIveSeenInALongTimeAdminReviewsIndexPage($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the review with description Best movie I’ve seen in a long time!!!, :arg1Admin Reviews index page` is not defined");
+         $this->seeInDatabase('review', ['review_text'=>'Best movie I’ve seen in a long time!!!', 'approved'=>'1']);
+         $this->dontSee('Best movie I’ve seen in a long time!!!');
      }
 
     /**
@@ -1805,10 +1815,8 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theReviewWithDescriptionBestMovieIveSeenInALongTimeGetsAddedOnTheReviewsPageFor($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step the review with description Best movie I’ve seen in a long time!!!,  gets added on the Reviews page for :arg1 is not defined");
+        
      }
-
-     //-------------- 037REVIEWSAPPROVE -------------------
 
      //-------------- 038REVIEWSREJECT -------------------
 

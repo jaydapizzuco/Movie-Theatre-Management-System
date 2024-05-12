@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 12, 2024 at 06:13 AM
+-- Generation Time: May 12, 2024 at 06:46 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `movietheatre`
 --
+CREATE DATABASE IF NOT EXISTS `movietheatre` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `movietheatre`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `about`
 --
 
+DROP TABLE IF EXISTS `about`;
 CREATE TABLE `about` (
   `about_id` int(11) NOT NULL,
   `about_email` varchar(50) NOT NULL,
@@ -46,6 +49,7 @@ INSERT INTO `about` (`about_id`, `about_email`, `description`) VALUES
 -- Table structure for table `admin`
 --
 
+DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL DEFAULT 1,
   `username` varchar(50) NOT NULL,
@@ -67,6 +71,7 @@ INSERT INTO `admin` (`admin_id`, `username`, `email`, `password_hash`) VALUES
 -- Table structure for table `genre`
 --
 
+DROP TABLE IF EXISTS `genre`;
 CREATE TABLE `genre` (
   `genre_id` int(11) NOT NULL,
   `genre_title` varchar(20) NOT NULL
@@ -78,6 +83,7 @@ CREATE TABLE `genre` (
 -- Table structure for table `movie`
 --
 
+DROP TABLE IF EXISTS `movie`;
 CREATE TABLE `movie` (
   `movie_id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
@@ -113,6 +119,7 @@ INSERT INTO `movie` (`movie_id`, `title`, `image`, `description`, `length`, `dir
 -- Table structure for table `movie_genre`
 --
 
+DROP TABLE IF EXISTS `movie_genre`;
 CREATE TABLE `movie_genre` (
   `movie_id` int(11) NOT NULL,
   `genre_id` int(11) NOT NULL
@@ -124,6 +131,7 @@ CREATE TABLE `movie_genre` (
 -- Table structure for table `movie_schedule`
 --
 
+DROP TABLE IF EXISTS `movie_schedule`;
 CREATE TABLE `movie_schedule` (
   `schedule_id` int(11) NOT NULL,
   `movie_id` int(11) NOT NULL,
@@ -162,6 +170,7 @@ INSERT INTO `movie_schedule` (`schedule_id`, `movie_id`, `day`, `time_id`) VALUE
 -- Table structure for table `orders`
 --
 
+DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -188,6 +197,7 @@ INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `numbe
 -- Table structure for table `review`
 --
 
+DROP TABLE IF EXISTS `review`;
 CREATE TABLE `review` (
   `review_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -205,8 +215,10 @@ CREATE TABLE `review` (
 INSERT INTO `review` (`review_id`, `user_id`, `movie_id`, `stars`, `review_text`, `review_date`, `approved`) VALUES
 (2, 1, 24, 5, '  slayyyyyyyyyyyyyyyy', '2024-05-03 21:16:34', 0),
 (3, 1, 18, 5, 'spooky', '2024-05-03 21:50:11', 0),
-(4, 11, 4, 4, 'I haven\'t watched the movie actually but it\'s about a monkey man isn\'t it. ', '2024-05-12 05:40:24', 1),
-(5, 11, 18, 5, 'I just know this movie will kill me', '2024-05-12 05:41:11', 1);
+(4, 11, 4, 4, 'changed', '2024-05-12 05:40:24', 1),
+(8, 11, 4, 3, 'test', '2024-05-12 11:11:46', 0),
+(9, 11, 18, 5, 'Best movie I’ve seen in a long time!!!', '2024-05-12 11:12:22', 0),
+(10, 11, 4, 1, 'I really did not enjoy this movie', '2024-05-12 11:24:53', 0);
 
 -- --------------------------------------------------------
 
@@ -214,6 +226,7 @@ INSERT INTO `review` (`review_id`, `user_id`, `movie_id`, `stars`, `review_text`
 -- Table structure for table `ticket`
 --
 
+DROP TABLE IF EXISTS `ticket`;
 CREATE TABLE `ticket` (
   `ticket_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
@@ -245,6 +258,7 @@ INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_dat
 -- Table structure for table `times`
 --
 
+DROP TABLE IF EXISTS `times`;
 CREATE TABLE `times` (
   `time_id` int(11) NOT NULL,
   `time` time NOT NULL
@@ -269,6 +283,7 @@ INSERT INTO `times` (`time_id`, `time`) VALUES
 -- Table structure for table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
@@ -406,7 +421,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `ticket`

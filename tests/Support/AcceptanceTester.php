@@ -1467,12 +1467,20 @@ class AcceptanceTester extends \Codeception\Actor
 
       //-------------- 033REVIEWSHISTORY -------------------
 
+     /**
+     * @Given I am logged into the account Demo
+     */
+     public function iAmLoggedIntoTheAccountDemo()
+     {
+         $this->demoLogin();
+     }
+
     /**
      * @Given I am on the profile page,
      */
      public function iAmOnTheProfilePage3()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the profile page,` is not defined");
+         $this->amOnPage('/User/profile');
      }
 
     /**
@@ -1480,7 +1488,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iClickOnInTheNavigationBar($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I click on :arg1 in the navigation bar` is not defined");
+        $this->click('a[name="reviewshistory"]');
      }
 
     /**
@@ -1488,7 +1496,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheReviewsHistoryPageWithAllTheReviewsAssociatedWithTheUserIDOf($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the reviews history page with all the reviews associated with the user ID of :arg1` is not defined");
+        $this->see('My Reviews');
      }
 
       //-------------- 034MODIFYREVIEWS -------------------

@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 
+#[\app\filters\NormalUser]
 class Ticket extends \app\core\Controller {
     private $schedule;
 

@@ -11,11 +11,11 @@
 </head>
 
 <nav>
-    <a name='homepage' href="/Main/index"><?= __('Home Page')?></a> &nbsp&nbsp
+    <a name='homepage' href="/Main/index"><i class="bi bi-house"></i></a> &nbsp&nbsp
     <a name ="account" href="/User/profile"><?= __('Account') ?></a> &nbsp&nbsp 
     <a name ="aboutus" href="/Main/aboutus"><?= __('About us') ?></a> &nbsp&nbsp
-    <a name="movies" href="/Movie/index"><?= __('Movies') ?></a>
-    <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
+    <a name="movies" href="/Movie/index"><?= __('Movies') ?></a> &nbsp&nbsp
+    <a href ="/Order/incomplete"><i class="bi bi-cart"></i></a> &nbsp&nbsp
 </nav>
 
 <body>
@@ -48,7 +48,7 @@
     <div class="gallery">
         <?php foreach ($data as $index => $movies): ?>
             <div class="gallery-item">
-                <a name= "<?= htmlspecialchars($movies->movie_id) ?>" href="/Movie/individual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" class="zoom" alt="<?= $movies->title ?>"></a>
+                <a name= "<?= htmlspecialchars($movies->movie_id) ?>" href="/Movie/individual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" alt="<?= $movies->title ?>" height="300px" width="150px"></a>
                 <p><?= $movies->title ?></p>
             </div>
         <?php endforeach; ?>

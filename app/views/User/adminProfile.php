@@ -25,7 +25,6 @@
          <a href="/Review/adminIndex"><?= __('Pending Reviews')?></a> &nbsp&nbsp
          <a href="/Movie/adminIndex"><?= __('Movies')?></a> &nbsp&nbsp
          <a href="/User/updateAbout"><?= __('About us')?></a> &nbsp&nbsp
-
     </nav><br>
 
      <div class="container2">

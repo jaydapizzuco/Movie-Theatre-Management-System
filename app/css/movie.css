@@ -1,39 +1,40 @@
 body {font-family: 'Courier New', Courier, monospace;
-    background-color: #f8f9fa;
-    padding-top: 60px;}
+    background-color: #f8f9fa;}
 
 header {text-align: center;
     margin-bottom: 30px;
-    background-color: rgb(245, 157, 245);
-    font-family: 'Courier New', Courier, monospace;}
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+        color: white;}
 
 h1 {height: auto;
     width: auto;
     font-size: 2em;
-    color: black;
+    color: white;
     padding: 20px;
     line-height: 250%;
     font-family: 'Courier New', Courier, monospace;}
 
-h2 {color: black;
+h2 {color: white;
     font-family: 'Courier New', Courier, monospace;}
 
 nav {text-align: right;
-    height: 40px;
-    font-family: 'Courier New', Courier, monospace;}
+    height: 80px;
+    font-family: 'Courier New', Courier, monospace;
+        background-color: black;
+        padding-top: 20px;}
 
 nav a {text-decoration: none;
-        color: black;}
+        color: white;}
 
-nav a:hover {color: rgb(245, 157, 245);}
-
+nav a:hover {color: #0B60B0;}
 
 form {font-family: 'Courier New', Courier, monospace;}
 
 footer {text-align: center;
        margin-top: 100px;
-        background-color:  rgb(245, 157, 245);
-        color: black;
+        background-color:  black;
+        color: white;
         bottom: 0 }
 
 .footer2 {position: absolute;
@@ -41,10 +42,10 @@ footer {text-align: center;
         width: 100%;
         text-align: center;
         padding: 20px 0;
-        color: black;
-        background-color:  rgb(245, 157, 245);}
+        color: white;
+        background-color: black;}
 
-.container{background-color: rgb(245, 157, 245);
+.container{background-color: white;
             padding: 20px;
             border-radius: 10px;
             text-align: center;}
@@ -86,7 +87,7 @@ footer {text-align: center;
 
 .gallery-item {background-color: #ffffff;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        
         padding: 20px;
         text-align: center;
         max-width: 250px;}

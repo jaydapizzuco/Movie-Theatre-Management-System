@@ -9,15 +9,15 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head> 
 
+<nav>
+    <a name='homepage' href="/Main/index"><i class="bi bi-house"></i></a> &nbsp&nbsp
+    <a name ="account" href="/User/profile"><?= __('Account') ?></a> &nbsp&nbsp 
+    <a name ="aboutus" href="/Main/aboutus"><?= __('About us') ?></a> &nbsp&nbsp
+    <a name="movies" href="/Movie/index"><?= __('Movies') ?></a> &nbsp&nbsp
+    <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a> &nbsp&nbsp
+</nav>
+
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <a name='homepage' href="/Main/index"><?= __('Home Page')?></a> &nbsp&nbsp
-        <a href="/User/profile"><?= __('Account')?></a> &nbsp&nbsp
-        <a href="/Main/aboutus"><?= __('About Us')?></a> &nbsp&nbsp
-        <a href="/Movie/index"><?= __('Movies')?></a>
-        <a name = "cart" href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
-    </nav>
 
     <header>
         <h1><?= $data->name ?></h1>

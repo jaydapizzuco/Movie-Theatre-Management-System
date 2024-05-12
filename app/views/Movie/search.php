@@ -12,9 +12,11 @@
 
 <!-- Navigation Bar -->
 <nav>
-    <a href="/User/profile"><?= __('Account')?></a> &nbsp&nbsp
-    <a href="/Movie/index"><?= __('Movies')?></a>
-    <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
+    <a name='homepage' href="/Main/index"><i class="bi bi-house"></i></a> &nbsp&nbsp
+    <a name ="account" href="/User/profile"><?= __('Account') ?></a> &nbsp&nbsp 
+    <a name ="aboutus" href="/Main/aboutus"><?= __('About us') ?></a> &nbsp&nbsp
+    <a name="movies" href="/Movie/index"><?= __('Movies') ?></a> &nbsp&nbsp
+    <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a> &nbsp&nbsp
 </nav>
 
 <body>

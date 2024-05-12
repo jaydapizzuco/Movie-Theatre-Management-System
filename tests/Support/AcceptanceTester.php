@@ -1429,12 +1429,14 @@ class AcceptanceTester extends \Codeception\Actor
         $this->see('Monkey Man');
      }
 
+     //-------------- 032VIEWREVIEWS -------------------
+
     /**
      * @Given I am logged into the account :arg1
      */
      public function iAmLoggedIntoTheAccount($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am logged into the account :arg1` is not defined");
+        $this->demoLogin();
      }
 
     /**
@@ -1442,7 +1444,16 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheIndividualPageOf($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am on the individual page of :arg1` is not defined");
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Monkey Man"]);
+        $this->amOnPage('/Movie/individual?id='.$movie_id);
+     }
+
+     /**
+     * @When I click on the View Reviews button
+     */
+     public function iClickOnTheViewReviewsButton()
+     {
+        $this->click('View Reviews');
      }
 
     /**
@@ -1450,8 +1461,11 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheReviewsPageOfTheMovieWithAllTheReviewsAssociatedToTheMovie($num1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the reviews page of the movie with all the reviews associated to the movie:num1` is not defined");
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Monkey Man"]);
+        $this->seeInCurrentUrl("/Review/index?movie_id=".$movie_id);
      }
+
+      //-------------- 033REVIEWSHISTORY -------------------
 
     /**
      * @Given I am on the profile page,
@@ -1476,6 +1490,8 @@ class AcceptanceTester extends \Codeception\Actor
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the reviews history page with all the reviews associated with the user ID of :arg1` is not defined");
      }
+
+      //-------------- 034MODIFYREVIEWS -------------------
 
     /**
      * @Given I am logged into “Demo User”
@@ -1549,6 +1565,8 @@ class AcceptanceTester extends \Codeception\Actor
          throw new \PHPUnit\Framework\IncompleteTestError("Step `I should be redirected to the reviews history page:num1` is not defined");
      }
 
+      //-------------- 034VIEWABOUTUS -------------------
+
     /**
      * @Given I am on the Home page
      */
@@ -1580,6 +1598,8 @@ class AcceptanceTester extends \Codeception\Actor
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `the email displayed is :arg1` is not defined");
      }
+
+      //-------------- 035DELETEREVIEWS -------------------
 
     /**
      * @Given I am logged into the account User:num1
@@ -1620,6 +1640,8 @@ class AcceptanceTester extends \Codeception\Actor
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `I am redirected to the reviews history page:num1` is not defined");
      }
+
+      //-------------- 03601WRITEREVIEWS -------------------
 
     /**
      * @Given I am on the individual page for “Movie :num1”
@@ -1709,6 +1731,8 @@ class AcceptanceTester extends \Codeception\Actor
          throw new \PHPUnit\Framework\IncompleteTestError("Step `I see my review with the message “I really did not enjoy this movie”` is not defined");
      }
 
+     //-------------- 03600WRITEREVIEWS -------------------
+
     /**
      * @Given I am on the :arg1 page
      */
@@ -1748,6 +1772,10 @@ class AcceptanceTester extends \Codeception\Actor
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step the review with description Best movie I’ve seen in a long time!!!,  gets added on the Reviews page for :arg1 is not defined");
      }
+
+     //-------------- 037REVIEWSAPPROVE -------------------
+
+     //-------------- 038REVIEWSREJECT -------------------
 
     /**
      * @Given I am on the Admin's Index Review page
@@ -1805,6 +1833,8 @@ class AcceptanceTester extends \Codeception\Actor
          throw new \PHPUnit\Framework\IncompleteTestError("Step `the review with title I really did not enjoy this movie” gets removed from the database` is not defined");
      }
 
+     //-------------- 039CHECKREVENUE -------------------
+
     /**
      * @Given I am on admin index movie page
      */
@@ -1836,6 +1866,8 @@ class AcceptanceTester extends \Codeception\Actor
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `the total ticket revenue for this movie should be :arg1` is not defined");
      }
+
+     //-------------- 042DELETEORDER -------------------
 
     /**
      * @Then see “John Smith" as my name
@@ -1892,4 +1924,7 @@ class AcceptanceTester extends \Codeception\Actor
      {
          throw new \PHPUnit\Framework\IncompleteTestError("Step `the order gets removed from my purchase history page` is not defined");
      }
+
+     //-------------- 044ADMINLOGIN -------------------
+     //-------------- 045CHECKREVENUE -------------------
 }

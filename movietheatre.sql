@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 12, 2024 at 05:27 AM
+-- Generation Time: May 12, 2024 at 06:13 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -178,7 +178,9 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `number_tickets`, `cart_status`, `order_status`) VALUES
 (1, 5, '2024-05-03', 27.577, 2, 0, 1),
-(3, 8, '2024-05-11', 27.577, 2, 0, 1);
+(3, 8, '2024-05-11', 27.577, 2, 0, 1),
+(5, 11, '2024-05-01', 27.577, 2, 0, 1),
+(6, 11, '2024-05-01', 27.577, 2, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -202,7 +204,9 @@ CREATE TABLE `review` (
 
 INSERT INTO `review` (`review_id`, `user_id`, `movie_id`, `stars`, `review_text`, `review_date`, `approved`) VALUES
 (2, 1, 24, 5, '  slayyyyyyyyyyyyyyyy', '2024-05-03 21:16:34', 0),
-(3, 1, 18, 5, 'spooky', '2024-05-03 21:50:11', 0);
+(3, 1, 18, 5, 'spooky', '2024-05-03 21:50:11', 0),
+(4, 11, 4, 4, 'I haven\'t watched the movie actually but it\'s about a monkey man isn\'t it. ', '2024-05-12 05:40:24', 1),
+(5, 11, 18, 5, 'I just know this movie will kill me', '2024-05-12 05:41:11', 1);
 
 -- --------------------------------------------------------
 
@@ -229,7 +233,11 @@ INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_dat
 (1, 1, 22, 23, '2024-05-03', 'Friday', '07:05:00', 1),
 (2, 1, 22, 33, '2024-05-03', 'Friday', '07:05:00', 1),
 (4, 3, 31, 12, '2024-05-12', 'Sunday', '01:00:00', 1),
-(5, 3, 31, 13, '2024-05-12', 'Sunday', '01:00:00', 1);
+(5, 3, 31, 13, '2024-05-12', 'Sunday', '01:00:00', 1),
+(8, 5, 4, 16, '2024-05-08', 'Wednesday', '07:00:00', 1),
+(9, 5, 4, 17, '2024-05-08', 'Wednesday', '07:00:00', 1),
+(10, 6, 18, 18, '2024-05-06', 'Monday', '03:00:00', 1),
+(11, 6, 18, 19, '2024-05-06', 'Monday', '03:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -392,19 +400,19 @@ ALTER TABLE `movie_schedule`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `times`

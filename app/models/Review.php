@@ -14,6 +14,7 @@ class Review extends \app\core\Model{
 	public $approved;
 
 	public function insert(){
+		date_default_timezone_set('America/Montreal');
 		$SQL = 'INSERT INTO review(user_id, movie_id, stars, review_text, review_date, approved) VALUES (:user_id, :movie_id, :stars, :review_text, :review_date, :approved)';
 		$STMT = self::$_conn->prepare($SQL);
 		$STMT->execute([

@@ -1056,6 +1056,7 @@ class AcceptanceTester extends \Codeception\Actor
      public function iClickOnTheTrashCanButtonWhereTheSeatDisplayedIs($num1, $num2)
      {
         $userID = $this->grabFromDatabase('user', 'user_id',['email like' => 'test@email.com']);
+        date_default_timezone_set('America/Montreal');
 
         $date = date("Y-m-d");
 
@@ -1079,6 +1080,7 @@ class AcceptanceTester extends \Codeception\Actor
      {
          $userID = $this->grabFromDatabase('user', 'user_id',['email like' => 'test@email.com']);
 
+        date_default_timezone_set('America/Montreal');
         $date = date("Y-m-d");
 
          $orderId = $this->grabFromDatabase('orders', 'order_id',['user_id like' => $userID, 'total_price' => '13.7885', 'order_date' =>$date]);
@@ -1158,8 +1160,9 @@ class AcceptanceTester extends \Codeception\Actor
      {
         $userId = $this->grabFromDatabase('user', 'user_id',['email like' => 'test@email.com']);
 
+        date_default_timezone_set('America/Montreal');
         $date = date("Y-m-d");
-         $this->seeInDatabase('orders', ['user_id' => $userId, 'total_price' => 27.577, 'number_tickets' => 2, 'order_date' => $date]);
+         $this->seeInDatabase('orders', ['user_id' => $userId, 'total_price' => '27.577', 'number_tickets' => 2, 'order_date' => $date]);
 
         $this->seeInDatabase('ticket', ['movie_day' => "Sunday", 'movie_time' => "01:00:00", 'seat_id' => 13]);
         $this->seeInDatabase('ticket', ['movie_day' => "Sunday", 'movie_time' => "01:00:00", 'seat_id' => 12]);
@@ -1347,45 +1350,46 @@ class AcceptanceTester extends \Codeception\Actor
         $this->seeInCurrentUrl("/User/login");
      }
 
+    //  //---------------------030USERLOGIN------------------------
 
     /**
-     * @Given the account with email “demo@email:num1com”
+     * @Given I am on the :arg1
      */
-     public function theAccountWithEmaildemoemailcom($num1)
+     public function iAmOnThe($arg1)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `the account with email “demo@email:num1com”` is not defined");
+        $this->amOnPage("/User/login");
+     }
+
+     /**
+     * @When I enter the email in email field
+     */
+     public function iEnterTheEmailInEmailField()
+     {
+        $this->fillField("email","demo@email.com");
      }
 
     /**
-     * @Given password “demo:num1:num2:num3” exists in the database,
+     * @When password demo:num1:num2:num3 in psw field
      */
-     public function passworddemoExistsInTheDatabase($num1, $num2, $num3)
+     public function passwordDemoInPswField($num1, $num2, $num3)
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `password “demo:num1:num2:num3” exists in the database,` is not defined");
+        $this->fillField("password","demo123");
+     }
+
+     /**
+     * @When click on the login button,
+     */
+     public function clickOnTheLoginButton2()
+     {
+        $this->click("Login");
      }
 
     /**
-     * @When I enter  the email “demo@email:num1com”
+     * @Then see Demo as my name
      */
-     public function iEnterTheEmaildemoemailcom($num1)
+     public function seeDemoAsMyName()
      {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `I enter  the email “demo@email:num1com”` is not defined");
-     }
-
-    /**
-     * @When password “demo:num1:num2:num3”
-     */
-     public function passworddemo($num1, $num2, $num3)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `password “demo:num1:num2:num3”` is not defined");
-     }
-
-    /**
-     * @Then see :arg1 as my name
-     */
-     public function seeAsMyName($arg1)
-     {
-         throw new \PHPUnit\Framework\IncompleteTestError("Step `see :arg1 as my name` is not defined");
+        $this->see("Demo");
      }
 
     /**

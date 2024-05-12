@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 10, 2024 at 02:47 AM
+-- Generation Time: May 12, 2024 at 05:15 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -110,7 +110,8 @@ INSERT INTO `movie` (`movie_id`, `title`, `image`, `description`, `length`, `dir
 (22, 'Civil War', 'https://upload.wikimedia.org/wikipedia/en/thumb/0/0d/Civil_War_2024_film_poster.jpeg/220px-Civil_War_2024_film_poster.jpeg', 'In a dystopian future America, a team of military-embedded journalists races against time to reach Washington, D.C., before rebel factions descend upon the White House.', 109, 'Alex Garland', 'https://www.youtube.com/watch?v=aDyQxtg0V2w', '2024-04-22', 47.96, 1),
 (23, 'Unsung Hero', 'https://upload.wikimedia.org/wikipedia/en/c/c4/Unsung_Hero_poster.jpg', 'David Smallbone, his pregnant wife and their seven children leave Australia to rebuild their lives in America. David and Helen realize the musical talent of their children, who become two of the most successful acts in Inspirational Music history.', 112, 'Joel Smallbone and Richard Ramsey', 'https://www.youtube.com/watch?v=UHyrHRNX9Rk', '2024-04-22', 0, 1),
 (24, 'Dune: Part Two', 'https://upload.wikimedia.org/wikipedia/en/5/52/Dune_Part_Two_poster.jpeg', 'Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the universe, he must prevent a terrible future only he can foresee.', 166, 'Denis Villeneuve', 'https://www.youtube.com/watch?v=Way9Dexny3w', '2024-04-22', 0, 1),
-(25, 'Irena\'s Vow', 'https://m.media-amazon.com/images/M/MV5BZjkyMmY4YTAtZGFjMS00ZTk3LWIzYTEtODk2OWYzY2Y0ZDY4XkEyXkFqcGdeQXVyNDExMzMxNjE@._V1_.jpg', 'Caught in a German roundup to be used as a slave labourer, Polish nurse Irena Gut becomes a German army major\'s housekeeper during World War II. Irena risks her life to conceal a dozen Jews within the major\'s home.', 121, 'Louise Archambault', 'https://www.youtube.com/watch?v=yy7SM6TN4pw', '2024-04-22', 0, 1);
+(25, 'Irena\'s Vow', 'https://m.media-amazon.com/images/M/MV5BZjkyMmY4YTAtZGFjMS00ZTk3LWIzYTEtODk2OWYzY2Y0ZDY4XkEyXkFqcGdeQXVyNDExMzMxNjE@._V1_.jpg', 'Caught in a German roundup to be used as a slave labourer, Polish nurse Irena Gut becomes a German army major\'s housekeeper during World War II. Irena risks her life to conceal a dozen Jews within the major\'s home.', 121, 'Louise Archambault', 'https://www.youtube.com/watch?v=yy7SM6TN4pw', '2024-04-22', 0, 1),
+(31, 'Example Movie 2', 'https://upload:num1wikimedia:num1org/wikipedia/en/b/bc/Abigail_Official_Poster.jpg', 'This is a movie about horses', 123, 'abc', 'www.youtube.com', '2024-04-22', 23.98, 1);
 
 -- --------------------------------------------------------
 
@@ -159,7 +160,9 @@ INSERT INTO `movie_schedule` (`schedule_id`, `movie_id`, `day`, `time_id`) VALUE
 (20, 25, 'Monday', 3),
 (21, 18, 'Tuesday', 3),
 (24, 21, 'Sunday', 4),
-(26, 24, 'Saturday', 4);
+(26, 24, 'Saturday', 4),
+(27, 31, 'Sunday', 1),
+(29, 31, 'Sunday', 1);
 
 -- --------------------------------------------------------
 
@@ -183,7 +186,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `number_tickets`, `cart_status`, `order_status`) VALUES
-(1, 5, '2024-05-03', 27.577, 2, 0, 1);
+(1, 5, '2024-05-03', 27.577, 2, 0, 1),
+(3, 8, '2024-05-11', 27.577, 2, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -234,7 +238,9 @@ CREATE TABLE `ticket` (
 
 INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_date`, `movie_day`, `movie_time`, `ticket_status`) VALUES
 (1, 1, 22, 23, '2024-05-03', 'Friday', '07:05:00', 1),
-(2, 1, 22, 33, '2024-05-03', 'Friday', '07:05:00', 1);
+(2, 1, 22, 33, '2024-05-03', 'Friday', '07:05:00', 1),
+(4, 3, 31, 12, '2024-05-12', 'Sunday', '01:00:00', 1),
+(5, 3, 31, 13, '2024-05-12', 'Sunday', '01:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -288,7 +294,9 @@ INSERT INTO `user` (`user_id`, `name`, `email`, `password_hash`, `is_admin`, `se
 (5, 'Jayda', 'jayda@email.com', '$2y$10$aq5/uVxHCzjD5IanrPU66.RKRDsMRjZijxySXuOxGTL.5ltC2k.eK', 0, ''),
 (6, 'henry', 'henry@email.com', '$2y$10$CAOHHaXjfUD28BuTgNd4Bul7QC.i9oiPkJgwOzvY/.c6ig3Qw2ZWO', 0, ''),
 (7, 'Jess', 'jess@email.com', '$2y$10$xW3sFSqVS5lvnVtxHwFNa.6uBXIBfiWAimMjUFXljB6aeowTTyyKy', 0, NULL),
-(8, 'John Doe', 'test@email.com', '$2y$10$vgg2uwLfHHSC1e/lM/AbseCegcJXpJblnpGcLXVg9ixk9oYihrIVa', 0, NULL);
+(8, 'John Smith', 'test@email.com', '$2y$10$azjdXKlkgmBJ/r8RxOnatuzUAmyzyVD6hcQxPISDE2p5CCYHtw6i.', 0, NULL),
+(10, 'hurhur', 'an@email.com', '$2y$10$2Ke10P7BlWAfGhkHTfwDN.p4sfzQfBc7zUlM8.BkXWB3PZKnWWpIK', 0, NULL),
+(11, 'Demo', 'demo@email.com', '$2y$10$HJR838coNenzcXJ5omA2Suw4ta/YlQg1fQ7/WcoHuB6pqPtaaHgMi', 0, NULL);
 
 --
 -- Indexes for dumped tables
@@ -385,19 +393,19 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `movie_schedule`
 --
 ALTER TABLE `movie_schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -409,7 +417,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `times`
@@ -421,7 +429,7 @@ ALTER TABLE `times`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables

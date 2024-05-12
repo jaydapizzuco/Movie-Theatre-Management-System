@@ -26,7 +26,6 @@
     <nav class="account">
         <a href="/User/profile"><?= __('Profile Information')?></a> &nbsp&nbsp
         <a name="purchaseHistory" href="/User/purchaseHistory"><?= __('Purchase History')?></a> &nbsp&nbsp
-        <a class="active" href="movies.html"><?= __('Points')?></a>
         <a name="reviewshistory" href="/Review/profileindex"> <?= __('Reviews')?></a> <!-- Added link to reviews/profileindex -->
     </nav><br>
 

@@ -55,7 +55,6 @@ private function handleReviewSubmission()
 
         $movie_id = $_POST['movie_id'];
         $stars = $_POST['stars'];
-        echo $stars;
         $review_text = $_POST['review_text'];
 
         $review = new \app\models\Review();

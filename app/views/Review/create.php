@@ -54,15 +54,11 @@
                   </div>
                 </div>
                 </div>
-                <?php 
-                $stars = 5;
-                 ?>
-
                 <div class="mb-3">
                     <label for="review_text" class="form-label"><?= __('Review')?></label>
                     <textarea class="form-control" id="review_text" name="review_text" required></textarea>
                 </div>
-                <input type="hidden" name="stars" value="<?= $stars ?>">
+                <input type="hidden" name="stars" id="starsInput" value="0">
                 <button type="submit" class="btn btn-primary"><?= __('Submit Review')?></button>
                 <p id="test"></p>
 
@@ -72,18 +68,13 @@
         <script type="text/javascript">
              // Select all elements with the "i" tag and store them in a NodeList called "stars"
             const stars = document.querySelectorAll(".stars i");
-
             // Loop through the "stars" NodeList
             stars.forEach((star, index1) => {
               // Add an event listener that runs a function when the "click" event is triggered
               star.addEventListener("click", () => {
-                switch(index1){
-                    case 0: document.getElementById("test").innerHTML = index1;<?php $stars = 1; ?> break;
-                    case 1: document.getElementById("test").innerHTML = index1;<?php $stars = 2; ?> break;
-                    case 2: document.getElementById("test").innerHTML = index1;<?php $stars = 3; ?> break;
-                    case 3: document.getElementById("test").innerHTML = index1;<?php $stars = 4; ?> break;
-                    case 4: document.getElementById("test").innerHTML = index1;<?php $stars = 5; ?> break;
-                }
+
+                document.getElementById("starsInput").value = index1 + 1;
+
                 // Loop through the "stars" NodeList Again
                 stars.forEach((star, index2) => {
                   // Add the "active" class to the clicked star and any stars with a lower index
@@ -93,15 +84,6 @@
               });
             });
 
-            // function getStars(int stars){
-            //     switch(stars){
-            //         case 1: <?php $stars = 1; ?> break;
-            //         case 2: <?php $stars = 2; ?> break;
-            //         case 3: <?php $stars = 3; ?> break;
-            //         case 4: <?php $stars = 4; ?> break;
-            //         case 5: <?php $stars = 5; ?> break;
-            //     }
-            // }
         </script>
     </body>
     <footer>

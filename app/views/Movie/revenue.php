@@ -12,7 +12,14 @@
             border-collapse: collapse;
             width: 100%;
         }
-        th, td {
+        th{
+            color: #232D3F;
+             border: 1px solid #dddddd;
+            text-align: left;
+            padding: 15px;
+            width: 400px;
+        }
+         td {
             border: 1px solid #dddddd;
             text-align: left;
             padding: 15px;

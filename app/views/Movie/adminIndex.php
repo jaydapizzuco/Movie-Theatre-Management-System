@@ -31,13 +31,13 @@
             <div class="gallery-item">
                 <a href="/Movie/adminIndividual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" class="zoom" alt="<?= $movies->title ?>"></a>
                 <?php if ($movies->status == 1): ?>
-                    <a href='/MovieSchedule/index?id=<?= $movies->movie_id ?>'><i class="bi bi-clock"></i></a>
-                    <a href='/Movie/update?id=<?= $movies->movie_id ?>'><i class='bi-pencil-fill'></i></a>
-                    <a href='/Movie/delete?id=<?= $movies->movie_id ?>'><i class='bi bi-trash'></i></a>
+                    <a style="color: white;" href='/MovieSchedule/index?id=<?= $movies->movie_id ?>'><i class="bi bi-clock" ></i></a>
+                    <a style="color: white;"href='/Movie/update?id=<?= $movies->movie_id ?>'><i class='bi-pencil-fill'></i></a>
+                    <a style="color: white;"href='/Movie/delete?id=<?= $movies->movie_id ?>'><i class='bi bi-trash'></i></a>
                 <?php else: ?>
-                    <a href='/Movie/activate?id=<?= $movies->movie_id ?>'><i class='bi bi-arrow-repeat'></i></a>
+                    <a style="color: white;" href='/Movie/activate?id=<?= $movies->movie_id ?>'><i class='bi bi-arrow-repeat'></i></a>
                 <?php endif; ?>
-             <a name="revenue<?= $movies->movie_id ?>" href='/Movie/revenue?id=<?= $movies->movie_id ?>'><i class="bi bi-cash"></i></a> 
+             <a style="color: white;" name="revenue<?= $movies->movie_id ?>" href='/Movie/revenue?id=<?= $movies->movie_id ?>'><i class="bi bi-cash"></i></a> 
          </div>
         <?php endforeach; ?>
     </div>

@@ -49,8 +49,8 @@
                     <p class="stars"><?= str_repeat('⭐', $review->stars) ?></p>
                
                 <div>
-                    <a name= "<?= htmlspecialchars($review->review_id) ?>" href="/Review/update?id=<?= $review->review_id ?>"><button class="button"><?= __('Modify')?></button></a>
-                    <a name= "delete<?= htmlspecialchars($review->review_id) ?>" href="/Review/delete?id=<?= $review->review_id ?>"><button class="button"><?= __('Delete')?></button></a>
+                    <a name= "<?= htmlspecialchars($review->review_id) ?>" href="/Review/update?id=<?= $review->review_id ?>"><button style="color: black;"class="button"><?= __('Modify')?></button></a>
+                    <a name= "delete<?= htmlspecialchars($review->review_id) ?>" href="/Review/delete?id=<?= $review->review_id ?>"><button style="color: black;"class="button"><?= __('Delete')?></button></a>
                 </div>
     </div>
         <?php endforeach; ?>

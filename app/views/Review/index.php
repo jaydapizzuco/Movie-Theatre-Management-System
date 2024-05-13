@@ -48,8 +48,8 @@
     <main>
         <div  style="display: flex; flex-direction: column; align-items: center;"> 
             <img src="<?= $data->image ?>" alt="<?= $data->title ?>" style="max-width: 100%;">
-            <h2><?= __('All Reviews:')?></h2>
-        </div>
+           
+       
 
         <section class="gallery">
             <section class="gallery-item">
@@ -73,6 +73,7 @@
                 <?php endif; ?>
             </section>
         </section>
+         </div>
     </main>
 </body>
 </html>

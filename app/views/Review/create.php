@@ -51,7 +51,7 @@
         </section>
     </body>
     <footer>
-        <p>Footer</p>
+        <br>Copyright &copy 2024 
     </footer>
 </body>
 </html>

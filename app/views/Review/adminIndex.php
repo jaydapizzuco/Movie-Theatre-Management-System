@@ -77,7 +77,7 @@
 </div>
 
 <div class="footer">
-    <p>Footer</p>
+    <br>Copyright &copy 2024
 </div>
 
 </body>

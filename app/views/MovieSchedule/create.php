@@ -57,7 +57,7 @@
         </div><br>
         
             <div class="form-group">
-                <input type="submit" name="action" value="<?= __('Add')?>"/><br><br>
+                <input type="submit" name="action" class="addbutton" value="<?= __('Add')?>"/><br><br>
                 <a href="/User/adminProfile"><?= __('Cancel')?></a>
             </div><br>
 

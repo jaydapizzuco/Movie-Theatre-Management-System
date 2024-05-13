@@ -20,11 +20,9 @@
     <!-- Header Section-->
     <header>
         <h1><?= __('Delete a Movie')?></h1>
-    </header><br><br>
+    </header>
 
     <div class="container">
-        <br><br>
-
         <form action="" method="post">
             <div class="form-group">
                 <input type="text" class="form-control" name="title" placeholder="<?= __('Title')?>" value='<?= $data->title ?>' required>
@@ -56,7 +54,7 @@
 
             <div class="form-group">
                 <input type="submit" name="action" class="addbutton" value="<?= __('DELETE MOVIE')?>"/><br><br>
-                <a href="/Movie/adminIndividual?id=<?= $data->movie_id ?>"><?= __('Cancel')?></a>
+                <a href="/Movie/adminIndex"><?= __('Cancel')?></a>
             </div><br>
            
         </form>

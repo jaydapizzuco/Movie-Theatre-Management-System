@@ -66,7 +66,7 @@
             <h3><?= $review->movie_title ?></h3>
             <p><?= $user->name ?></p>
             <p class="card-text"><?= str_repeat('⭐', $review->stars) ?></p>
-            <p name="reviewtext<?= $review->review_id ?>"><?= $review->review_text ?></p>
+            <p name="review"><?= $review->review_text ?></p>
             <p><?= $review->review_date ?></p>
             <form method="post">
                 <input type="hidden" name="review_id" value="<?= $review->review_id ?>">

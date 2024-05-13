@@ -46,7 +46,7 @@
     }?>
 
     <main>
-        <div  style="display: flex; flex-direction: column; align-items: center;"> 
+        <div style="display: flex; flex-direction: column; align-items: center;"> 
             <img src="<?= $data->image ?>" alt="<?= $data->title ?>" style="max-width: 100%;">
            
        
@@ -64,7 +64,7 @@
                         <div class="review">
                             <p class="stars"><?= str_repeat('⭐', $review->stars) ?></p>
                             <p><?= $user->name ?></p>
-                            <p name="review<?= $review->review_id ?>"><?= $review->review_text ?></p>
+                            <p name="name"><?= $review->review_text ?></p>
                             <p><?= $review->review_date ?></p>
                         </div>
                     <?php endforeach; ?>

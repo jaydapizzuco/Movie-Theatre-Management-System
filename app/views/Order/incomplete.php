@@ -38,16 +38,25 @@
                 $movie = new \app\models\Movie();
                 $movie = $movie->getById($ticket->movie_id);
             ?>
-                <li class="list-group-item">
-                    <h5 class="card-title"><?= $movie->title ?></h5><br>
-                    <p class="card-text"><?= $ticket->movie_day ?> : <?= $ticket->movie_time ?> </p>
-                    <p class="card-text"><?= __('Seat Number: ')?><?= $ticket->seat_id ?></p>
-                </li>
+                <table class="table">
+                    <tr>
+                        <th><?= __('Movie') ?></th>
+                        <th><?= __('Date') ?></th>
+                        <th><?= __('Time') ?></th>
+                        <th><?= __('Seat') ?></th>
+                    </tr>
+
+                    <tr>
+                        <td><?= $movie->title ?></td>
+                        <td><?= $ticket->movie_day ?></td>
+                        <td><?= $ticket->movie_time ?></td>
+                        <td><?= $ticket->seat_id ?></td>
+                    </tr>
+                </table>
         </ul>
         <?php endforeach; ?>
         <div class="row justify-content-end mt-4">
-            <h5 class="card-title"><?= __('Total Price')?></h5>
-            <p class="card-text"><?= __('Total: $ ')?><?= round($incompleteOrder->total_price, 2) ?></p>
+            <h5 class="card-title"><?= __('Total Price: $')?><?= round($incompleteOrder->total_price, 2) ?></h5><br><br>
             <a href="/Order/checkout?id=<?= $incompleteOrder->order_id ?>" class="btn btn-primary"><?= __('Complete Order')?></a>
             <a name ="<?= $incompleteOrder->order_id ?>"href="/Order/delete?id=<?= $incompleteOrder->order_id ?>"><i class='bi bi-trash'></i></a>
         </div>

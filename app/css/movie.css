@@ -133,9 +133,9 @@ footer {text-align: center;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);}
 
- .receipt {width: 400px;
+ .receipt {width: 450px;
     margin: 40px auto;
-    padding: 40px;
+    padding: 20px;
     border: 2px solid #ccc;
     border-radius: 10px;
     background-color: #f9f9f9;

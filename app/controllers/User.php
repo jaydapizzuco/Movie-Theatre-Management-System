@@ -62,6 +62,7 @@ class User extends \app\core\Controller{
             }
         }else{
             $this->view('User/login');
+
         }
     }
 

@@ -20,16 +20,16 @@
     <header>
         <h1><?= __('Update and Delete Movies') ?></h1>
         <h1><?= __('Add Screening Times') ?></h1>
-    </header><br><br>
+    </header>
 
-    <div>
+    <div class="container2">
         <a href="/Movie/create" class="btn btn-primary"><?= __('Add Movie')?></a>
     </div>
 
     <div class="gallery">
         <?php foreach ($data as $index => $movies): ?>
             <div class="gallery-item">
-                <a href="/Movie/adminIndividual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" class="zoom" alt="<?= $movies->title ?>"></a>
+                <a href="/Movie/adminIndividual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" alt="<?= $movies->title ?>"></a>
                 <?php if ($movies->status == 1): ?>
                     <a style="color: white;" href='/MovieSchedule/index?id=<?= $movies->movie_id ?>'><i class="bi bi-clock" ></i></a>
                     <a style="color: white;"href='/Movie/update?id=<?= $movies->movie_id ?>'><i class='bi-pencil-fill'></i></a>

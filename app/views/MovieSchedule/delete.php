@@ -39,7 +39,7 @@
                 
         <div class="form-group">
             <input type="submit" name="action" class="addbutton" value="<?= __('Delete')?>"/><br><br>
-            <a href="/User/adminProfile"><?= __('Cancel')?></a>
+            <a href="/Movie/adminIndex"><?= __('Cancel')?></a>
         </div><br>
     </div>
 </form>

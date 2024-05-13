@@ -36,7 +36,7 @@
             </div><br>
 
             <div class="form-group">
-                <input type="submit" name="action" value="<?= __('Update')?>"/><br><br>
+                <input type="submit" class="addbutton" name="action" value="<?= __('Update')?>"/><br><br>
                 <a href="/User/adminProfile"><?= __('Cancel')?></a>
             </div><br>
            

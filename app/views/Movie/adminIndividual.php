@@ -21,12 +21,7 @@
         $movie = $movie->getByID($data->movie_id);
     ?>
 
-    <!-- Header Section-->
-    <header>
-        <h1><?= __( $data->title) ?></h1>
-    </header><br><br>
- 
-    <div class="container">
+    <br><div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <img src="<?= $data->image ?>" class="movie-image" alt="<?= $data->title ?>">

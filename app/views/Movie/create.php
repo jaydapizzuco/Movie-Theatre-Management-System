@@ -17,14 +17,12 @@
 
 <body class="body">
 
-    <!-- Header Section-->
     <header>
         <h1><?= __('Add a New Movie')?></h1>
-    </header><br><br>
+    </header>
 
     <!-- Register Section -->
     <div class="container">
-        <br><br>
 
         <form action="" method="post">
             <h1><?= __('Movie Information') ?></h1>
@@ -84,7 +82,7 @@
         
         <div class="form-group">
             <input type="submit" name="action" class="addbutton" value="<?= __('Add Movie')?>"/><br><br>
-            <a href=""><?= __('Cancel') ?></a>
+            <a href="/Movie/adminIndex"><?= __('Cancel') ?></a>
         </div><br>
         </form>
     </div>

@@ -19,11 +19,9 @@
 
     <header>
         <h1><?= __('Update a Movie')?></h1>
-    </header><br><br>
+    </header>
 
     <div class="container">
-        <br><br>
-
         <form action="" method="post">
             <h1><?= __('Movie Information')?></h1>
             <div class="form-group">
@@ -56,7 +54,7 @@
 
             <div class="form-group">
                 <input type="submit" name="action" class="addbutton" value="<?= __('Update')?>"/><br><br>
-                <a href="/Movie/adminIndividual?id=<?= $data->movie_id ?>"><?= __('Cancel')?></a>
+                <a href="/Movie/adminIndex"><?= __('Cancel')?></a>
             </div><br>
            
         </form>

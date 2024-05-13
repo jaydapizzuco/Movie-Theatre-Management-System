@@ -192,8 +192,7 @@ main {flex: 1;
 
 .movie-cover {flex-basis: 20%;
         text-align: center;
-        padding: 10px;
-        background: lightblue;}
+        padding: 10px;}
 
 .review-form {flex-basis: 70%;
         padding: 10px;}

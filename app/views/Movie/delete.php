@@ -55,7 +55,7 @@
             </div><br>
 
             <div class="form-group">
-                <input type="submit" name="action" value="<?= __('DELETE MOVIE')?>"/><br><br>
+                <input type="submit" name="action" class="addbutton" value="<?= __('DELETE MOVIE')?>"/><br><br>
                 <a href="/Movie/adminIndividual?id=<?= $data->movie_id ?>"><?= __('Cancel')?></a>
             </div><br>
            

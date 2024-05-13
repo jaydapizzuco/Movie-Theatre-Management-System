@@ -38,7 +38,7 @@
         <h3><?= $data->day?> : <?= $data->getTime($data->time_id)?></h3>
                 
         <div class="form-group">
-            <input type="submit" name="action" value="<?= __('Delete')?>"/><br><br>
+            <input type="submit" name="action" class="addbutton" value="<?= __('Delete')?>"/><br><br>
             <a href="/User/adminProfile"><?= __('Cancel')?></a>
         </div><br>
     </div>

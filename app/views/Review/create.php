@@ -15,6 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 </head>
 
 <nav>
@@ -41,19 +42,67 @@
             <input type="hidden" name="movie_id" value="<?= $data->movie_id ?>">
 
                 <div class="mb-3">
-                    <label for="stars" class="form-label"><?= __('Stars')?></label>
-                    <input type="number" class="form-control" id="stars" name="stars" min="1" max="5" required>
+                    <label for="stars" class="form-label"><?= __('Stars')?></label><br>
+
+                    <div class="rating-box">
+                  <div class="stars">
+                    <i value="1" class="fa-solid fa-star"></i>
+                    <i value="2" class="fa-solid fa-star"></i>
+                    <i value="3" class="fa-solid fa-star"></i>
+                    <i value="4" class="fa-solid fa-star"></i>
+                    <i value="5" class="fa-solid fa-star"></i>
+                  </div>
                 </div>
+                </div>
+                <?php 
+                $stars = 5;
+                 ?>
 
                 <div class="mb-3">
                     <label for="review_text" class="form-label"><?= __('Review')?></label>
                     <textarea class="form-control" id="review_text" name="review_text" required></textarea>
                 </div>
-
+                <input type="hidden" name="stars" value="<?= $stars ?>">
                 <button type="submit" class="btn btn-primary"><?= __('Submit Review')?></button>
+                <p id="test"></p>
 
             </form>
         </section>
+
+        <script type="text/javascript">
+             // Select all elements with the "i" tag and store them in a NodeList called "stars"
+            const stars = document.querySelectorAll(".stars i");
+
+            // Loop through the "stars" NodeList
+            stars.forEach((star, index1) => {
+              // Add an event listener that runs a function when the "click" event is triggered
+              star.addEventListener("click", () => {
+                switch(index1){
+                    case 0: document.getElementById("test").innerHTML = index1;<?php $stars = 1; ?> break;
+                    case 1: document.getElementById("test").innerHTML = index1;<?php $stars = 2; ?> break;
+                    case 2: document.getElementById("test").innerHTML = index1;<?php $stars = 3; ?> break;
+                    case 3: document.getElementById("test").innerHTML = index1;<?php $stars = 4; ?> break;
+                    case 4: document.getElementById("test").innerHTML = index1;<?php $stars = 5; ?> break;
+                }
+                // Loop through the "stars" NodeList Again
+                stars.forEach((star, index2) => {
+                  // Add the "active" class to the clicked star and any stars with a lower index
+                  // and remove the "active" class from any stars with a higher index
+                  index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+                });
+              });
+            });
+
+            // function getStars(int stars){
+            //     switch(stars){
+            //         case 1: <?php $stars = 1; ?> break;
+            //         case 2: <?php $stars = 2; ?> break;
+            //         case 3: <?php $stars = 3; ?> break;
+            //         case 4: <?php $stars = 4; ?> break;
+            //         case 5: <?php $stars = 5; ?> break;
+            //     }
+            // }
+        </script>
     </body>
     <footer>
         <br>Copyright &copy 2024 

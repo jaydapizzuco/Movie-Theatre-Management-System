@@ -57,6 +57,11 @@
 </body>
 
 <footer>
+    
+<form action="" method="GET" id="languageForm">
+    <button type="submit" name="lang" value="en"><?= __('English') ?></button>
+    <button type="submit" name="lang" value="fr"><?= __('French') ?></button>
+</form>
         <br><?= __('Copyright &copy 2024') ?>
 </footer>
 

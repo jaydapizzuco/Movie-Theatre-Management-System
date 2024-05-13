@@ -23,4 +23,16 @@ $t->addResource('mo',"./locales/$locale/LC_MESSAGES/messages.mo", $locale);
 function __($message){
 	global $t;
 	return $t->trans($message);
+
+
+	if (isset($_GET['lang'])) {
+    $requestedLocale = $_GET['lang'];
+    if (in_array($requestedLocale, $supportedLocales)) {
+        $locale = $requestedLocale;
+        setcookie('lang', $locale, 0, '/');
+        // Redirect back to the current page after changing language
+        header("Location: {$_SERVER['PHP_SELF']}");
+        exit();
+    }
+}
 }

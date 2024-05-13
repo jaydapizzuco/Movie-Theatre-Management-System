@@ -58,8 +58,8 @@ footer {text-align: center;
         color: white;
         background-color: black;}
 
-.container{background-color: white;
-        color: black;
+.container{background-color: #232D3F;
+        color: white;
         padding: 20px;
         border-radius: 10px;
         text-align: center;}
@@ -133,9 +133,9 @@ footer {text-align: center;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);}
 
- .receipt {width: 400px;
+ .receipt {width: 450px;
     margin: 40px auto;
-    padding: 40px;
+    padding: 20px;
     border: 2px solid #ccc;
     border-radius: 10px;
     background-color: #f9f9f9;
@@ -172,7 +172,7 @@ footer {text-align: center;
 
 .reject {background-color: #f44336; /* Red */}
 
-.footer {background-color: #333;
+.footer {background-color:#232D3F;
         color: white;
         text-align: center;
         padding: 10px 20px;
@@ -192,8 +192,7 @@ main {flex: 1;
 
 .movie-cover {flex-basis: 20%;
         text-align: center;
-        padding: 10px;
-        background: lightblue;}
+        padding: 10px;}
 
 .review-form {flex-basis: 70%;
         padding: 10px;}
@@ -209,12 +208,12 @@ main {flex: 1;
 .review p.stars {margin-bottom: 10px;}
 
         
-.footer {background-color: #333;
+/*.footer {background-color: #333;
         color: white;
         text-align: center;
         padding: 10px 20px;
         position: fixed;
         bottom: 0;
-        width: 100%;}
+        width: 100%;}*/
 
 .table {padding: 50px;}

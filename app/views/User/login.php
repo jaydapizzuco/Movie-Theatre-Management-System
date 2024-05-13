@@ -36,7 +36,7 @@
             </div><br>
 
             <div class="form-group">
-                <input type="submit" name="action" value="Login"/><br><br>
+                <input type="submit" name="action" class="addbutton" value="Login"/><br><br>
                 <a href="/User/register"><?= __('Create Account')?></a>
             </div><br>
             

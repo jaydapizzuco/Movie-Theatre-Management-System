@@ -34,25 +34,33 @@
                     $movie = new \app\models\Movie();
                     $movie = $movie->getById($ticket->movie_id);
             ?>
-                <li class="list-group-item">
-                    <h5 class="card-title"><?= $movie->title ?></h5><br>
-                    <p class="card-text"><?= $ticket->movie_day ?> : <?= $ticket->movie_time ?> </p>
-                    <p class="card-text">Seat Number: <?= $ticket->seat_id ?></p>
-                </li>
+
+            <table class="table">
+                <tr>
+                    <th><?= __('Movie') ?></th>
+                    <th><?= __('Date') ?></th>
+                    <th><?= __('Seat') ?></th>
+                </tr>
+
+                <tr>
+                    <td><?= $movie->title ?></td>
+                    <td><?= $ticket->movie_day ?> : <?= $ticket->movie_time ?> </td>
+                    <td><?= $ticket->seat_id ?></td>
+                </tr>
+            </table>
             <?php endforeach; ?>
         </ul>
             <div class="row justify-content-end mt-4">
-            <div class="col-md-6">
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= __('Total Price')?></h5>
-                        <p class="card-text">Total: $ <?= round($data->total_price ,2) ?></p>
-                        <a href="/Order/checkout?id=<?= $data->order_id ?>" class="btn btn-primary"><?= __('Checkout')?></a>
+                <div class="col-md-6">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= __('Total Price: $')?><?= round($data->total_price ,2) ?></h5>
+                            <a href="/Order/checkout?id=<?= $data->order_id ?>" class="btn btn-primary"><?= __('Checkout')?></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 </body>
 </html>

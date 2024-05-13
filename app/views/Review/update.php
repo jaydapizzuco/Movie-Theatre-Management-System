@@ -11,43 +11,42 @@
 <nav>
     <a name='homepage' href="/Main/index"><?= __('Home Page')?></a> &nbsp&nbsp
     <a href="/User/profile"><?= __('Account')?></a> &nbsp&nbsp
-     <a href="/Main/aboutus"><?= __('About Us')?></a> &nbsp&nbsp
+    <a href="/Main/aboutus"><?= __('About Us')?></a> &nbsp&nbsp
     <a href="/Movie/index"><?= __('Movies')?></a>
     <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a>
 </nav>
 
 <body class="body">
     <?php 
-
         $movie = new \app\models\Movie();
         $movie = $movie->getByID($data->movie_id);
     ?>
+
     <header>
         <h1><?= __('Modify Review for ')?><?= $movie->title ?></h1>
     </header>
 
-    <body>
-        <section class="movie-cover">
-            <img src="<?= $movie->image ?>" alt="<?= $movie->title ?>" style="max-width: 100%;">
-        </section>
-        <section class="review-form">
-            <form action="" method="POST">
-                <input type="hidden" name="review_id" value="<?= $data->review_id ?>">
+    <div class="container2">
+    <section class="movie-cover">
+        <img src="<?= $movie->image ?>" alt="<?= $movie->title ?>" style="max-width: 100%;">
+    </section>
+
+    <section class="review-form">
+        <form action="" method="POST">
+            <input type="hidden" name="review_id" value="<?= $data->review_id ?>">
                 <div class="mb-3">
                     <label for="stars" class="form-label"><?= __('Stars')?></label>
                     <input type="number" class="form-control" id="stars" name="stars" min="1" max="5" value="<?= $data->stars ?>" required>
                 </div>
+                    
                 <div class="mb-3">
                     <label for="review_text" class="form-label"><?= __('Review Text')?></label>
                     <textarea class="form-control" id="review_text" name="review_text" required><?= $data->review_text ?></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary"><?= __('Submit Review')?></button>
-            </form>
-        </section>
-    </body>
 
-    <footer>
-        <p>Footer</p>
-    </footer>
+                <button type="submit" class="btn btn-primary"><?= __('Submit Review')?></button>
+        </form>
+    </section>
+</div>
 </body>
 </html>

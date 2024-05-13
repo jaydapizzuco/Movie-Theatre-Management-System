@@ -29,7 +29,8 @@
 </nav>
 
 <body class="body">
-<header>
+    
+    <header>
         <h1><?= __('Book Tickets for ')?><?= $data->title ?></h1>
     </header><br><br>
 
@@ -40,10 +41,8 @@
             date_default_timezone_set('America/Montreal');
 
             $timestamp = date("Y-m-d");
-            //echo $timestamp;
             $timestamp = strtotime($timestamp);
             $day = date('l', $timestamp);
-           // echo "The " . $day;
 
             $dayInt = 0;
 
@@ -77,7 +76,7 @@
         ?>
 
     <div class = "container">
-        <h2><?= __('Select a Screening ')?></h2>
+        <h2><?= __('Select a Screening ')?></h2><br>
         <form action="" method="post">
            <div class="form-group">
             <select name="screening" id="screening">
@@ -122,14 +121,7 @@
              
             </select>
             <br>
-            
-
-        </div>
-        <!-- <p id="confirming"></p>
-        <div class="form-group">
-         <input type="date" id="datePicker" min="<?= date('Y-m-d') ?>">
-        </div> -->
-
+        </div><br>
         <input type="submit" name="selected" value="<?= __('Select Screening')?>"/>
     </form> 
 
@@ -187,15 +179,8 @@
             });
         }
     });
-</script>
-
-
-
-    
+</script>    
 </div>
-    <footer>
-        <br>Copyright &copy 2024 
-    </footer>
 </body>
 
 </html>

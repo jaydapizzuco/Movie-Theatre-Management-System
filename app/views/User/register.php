@@ -46,7 +46,7 @@
             </div><br>
 
             <div class="form-group">
-                <input type="submit" name="register" value="<?= __('Register')?>"/><br><br>
+                <input type="submit" name="register" class="addbutton" value="<?= __('Register')?>"/><br><br>
                 <a href="/User/login"><?= __('Login')?></a>
             </div><br>
             

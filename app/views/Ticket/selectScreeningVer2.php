@@ -66,9 +66,6 @@
 
 
 </div>
-    <footer>
-        <br>Copyright &copy 2024 
-    </footer>
 </body>
 
 </html>

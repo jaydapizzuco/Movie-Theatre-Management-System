@@ -22,7 +22,7 @@
     <h1><?= __('CART')?></h1>
 </header>
 
-<body>
+<body class="body">
 
     <?php foreach ($data as $incompleteOrder) { ?>
 

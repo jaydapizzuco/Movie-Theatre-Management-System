@@ -15,7 +15,7 @@
     <a href="/Movie/index"><?= __('Movies')?></a>
 </nav>
 
-<body>
+<body class="body">
 
 <?php 
     $movie_id = $data->movie_id;

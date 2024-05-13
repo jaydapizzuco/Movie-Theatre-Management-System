@@ -8,7 +8,7 @@
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 
-<body>
+<body class="body">
 
 <div class="header">
     <h1><?= __('Delete Review')?></h1>

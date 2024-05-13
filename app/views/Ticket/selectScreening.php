@@ -28,11 +28,8 @@
     <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a> &nbsp&nbsp
 </nav>
 
-<body>
-
-<body>
-
-	<header>
+<body class="body">
+<header>
         <h1><?= __('Book Tickets for ')?><?= $data->title ?></h1>
     </header><br><br>
 

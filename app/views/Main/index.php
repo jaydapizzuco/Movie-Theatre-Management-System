@@ -18,7 +18,7 @@
     <a href ="/Order/incomplete"><i class="bi bi-cart"></i></a> &nbsp&nbsp
 </nav>
 
-<body>
+<body class="body">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">

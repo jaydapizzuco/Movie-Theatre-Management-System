@@ -35,7 +35,7 @@
     <h1><?= __($data->title . "'s Ticket Revenue") ?></h1>
 </header>
 
-<body>
+<body class="body">
      <?php 
             $orders = new \app\models\Order();
             $orders = $orders->getByMovieID($data->movie_id);

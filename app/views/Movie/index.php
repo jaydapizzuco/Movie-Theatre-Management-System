@@ -18,13 +18,12 @@
     <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a> &nbsp&nbsp
 </nav>
 
-<body>
 
-    <form class="form-inline" method="POST" action='/Movie/search'>
-        <input name="search" placeholder="<?= __('eg: Movie 1')?>" >
+<body class="body">
+    <form class="search-form d-flex justify-content-end mt-3" method="POST" action='/Movie/search'>
+        <input type="search" class="form-control me-2" name="search" placeholder="<?= __('eg: Movie 1') ?>">
         <input type="submit" name='action' value="<?= __('Search')?>" >
     </form><br>
-
 
     <!-- Header Section-->
     <header>
@@ -35,7 +34,7 @@
     <div class="gallery">
         <?php foreach ($data as $index => $movies): ?>
             <div class="gallery-item">
-                <a name= "<?= htmlspecialchars($movies->movie_id) ?>" href="/Movie/individual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" class="zoom" alt="<?= $movies->title ?>"></a>
+                <a name= "<?= htmlspecialchars($movies->movie_id) ?>" href="/Movie/individual?id=<?= $movies->movie_id ?>"><img src="<?= $movies->image ?>" alt="<?= $movies->title ?>"></a>
                 <p><?= $movies->title ?></p>
             </div>
         <?php endforeach; ?>

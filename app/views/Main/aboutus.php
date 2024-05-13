@@ -17,7 +17,7 @@
     <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a> &nbsp&nbsp
 </nav>
 
-<body>
+<body class="body">
     <header>
         <h1>About us</h1>
     </header><br><br>
@@ -25,20 +25,7 @@
     <div class="container2">
         <p><?= $data->description ?></p>
         <p><?= __('Contact us at')?></p>
-        <p><a href="mailto:<?= $data->about_email ?>"><?= $data->about_email ?></a></p>
-     
-
-        <!-- <form action="/User/update">
-            <button type="submit"><?= __('Edit Profile Information')?></button>
-        </form><br><br><br><br><br>
-
-        <form action="/User/logout">
-            <button type="submit"><?= __('Logout')?></button>
-        </form>
-
-        <form action="/User/setup2fa">
-            <button type="submit"><?= __('Set Up 2FA')?></button>
-        </form> -->
+        <p><a href="mailto:<?= $data->about_email ?>" style="color: black;"><?= $data->about_email ?></a></p>
     </div>
 
     <footer>

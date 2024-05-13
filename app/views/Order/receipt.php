@@ -29,7 +29,7 @@
 
    ?>
 
-<body>
+<body class="body">
         <div class="receipt">
             <p><?= __('Receipt #: ')?><?= $data->order_id ?></p>
             <?php

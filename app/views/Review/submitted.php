@@ -22,7 +22,7 @@
     <h2><?= __('Your review has been submitted for revision')?></h2>
 </header>
 
-<body>
+<body class="body">
     <?php 
         $movie = new \app\models\Movie();
         $movie =$movie->getById($data->movie_id);

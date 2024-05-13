@@ -18,7 +18,7 @@
     <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a> &nbsp&nbsp
 </nav>
 
-<body>
+<body class="body">
     <?php 
         $movie = new \app\models\Movie();
         $movie = $movie->getByID($data->movie_id);

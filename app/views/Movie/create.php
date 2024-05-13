@@ -15,7 +15,7 @@
     <a href="/Movie/index"><?= __('Movies') ?></a>
 </nav>
 
-<body>
+<body class="body">
 
     <!-- Header Section-->
     <header>

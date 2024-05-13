@@ -16,75 +16,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     
-<!--     <style>
-       
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-            background: #f0f0f0;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            font-size: 24px;
-        }
-
-        header nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        header nav ul li {
-            padding: 0 10px;
-        }
-
-        header nav ul li a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        main {
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-start;
-        }
-
-        .movie-cover {
-            flex-basis: 20%;
-            text-align: center;
-            padding: 10px;
-            background: lightblue;
-        }
-
-        .review-form {
-            flex-basis: 70%;
-            padding: 10px;
-        }
-
-        footer {
-            background: #f0f0f0;
-            padding: 10px 20px;
-            text-align: center;
-        }
-    </style> -->
 </head>
-<body>
+<body class="body">
   <nav>
          <a name='homepage' href="/Main/index"><?= __('Home Page')?></a> &nbsp&nbsp
         <a href="/User/profile"><?= __('Account')?></a> &nbsp&nbsp

@@ -28,7 +28,7 @@
     <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a> &nbsp&nbsp
 </nav>
 
-<body>
+<body class="body">
     <?php
     //get index of day today 
         date_default_timezone_set('America/Montreal');

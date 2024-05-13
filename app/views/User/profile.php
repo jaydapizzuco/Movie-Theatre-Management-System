@@ -17,7 +17,7 @@
     <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a> &nbsp&nbsp
 </nav>
 
-<body>
+<body class="body">
 
     <header>
         <h1><?= $data->name ?></h1>
@@ -26,15 +26,14 @@
     <nav class="account">
         <a href="/User/profile"><?= __('Profile Information')?></a> &nbsp&nbsp
         <a name="purchaseHistory" href="/User/purchaseHistory"><?= __('Purchase History')?></a> &nbsp&nbsp
-        <a name="reviewshistory" href="/Review/profileindex"> <?= __('Reviews')?></a> <!-- Added link to reviews/profileindex -->
+        <a name="reviewshistory" href="/Review/profileindex"> <?= __('Reviews')?></a> 
     </nav><br>
 
     <div class="container2">
-        <h2><?= __('Name:')?><?= $data->name ?></h2>
-        <h2><?= __('Email:')?> <?= $data->email ?></h2>
-     
+        <h2><?= __('Name: ')?><?= $data->name ?></h2>
+        <h2><?= __('Email :')?> <?= $data->email ?></h2><br><br>
 
-        <form action="/User/update">
+    <form action="/User/update">
             <button class = "addbutton" type="submit"><?= __('Edit Profile Information')?></button>
         </form><br>
         <form action="/User/setup2fa">
@@ -45,12 +44,6 @@
             <button class="btn btn-danger" type="submit"><?= __('Logout')?></button>
         </form>
 
-        
-    </div>
-
-    <footer>
-        <br>Copyright &copy 2024 
-    </footer>
+        </div><br><br>
 </body>
-
 </html>

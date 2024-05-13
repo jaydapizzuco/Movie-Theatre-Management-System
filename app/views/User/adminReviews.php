@@ -20,7 +20,7 @@
     <a href="/Movie/index"><?= __('Movies')?></a>
 </nav>
 </head>
-<body>
+<body class="body">
     <header>
         <h1><?= __('Admin Reviews')?></h1>
     </header>

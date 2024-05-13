@@ -31,7 +31,7 @@ input:invalid:focus {
     <h1><?= __('Checkout')?></h1><br>
 </header>
 
-<body>
+<body class="body">
 
 
         <?php

@@ -11,7 +11,7 @@
   </div>
 </nav>
 
-<body>
+<body class="body">
 	<div class='container'>
 		<br><h1></h1>
 		<form method='post' action=''>

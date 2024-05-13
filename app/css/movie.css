@@ -1,12 +1,15 @@
-body {font-family: 'Courier New', Courier, monospace;
-    background-color: #f8f9fa;}
+body {font-family: 'Courier New', Courier, monospace;}
 
-header {text-align: center;
-    margin-bottom: 30px;
-    background-color: black;
-    font-family: 'Courier New', Courier, monospace;
+.body {font-family: 'Courier New', Courier, monospace;
+    background-color: #232D3F;
         color: white;}
 
+header {text-align: center;
+    margin-bottom: 10px;
+    background-color:#232D3F;
+    font-family: 'Courier New', Courier, monospace;
+        color: white;}
+ 
 h1 {height: auto;
     width: auto;
     font-size: 2em;
@@ -19,8 +22,8 @@ h2 {color: white;
     font-family: 'Courier New', Courier, monospace;}
 
 nav {text-align: right;
-    height: 80px;
-    font-family: 'Courier New', Courier, monospace;
+        height: 80px;
+        font-family: 'Courier New', Courier, monospace;
         background-color: black;
         padding-top: 20px;}
 
@@ -31,11 +34,21 @@ nav a:hover {color: #0B60B0;}
 
 form {font-family: 'Courier New', Courier, monospace;}
 
+a:link {color: white;}
+
+a:visited {color: white;}
+
+a:hover {color: #0B60B0;}
+
+a:active {color: white;}
+
 footer {text-align: center;
        margin-top: 100px;
-        background-color:  black;
+        background-color:  #232D3F;
         color: white;
         bottom: 0 }
+
+.search-form input[type="search"] {width: 400px;}
 
 .footer2 {position: absolute;
         bottom: 0;
@@ -46,50 +59,55 @@ footer {text-align: center;
         background-color: black;}
 
 .container{background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;}
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;}
 
 .container2{text-align: center;
-            padding: 30px;
-            height: 200px;
-            width: 700px;
-            margin: auto;}
+        color: white;
+        padding: 30px;
+        height: 200px;
+        width: 700px;
+        margin: auto;}
 
 .containerCheckout {max-width: 600px;
         margin: 0 auto;
+        color: white;
         padding: 20px;
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);}
 
 
-.container3{background-color: rgb(245, 157, 245);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            height: auto;
-            width: 500px;
-            margin: auto;}
+.container3{background-color: #344955;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        height: auto;
+        width: 500px;
+        margin: auto;}
 
 
 .account {text-align: center;
-            background-color: black;}
+        background-color: black;}
     
 .account a {text-decoration: none;
-            color: white;}
+        color: white;}
 
 .gallery {display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
-        padding: 0 20px;}
+        padding: 0 20px;
+        color: white;}
 
 .gallery-item {background-color: #ffffff;
         border-radius: 10px;
-        
         padding: 20px;
         text-align: center;
+        background-color: #232D3F;
         max-width: 250px;}
 
 .gallery-item img {width: 100%;
@@ -102,39 +120,101 @@ footer {text-align: center;
 
 .zoom:hover{transform: scale(1.5);}
 
-
 .movie-image {width: 80%;
         max-width: 400px;
-        height: auto;
+        height: 600px;
         border-radius: 10px;
         margin-bottom: 20px;}
 
 .movie {text-align: center;}
 
 .movie img {width: 200px;
-            height: 200px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);}
+        height: 200px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);}
 
- .receipt {
-    width: 400px;
+ .receipt {width: 400px;
     margin: 40px auto;
     padding: 40px;
     border: 2px solid #ccc;
     border-radius: 10px;
     background-color: #f9f9f9;
+    color: black;
     font-family: Courier;
     text-align: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);}
 
-.addbutton{
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+.addbutton{background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;}
 
+.main-content {padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;}
 
+.review-box {background-color: #ddd;
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin-bottom: 20px;
+        width: 300px;
+        text-align: center;}
+
+.button {padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        color: white;}
+
+.approve {background-color: #4CAF50;}
+
+.reject {background-color: #f44336; /* Red */}
+
+.footer {background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;}
+
+ * { margin: 0;
+        padding: 0;
+        box-sizing: border-box;}
+
+main {flex: 1;
+        padding: 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;}
+
+.movie-cover {flex-basis: 20%;
+        text-align: center;
+        padding: 10px;
+        background: lightblue;}
+
+.review-form {flex-basis: 70%;
+        padding: 10px;}
+
+.review-list {flex-basis: 70%;
+        padding: 10px;}
+
+.review {background: #333;
+        color: white;
+        margin-bottom: 20px;
+        padding: 20px;}
+
+.review p.stars {margin-bottom: 10px;}
+
+        
+.footer {background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;}
+
+.table {padding: 50px;}

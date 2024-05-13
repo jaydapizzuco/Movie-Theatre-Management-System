@@ -14,7 +14,7 @@
     <a href="/Movie/adminIndex"><?= __('Movies')?></a>
 </nav>
 
-<body>
+<body class="body">
     <header>
         <h1><?= __('Administrator Profile')?></h1>
         <h1><?= $data->name ?></h1>

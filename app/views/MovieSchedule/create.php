@@ -15,7 +15,7 @@
     <a href="/Movie/index"><?= __('Movies')?></a>
 </nav>
 
-<body>
+<body class="body">
 
      <?php 
         $movie = new \app\models\Movie();

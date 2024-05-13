@@ -14,7 +14,7 @@
     <a href="/User/adminProfile"><?= __('Account') ?></a> &nbsp&nbsp
     <a href="/Movie/index"><?= __('Movies') ?></a>
 </nav>
-<body>
+<body class="body">
 
     <!-- Header Section-->
     <header>

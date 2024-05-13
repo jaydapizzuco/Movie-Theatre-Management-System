@@ -58,8 +58,8 @@ footer {text-align: center;
         color: white;
         background-color: black;}
 
-.container{background-color: white;
-        color: black;
+.container{background-color: #232D3F;
+        color: white;
         padding: 20px;
         border-radius: 10px;
         text-align: center;}
@@ -172,7 +172,7 @@ footer {text-align: center;
 
 .reject {background-color: #f44336; /* Red */}
 
-.footer {background-color: #333;
+.footer {background-color:#232D3F;
         color: white;
         text-align: center;
         padding: 10px 20px;
@@ -209,12 +209,12 @@ main {flex: 1;
 .review p.stars {margin-bottom: 10px;}
 
         
-.footer {background-color: #333;
+/*.footer {background-color: #333;
         color: white;
         text-align: center;
         padding: 10px 20px;
         position: fixed;
         bottom: 0;
-        width: 100%;}
+        width: 100%;}*/
 
 .table {padding: 50px;}

@@ -48,22 +48,45 @@ input:invalid:focus {
 
 
     <div class="container2">
-        <!-- Ticket information section -->
         <div class="ticket-info">
             <?php foreach ($allTickets as $index => $ticket) { ?>
                 <div class="ticket">
                     <?php $movie = new \app\models\Movie();
                     $movie = $movie->getById($ticket->movie_id); ?>
-                    <h2><?= $movie->title ?></h2>
+
                     <?php
                             $date = new DateTime($ticket->movie_date);
                             $date = $date->format('F j, Y');
-                            ?>
-                <p> <?= $ticket->movie_day ?> <?= $date ?> <?= $ticket->movie_time ?> </p>
-                    <p><?= __('Seat number: ') ?><?= $ticket->seat_id ?></p>
+                    ?>
+
+                <table class="table">
+                    <tr>
+                        <th><?= __('Movie') ?></th>
+                        <th><?= __('Date') ?></th>
+                        <th><?= __('Seat') ?></th>
+                    </tr>
+
+                    <tr>
+                        <td><?= $movie->title ?></td>
+                        <td><?= $ticket->movie_day ?> : <?= $ticket->movie_time ?> </td>
+                        <td><?= $ticket->seat_id ?></td>
+                    </tr>
+                </table>
+
                 </div>
+
+
             <?php } ?>
-            <h3><?= __('Total cost: $ ') ?><?=  round($data->total_price, 2) ?></h3>
+
+            <div class="row justify-content-end mt-4">
+                <div class="col-md-6">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= __('Total Price: $')?><?= round($data->total_price ,2) ?></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Payment form section -->

@@ -22,7 +22,7 @@
 <body class="body">
     <form class="search-form d-flex justify-content-end mt-3" method="POST" action='/Movie/search'>
         <input type="search" class="form-control me-2" name="search" placeholder="<?= __('eg: Movie 1') ?>">
-        <input type="submit" name='action' value="<?= __('Search')?>" >
+        <input type="submit" class = "addbutton" name='action' value="<?= __('Search')?>" >
     </form><br>
 
     <!-- Header Section-->

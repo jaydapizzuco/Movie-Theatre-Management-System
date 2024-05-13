@@ -24,11 +24,10 @@
 
     <div class="container2">
         <p><?= $data->description ?></p>
-        <p><?= __('Contact us at')?></p>
-        <p><a href="mailto:<?= $data->about_email ?>" style="color: black;"><?= $data->about_email ?></a></p>
+        <p><?= __('Contact us at: ')?><a href="mailto:<?= $data->about_email ?>" style="color: white;"><?= $data->about_email ?></a></p>
     </div>
 
-    <footer>
+    <footer class="footer">
         <br>Copyright &copy 2024 
     </footer>
 </body>

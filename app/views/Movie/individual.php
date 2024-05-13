@@ -27,21 +27,34 @@
     <!-- Header Section-->
     <header>
         <h1><?= $data->title ?></h1>
-    </header><br><br>
+        <a href="/Review/index?movie_id=<?= $movie->movie_id ?>" class="btn btn-primary">View Reviews</a>
+    </header>
  
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <img src="<?= $data->image ?>" class="movie-image" alt="<?= $data->title ?>">
                 <h2><?= $data->title ?></h2>
-                <p><strong><?= __('Director:')?></strong> <?= $data->director ?></p>
-                <p><strong><?= __('Description:')?></strong> <?= $data->description ?></p>
-                <p><strong><?= __('Trailer:')?></strong> <?= $data->trailer ?></p>
-                <p><strong><?= __('Length:')?></strong> <?= $data->length ?> minutes</p>
-                <p><strong><?= __('Release Date:')?></strong> <?= $data->release_date ?></p>
+
+                <dl>
+                    <dt>Director</dt>
+                    <dd><?= $data->director ?></dd><br>
+
+                    <dt>Description</dt>
+                    <dd><?= $data->description ?></dd><br>
+
+                    <dt>Trailer</dt>
+                    <dd><?= $data->trailer ?></dd><br>
+
+                    <dt>Length</dt>
+                    <dd><?= $data->length ?> minutes</dd><br>
+
+                    <dt>Release Date</dt>
+                    <dd><?= $data->release_date ?></dd>
+                </dl>
             </div>
         </div>
-    </div><br><br>
+    </div>
 
     <div class="container">
         <h1><?= __('Screenings')?></h1>
@@ -52,10 +65,9 @@
 
         <?php 
             foreach ($screenings as $index => $screening) { ?>
-               <h2><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></h2>
+               <h2><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></h2><br>
             <?php } ?>
-             <a href='/Ticket/selectScreening?id=<?= $movie->movie_id ?>'> <h2>Book Tickets</h2></i></a>
-             <a href="/Review/index?movie_id=<?= $movie->movie_id ?>" class="btn btn-primary">View Reviews</a>
+             <a href='/Ticket/selectScreening?id=<?= $movie->movie_id ?>' class="btn btn-primary">Book Tickets</a><br><br>
              </div><br><br>
     </form>
 </div>

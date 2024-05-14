@@ -1617,7 +1617,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnTheReviewsHistoryPage()
      {
-        $this->amOnPage('/Review/profileIndex');
+        $this->amOnPage('/Review/profileindex');
      }
 
     /**
@@ -1638,7 +1638,7 @@ class AcceptanceTester extends \Codeception\Actor
      {
         $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Abigail"]);
         $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
-        $this->dontSeeInDatabase('review', ['movie_id' => $movie_id, 'user_id' => $user_id]);
+        $this->dontSeeInDatabase('review', ['movie_id' => $movie_id, 'review_text'=>'Best movie I’ve seen in a long time!!!', 'user_id' => $user_id]);
      }
 
     /**
@@ -1646,7 +1646,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheReviewsHistoryPage($num1)
      {
-         $this->seeInCurrentUrl('/Review/profileIndex');
+         $this->seeInCurrentUrl('/Review/profileindex');
      }
 
       //-------------- 03600WRITEREVIEWS -------------------

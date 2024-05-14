@@ -14,7 +14,7 @@
     <a name ="account" href="/User/profile"><?= __('Account') ?></a> &nbsp&nbsp 
     <a name ="aboutus" href="/Main/aboutus"><?= __('About us') ?></a> &nbsp&nbsp
     <a name="movies" href="/Movie/index"><?= __('Movies') ?></a> &nbsp&nbsp
-    <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a> &nbsp&nbsp
+    <a name = "cart" href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a> &nbsp&nbsp
 </nav>
 
 <body class="body">

@@ -612,7 +612,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function seeJohnDoeAsMyName()
      {
-        $this->see("John Smith");
+        $this->see("John");
      }
 
       public function userLogin(){

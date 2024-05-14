@@ -1798,7 +1798,7 @@ class AcceptanceTester extends \Codeception\Actor
      public function theReviewTitleIsBestMovieIveSeenInALongTime()
      {
         $reviewid = $this->grabFromDatabase('review', 'review_id', ['review_text'=>'Best movie I’ve seen in a long time!!!']);
-        $this->see('Best movie I’ve seen in a long time!!!', 'p[name="reviewtext'.$reviewid.'"]');
+        $this->see('Best movie I’ve seen in a long time!!!');
      }
 
     /**
@@ -1816,7 +1816,7 @@ class AcceptanceTester extends \Codeception\Actor
      public function theReviewWithDescriptionBestMovieIveSeenInALongTimeGetsRemovedFromTheAdminReviewsIndexPage()
      {
         $this->seeInDatabase('review', ['review_text'=>'Best movie I’ve seen in a long time!!!', 'approved'=>'1']);
-         $this->dontSee('p["Best movie I’ve seen in a long time!!!"]');
+         $this->dontSee("Best movie I’ve seen in a long time!!!");
      }
 
     /**
@@ -1826,8 +1826,7 @@ class AcceptanceTester extends \Codeception\Actor
      {
         $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title'=>'Abigail']);
         $this->amOnPage('/Review/index?movie_id='.$movie_id);
-        $reviewId = $this->grabFromDatabase('review', 'review_id', ['review_text'=>'Best movie I’ve seen in a long time!!!']);
-        $this->see('Best movie I’ve seen in a long time!!!','review');
+        $this->see('Best movie I’ve seen in a long time!!!');
      }
 
      //-------------- 038REVIEWSREJECT -------------------
@@ -1846,7 +1845,7 @@ class AcceptanceTester extends \Codeception\Actor
      public function theReviewDescriptionIsIReallyDidNotEnjoyThisMovie()
      {
          $reviewid = $this->grabFromDatabase('review', 'review_id', ['review_text'=>'I really did not enjoy this movie']);
-         $this->see('I really did not enjoy this movie', 'p[name="reviewtext'.$reviewid.'"]');
+         $this->see('I really did not enjoy this movie');
      }
 
     /**

@@ -144,12 +144,20 @@ footer {text-align: center;
     text-align: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);}
 
+.form {text-align: left;
+        padding-bottom: 15px;}
+
 .addbutton{background-color: #007bff;
         color: #fff;
         border: none;
         padding: 10px 20px;
         border-radius: 5px;
         cursor: pointer;}
+
+.langButton{padding-left: 10px;
+        color: white;
+        background-color: black;
+        border: none;}
 
 .main-content {padding: 20px;
         display: flex;

@@ -85,13 +85,13 @@
                                     $counter++;
                                 }
                             }
-                                
+                                endforeach;
                             if ($counter == count($allTickets)) { ?>
                                 <a name="delete" href='/Order/delete?id=<?= $order->order_id ?>'><i class='bi bi-trash' style="color:black;"></i></a>
                             <?php } ?>
                             </td>
                         </tr>
-                    <?php endforeach; ?>
+                    <!-- <?php  ?> -->
                 <?php endforeach; ?>
             </tbody>
         </table>

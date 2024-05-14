@@ -1918,7 +1918,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmLoggedInAsAUser()
      {
-        $this->demoLogin();
+        $this->testLogin();
      }
 
     /**
@@ -1937,7 +1937,7 @@ class AcceptanceTester extends \Codeception\Actor
          $movieid = $this->grabFromDatabase('movie','movie_id',['title'=>'Example Movie 2']);
          $user_id = $this->grabFromDatabase('user','user_id',['email'=>'test@email.com']);
          $orderid = $this->grabFromDatabase('ticket','order_id',['movie_id'=>$movieid,'seat_id'=>'12']);
-         $this->click("delete");
+         $this->click('a[name="delete'.$orderid.'"]');
      }
 
     /**

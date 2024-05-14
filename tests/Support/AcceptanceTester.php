@@ -1532,7 +1532,8 @@ class AcceptanceTester extends \Codeception\Actor
      {
         $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Monkey Man"]);
         $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
-        $reviewId = $this->grabFromDatabase('review', 'review_id',['user_id' => $user_id, 'movie_id' => $movie_id]);
+        $reviewId = $this->grabFromDatabase('review', 'review_id',['user_id' => $user_id,'review_text'=>"I really did not enjoy this movie", 'movie_id' => $movie_id]);
+        $this->click('a[name="'.$reviewId.'"]');
      }
 
     /**
@@ -1548,7 +1549,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function clickSubmitTheReview()
      {
-        $this->click('Submit Review');
+        $this->click('submit');
      }
 
     /**

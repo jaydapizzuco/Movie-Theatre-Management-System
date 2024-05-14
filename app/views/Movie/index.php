@@ -16,6 +16,11 @@
     <a name ="aboutus" href="/Main/aboutus"><?= __('About us') ?></a> &nbsp&nbsp
     <a name="movies" href="/Movie/index"><?= __('Movies') ?></a> &nbsp&nbsp
     <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a> &nbsp&nbsp
+
+    <form action="" class="form "method="GET" id="languageForm">
+        <button class="langButton" type="submit" name="lang" value="en"><?= __('English') ?></button>
+        <button class="langButton" type="submit" name="lang" value="fr"><?= __('French') ?></button>
+    </form>
 </nav>
 
 

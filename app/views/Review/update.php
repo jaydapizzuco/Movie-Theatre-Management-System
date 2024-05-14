@@ -44,7 +44,7 @@
                     <textarea class="form-control" id="review_text" name="review_text" required><?= $data->review_text ?></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary"><?= __('Submit Review')?></button>
+                <button name ="submit" type="submit" class="btn btn-primary"><?= __('Submit Review')?></button>
         </form>
     </section>
 </div>

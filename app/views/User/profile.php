@@ -21,7 +21,7 @@
 
     <header>
         <h1><?= $data->name ?></h1>
-    </header><br><br>
+    </header>
 
     <nav class="account">
         <a href="/User/profile"><?= __('Profile Information')?></a> &nbsp&nbsp

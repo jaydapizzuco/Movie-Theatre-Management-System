@@ -63,7 +63,7 @@ input:invalid:focus {
                     <tr>
                         <th><?= __('Movie') ?></th>
                         <th><?= __('Date') ?></th>
-                        <th><?= __('Seat') ?></th>
+                        <th><?= __('Seat number: ') ?></th>
                     </tr>
 
                     <tr>
@@ -82,7 +82,7 @@ input:invalid:focus {
                 <div class="col-md-6">
                     <div class="card mb-4 shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title"><?= __('Total Price: $')?><?= round($data->total_price ,2) ?></h5>
+                            <h5 class="card-title"><?= __('Total Price')?>: $<?= round($data->total_price ,2) ?></h5>
                         </div>
                     </div>
                 </div>

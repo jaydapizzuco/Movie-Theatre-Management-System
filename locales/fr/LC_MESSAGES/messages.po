@@ -163,7 +163,7 @@ msgstr "Films"
 
 #: app/views/Main/aboutus.php:27
 msgid "Contact us at"
-msgstr "Contactez-nous"
+msgstr "Contactez-nous : "
 
 #: app/views/Main/aboutus.php:32 app/views/User/profile.php:38
 msgid "Edit Profile Information"
@@ -319,12 +319,12 @@ msgid "eg: Movie 1"
 msgstr "ex: Film 1"
 
 #: app/views/Movie/index.php:24 app/views/Movie/search.php:24
-msgid "Search by Title"
-msgstr "Cherche par titre"
+msgid "Search"
+msgstr "Chercher"
 
 #: app/views/Movie/index.php:25 app/views/Movie/search.php:25
-msgid "Search by Description"
-msgstr "Cherche par description"
+msgid "Search"
+msgstr "Chercher"
 
 #: app/views/Movie/individual.php:36
 msgid "Director:"
@@ -350,6 +350,10 @@ msgstr "Date de parution:"
 msgid "Screenings"
 msgstr "Horaire"
 
+#: app/views/Movie/individual.php:70
+msgid "Book Tickets"
+msgstr "Reserver des billets"
+
 #: app/views/Movie/modify.php:21
 msgid "Update a Movie"
 msgstr "Mettre a jour un film"
@@ -364,7 +368,7 @@ msgstr "'s Revenue de Billet"
 
 #: app/views/Movie/search.php:30
 msgid "Movies from Search Results"
-msgstr "Movies from Search Results"
+msgstr "Films a partir des resultats de la recherche"
 
 #: app/views/MovieSchedule/create.php:27 app/views/MovieSchedule/index.php:26
 msgid "Screening Times for "

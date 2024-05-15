@@ -27,7 +27,7 @@
     <!-- Header Section-->
     <header>
         <h1><?= $data->title ?></h1>
-        <a href="/Review/index?movie_id=<?= $movie->movie_id ?>" class="btn btn-primary">View Reviews</a>
+        <a href="/Review/index?movie_id=<?= $movie->movie_id ?>" class="btn btn-primary"><?= __('View Reviews')?></a>
     </header>
  
     <div class="container">
@@ -37,19 +37,19 @@
                 <h2><?= $data->title ?></h2>
 
                 <dl>
-                    <dt>Director</dt>
+                    <dt><?= __('Director:') ?></dt>
                     <dd><?= $data->director ?></dd><br>
 
-                    <dt>Description</dt>
+                    <dt><?= __('Description:') ?></dt>
                     <dd><?= $data->description ?></dd><br>
 
-                    <dt>Trailer</dt>
+                    <dt><?= __('Trailer:') ?></dt>
                     <dd><?= $data->trailer ?></dd><br>
 
-                    <dt>Length</dt>
+                    <dt><?= __('Length:') ?></dt>
                     <dd><?= $data->length ?> minutes</dd><br>
 
-                    <dt>Release Date</dt>
+                    <dt><?= __('Release Date:') ?></dt>
                     <dd><?= $data->release_date ?></dd>
                 </dl>
             </div>
@@ -67,7 +67,7 @@
             foreach ($screenings as $index => $screening) { ?>
                <h2><?= $screening->day ?> : <?= $screening->getTime($screening->time_id)?></h2><br>
             <?php } ?>
-             <a href='/Ticket/selectScreening?id=<?= $movie->movie_id ?>' class="btn btn-primary">Book Tickets</a><br><br>
+             <a href='/Ticket/selectScreening?id=<?= $movie->movie_id ?>' class="btn btn-primary"><?= __('Book Tickets') ?></a><br><br>
              </div><br><br>
     </form>
 </div>

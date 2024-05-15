@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 13, 2024 at 05:34 AM
+-- Generation Time: May 15, 2024 at 04:56 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -41,7 +41,7 @@ CREATE TABLE `about` (
 --
 
 INSERT INTO `about` (`about_id`, `about_email`, `description`) VALUES
-(1, 'movietheater@email.com', '\'Welcome! We are a small Movie Theater company catered to all. All the most popular new movies can be found on our website. \'');
+(1, 'movietheater@email.com', '\'Welcome! We are a small Movie Theater company catered to all. All the most popular new movies can be found on our website. hello \'');
 
 -- --------------------------------------------------------
 
@@ -164,7 +164,8 @@ INSERT INTO `movie_schedule` (`schedule_id`, `movie_id`, `day`, `time_id`) VALUE
 (34, 20, 'Sunday', 6),
 (35, 23, 'Sunday', 7),
 (36, 24, 'Sunday', 4),
-(37, 25, 'Sunday', 1);
+(37, 25, 'Sunday', 1),
+(38, 4, 'Sunday', 4);
 
 -- --------------------------------------------------------
 
@@ -231,21 +232,16 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`review_id`, `user_id`, `movie_id`, `stars`, `review_text`, `review_date`, `approved`) VALUES
-(2, 1, 24, 5, '  slayyyyyyyyyyyyyyyy', '2024-05-03 21:16:34', 0),
-(3, 1, 18, 5, 'spooky', '2024-05-03 21:50:11', 0),
-(4, 11, 4, 4, 'changed', '2024-05-12 05:40:24', 1),
-(8, 11, 4, 3, 'test', '2024-05-12 11:11:46', 0),
-(9, 11, 18, 5, 'Best movie I’ve seen in a long time!!!', '2024-05-12 11:12:22', 0),
-(11, 11, 18, 5, 'Best movie I’ve seen in a long time!!!', '2024-05-12 13:40:44', 1),
-(12, 11, 4, 1, 'I really did not enjoy this movie', '2024-05-12 13:40:47', 0),
+(3, 1, 18, 5, 'spooky', '2024-05-03 21:50:11', 1),
 (13, 1, 21, 4, 'Surpassed my expectations!', '2024-05-12 23:04:51', 1),
 (14, 5, 22, 3, 'Thought-provoking', '2024-05-12 23:09:00', 1),
-(15, 11, 4, 4, 'Brilliant.', '2024-05-12 23:12:09', 1),
 (16, 1, 19, 5, 'Enjoyed it more than I thought I would!', '2024-05-12 23:27:21', 1),
 (17, 1, 20, 5, 'Hilarious', '2024-05-12 23:27:37', 1),
 (18, 1, 23, 4, 'Great Movie!', '2024-05-12 23:28:26', 1),
 (19, 1, 24, 5, 'Somehow better than the first one! I would give it more stars if I could!!', '2024-05-12 23:29:04', 1),
-(20, 1, 25, 4, 'Very moving', '2024-05-12 23:29:35', 1);
+(20, 1, 25, 4, 'Very moving.', '2024-05-12 23:29:35', 1),
+(22, 1, 19, 3, 'very nice', '2024-05-13 16:17:56', 1),
+(24, 1, 21, 5, 'loved it', '2024-05-13 16:19:34', 1);
 
 -- --------------------------------------------------------
 
@@ -367,7 +363,8 @@ INSERT INTO `user` (`user_id`, `name`, `email`, `password_hash`, `is_admin`, `se
 (7, 'Jess', 'jess@email.com', '$2y$10$xW3sFSqVS5lvnVtxHwFNa.6uBXIBfiWAimMjUFXljB6aeowTTyyKy', 0, NULL),
 (10, 'hurhur', 'an@email.com', '$2y$10$2Ke10P7BlWAfGhkHTfwDN.p4sfzQfBc7zUlM8.BkXWB3PZKnWWpIK', 0, NULL),
 (11, 'Demo', 'demo@email.com', '$2y$10$HJR838coNenzcXJ5omA2Suw4ta/YlQg1fQ7/WcoHuB6pqPtaaHgMi', 0, NULL),
-(12, 'John Smith', 'test@email.com', '$2y$10$kOi6/8NvF7GF6dSQsyfhouKsjZ68usVdEVJ7S0VV45vU8RVr9amGa', 0, NULL);
+(14, 'James', 'james1@email.com', '$2y$10$iTYTtU7ANYSq8AjA0m0yCeDW4zHFZn0zJBvWxSW1sQgetMpLdyyDi', 0, NULL),
+(16, 'bart', 'bart@email', '$2y$10$udJrzU450LDM03opqNyjo.1VxnYvAglVDBdoYbAM1LWQAHu7yhJFO', 0, NULL);
 
 --
 -- Indexes for dumped tables
@@ -464,31 +461,31 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `movie_schedule`
 --
 ALTER TABLE `movie_schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `times`
@@ -500,7 +497,7 @@ ALTER TABLE `times`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables

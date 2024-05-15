@@ -1507,38 +1507,6 @@ class AcceptanceTester extends \Codeception\Actor
         $this->see('My Reviews');
      }
 
-    /**
-     * @When I edit the review to say “changed”
-     */
-     public function iEditTheReviewToSaychanged()
-     {
-        $this->fillField('review_text', 'changed');
-     }
-
-    /**
-     * @When click Submit the review
-     */
-     public function clickSubmitTheReview()
-     {
-        $this->click('submit');
-     }
-
-    /**
-     * @Then my review with title “Good Movie” and message “hello” is changed in the database to have the message as “changed”
-     */
-     public function myReviewWithTitleGoodMovieAndMessagehelloIsChangedInTheDatabaseToHaveTheMessageAschanged()
-     {
-        $this->seeInDatabase('review',['review_text'=>'changed']);
-     }
-
-    /**
-     * @Then I should be redirected to the reviews history page:num1
-     */
-     public function iShouldBeRedirectedToTheReviewsHistoryPage($num1)
-     {
-        $this->see('My Reviews');
-     }
-
       //-------------- 034VIEWABOUTUS -------------------
 
     /**
@@ -1571,53 +1539,6 @@ class AcceptanceTester extends \Codeception\Actor
      public function theEmailDisplayedIs($arg1)
      {
         $this->see('movietheater@email.com');
-     }
-
-      //-------------- 035DELETEREVIEWS -------------------
-
-    /**
-     * @Given I am logged into the account User:num1
-     */
-     public function iAmLoggedIntoTheAccountUser($num1)
-     {
-        $this->demoLogin();
-     }
-
-    /**
-     * @Given I am on the reviews history page
-     */
-     public function iAmOnTheReviewsHistoryPage()
-     {
-        $this->amOnPage('/Review/profileindex');
-     }
-
-    /**
-     * @When I click on the delete button for the review for Movie:num1 with the title “Excellent Movie”,
-     */
-     public function iClickOnTheDeleteButtonForTheReviewForMovieWithTheTitleExcellentMovie($num1)
-     {
-        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Abigail"]);
-        $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
-        $reviewId = $this->grabFromDatabase('review', 'review_id',['user_id' => $user_id, 'movie_id' => $movie_id, 'review_text' => 'Best movie I’ve seen in a long time!!!']);
-        $this->click('a[name="delete'.$reviewId.'"]');
-     }
-
-    /**
-     * @Then the review for Movie:num1 with the title “Excellent Movie” is deleted from the database and my profile
-     */
-     public function theReviewForMovieWithTheTitleExcellentMovieIsDeletedFromTheDatabaseAndMyProfile($num1)
-     {
-        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Abigail"]);
-        $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
-        $this->dontSeeInDatabase('review', ['movie_id' => $movie_id, 'review_text'=>'Best movie I’ve seen in a long time!!!', 'user_id' => $user_id]);
-     }
-
-    /**
-     * @Then I am redirected to the reviews history page:num1
-     */
-     public function iAmRedirectedToTheReviewsHistoryPage($num1)
-     {
-         $this->seeInCurrentUrl('/Review/profileindex');
      }
 
       //-------------- 03600WRITEREVIEWS -------------------
@@ -1760,6 +1681,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmOnThePage($arg1)
      {
+        $this->adminLogin();
         $this->amOnPage('/Review/adminIndex');
      }
 
@@ -1778,7 +1700,7 @@ class AcceptanceTester extends \Codeception\Actor
      public function iClickOnTheApproveButton()
      {
         $reviewId = $this->grabFromDatabase('review', 'review_id', ['review_text'=>'Best movie I’ve seen in a long time!!!']);
-        $this->click('button[value="'.$reviewId.'"]');
+        $this->click('//button[@name="approve_review" and @value="' . $reviewId . '"]');
      }
 
      /**
@@ -1845,7 +1767,7 @@ class AcceptanceTester extends \Codeception\Actor
         $this->dontSeeInDatabase('review', ['review_text'=>'I really did not enjoy this movie']);
      }
 
-     //-------------- 034MODIFYREVIEWS ------------------- 
+     //-------------- 0381MODIFYREVIEWS ------------------- 
 
     /**
      * @Given I am logged into “Demo User”
@@ -1868,11 +1790,123 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theTitleOfTheReviewIsGoodMovieAndTheMessageIsHello()
      {
-        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Monkey Man"]);
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Abigail"]);
         $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
-        $reviewId = $this->grabFromDatabase('review', 'review_id',['user_id' => $user_id,'review_text'=>"I really did not enjoy this movie", 'movie_id' => $movie_id]);
+        $reviewId = $this->grabFromDatabase('review', 'review_id',['user_id' => $user_id,'review_text'=>"Best movie I’ve seen in a long time!!!", 'movie_id' => $movie_id]);
         $this->click('a[name="'.$reviewId.'"]');
      }
+
+     /**
+     * @When I edit the review to say “changed”
+     */
+     public function iEditTheReviewToSaychanged()
+     {
+        $this->fillField('review_text', 'changed');
+     }
+
+    /**
+     * @When click Submit the review
+     */
+     public function clickSubmitTheReview()
+     {
+        $this->click('submit');
+     }
+
+    /**
+     * @Then my review with title “Good Movie” and message “hello” is changed in the database to have the message as “changed”
+     */
+     public function myReviewWithTitleGoodMovieAndMessagehelloIsChangedInTheDatabaseToHaveTheMessageAschanged()
+     {
+        $this->seeInDatabase('review',['review_text'=>'changed']);
+     }
+
+    /**
+     * @Then I should be redirected to the reviews history page:num1
+     */
+     public function iShouldBeRedirectedToTheReviewsHistoryPage($num1)
+     {
+        $this->see('My Reviews');
+     }
+
+    //-----------------------03812APPROVEREVIEW-------------
+
+   /**
+     * @When I click on the approve button for the review with text changed
+     */
+     public function iClickOnTheApproveButtonForTheReviewWithTextChanged()
+     {
+        $reviewid = $this->grabFromDatabase('review', 'review_id', ['review_text'=>'changed']);
+        $this->see('changed');
+         $this->click('//button[@name="approve_review" and @value="' . $reviewid . '"]');
+
+     }
+
+    /**
+     * @Then the review with text changed, gets removed from the Admin Reviews index page
+     */
+     public function theReviewWithTextChangedGetsRemovedFromTheAdminReviewsIndexPage()
+     {
+         $this->seeInDatabase('review', ['review_text'=>'changed', 'approved'=>'1']);
+         $this->dontSee("changed");
+     }
+     
+
+    /**
+     * @Then the review with text changed,  gets added on the Reviews page for Abigail
+     */
+     public function theReviewWithTextChangedGetsAddedOnTheReviewsPageForAbigail()
+     {
+         $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title'=>'Abigail']);
+        $this->amOnPage('/Review/index?movie_id='.$movie_id);
+        $this->see('changed');
+     }
+     //-------------- 0382DELETEREVIEWS -------------------
+
+    /**
+     * @Given I am logged into the account User:num1
+     */
+     public function iAmLoggedIntoTheAccountUser($num1)
+     {
+        $this->demoLogin();
+     }
+
+    /**
+     * @Given I am on the reviews history page
+     */
+     public function iAmOnTheReviewsHistoryPage()
+     {
+        $this->amOnPage('/Review/profileindex');
+     }
+
+    /**
+     * @When I click on the delete button for the review for Movie:num1 with the title “Excellent Movie”,
+     */
+     public function iClickOnTheDeleteButtonForTheReviewForMovieWithTheTitleExcellentMovie($num1)
+     {
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Abigail"]);
+        $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
+        $reviewId = $this->grabFromDatabase('review', 'review_id',['user_id' => $user_id, 'movie_id' => $movie_id, 'review_text' => 'changed']);
+        $this->click('a[name="delete'.$reviewId.'"]');
+     }
+
+    /**
+     * @Then the review for Movie:num1 with the title “Excellent Movie” is deleted from the database and my profile
+     */
+     public function theReviewForMovieWithTheTitleExcellentMovieIsDeletedFromTheDatabaseAndMyProfile($num1)
+     {
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Abigail"]);
+        $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
+        $this->dontSeeInDatabase('review', ['movie_id' => $movie_id, 'review_text'=>'changed', 'user_id' => $user_id]);
+     }
+
+    /**
+     * @Then I am redirected to the reviews history page:num1
+     */
+     public function iAmRedirectedToTheReviewsHistoryPage($num1)
+     {
+         $this->seeInCurrentUrl('/Review/profileindex');
+     }
+
 
      //-------------- 039CHECKREVENUE -------------------
 

@@ -39,7 +39,7 @@
 </nav>
 
 <header>
-    <h1><?= __($data->title . "'s Ticket Revenue") ?></h1>
+    <h1><?= $data->title?> 's <?= __("Ticket Revenue") ?></h1>
 </header>
 
 <body class="body">
@@ -48,13 +48,13 @@
             $orders = $orders->getByMovieID($data->movie_id);
         ?>
 
-        <h1>Total Ticket Revenue: $ <?= $data->ticket_revenue ?></h1>
+        <h1><?= __("Ticket Revenue") ?>: $ <?= $data->ticket_revenue ?></h1>
     <div class="container2">
         <table border="1">
             <tr>
-                <th>Order Id</th>
-                <th>User Id</th>
-                <th>Order Date</th>
+                <th><?= __("Order number: ") ?></th>
+                <th><?= __("User ID:") ?></th>
+                <th><?= __("Order date: ") ?></th>
                 <th>Revenue (Before Taxes)</th>
                 <th>Total Price (After Taxes)</th>
             </tr>

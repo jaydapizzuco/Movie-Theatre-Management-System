@@ -23,7 +23,7 @@
     </header>
 
     <div class="container2">
-        <a href="/Movie/create" class="btn btn-primary"><?= __('Add Movie')?></a>
+        <a href="/Movie/create" class="btn btn-primary"><?= __('Add a New Movie')?></a>
     </div>
 
     <div class="gallery">

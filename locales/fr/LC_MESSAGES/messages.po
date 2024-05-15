@@ -363,8 +363,8 @@ msgid "Update"
 msgstr "Mettre a jour"
 
 #: app/views/Movie/revenue.php:34
-msgid "'s Ticket Revenue"
-msgstr "'s Revenue de Billet"
+msgid "Ticket Revenue"
+msgstr "Revenue de Billet"
 
 #: app/views/Movie/search.php:30
 msgid "Movies from Search Results"

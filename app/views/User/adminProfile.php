@@ -36,7 +36,7 @@
         </form><br>
 
     <form action ='/User/logout'>
-            <input type="submit" name="action" class="btn btn-danger" value="Logout"/><br><br>
+            <input type="submit" name="action" class="btn btn-danger" value="<?= __('Logout')?>"/><br><br>
     </form>
      </div>
 

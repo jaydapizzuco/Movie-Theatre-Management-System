@@ -19,7 +19,7 @@
 <body class="body">
 
     <header>
-        <h1>My Reviews</h1>
+        <h1><?= __('Reviews') ?></h1>
     </header>
 
     <nav class="account">

@@ -40,13 +40,13 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th><?= __('Order Number') ?></th>
-                        <th><?= __('Movie Title') ?></th>
+                        <th><?= __('Order number: ') ?></th>
+                        <th><?= __('Title') ?></th>
                         <th><?= __('Date') ?></th>
                         <th><?= __('Time') ?></th>
-                        <th><?= __('Seat') ?></th>
-                        <th><?= __('Price') ?></th>
-                        <th><?= __('Order Date') ?></th>
+                        <th><?= __('Seat number: ') ?></th>
+                        <th><?= __('Total Price') ?></th>
+                        <th><?= __('Order date: ') ?></th>
                         <th><?= __('Cancel') ?></th>
                     </tr>
                 </thead>

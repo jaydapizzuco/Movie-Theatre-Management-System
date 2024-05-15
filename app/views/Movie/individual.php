@@ -44,7 +44,7 @@
                     <dd><?= $data->description ?></dd><br>
 
                     <dt><?= __('Trailer:') ?></dt>
-                    <dd><?= $data->trailer ?></dd><br>
+                    <dd><a href="<?= $data->trailer ?>" target="_blank">Click</a></dd><br>
 
                     <dt><?= __('Length:') ?></dt>
                     <dd><?= $data->length ?> minutes</dd><br>

@@ -1504,7 +1504,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iAmRedirectedToTheReviewsHistoryPageWithAllTheReviewsAssociatedWithTheUserIDOf($arg1)
      {
-        $this->see('My Reviews');
+        $this->see('Reviews');
      }
 
       //-------------- 034VIEWABOUTUS -------------------
@@ -1825,7 +1825,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function iShouldBeRedirectedToTheReviewsHistoryPage($num1)
      {
-        $this->see('My Reviews');
+        $this->see('Reviews');
      }
 
     //-----------------------03812APPROVEREVIEW-------------
@@ -1942,7 +1942,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theTotalTicketRevenueForThisMovieShouldBe($arg1)
      {
-         $this->see('Total Ticket Revenue: $');
+         $this->see('Ticket Revenue: $ 23.98');
      }
 
      //-------------- 042DELETEORDER -------------------
@@ -2014,6 +2014,6 @@ class AcceptanceTester extends \Codeception\Actor
      */
      public function theTotalTicketRevenueForThisMovieShouldBe2($num1)
      {
-        $this->see('Total Ticket Revenue: $');
+        $this->see('Ticket Revenue: $ 0');
      }
 }

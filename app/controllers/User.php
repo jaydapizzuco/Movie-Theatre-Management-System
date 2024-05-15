@@ -39,7 +39,6 @@ class User extends \app\core\Controller{
         }
     }
 
-    // #[\app\filters\Login]
     function login(){
         //show the login form and log the user in
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -49,7 +48,15 @@ class User extends \app\core\Controller{
             $password = $_POST['password'];
             if($user && password_verify($password, $user->password_hash)){
                 $_SESSION['user_id'] = $user->user_id;
+                $user = $user->getById($_SESSION['user_id']);
                 $_SESSION['secret'] = $user->secret;
+
+
+                if($_SESSION['secret']!== null){
+                    $_SESSION['redirect'] =  '/User/profile';
+                    header('location:/User/check2fa');
+                    return true;
+                }
 
                 if ($user->isAdmin($user->user_id) == 1) {
                     $this->view('User/adminProfile', $user);

@@ -9,11 +9,6 @@ class Login implements \app\core\AccessFilter{
 			header('location:/User/login');
 			return true;
 		}
-		if($_SESSION['secret']!=NULL){
-			$_SESSION['redirect'] = $_SERVER['REQUEST_URI'];
-			header('location:/User/check2fa');
-			return true;
-		}
 		return false;
 	}
 }

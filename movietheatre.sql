@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 15, 2024 at 04:56 PM
+-- Generation Time: May 15, 2024 at 11:17 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -103,7 +103,7 @@ CREATE TABLE `movie` (
 
 INSERT INTO `movie` (`movie_id`, `title`, `image`, `description`, `length`, `director`, `trailer`, `release_date`, `ticket_revenue`, `status`) VALUES
 (4, 'Monkey Man', 'https://upload.wikimedia.org/wikipedia/en/2/2b/Monkey_Man_film.jpg', 'Oscar® nominee Dev Patel (Lion, Slumdog Millionaire) achieves an astonishing, tour-de-force feature directing debut with an action', 122, 'Dev Patel', 'https://www.youtube.com/watch?v=g8zxiB5Qhsc', '2024-04-22', 47.959999999999994, 1),
-(18, 'Abigail', 'https://upload.wikimedia.org/wikipedia/en/b/bc/Abigail_Official_Poster.jpg', 'A group of would-be criminals kidnaps the 12-year-old daughter of a powerful underworld figure. Holding her for ransom in an isolated mansion, their plan starts to unravel when they discover their young captive is actually a bloodthirsty vampire.', 109, 'Matt Bettinelli-Olpin', 'https://www.youtube.com/watch?v=3PsP8MFH8p0', '2024-04-22', 71.94, 1),
+(18, 'Abigail', 'https://upload.wikimedia.org/wikipedia/en/b/bc/Abigail_Official_Poster.jpg', 'A group of would-be criminals kidnaps the 12-year-old daughter of a powerful underworld figure. Holding her for ransom in an isolated mansion, their plan starts to unravel when they discover their young captive is actually a bloodthirsty vampire.', 109, 'Matt Bettinelli-Olpin', 'https://www.youtube.com/watch?v=3PsP8MFH8p0', '2024-04-22', 83.92999999999999, 1),
 (19, 'Spy X Family Code: White', 'https://upload.wikimedia.org/wikipedia/en/a/ad/Spy_%C3%97_Family_Code_White_movie_poster.png', 'A spy and an assassin keep their double lives to themselves while pretending to be the perfect family.', 111, 'Takashi Katagiri', 'https://www.youtube.com/watch?v=m5TxWbtQ7qU', '2024-04-22', 23.98, 1),
 (20, 'The Fall Guy', 'https://upload.wikimedia.org/wikipedia/en/1/1f/The_Fall_Guy_%282024%29_poster.jpg', 'After leaving the business one year earlier, battle-scarred stuntman Colt Seavers springs back into action when the star of a big studio movie suddenly disappears. As the mystery surrounding the missing actor deepens, Colt soon finds himself ensnared in a sinister plot that pushes him to the edge of a fall more dangerous than any stunt.', 127, 'David Leitch', 'https://www.youtube.com/watch?v=EySdVK0NK1Y', '2024-04-22', 35.97, 1),
 (21, 'Challengers', 'https://upload.wikimedia.org/wikipedia/en/b/b4/Challengers_2024_poster.jpeg', 'Tashi, a tennis player turned coach, has transformed her husband from a mediocre player into a world-famous grand slam champion. To jolt him out of his recent losing streak, she makes him play a challenger event -- close to the lowest level of tournament on the pro tour. Tensions soon run high when he finds himself standing across the net from the once-promising, now burnt-out Patrick, his former best friend and Tashi\'s former boyfriend.', 131, 'Luca Guadagnino', 'https://www.youtube.com/watch?v=-2N3hmRmwHQ', '2024-04-22', 59.95, 1),
@@ -208,7 +208,13 @@ INSERT INTO `orders` (`order_id`, `user_id`, `order_date`, `total_price`, `numbe
 (25, 1, '2024-05-12', 27.577, 2, 0, 1),
 (26, 1, '2024-05-12', 27.577, 2, 0, 1),
 (27, 1, '2024-05-12', 27.577, 2, 0, 1),
-(28, 1, '2024-05-12', 27.577, 2, 0, 1);
+(28, 1, '2024-05-12', 27.577, 2, 0, 1),
+(50, 5, '2024-05-15', 13.7885, 1, 1, 1),
+(51, 5, '2024-05-15', 13.7885, 1, 1, 1),
+(52, 5, '2024-05-15', 13.7885, 1, 1, 1),
+(53, 5, '2024-05-15', 13.7885, 1, 0, 1),
+(54, 5, '2024-05-15', 13.7885, 1, 1, 1),
+(55, 5, '2024-05-15', 13.7885, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -307,7 +313,13 @@ INSERT INTO `ticket` (`ticket_id`, `order_id`, `movie_id`, `seat_id`, `movie_dat
 (53, 27, 24, 23, '2024-05-12', 'Sunday', '07:05:00', 1),
 (54, 27, 24, 24, '2024-05-12', 'Sunday', '07:05:00', 1),
 (55, 28, 25, 22, '2024-05-12', 'Sunday', '01:00:00', 1),
-(56, 28, 25, 23, '2024-05-12', 'Sunday', '01:00:00', 1);
+(56, 28, 25, 23, '2024-05-12', 'Sunday', '01:00:00', 1),
+(89, 50, 18, 34, '2024-05-20', 'Monday', '03:20:00', 1),
+(90, 51, 18, 34, '2024-05-20', 'Monday', '03:20:00', 1),
+(91, 52, 18, 34, '2024-05-20', 'Monday', '03:20:00', 1),
+(92, 53, 18, 34, '2024-05-20', 'Monday', '03:20:00', 1),
+(93, 54, 4, 24, '2024-05-15', 'Wednesday', '10:00:00', 1),
+(94, 55, 4, 27, '2024-05-15', 'Wednesday', '10:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -355,16 +367,17 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `name`, `email`, `password_hash`, `is_admin`, `secret`) VALUES
-(1, 'John', 'john@email.com', '$2y$10$UMiR4aGebyAxFRdzDKFIj.hcGsk93IPZf9eDSXQr7BOP61x16FXy.', 0, ''),
-(2, 'Admin', 'admin@email.com', '$2y$10$FIKrGIYkZ9eHrJCkPlCFwu1mXTOSfn4AgmyGdc8Vax9pF/vElTxsS', 1, ''),
-(4, 'Melissa', 'melissa@email.com', '$2y$10$.KUKTJksSpu336HBAx3xkOWgc8/87/9cR6hNU.A/C7EJSiMCUdp4K', 0, ''),
-(5, 'Jayda', 'jayda@email.com', '$2y$10$aq5/uVxHCzjD5IanrPU66.RKRDsMRjZijxySXuOxGTL.5ltC2k.eK', 0, ''),
-(6, 'henry', 'henry@email.com', '$2y$10$CAOHHaXjfUD28BuTgNd4Bul7QC.i9oiPkJgwOzvY/.c6ig3Qw2ZWO', 0, ''),
+(1, 'John', 'john@email.com', '$2y$10$UMiR4aGebyAxFRdzDKFIj.hcGsk93IPZf9eDSXQr7BOP61x16FXy.', 0, NULL),
+(2, 'Admin', 'admin@email.com', '$2y$10$FIKrGIYkZ9eHrJCkPlCFwu1mXTOSfn4AgmyGdc8Vax9pF/vElTxsS', 1, NULL),
+(4, 'Melissa', 'melissa@email.com', '$2y$10$.KUKTJksSpu336HBAx3xkOWgc8/87/9cR6hNU.A/C7EJSiMCUdp4K', 0, NULL),
+(5, 'Jayda', 'jayda@email.com', '$2y$10$aq5/uVxHCzjD5IanrPU66.RKRDsMRjZijxySXuOxGTL.5ltC2k.eK', 0, NULL),
+(6, 'henry', 'henry@email.com', '$2y$10$CAOHHaXjfUD28BuTgNd4Bul7QC.i9oiPkJgwOzvY/.c6ig3Qw2ZWO', 0, NULL),
 (7, 'Jess', 'jess@email.com', '$2y$10$xW3sFSqVS5lvnVtxHwFNa.6uBXIBfiWAimMjUFXljB6aeowTTyyKy', 0, NULL),
 (10, 'hurhur', 'an@email.com', '$2y$10$2Ke10P7BlWAfGhkHTfwDN.p4sfzQfBc7zUlM8.BkXWB3PZKnWWpIK', 0, NULL),
 (11, 'Demo', 'demo@email.com', '$2y$10$HJR838coNenzcXJ5omA2Suw4ta/YlQg1fQ7/WcoHuB6pqPtaaHgMi', 0, NULL),
 (14, 'James', 'james1@email.com', '$2y$10$iTYTtU7ANYSq8AjA0m0yCeDW4zHFZn0zJBvWxSW1sQgetMpLdyyDi', 0, NULL),
-(16, 'bart', 'bart@email', '$2y$10$udJrzU450LDM03opqNyjo.1VxnYvAglVDBdoYbAM1LWQAHu7yhJFO', 0, NULL);
+(16, 'bart', 'bart@email', '$2y$10$udJrzU450LDM03opqNyjo.1VxnYvAglVDBdoYbAM1LWQAHu7yhJFO', 0, NULL),
+(26, 'Jane', 'jj@email.com', '$2y$10$3TaG5Xo78KlXgTknYEekT.84ijEmBoVqW6Y4hOiMvGNXYqvR/8kJ6', 0, 'CBQB7UDQJ6XAO5HJIWZGLU6KSU33UWWZ');
 
 --
 -- Indexes for dumped tables
@@ -461,31 +474,31 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `movie_schedule`
 --
 ALTER TABLE `movie_schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `times`
@@ -497,7 +510,7 @@ ALTER TABLE `times`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables

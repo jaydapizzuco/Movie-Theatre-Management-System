@@ -322,10 +322,6 @@ msgstr "ex: Film 1"
 msgid "Search"
 msgstr "Chercher"
 
-#: app/views/Movie/index.php:25 app/views/Movie/search.php:25
-msgid "Search"
-msgstr "Chercher"
-
 #: app/views/Movie/individual.php:36
 msgid "Director:"
 msgstr "Directeur:"
@@ -688,6 +684,10 @@ msgstr "Siege"
 #: app/views/User/purchaseHistory.php:68
 msgid "Price: "
 msgstr "Prix: "
+
+#: app/views/User/purchaseHistory.php:46
+msgid "Time"
+msgstr "Temps"
 
 #: app/views/User/purchaseHistory.php:70
 msgid "Order date: "

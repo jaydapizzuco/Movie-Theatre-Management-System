@@ -18,8 +18,8 @@
     <a href ="/Order/incomplete"><i class="bi bi-cart-fill"></i></a> &nbsp&nbsp
 
     <form action="" class="form "method="GET" id="languageForm">
-        <button class="langButton" type="submit" name="lang" value="en"><?= __('English') ?></button>
-        <button class="langButton" type="submit" name="lang" value="fr"><?= __('French') ?></button>
+        <button class="langButton" type="submit" name="lang" value="en"><?= __('En') ?></button>
+        <button class="langButton" type="submit" name="lang" value="fr"><?= __('Fr') ?></button>
     </form>
 </nav>
 

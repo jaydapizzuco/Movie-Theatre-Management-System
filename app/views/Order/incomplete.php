@@ -43,7 +43,7 @@
                         <th><?= __('Movie') ?></th>
                         <th><?= __('Date') ?></th>
                         <th><?= __('Time') ?></th>
-                        <th><?= __('Seat number :') ?></th>
+                        <th><?= __('Seat number: ') ?></th>
                     </tr>
 
                     <tr>

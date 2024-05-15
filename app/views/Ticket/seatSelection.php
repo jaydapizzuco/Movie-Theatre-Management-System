@@ -117,7 +117,7 @@ for ($i = 1; $i <= $rows; $i++) {
 
 ?>
  <input type="hidden" name="schedule" value="<?= $scheduleId ?>"> 
-            <input type="submit" name="selected" value="Book Tickets"/>
+            <input type="submit" name="selected" value="<?= __('Book Tickets')?>"/>
         </form> 
 
     <script>

@@ -24,7 +24,7 @@
 
     <div class="container2">
         <p><?= $data->description ?></p>
-        <p><?= __('Contact us at')?><a href="mailto:<?= $data->about_email ?>" style="color: white;"><?= $data->about_email ?></a></p>
+        <p><?= __('Contact us at')?><a href="mailto:<?= $data->about_email ?>" style="color: white;"> <?= $data->about_email ?></a></p>
     </div>
 
     <footer class="footer">

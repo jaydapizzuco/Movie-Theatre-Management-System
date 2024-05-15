@@ -25,7 +25,7 @@
             $userName = $userName->name;
          ?>
         <h1><?= __('Orders History')?></h1>
-    </header><br><br>
+    </header>
 
     <nav class="account">
         <a href="/User/profile"><?= __('Profile Information')?></a> &nbsp&nbsp

@@ -1507,35 +1507,6 @@ class AcceptanceTester extends \Codeception\Actor
         $this->see('My Reviews');
      }
 
-      //-------------- 034MODIFYREVIEWS ------------------- 
-
-    /**
-     * @Given I am logged into “Demo User”
-     */
-     public function iAmLoggedIntoDemoUser()
-     {
-         $this->demoLogin();
-     }
-
-    /**
-     * @Given I am on the reviews history page for my profile
-     */
-     public function iAmOnTheReviewsHistoryPageForMyProfile()
-     {
-         $this->amOnPage('/Review/profileindex');
-     }
-
-     /**
-     * @Given the title of the review is Good Movie! and the message is hello,
-     */
-     public function theTitleOfTheReviewIsGoodMovieAndTheMessageIsHello()
-     {
-        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Monkey Man"]);
-        $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
-        $reviewId = $this->grabFromDatabase('review', 'review_id',['user_id' => $user_id,'review_text'=>"I really did not enjoy this movie", 'movie_id' => $movie_id]);
-        $this->click('a[name="'.$reviewId.'"]');
-     }
-
     /**
      * @When I edit the review to say “changed”
      */
@@ -1872,6 +1843,35 @@ class AcceptanceTester extends \Codeception\Actor
      public function theReviewWithTitleIReallyDidNotEnjoyThisMovieGetsRemovedFromTheDatabase()
      {
         $this->dontSeeInDatabase('review', ['review_text'=>'I really did not enjoy this movie']);
+     }
+
+     //-------------- 034MODIFYREVIEWS ------------------- 
+
+    /**
+     * @Given I am logged into “Demo User”
+     */
+     public function iAmLoggedIntoDemoUser()
+     {
+         $this->demoLogin();
+     }
+
+    /**
+     * @Given I am on the reviews history page for my profile
+     */
+     public function iAmOnTheReviewsHistoryPageForMyProfile()
+     {
+         $this->amOnPage('/Review/profileindex');
+     }
+
+     /**
+     * @Given the title of the review is Good Movie! and the message is hello,
+     */
+     public function theTitleOfTheReviewIsGoodMovieAndTheMessageIsHello()
+     {
+        $movie_id = $this->grabFromDatabase('movie', 'movie_id', ['title' => "Monkey Man"]);
+        $user_id = $this->grabFromDatabase('user', 'user_id', ['email' => "demo@email.com"]);
+        $reviewId = $this->grabFromDatabase('review', 'review_id',['user_id' => $user_id,'review_text'=>"I really did not enjoy this movie", 'movie_id' => $movie_id]);
+        $this->click('a[name="'.$reviewId.'"]');
      }
 
      //-------------- 039CHECKREVENUE -------------------

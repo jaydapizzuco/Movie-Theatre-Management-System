@@ -9,7 +9,7 @@ class Ticket extends \app\core\Controller {
     $schedule = new \app\models\MovieSchedule();
     $schedule = $schedule->getById($_POST['schedule']);
 
-     if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['seats'] !== null){
+     if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['seats'])){
         
         $selectedSeats = $_POST['seats'];
         $numberOfSeats = sizeof($selectedSeats);

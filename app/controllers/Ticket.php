@@ -9,11 +9,12 @@ class Ticket extends \app\core\Controller {
     $schedule = new \app\models\MovieSchedule();
     $schedule = $schedule->getById($_POST['schedule']);
 
-     if($_SERVER['REQUEST_METHOD'] === 'POST'){
+     if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['seats'] !== null){
         
         $selectedSeats = $_POST['seats'];
         $numberOfSeats = sizeof($selectedSeats);
          date_default_timezone_set('America/Montreal');
+        
 
         $order = new \app\models\Order();
         $order->user_id = $_SESSION['user_id'];

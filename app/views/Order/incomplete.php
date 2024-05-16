@@ -58,7 +58,7 @@
         <div class="row justify-content-end mt-4">
             <h5 class="card-title"><?= __('Total Price')?>: $<?= round($incompleteOrder->total_price, 2) ?></h5><br><br>
             <a href="/Order/checkout?id=<?= $incompleteOrder->order_id ?>" class="btn btn-primary"><?= __('Complete Order')?></a>
-            <a name ="<?= $incompleteOrder->order_id ?>"href="/Order/delete?id=<?= $incompleteOrder->order_id ?>"><i class='bi bi-trash'></i></a>
+            <a name ="<?= $incompleteOrder->order_id ?>"href="/Order/delete?id=<?= $incompleteOrder->order_id ?>"><i style="color: black;"class='bi bi-trash'></i></a>
         </div>
     </div>
 
